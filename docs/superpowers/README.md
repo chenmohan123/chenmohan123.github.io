@@ -11,6 +11,8 @@ This directory keeps the planning and architecture documents that govern the
    and runtime/Labs design.
 3. `plans/2026-08-17-web-model-sdk-portal-mvp.md` is the implementation plan and
    historical task breakdown.
+4. `plans/2026-08-17-web-model-sdk-portal-roadmap.md` is the accepted sequence
+   for onboarding, CI, Labs, and future Workflow work.
 
 When these documents appear to conflict, the boundary decision is authoritative
 for portal versus SDK ownership. Update the decision and design documents before
