@@ -21,7 +21,8 @@
     "react": "latest",
     "react-dom": "latest",
     "tinyglobby": "latest",
-    "yaml": "latest"
+    "yaml": "latest",
+    "zod": "3.25.76"
   },
   "devDependencies": {
     "@astrojs/check": "latest",

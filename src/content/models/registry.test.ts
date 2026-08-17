@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { parse } from 'yaml';
-import { modelSchema } from '../../content.config';
+import { modelSchema } from '../../lib/registry/schema';
 
 describe('model registry', () => {
   it('accepts the PP-DocLayoutV3 catalog record', () => {

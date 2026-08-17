@@ -35,6 +35,9 @@ importers:
       yaml:
         specifier: latest
         version: 2.9.0
+      zod:
+        specifier: 3.25.76
+        version: 3.25.76
     devDependencies:
       '@astrojs/check':
         specifier: latest
