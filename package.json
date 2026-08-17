@@ -13,11 +13,10 @@
     "check": "astro check"
   },
   "dependencies": {
-    "@astrojs/react": "latest",
-    "@astrojs/check": "latest",
+    "@astrojs/react": "^5.0.0",
     "@types/react": "latest",
     "@types/react-dom": "latest",
-    "astro": "latest",
+    "astro": "^6.0.0",
     "lucide-react": "latest",
     "react": "latest",
     "react-dom": "latest",
@@ -32,6 +31,6 @@
     "jsdom": "latest",
     "playwright": "latest",
     "typescript": "latest",
-    "vitest": "latest"
+    "vitest": "^3.2.4"
   }
 }
