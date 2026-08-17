@@ -1,0 +1,6 @@
+---
+import type { ModelData } from '../../lib/registry/types';
+const { runtime } = Astro.props as Pick<ModelData, 'runtime'>;
+---
+<table><thead><tr><th>后端</th><th>状态</th></tr></thead><tbody>{runtime.backends.map((backend) => <tr><td>{backend.name}</td><td>{backend.status}</td></tr>)}</tbody></table>
+{runtime.verifiedEnvironments.length === 0 && <p class="notice">当前没有公开设备验证记录；后端状态不代表所有环境兼容。</p>}

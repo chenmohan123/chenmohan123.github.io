@@ -28,6 +28,14 @@ main { padding-block: clamp(3rem, 8vw, 6rem); }
 h1 { max-width: 24ch; margin: 0; font-size: 2.5rem; line-height: 1.15; letter-spacing: 0; }
 .lede { max-width: 60ch; margin: 1.5rem 0 0; color: var(--muted); font-size: 1.08rem; }
 .directory-note { margin-top: 3rem; border-top: 1px solid var(--line); padding-top: 1rem; color: var(--muted); font-size: 0.9rem; }
+.detail-grid { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 28px; }
+.demo-panel { align-self: start; padding: 18px; border: 1px solid var(--line); background: var(--surface); }
+.primary-action { display: inline-flex; min-height: 40px; align-items: center; padding: 0 12px; background: var(--accent); color: #fff; text-decoration: none; }
+.notice { padding: 10px; border-left: 3px solid #9b6700; background: #fff7df; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 10px; border-bottom: 1px solid var(--line); text-align: left; }
+pre { overflow: auto; padding: 14px; background: #17202a; color: #e8eef4; }
+@media (max-width: 760px) { .detail-grid { grid-template-columns: 1fr; } }
 @media (max-width: 560px) {
   .header-inner { align-items: flex-start; flex-direction: column; padding-block: 1rem; }
   nav { gap: 1rem; }

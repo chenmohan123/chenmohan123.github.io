@@ -1,0 +1,19 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BackendTable from '../../components/model/BackendTable.astro';
+import DemoPanel from '../../components/model/DemoPanel.astro';
+import InstallBlock from '../../components/model/InstallBlock.astro';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+
+export async function getStaticPaths() {
+  return (await getCollection('models')).map((model) => ({ params: { slug: model.id }, props: { model } }));
+}
+
+const { model } = Astro.props as { model: CollectionEntry<'models'> };
+const data = model.data;
+const mib = (bytes: number) => `${(bytes / 1024 / 1024).toFixed(2)} MiB`;
+---
+<SiteLayout title={`${data.name} · Web Model SDK`} description={data.summary}>
+  <header class="page-heading"><p class="eyebrow">{data.brand} · {data.task}</p><h1>{data.name}</h1><p>{data.summary}</p></header>
+  <div class="detail-grid"><article><h2>运行能力</h2><BackendTable runtime={data.runtime} /><h2>模型资源</h2><ul>{data.assets.map((asset) => <li><strong>{asset.precision}</strong> · {mib(asset.bytes)} · SHA-256 已记录</li>)}</ul><h2>限制</h2><ul>{data.limitations.map((item) => <li>{item}</li>)}</ul><InstallBlock package={data.package} /></article><DemoPanel demo={data.demo} /></div>
+</SiteLayout>

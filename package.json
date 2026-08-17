@@ -13,10 +13,10 @@
     "check": "astro check"
   },
   "dependencies": {
-    "@astrojs/react": "^5.0.0",
+    "@astrojs/react": "4.4.2",
     "@types/react": "latest",
     "@types/react-dom": "latest",
-    "astro": "^6.0.0",
+    "astro": "5.18.2",
     "lucide-react": "latest",
     "react": "latest",
     "react-dom": "latest",

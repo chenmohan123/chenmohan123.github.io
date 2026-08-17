@@ -1,0 +1,5 @@
+---
+import type { ModelData } from '../../lib/registry/types';
+const { demo } = Astro.props as Pick<ModelData, 'demo'>;
+---
+<aside class="demo-panel"><h2>Playground</h2><p>{demo.localProcessing ? '输入文件默认仅在浏览器本地处理。' : '此 Demo 可能使用远程服务。'}</p><a class="primary-action" href={demo.url}>打开在线 Demo</a></aside>

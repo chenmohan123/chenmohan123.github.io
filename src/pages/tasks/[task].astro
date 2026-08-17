@@ -1,0 +1,12 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+
+export async function getStaticPaths() {
+  const models = await getCollection('models');
+  return [...new Set(models.map((model) => model.data.task))].map((task) => ({ params: { task }, props: { task, models: models.filter((model) => model.data.task === task) } }));
+}
+
+const { task, models } = Astro.props as { task: string; models: CollectionEntry<'models'>[] };
+---
+<SiteLayout title={`${task} 模型 · Web Model SDK`} description={`${task} 浏览器模型 SDK`}><h1>{task}</h1><ul>{models.map((entry) => <li><a href={`/models/${entry.id}/`}>{entry.data.name}</a> · {entry.data.status}</li>)}</ul></SiteLayout>

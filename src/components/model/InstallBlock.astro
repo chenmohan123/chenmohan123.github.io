@@ -1,0 +1,5 @@
+---
+import type { ModelData } from '../../lib/registry/types';
+const { package: npmPackage } = Astro.props as Pick<ModelData, 'package'>;
+---
+<section><h2>安装</h2><p><code>{npmPackage.name}@{npmPackage.version}</code></p><pre><code>{`pnpm add ${npmPackage.name}`}</code></pre></section>

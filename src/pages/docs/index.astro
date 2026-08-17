@@ -1,0 +1,10 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+---
+<SiteLayout title="SDK 规范 · Web Model SDK" description="浏览器模型 SDK 生命周期和后端状态规范">
+  <header class="page-heading"><p class="eyebrow">CONTRACT</p><h1>SDK 生命周期</h1><p>统一加载、运行、取消和释放资源，不强制所有模型采用相同输入输出。</p></header>
+  <section><h2>生命周期</h2><pre><code>load(options) -&gt; run(input, options) -&gt; dispose()</code></pre></section>
+  <section><h2>后端状态</h2><dl><dt>stable</dt><dd>仅对已记录的浏览器和设备矩阵稳定。</dd><dt>fallback</dt><dd>稳定兜底路径，通常为 WASM。</dd><dt>experimental</dt><dd>实验路径。WebNN 仅属于 Labs，不进入 MVP 稳定支持。</dd></dl></section>
+  <section><h2>WASM 与隔离</h2><p>WASM SIMD 可以独立检测。WASM 多线程依赖 SharedArrayBuffer 和 COOP/COEP；GitHub Pages 默认 Demo 应明确显示单线程限制。</p></section>
+  <section><h2>隐私</h2><p>Playground 默认本地处理输入。任何远程推理必须单独标记并由用户选择。</p></section>
+</SiteLayout>

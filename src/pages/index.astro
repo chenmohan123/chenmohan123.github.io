@@ -1,5 +1,8 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
+import { getCollection } from 'astro:content';
+import ModelDirectory from '../components/registry/ModelDirectory';
+const models = (await getCollection('models')).map((entry) => entry.data);
 ---
 
 <SiteLayout
@@ -9,6 +12,6 @@ import SiteLayout from '../layouts/SiteLayout.astro';
   <section class="intro" aria-labelledby="page-title">
     <h1 id="page-title">浏览器端模型 SDK 目录</h1>
     <p class="lede">从本地优先的角度整理可在浏览器中使用的模型 SDK，帮助开发者快速了解能力、运行约束与集成入口。</p>
-    <p class="directory-note">目录正在建立中，模型条目将按运行环境、隐私边界与浏览器支持情况整理。</p>
   </section>
+  <ModelDirectory models={models} client:load />
 </SiteLayout>
