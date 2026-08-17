@@ -26,12 +26,13 @@
   },
   "devDependencies": {
     "@astrojs/check": "latest",
+    "@types/node": "^22.15.0",
     "@playwright/test": "latest",
     "@testing-library/jest-dom": "latest",
     "@testing-library/react": "latest",
     "jsdom": "latest",
     "playwright": "latest",
-    "typescript": "latest",
+    "typescript": "5.9.3",
     "vitest": "^3.2.4"
   }
 }
