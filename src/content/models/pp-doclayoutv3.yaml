@@ -1,0 +1,37 @@
+id: pp-doclayoutv3
+name: PP-DocLayoutV3
+brand: baidu
+task: document-layout
+status: available
+summary: Browser-native document layout analysis powered by ONNX Runtime Web with WebGPU and WASM fallback.
+repository: https://github.com/chenmohan123/web-sdk-PP-DocLayoutV3
+license: Apache-2.0
+package:
+  name: web-sdk-pp-doclayoutv3
+  version: 1.1.0
+demo:
+  url: https://chenmohan123.github.io/web-sdk-PP-DocLayoutV3/
+  localProcessing: true
+runtime:
+  backends:
+    - { name: webgpu, status: stable }
+    - { name: wasm, status: fallback }
+  capabilities: [shader-f16, wasm-simd, wasm-threads, worker, checksum, model-cache]
+  verifiedEnvironments: []
+io:
+  input: [Blob, CanvasImageSource, ImageBitmap]
+  output: [layout-regions, polygons, reading-order]
+assets:
+  - id: fp16
+    precision: fp16
+    bytes: 74279796
+    url: https://chenmohan123.github.io/web-sdk-PP-DocLayoutV3/models/v1.0.2/model-fp16.onnx
+    sha256: 463ba56faa555baf84271b4002b33b0c5fcc50776fe4f39344235eccb72073f2
+  - id: fp32
+    precision: fp32
+    bytes: 142574928
+    url: https://chenmohan123.github.io/web-sdk-PP-DocLayoutV3/models/v1.0.2/model-fp32.onnx
+    sha256: 476da6d3892bc6211ec90f53df1f68722626b3cf67af77d1c75bd0bd2ee8d269
+limitations:
+  - Multithreaded WASM depends on cross-origin isolation; the default GitHub Pages host may run single-threaded.
+  - Compatibility claims require explicit browser and device verification records.
