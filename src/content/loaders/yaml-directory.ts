@@ -1,6 +1,6 @@
 import type { Loader } from 'astro/loaders';
 import { readFile } from 'node:fs/promises';
-import { basename } from 'node:path';
+import { basename, relative } from 'node:path';
 import { glob } from 'tinyglobby';
 import { parse } from 'yaml';
 
@@ -12,9 +12,10 @@ export function yamlDirectory({ base }: { base: string }): Loader {
       const files = await glob('*.yaml', { cwd: base, absolute: true });
       for (const filePath of files.sort()) {
         const id = basename(filePath, '.yaml');
+        const siteRelativePath = relative(process.cwd(), filePath).replaceAll('\\', '/');
         const raw = parse(await readFile(filePath, 'utf8'));
-        const data = await parseData({ id, data: raw, filePath });
-        store.set({ id, data, filePath, digest: generateDigest(data) });
+        const data = await parseData({ id, data: raw, filePath: siteRelativePath });
+        store.set({ id, data, filePath: siteRelativePath, digest: generateDigest(data) });
       }
     },
   };
