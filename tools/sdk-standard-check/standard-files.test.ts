@@ -18,6 +18,12 @@ const requiredFiles = [
   "standards/v1/templates/README.en.md",
   "standards/v1/templates/demo-checklist.md",
   "standards/v1/templates/release-checklist.md",
+  "skills/web-model-sdk-standard/SKILL.md",
+  "skills/web-model-sdk-standard/agents/openai.yaml",
+  "skills/web-model-sdk-standard/references/audit.md",
+  "skills/web-model-sdk-standard/references/scaffold.md",
+  "skills/web-model-sdk-standard/references/demo.md",
+  "skills/web-model-sdk-standard/references/portal.md",
 ];
 
 describe("v1 standard source", () => {
