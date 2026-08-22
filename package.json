@@ -10,7 +10,9 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
-    "check": "astro check"
+    "check": "astro check",
+    "sdk:check": "node tools/sdk-standard-check/cli.mjs",
+    "sdk:check:test": "vitest run tools/sdk-standard-check"
   },
   "dependencies": {
     "@astrojs/react": "4.4.2",

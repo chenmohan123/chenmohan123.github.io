@@ -1,0 +1,19 @@
+{
+  "requiredFindingIds": [
+    "CACHE-001",
+    "DEMO-003",
+    "DEMO-004",
+    "DEMO-005",
+    "DOC-001",
+    "DOC-002",
+    "DOC-003",
+    "EXAMPLE-001",
+    "EXAMPLE-002",
+    "META-001",
+    "MODEL-001",
+    "PERF-001",
+    "RELEASE-001",
+    "RELEASE-002",
+    "RUNTIME-001"
+  ]
+}

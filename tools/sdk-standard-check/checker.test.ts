@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { readFileSync } from "node:fs";
 import { scanRepository } from "./src/check.mjs";
 import { summarize, renderJson, renderMarkdown, renderTable } from "./src/report.mjs";
 
@@ -43,7 +44,8 @@ describe("SDK repository discovery", () => {
     const partialReport = await scanRepository(partial);
     expect(summarize(completeReport).status).toBe("compliant");
     expect(summarize(partialReport).status).toBe("partial");
-    expect(partialReport.findings.map((finding: { id: string }) => finding.id)).toEqual(expect.arrayContaining(["DOC-001", "DEMO-004", "RELEASE-002"]));
+    const expected = JSON.parse(readFileSync(`${partial}/check.expected.json`, "utf8"));
+    expect(partialReport.findings.filter((finding: { level: string; status: string }) => finding.level === "required" && finding.status === "fail").map((finding: { id: string }) => finding.id).sort()).toEqual([...expected.requiredFindingIds].sort());
   });
 
   it("renders deterministic JSON, Markdown, and table output", async () => {
