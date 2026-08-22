@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://chenmohan123.github.io/web-model-sdk-standard/v1/sdk-manifest.schema.json",
+  "title": "Web Model SDK Standard v1 Manifest",
+  "type": "object",
+  "required": ["schemaVersion", "id", "name", "summary", "package", "repository", "demo", "docs", "runtime", "model", "performance", "cache", "examples", "verification"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+    "name": { "type": "string", "minLength": 1 },
+    "summary": { "type": "string", "minLength": 20 },
+    "package": {
+      "type": "object",
+      "required": ["name", "version"],
+      "properties": {
+        "name": { "type": "string", "pattern": "^[a-z0-9@][a-z0-9@/_-]*$" },
+        "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?$" }
+      },
+      "additionalProperties": false
+    },
+    "repository": { "type": "string", "format": "uri" },
+    "demo": {
+      "type": "object",
+      "required": ["url", "defaultLanguage", "framework", "localProcessing"],
+      "properties": {
+        "url": { "type": "string", "format": "uri" },
+        "defaultLanguage": { "const": "zh-CN" },
+        "framework": { "type": "string", "enum": ["vanilla", "react", "vue", "other"] },
+        "localProcessing": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "docs": {
+      "type": "object",
+      "required": ["zhCN", "en"],
+      "properties": {
+        "zhCN": { "type": "string", "minLength": 1 },
+        "en": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "runtime": {
+      "type": "object",
+      "required": ["backends", "executionModes", "actualBackendReported", "runtimeVersion"],
+      "properties": {
+        "backends": { "type": "array", "items": { "type": "string", "enum": ["wasm", "webgpu", "webnn", "cpu", "gpu", "npu"] }, "minItems": 1 },
+        "executionModes": { "type": "array", "items": { "type": "string", "enum": ["main", "worker"] }, "minItems": 1 },
+        "actualBackendReported": { "type": "boolean" },
+        "runtimeVersion": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "model": {
+      "type": "object",
+      "required": ["id", "version", "format", "parameterCount", "precision", "source", "license", "assets"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "version": { "type": "string", "minLength": 1 },
+        "format": { "type": "string", "minLength": 1 },
+        "parameterCount": { "type": ["integer", "null"], "minimum": 0 },
+        "precision": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "source": { "type": "string", "minLength": 1 },
+        "license": { "type": "string", "minLength": 1 },
+        "assets": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["id", "bytes", "precision", "url", "sha256"],
+            "properties": {
+              "id": { "type": "string" },
+              "bytes": { "type": "integer", "minimum": 1 },
+              "precision": { "type": "string" },
+              "url": { "type": "string", "format": "uri" },
+              "sha256": { "type": "string", "pattern": "^[a-fA-F0-9]{64}$" }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "performance": {
+      "type": "object",
+      "required": ["timings", "coldStartDefined", "warmRunDefined"],
+      "properties": {
+        "timings": { "type": "array", "items": { "type": "string", "enum": ["modelDownloadMs", "modelCacheReadMs", "integrityMs", "sessionMs", "decodeMs", "preprocessMs", "inferenceMs", "postprocessMs", "totalMs"] }, "minItems": 5 },
+        "coldStartDefined": { "type": "boolean" },
+        "warmRunDefined": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "cache": {
+      "type": "object",
+      "required": ["storage", "versionedKeys", "clearCurrent", "clearAll", "estimate"],
+      "properties": {
+        "storage": { "type": "array", "items": { "type": "string", "enum": ["cache-storage", "indexeddb", "opfs", "memory"] }, "minItems": 1 },
+        "versionedKeys": { "type": "boolean" },
+        "clearCurrent": { "type": "boolean" },
+        "clearAll": { "type": "boolean" },
+        "estimate": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "examples": {
+      "type": "object",
+      "required": ["vanilla", "react"],
+      "properties": {
+        "vanilla": { "$ref": "#/$defs/example" },
+        "react": { "$ref": "#/$defs/example" },
+        "vue": { "$ref": "#/$defs/example" },
+        "cdn": { "$ref": "#/$defs/example" },
+        "vite": { "$ref": "#/$defs/example" },
+        "wechatWebView": { "$ref": "#/$defs/example" }
+      },
+      "additionalProperties": false
+    },
+    "verification": {
+      "type": "object",
+      "required": ["environments"],
+      "properties": {
+        "environments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["browser", "os", "device", "testedAt"],
+            "properties": {
+              "browser": { "type": "string" },
+              "os": { "type": "string" },
+              "device": { "type": "string" },
+              "testedAt": { "type": "string", "format": "date" },
+              "backend": { "type": "string" },
+              "runtimeVersion": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "example": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {
+        "status": { "type": "string", "enum": ["available", "unsupported", "planned"] },
+        "path": { "type": "string" },
+        "url": { "type": "string", "format": "uri" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

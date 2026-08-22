@@ -1,0 +1,60 @@
+schemaVersion: "1.0.0"
+id: example-model
+name: Example Browser Model
+summary: A browser-first model with a documented local runtime and standalone Demo.
+package:
+  name: web-sdk-example-model
+  version: 0.1.0
+repository: https://github.com/owner/web-sdk-example-model
+demo:
+  url: https://owner.github.io/web-sdk-example-model/
+  defaultLanguage: zh-CN
+  framework: react
+  localProcessing: true
+docs:
+  zhCN: docs/zh-CN/quick-start.md
+  en: docs/en/quick-start.md
+runtime:
+  backends: [wasm]
+  executionModes: [main, worker]
+  actualBackendReported: true
+  runtimeVersion: onnxruntime-web@1.0.0
+model:
+  id: example-model
+  version: 1.0.0
+  format: onnx
+  parameterCount: null
+  precision: [fp32]
+  source: Upstream model repository or release URL
+  license: Apache-2.0
+  assets:
+    - id: fp32
+      bytes: 1000000
+      precision: fp32
+      url: https://cdn.example.com/example-model.onnx
+      sha256: 0000000000000000000000000000000000000000000000000000000000000000
+performance:
+  timings: [modelDownloadMs, modelCacheReadMs, integrityMs, sessionMs, preprocessMs, inferenceMs, postprocessMs, totalMs]
+  coldStartDefined: true
+  warmRunDefined: true
+cache:
+  storage: [indexeddb]
+  versionedKeys: true
+  clearCurrent: true
+  clearAll: true
+  estimate: true
+examples:
+  vanilla: { status: available, path: examples/vanilla }
+  react: { status: available, path: examples/react }
+  vue: { status: unsupported }
+  cdn: { status: unsupported }
+  vite: { status: available, path: examples/react }
+  wechatWebView: { status: unsupported }
+verification:
+  environments:
+    - browser: Chrome 151
+      os: Windows 11
+      device: Example device
+      testedAt: 2026-08-22
+      backend: wasm
+      runtimeVersion: onnxruntime-web@1.0.0
