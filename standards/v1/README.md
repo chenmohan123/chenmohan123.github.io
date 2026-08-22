@@ -45,6 +45,17 @@ pnpm sdk:check -- --repo ..\web-sdk-PP-LCNet_x1_0_doc_ori\.worktrees\implementat
 表示输入或配置无效，`3` 表示检查器异常。报告必须保留规则 ID、级别、
 状态、证据路径和修复建议。
 
+审计两个现有 SDK 时可使用：
+
+```powershell
+pnpm sdk:check -- --repo ..\web-sdk-PP-DocLayoutV3 --format markdown --out reports\sdk-standard\pp-doclayoutv3.md
+pnpm sdk:check -- --repo ..\web-sdk-PP-LCNet_x1_0_doc_ori\.worktrees\implementation --format json --out reports\sdk-standard\pp-lcnet.json
+```
+
+`required` 失败会阻止合规状态；`recommended` 只表示改进项；`labs` 必须
+有证据和限制。报告是带标准版本和扫描日期的证据快照，不包含用户文件或
+密钥。
+
 ## 新建与迁移
 
 从 [templates/sdk-manifest.yaml](templates/sdk-manifest.yaml)、双语 README

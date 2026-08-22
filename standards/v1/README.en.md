@@ -18,3 +18,8 @@ real composition use case are recorded.
 Rules are `required`, `recommended`, or `labs`. The local checker is read-only,
 offline by default, accepts local repository paths, and returns exit code `0`
 only when all required rules pass.
+
+Audit snapshots may be written to `reports/sdk-standard/` as JSON or Markdown.
+Required failures block compliance; recommended findings are improvements and
+Labs findings require explicit evidence and limits. Do not include user files,
+secrets, or uploaded model inputs in a report.

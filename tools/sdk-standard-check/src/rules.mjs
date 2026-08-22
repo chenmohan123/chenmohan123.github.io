@@ -40,7 +40,7 @@ const detectors = {
   releaseWorkflow: (evidence) => evidence.releaseWorkflow,
   changelog: (evidence) => evidence.changelog,
   uiTokens: (evidence) => evidence.uiTokens,
-  labsDisclosure: (evidence, manifest) => {
+  labsDisclosure: (_evidence, manifest) => {
     const experimental = manifest?.runtime?.backends?.some((backend) => ["webnn", "npu"].includes(backend));
     return !experimental || /labs|experimental|实验/i.test(JSON.stringify(manifest));
   },
