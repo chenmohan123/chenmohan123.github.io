@@ -35,6 +35,8 @@ describe("v1 standard source", () => {
   it("routes agents through the standard and preserves the layer boundary", () => {
     const agents = readFileSync("AGENTS.md", "utf8");
     expect(agents).toContain("standards/v1/README.md");
+    expect(agents).toContain("## Read Order");
+    expect(agents).toContain("## Editing Rules");
     expect(agents).toContain("pnpm sdk:check -- --repo <path>");
     expect(agents).toContain("single SDK");
     expect(agents).toContain("Workflow");
