@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { scanRepository } from "./src/check.mjs";
+import { summarize, renderJson, renderMarkdown, renderTable } from "./src/report.mjs";
 
 const complete = "tools/sdk-standard-check/fixtures/complete-sdk";
 const partial = "tools/sdk-standard-check/fixtures/partial-sdk";
@@ -35,5 +36,22 @@ describe("SDK repository discovery", () => {
     expect(report.findings).toEqual(expect.arrayContaining([
       expect.objectContaining({ id: "CONFIG-001", status: "fail" }),
     ]));
+  });
+
+  it("marks complete fixtures compliant and partial fixtures with stable required IDs", async () => {
+    const completeReport = await scanRepository(complete);
+    const partialReport = await scanRepository(partial);
+    expect(summarize(completeReport).status).toBe("compliant");
+    expect(summarize(partialReport).status).toBe("partial");
+    expect(partialReport.findings.map((finding: { id: string }) => finding.id)).toEqual(expect.arrayContaining(["DOC-001", "DEMO-004", "RELEASE-002"]));
+  });
+
+  it("renders deterministic JSON, Markdown, and table output", async () => {
+    const report = await scanRepository(partial);
+    const json = JSON.parse(renderJson([report]));
+    expect(json.repositories[0].repository).toBe("partial-sdk");
+    expect(renderMarkdown([report])).toContain("DOC-001");
+    expect(renderMarkdown([report])).toContain("Remediation");
+    expect(renderTable([report])).toContain("partial-sdk");
   });
 });
