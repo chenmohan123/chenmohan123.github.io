@@ -1,0 +1,8 @@
+{
+  "name": "web-sdk-fixture",
+  "version": "1.0.0",
+  "private": false,
+  "repository": "https://github.com/example/web-sdk-fixture",
+  "homepage": "https://example.github.io/web-sdk-fixture/",
+  "scripts": { "verify": "node --test" }
+}

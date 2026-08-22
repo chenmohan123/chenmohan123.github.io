@@ -1,0 +1,4 @@
+interface:
+  display_name: "Web Model SDK Standard"
+  short_description: "Audit and scaffold browser model SDKs"
+  default_prompt: "Audit or scaffold a browser model SDK using this repository's v1 standard."
