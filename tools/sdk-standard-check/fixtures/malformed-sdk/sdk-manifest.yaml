@@ -1,0 +1,10 @@
+schemaVersion: "1.0.0"
+id: Invalid SDK ID
+package:
+  version: nope
+model:
+  assets:
+    - id: bad
+      bytes: 0
+      url: not-a-url
+      sha256: short

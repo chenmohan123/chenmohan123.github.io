@@ -1,0 +1,51 @@
+schemaVersion: "1.0.0"
+id: fixture-model
+name: Fixture Model
+summary: A complete browser SDK fixture used to validate the standard checker.
+package: { name: web-sdk-fixture, version: 1.0.0 }
+repository: https://github.com/example/web-sdk-fixture
+demo:
+  url: https://example.github.io/web-sdk-fixture/
+  defaultLanguage: zh-CN
+  framework: vanilla
+  localProcessing: true
+docs: { zhCN: docs/zh-CN/quick-start.md, en: docs/en/quick-start.md }
+runtime:
+  backends: [wasm, webgpu]
+  executionModes: [main, worker]
+  actualBackendReported: true
+  runtimeVersion: onnxruntime-web@1.0.0
+model:
+  id: fixture-model
+  version: 1.0.0
+  format: onnx
+  parameterCount: 1000
+  precision: [fp32]
+  source: https://github.com/example/model
+  license: Apache-2.0
+  assets:
+    - id: fp32
+      bytes: 1000
+      precision: fp32
+      url: https://example.com/model.onnx
+      sha256: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+performance:
+  timings: [modelDownloadMs, modelCacheReadMs, integrityMs, sessionMs, preprocessMs, inferenceMs, postprocessMs, totalMs]
+  coldStartDefined: true
+  warmRunDefined: true
+cache:
+  storage: [indexeddb]
+  versionedKeys: true
+  clearCurrent: true
+  clearAll: true
+  estimate: true
+examples:
+  vanilla: { status: available, path: examples/vanilla }
+  react: { status: available, path: examples/react }
+  vue: { status: unsupported }
+  cdn: { status: unsupported }
+  vite: { status: unsupported }
+  wechatWebView: { status: unsupported }
+verification:
+  environments:
+    - { browser: Chrome 151, os: Windows 11, device: Fixture Device, testedAt: 2026-08-22, backend: wasm, runtimeVersion: onnxruntime-web@1.0.0 }
