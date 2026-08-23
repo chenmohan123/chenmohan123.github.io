@@ -15,7 +15,7 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm exec playwright install --with-deps chromium
       - run: pnpm sdk:check:test
-      - run: pnpm sdk:check -- --repo tools/sdk-standard-check/fixtures/complete-sdk --format table
+      - run: pnpm run sdk:check --repo tools/sdk-standard-check/fixtures/complete-sdk --format table
       - run: pnpm test
       - run: pnpm build
       - run: pnpm test:e2e
