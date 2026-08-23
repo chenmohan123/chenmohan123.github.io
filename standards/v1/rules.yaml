@@ -1,4 +1,4 @@
-standardVersion: "1.0.0"
+standardVersion: "1.1.0"
 rules:
   - id: META-001
     level: required
@@ -100,6 +100,33 @@ rules:
     detector: changelog
     message: Changelog documents user-visible SDK and Demo changes
     remediation: Add CHANGELOG.md with the current release entry.
+  - id: GOV-001
+    level: required
+    detector: githubDefaultBranchRuleset
+    verification: github-api
+    message: The default branch has an active least-privilege Ruleset for pull requests, current CI checks, resolved conversations, deletion, and force-push protection
+    remediation: Configure an active default-branch Ruleset using standards/v1/repository-governance-contract.md and capture dated GitHub API evidence.
+  - id: GOV-002
+    level: required
+    detector: githubReleaseTagRuleset
+    verification: github-api
+    appliesWhen: release-tags
+    message: Release tags are immutable under an active tag Ruleset
+    remediation: Protect the documented release tag pattern against updates and deletion, minimize bypass, and capture dated GitHub API evidence.
+  - id: DEPLOY-001
+    level: required
+    detector: remoteDemoDeployment
+    verification: remote-api
+    appliesWhen: live-demo
+    message: The live Demo has a reproducible HTTPS deployment from protected source with least-privilege credentials
+    remediation: Configure and verify a deployment that meets standards/v1/repository-governance-contract.md, then record its commit and deployment evidence.
+  - id: PAGES-001
+    level: required
+    detector: githubPagesDeployment
+    verification: github-api
+    appliesWhen: github-pages
+    message: A GitHub Pages Demo deploys through GitHub Actions with scoped permissions, environment binding, HTTPS, and concurrency control
+    remediation: Configure Pages and its deployment workflow using standards/v1/repository-governance-contract.md and capture dated GitHub API evidence.
   - id: UI-001
     level: recommended
     detector: uiTokens

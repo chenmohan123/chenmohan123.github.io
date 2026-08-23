@@ -1,5 +1,6 @@
 import { existsSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
+import YAML from "yaml";
 
 const requiredFiles = [
   "standards/v1/README.md",
@@ -8,6 +9,7 @@ const requiredFiles = [
   "standards/v1/demo-contract.md",
   "standards/v1/portal-contract.md",
   "standards/v1/docs-release-contract.md",
+  "standards/v1/repository-governance-contract.md",
   "standards/v1/examples-contract.md",
   "standards/v1/performance-contract.md",
   "standards/v1/ui-tokens.json",
@@ -31,11 +33,35 @@ describe("v1 standard source", () => {
     for (const file of requiredFiles) expect(existsSync(file), file).toBe(true);
   });
 
-  it("declares the same version in rules and schema", () => {
-    const rules = readFileSync("standards/v1/rules.yaml", "utf8");
+  it("declares v1.1 rules while accepting v1.0 manifests", () => {
+    const rules = YAML.parse(readFileSync("standards/v1/rules.yaml", "utf8"));
     const schema = JSON.parse(readFileSync("standards/v1/sdk-manifest.schema.json", "utf8"));
-    expect(rules).toContain('standardVersion: "1.0.0"');
+    expect(rules.standardVersion).toBe("1.1.0");
     expect(schema.$id).toContain("web-model-sdk-standard/v1");
+    expect(schema.properties.schemaVersion.enum).toEqual(["1.0.0", "1.1.0"]);
+  });
+
+  it("defines GitHub Rulesets and Pages as remotely verified governance rules", () => {
+    const contract = readFileSync("standards/v1/repository-governance-contract.md", "utf8");
+    const rules = YAML.parse(readFileSync("standards/v1/rules.yaml", "utf8"));
+    const governanceRules = rules.rules.filter((rule: { id: string }) => /^(GOV|DEPLOY|PAGES)-/.test(rule.id));
+
+    expect(contract).toContain("Default branch Ruleset");
+    expect(contract).toContain("Release tag Ruleset");
+    expect(contract).toContain("GitHub Pages");
+    expect(contract).toContain("GitHub Actions");
+    expect(governanceRules.map((rule: { id: string }) => rule.id)).toEqual([
+      "GOV-001",
+      "GOV-002",
+      "DEPLOY-001",
+      "PAGES-001",
+    ]);
+    expect(Object.fromEntries(governanceRules.map((rule: { id: string; verification?: string }) => [rule.id, rule.verification]))).toEqual({
+      "GOV-001": "github-api",
+      "GOV-002": "github-api",
+      "DEPLOY-001": "remote-api",
+      "PAGES-001": "github-api",
+    });
   });
 
   it("routes agents through the standard and preserves the layer boundary", () => {

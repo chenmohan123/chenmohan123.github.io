@@ -1,5 +1,5 @@
 /** @typedef {'required'|'recommended'|'labs'} RuleLevel */
-/** @typedef {'pass'|'fail'|'skip'|'info'} FindingStatus */
+/** @typedef {'pass'|'fail'|'skip'|'info'|'not-applicable'|'unknown'} FindingStatus */
 
 /**
  * @typedef {Object} Finding

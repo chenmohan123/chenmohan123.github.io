@@ -1,7 +1,8 @@
 # Web Model SDK Standard v1
 
 中文是默认入口；[English](README.en.md) 提供等价英文说明。本文是所有
-SDK、Demo、门户和 Workflow 任务的阅读入口，规范版本为 `1.0.0`。
+SDK、Demo、门户和 Workflow 任务的阅读入口，规范版本为 `1.1.0`。`1.1.0`
+仍兼容 `1.0.0` SDK manifest；本次新增的是仓库治理要求，不是 runtime 字段。
 
 ## 阅读顺序
 
@@ -9,9 +10,10 @@ SDK、Demo、门户和 Workflow 任务的阅读入口，规范版本为 `1.0.0`�
 2. [单 SDK Demo 契约](demo-contract.md)
 3. [门户与 Workflow 边界](portal-contract.md)
 4. [文档与发布](docs-release-contract.md)
-5. [Examples](examples-contract.md)
-6. [性能与耗时](performance-contract.md)
-7. [规则清单](rules.yaml)、[manifest schema](sdk-manifest.schema.json) 和
+5. [仓库治理与部署](repository-governance-contract.md)
+6. [Examples](examples-contract.md)
+7. [性能与耗时](performance-contract.md)
+8. [规则清单](rules.yaml)、[manifest schema](sdk-manifest.schema.json) 和
    [UI tokens](ui-tokens.json)
 
 ## 分层原则
@@ -55,6 +57,11 @@ pnpm sdk:check -- --repo ..\web-sdk-PP-LCNet_x1_0_doc_ori\.worktrees\implementat
 `required` 失败会阻止合规状态；`recommended` 只表示改进项；`labs` 必须
 有证据和限制。报告是带标准版本和扫描日期的证据快照，不包含用户文件或
 密钥。
+
+Rulesets、部署和 GitHub Pages 是远程状态，本地检查器只会将对应规则标为
+`skip`。没有本地 required 失败表示 `locally-compliant`；只有通过只读
+GitHub API 或托管商 API 核验所有适用的远程 required 规则后，才能称为 `compliant`。
+GitHub Pages 不是强制托管商；选择 GitHub Pages 时才适用 `PAGES-001`。
 
 ## 新建与迁移
 

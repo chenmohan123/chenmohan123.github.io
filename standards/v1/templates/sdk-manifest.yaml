@@ -1,4 +1,4 @@
-schemaVersion: "1.0.0"
+schemaVersion: "1.1.0"
 id: example-model
 name: Example Browser Model
 summary: A browser-first model with a documented local runtime and standalone Demo.
@@ -32,7 +32,7 @@ model:
       bytes: 1000000
       precision: fp32
       url: https://cdn.example.com/example-model.onnx
-      sha256: 0000000000000000000000000000000000000000000000000000000000000000
+      sha256: "0000000000000000000000000000000000000000000000000000000000000000"
 performance:
   timings: [modelDownloadMs, modelCacheReadMs, integrityMs, sessionMs, preprocessMs, inferenceMs, postprocessMs, totalMs]
   coldStartDefined: true

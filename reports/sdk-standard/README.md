@@ -14,7 +14,10 @@ pnpm sdk:check -- --repo ..\web-sdk-PP-DocLayoutV3 --format json --out reports\s
 The JSON artifact includes `standardVersion`, `repository`, `summary`, and
 `findings`. Each finding preserves `id`, `level`, `status`, `path`, `message`,
 and `remediation`; a future portal badge can consume `summary.status` and the
-required pass/fail counts without parsing prose.
+required pass/fail/skip/unknown counts without parsing prose.
+`locally-compliant` means the offline checks passed while remote governance
+rules remain skipped or unknown; only dated remote evidence can support a
+`compliant` badge.
 
 Reports must include a scan date when committed by a CI job, contain no user
 files, secrets, access tokens, or uploaded model inputs, and be regenerated when

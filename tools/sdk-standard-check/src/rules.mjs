@@ -4,11 +4,15 @@ import YAML from "yaml";
 
 const defaultStandardRoot = path.resolve(process.cwd(), "standards/v1");
 
-export async function loadRules(standardRoot = defaultStandardRoot) {
+export async function loadRuleSet(standardRoot = defaultStandardRoot) {
   const source = await fs.readFile(path.join(standardRoot, "rules.yaml"), "utf8");
   const parsed = YAML.parse(source);
-  if (!parsed || parsed.standardVersion !== "1.0.0" || !Array.isArray(parsed.rules)) throw new Error("Invalid rules.yaml");
-  return parsed.rules;
+  if (!parsed || typeof parsed.standardVersion !== "string" || !Array.isArray(parsed.rules)) throw new Error("Invalid rules.yaml");
+  return parsed;
+}
+
+export async function loadRules(standardRoot = defaultStandardRoot) {
+  return (await loadRuleSet(standardRoot)).rules;
 }
 
 function result(id, level, status, message, remediation, pathValue, evidence) {
@@ -46,9 +50,20 @@ const detectors = {
   },
 };
 
-export async function evaluateRules(evidence, manifest, standardRoot = defaultStandardRoot) {
-  const rules = await loadRules(standardRoot);
+export async function evaluateRules(evidence, manifest, standardRoot = defaultStandardRoot, loadedRuleSet) {
+  const rules = (loadedRuleSet ?? await loadRuleSet(standardRoot)).rules;
   return rules.map((rule) => {
+    if (["github-api", "remote-api"].includes(rule.verification)) {
+      return result(
+        rule.id,
+        rule.level,
+        "skip",
+        rule.message,
+        rule.remediation,
+        undefined,
+        `Requires read-only ${rule.verification} verification; offline sdk:check did not evaluate this rule.`,
+      );
+    }
     if (rule.level === "labs") return result(rule.id, rule.level, "skip", rule.message, rule.remediation, undefined, "Labs rule is informational");
     const detector = detectors[rule.detector];
     if (!detector) return result(rule.id, rule.level, "fail", `Unknown detector ${rule.detector}`, "Add the detector implementation before using this rule.");
