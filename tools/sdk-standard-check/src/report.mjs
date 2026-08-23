@@ -7,13 +7,19 @@ export function summarize(report) {
   const recommended = report.findings.filter((finding) => finding.level === "recommended");
   const labs = report.findings.filter((finding) => finding.level === "labs");
   const requiredFailed = required.filter((finding) => finding.status === "fail").length;
+  const requiredSkipped = required.filter((finding) => finding.status === "skip").length;
+  const requiredUnknown = required.filter((finding) => finding.status === "unknown").length;
+  const requiredNotApplicable = required.filter((finding) => finding.status === "not-applicable").length;
   return {
     requiredPassed: required.filter((finding) => finding.status === "pass").length,
     requiredFailed,
+    requiredSkipped,
+    requiredUnknown,
+    requiredNotApplicable,
     recommendedPassed: recommended.filter((finding) => finding.status === "pass").length,
     recommendedFailed: recommended.filter((finding) => finding.status === "fail").length,
     labs: labs.length,
-    status: requiredFailed === 0 ? "compliant" : "partial",
+    status: requiredFailed > 0 ? "partial" : requiredSkipped + requiredUnknown > 0 ? "locally-compliant" : "compliant",
   };
 }
 
@@ -28,7 +34,7 @@ function normalized(reports) {
 
 export function renderJson(reports) {
   const items = normalized(reports);
-  return JSON.stringify({ standardVersion: items[0]?.standardVersion ?? "1.0.0", repositories: items }, null, 2);
+  return JSON.stringify({ standardVersion: items[0]?.standardVersion ?? "1.1.0", repositories: items }, null, 2);
 }
 
 export function renderMarkdown(reports) {
@@ -40,7 +46,7 @@ export function renderMarkdown(reports) {
 }
 
 export function renderTable(reports) {
-  const rows = ["Repository | Status | Required failed | Recommended failed", "--- | --- | ---: | ---:"];
-  for (const report of normalized(reports)) rows.push(`${report.repository} | ${report.summary.status} | ${report.summary.requiredFailed} | ${report.summary.recommendedFailed}`);
+  const rows = ["Repository | Status | Required failed | Required skipped | Required unknown | Recommended failed", "--- | --- | ---: | ---: | ---: | ---:"];
+  for (const report of normalized(reports)) rows.push(`${report.repository} | ${report.summary.status} | ${report.summary.requiredFailed} | ${report.summary.requiredSkipped} | ${report.summary.requiredUnknown} | ${report.summary.recommendedFailed}`);
   return rows.join("\n");
 }

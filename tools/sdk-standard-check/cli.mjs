@@ -23,7 +23,7 @@ function parseArgs(argv) {
 function usage() {
   return [
     "Usage: pnpm sdk:check -- --repo <path> [--repo <path>] [--standard v1] [--format table|json|markdown] [--out <file>] [--network]",
-    "Exit codes: 0 compliant, 1 required findings, 2 invalid input/config, 3 checker error",
+    "Exit codes: 0 no local required failures (remote rules may be skipped), 1 required failures, 2 invalid input/config, 3 checker error",
   ].join("\n");
 }
 

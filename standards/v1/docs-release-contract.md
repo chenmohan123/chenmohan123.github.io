@@ -11,6 +11,11 @@ least one GitHub Release, and GitHub About description, Homepage/Demo URL, and
 topics. Release notes identify model source, license, default assets, runtime
 backends, and known limitations.
 
+Repository protection and live Demo delivery follow the
+[repository governance and deployment contract](repository-governance-contract.md).
+Rulesets and hosted deployment settings require dated remote evidence; workflow
+files alone do not prove that those settings are active.
+
 Do not claim universal browser or device support from feature detection alone.
 Every compatibility entry records browser, OS, device, runtime/driver where
 relevant, and test date.

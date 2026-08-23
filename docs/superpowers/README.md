@@ -17,6 +17,10 @@ This directory keeps the planning and architecture documents that govern the
    governance foundation, UI semantics, checker, AGENTS, and Skill boundaries.
 6. `plans/2026-08-22-web-model-sdk-standard-implementation.md` is the
    implementation plan for that foundation.
+7. `specs/2026-08-23-v1-repository-governance-design.md` defines the Rulesets,
+   provider-neutral Demo deployment, GitHub Pages, and remote evidence boundary.
+8. `plans/2026-08-23-v1-repository-governance-implementation.md` implements
+   that v1.1 extension without auditing or changing SDK repositories.
 
 When these documents appear to conflict, the boundary decision is authoritative
 for portal versus SDK ownership. Update the decision and design documents before

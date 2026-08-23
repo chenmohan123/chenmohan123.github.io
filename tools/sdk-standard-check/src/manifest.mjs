@@ -30,7 +30,7 @@ export function validateManifest(value) {
   if (!value || typeof value !== "object" || Array.isArray(value)) return ["Manifest must be an object"];
   const required = ["schemaVersion", "id", "name", "summary", "package", "repository", "demo", "docs", "runtime", "model", "performance", "cache", "examples", "verification"];
   for (const key of required) if (!(key in value)) errors.push(`Missing ${key}`);
-  if (value.schemaVersion !== "1.0.0") errors.push("schemaVersion must be 1.0.0");
+  if (!["1.0.0", "1.1.0"].includes(value.schemaVersion)) errors.push("schemaVersion must be 1.0.0 or 1.1.0");
   if (typeof value.id !== "string" || !/^[a-z0-9][a-z0-9-]*$/.test(value.id)) errors.push("id must be kebab-case");
   if (typeof value.summary !== "string" || value.summary.length < 20) errors.push("summary must contain at least 20 characters");
   if (!value.package || typeof value.package !== "object") errors.push("package must be an object");

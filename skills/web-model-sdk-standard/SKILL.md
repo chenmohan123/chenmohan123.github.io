@@ -32,5 +32,9 @@ one of these layers before editing:
 
 The local checker is read-only against target SDK paths. Network checks and
 GitHub/npm changes require explicit user scope and are never implied by this
-Skill. A portal page links to an independent SDK Demo; it does not duplicate
-that Demo's inference implementation.
+Skill. Local Ruleset and Pages findings are skipped and a local pass is only
+`locally-compliant`; full compliance requires dated, read-only GitHub or
+hosting-provider API evidence under
+`standards/v1/repository-governance-contract.md`. A portal page
+links to an independent SDK Demo; it does not duplicate that Demo's inference
+implementation.

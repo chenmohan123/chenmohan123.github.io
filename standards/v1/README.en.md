@@ -1,10 +1,13 @@
 # Web Model SDK Standard v1
 
 [中文（默认）](README.md) is the primary entry point. This equivalent English
-document uses standard version `1.0.0`.
+document uses standard version `1.1.0`. Version `1.1.0` remains compatible
+with `1.0.0` SDK manifests because it adds repository governance rather than
+runtime fields.
 
 Read the [runtime contract](sdk-contract.md), [single-SDK Demo contract](demo-contract.md),
 [portal boundary](portal-contract.md), [docs and release contract](docs-release-contract.md),
+[repository governance and deployment contract](repository-governance-contract.md),
 [examples contract](examples-contract.md), [performance contract](performance-contract.md),
 then the machine-readable [rules](rules.yaml), [manifest schema](sdk-manifest.schema.json),
 and [UI tokens](ui-tokens.json).
@@ -23,3 +26,10 @@ Audit snapshots may be written to `reports/sdk-standard/` as JSON or Markdown.
 Required failures block compliance; recommended findings are improvements and
 Labs findings require explicit evidence and limits. Do not include user files,
 secrets, or uploaded model inputs in a report.
+
+Rulesets, deployments, and GitHub Pages are remote state, so the offline
+checker reports those rules as `skip`. Passing every local required rule means
+`locally-compliant`; the repository is fully `compliant` only after read-only
+GitHub or hosting-provider API checks verify every applicable remote required
+rule. GitHub Pages is optional, and `PAGES-001` applies only when it is the
+selected host.
