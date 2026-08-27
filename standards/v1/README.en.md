@@ -33,3 +33,18 @@ checker reports those rules as `skip`. Passing every local required rule means
 GitHub or hosting-provider API checks verify every applicable remote required
 rule. GitHub Pages is optional, and `PAGES-001` applies only when it is the
 selected host.
+
+### Model variants and sources
+
+The legacy `model.assets` field remains required for compatibility. New SDKs
+may additionally declare `model.defaultVariant`, `model.defaultSource`, and
+`model.variants[]`. Each variant declares its id, precision, quantization,
+ONNX opset, byte size, parameter count, supported `wasm`/`webgpu` backends,
+and one or more sources.
+
+Each source declares a `kind` (`git-lfs`, `huggingface`, `modelscope`, or
+`custom`), a non-empty pinned revision, repository and path, an HTTP(S)
+`downloadUrl`, positive byte count, and a 64-character hexadecimal SHA-256.
+An explicitly selected source must not be silently replaced after failure;
+only an `auto` policy may try sources in manifest order. A Git LFS pointer is
+not the browser-downloadable model payload.

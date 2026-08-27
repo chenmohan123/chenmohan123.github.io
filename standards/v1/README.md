@@ -2,7 +2,8 @@
 
 中文是默认入口；[English](README.en.md) 提供等价英文说明。本文是所有
 SDK、Demo、门户和 Workflow 任务的阅读入口，规范版本为 `1.1.0`。`1.1.0`
-仍兼容 `1.0.0` SDK manifest；本次新增的是仓库治理要求，不是 runtime 字段。
+仍兼容 `1.0.0` SDK manifest；模型清单可以通过可选的 `variants` 和 `sources`
+声明同一模型的精度、量化、后端和分发来源。
 
 ## 阅读顺序
 
@@ -72,3 +73,15 @@ CDN/H5/web-view 的兼容基线；SDK runtime 不得依赖 UI 框架。Vue、CDN
 
 新增规则时先修改 `rules.yaml`、schema 或 token，再修改业务代码。旧 SDK
 没有 manifest 时检查器可以推断证据，但会明确标记“声明缺失/证据推断”。
+
+### 模型变体与来源
+
+`model.assets` 是旧版兼容字段，仍然必填。新 SDK 可额外声明
+`model.defaultVariant`、`model.defaultSource` 和 `model.variants[]`。每个变体
+固定声明 `id`、`precision`、`quantization`、ONNX `opset`、文件 `bytes`、
+`parameterCount`、支持的 `backends`（`wasm`/`webgpu`）以及 `sources[]`。
+
+来源必须声明 `kind`（`git-lfs`、`huggingface`、`modelscope` 或 `custom`）、
+非空固定 `revision`、仓库和路径、HTTP(S) `downloadUrl`、正整数 `bytes` 及
+64 位十六进制 `sha256`。显式选择的来源失败时不得静默换源；只有 `auto`
+策略可以按清单尝试。Git LFS pointer 文件不是浏览器可用的模型本体。

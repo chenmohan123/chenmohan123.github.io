@@ -1,0 +1,108 @@
+schemaVersion: "1.1.0"
+id: multi-source-model
+name: Multi Source Model
+summary: A model manifest with precision variants and multiple distribution sources.
+package:
+  name: web-sdk-multi-source-model
+  version: 0.1.0
+repository: https://github.com/example/web-sdk-multi-source-model
+demo:
+  url: https://example.github.io/web-sdk-multi-source-model/
+  defaultLanguage: zh-CN
+  framework: react
+  localProcessing: true
+docs:
+  zhCN: docs/zh-CN/quick-start.md
+  en: docs/en/quick-start.md
+runtime:
+  backends: [wasm, webgpu]
+  executionModes: [main, worker]
+  actualBackendReported: true
+  runtimeVersion: onnxruntime-web@1.0.0
+model:
+  id: multi-source-model
+  version: 1.0.0
+  format: onnx
+  parameterCount: 1000000
+  precision: [fp16, fp32]
+  source: PaddleDetection
+  license: Apache-2.0
+  defaultVariant: fp16
+  defaultSource: huggingface
+  assets:
+    - id: fp32
+      bytes: 1000000
+      precision: fp32
+      url: https://cdn.example.com/model-fp32.onnx
+      sha256: "0000000000000000000000000000000000000000000000000000000000000000"
+  variants:
+    - id: fp16
+      precision: fp16
+      quantization: null
+      opset: 17
+      bytes: 800000
+      parameterCount: 1000000
+      backends: [wasm, webgpu]
+      sources:
+        - kind: git-lfs
+          repository: https://github.com/example/web-sdk-multi-source-model
+          revision: v1.0.0
+          path: models/model-fp16.onnx
+          downloadUrl: https://github.com/example/web-sdk-multi-source-model/raw/v1.0.0/models/model-fp16.onnx
+          bytes: 800000
+          sha256: "1111111111111111111111111111111111111111111111111111111111111111"
+        - kind: huggingface
+          repository: example/multi-source-model
+          revision: 0123456789abcdef0123456789abcdef01234567
+          path: model-fp16.onnx
+          downloadUrl: https://huggingface.co/example/multi-source-model/resolve/0123456789abcdef0123456789abcdef01234567/model-fp16.onnx
+          bytes: 800000
+          sha256: "1111111111111111111111111111111111111111111111111111111111111111"
+        - kind: modelscope
+          repository: example/multi-source-model
+          revision: v1.0.0
+          path: model-fp16.onnx
+          downloadUrl: https://modelscope.cn/models/example/multi-source-model/resolve/v1.0.0/model-fp16.onnx
+          bytes: 800000
+          sha256: "1111111111111111111111111111111111111111111111111111111111111111"
+        - kind: custom
+          repository: internal
+          revision: 2026-08-27
+          path: model-fp16.onnx
+          downloadUrl: https://models.example.com/model-fp16.onnx
+          bytes: 800000
+          sha256: "1111111111111111111111111111111111111111111111111111111111111111"
+    - id: fp32
+      precision: fp32
+      quantization: null
+      opset: 17
+      bytes: 1000000
+      parameterCount: 1000000
+      backends: [wasm]
+      sources:
+        - kind: git-lfs
+          repository: https://github.com/example/web-sdk-multi-source-model
+          revision: v1.0.0
+          path: models/model-fp32.onnx
+          downloadUrl: https://github.com/example/web-sdk-multi-source-model/raw/v1.0.0/models/model-fp32.onnx
+          bytes: 1000000
+          sha256: "0000000000000000000000000000000000000000000000000000000000000000"
+performance:
+  timings: [modelDownloadMs, modelCacheReadMs, integrityMs, sessionMs, preprocessMs, inferenceMs, postprocessMs, totalMs]
+  coldStartDefined: true
+  warmRunDefined: true
+cache:
+  storage: [indexeddb]
+  versionedKeys: true
+  clearCurrent: true
+  clearAll: true
+  estimate: true
+examples:
+  vanilla: { status: available, path: examples/vanilla }
+  react: { status: available, path: examples/react }
+verification:
+  environments:
+    - browser: Chrome 151
+      os: Windows 11
+      device: Example device
+      testedAt: 2026-08-27

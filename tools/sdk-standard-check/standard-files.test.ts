@@ -1,6 +1,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import YAML from "yaml";
+import { loadManifest, validateManifest } from "./src/manifest.mjs";
 
 const requiredFiles = [
   "standards/v1/README.md",
@@ -73,5 +74,29 @@ describe("v1 standard source", () => {
     expect(agents).toContain("single SDK");
     expect(agents).toContain("Workflow");
     expect(agents).toContain("must not copy a single SDK runtime");
+  });
+
+  it("接受包含变体、精度和多来源的模型清单", async () => {
+    const fixture = await loadManifest("tools/sdk-standard-check/fixtures/multi-source-sdk");
+    expect(fixture.declared).toBe(true);
+    expect(fixture.errors).toEqual([]);
+    expect(fixture.value.model.defaultVariant).toBe("fp16");
+    expect(fixture.value.model.defaultSource).toBe("huggingface");
+    expect(fixture.value.model.variants).toHaveLength(2);
+    expect(fixture.value.model.variants[0].sources).toHaveLength(4);
+  });
+
+  it("拒绝不完整的多来源模型变体字段", async () => {
+    const fixture = await loadManifest("tools/sdk-standard-check/fixtures/multi-source-sdk");
+    const invalid = structuredClone(fixture.value);
+    invalid.model.variants[0].sources[0].revision = "";
+    invalid.model.variants[0].sources[1].downloadUrl = "ftp://example.com/model.onnx";
+    invalid.model.variants[1].backends = ["cpu"];
+
+    expect(validateManifest(invalid)).toEqual(expect.arrayContaining([
+      "source fp16/git-lfs revision must be fixed and non-empty",
+      "source fp16/huggingface downloadUrl must be an HTTP(S) URL",
+      "variant fp32 backends must use wasm or webgpu",
+    ]));
   });
 });
