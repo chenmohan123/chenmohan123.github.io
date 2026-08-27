@@ -43,8 +43,9 @@ ONNX opset, byte size, parameter count, supported `wasm`/`webgpu` backends,
 and one or more sources.
 
 Each source declares a `kind` (`git-lfs`, `huggingface`, `modelscope`, or
-`custom`), a non-empty pinned revision, repository and path, an HTTP(S)
-`downloadUrl`, positive byte count, and a 64-character hexadecimal SHA-256.
+`custom`), a pinned 40-64 character hexadecimal immutable revision, repository
+and path, an HTTP(S) `downloadUrl` with a host, positive byte count, and a
+64-character hexadecimal SHA-256.
 An explicitly selected source must not be silently replaced after failure;
 only an `auto` policy may try sources in manifest order. A Git LFS pointer is
 not the browser-downloadable model payload.

@@ -82,6 +82,6 @@ CDN/H5/web-view 的兼容基线；SDK runtime 不得依赖 UI 框架。Vue、CDN
 `parameterCount`、支持的 `backends`（`wasm`/`webgpu`）以及 `sources[]`。
 
 来源必须声明 `kind`（`git-lfs`、`huggingface`、`modelscope` 或 `custom`）、
-非空固定 `revision`、仓库和路径、HTTP(S) `downloadUrl`、正整数 `bytes` 及
+40 至 64 位十六进制不可变 `revision`、仓库和路径、含主机的 HTTP(S) `downloadUrl`、正整数 `bytes` 及
 64 位十六进制 `sha256`。显式选择的来源失败时不得静默换源；只有 `auto`
 策略可以按清单尝试。Git LFS pointer 文件不是浏览器可用的模型本体。

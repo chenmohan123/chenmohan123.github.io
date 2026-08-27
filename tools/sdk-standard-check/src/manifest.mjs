@@ -6,6 +6,16 @@ const semver = /^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$/;
 const sha256 = /^[a-fA-F0-9]{64}$/;
 const sourceKinds = new Set(["git-lfs", "huggingface", "modelscope", "custom"]);
 const backends = new Set(["wasm", "webgpu"]);
+const immutableRevision = /^[a-fA-F0-9]{40,64}$/;
+
+function isHttpUrlWithHost(value) {
+  try {
+    const url = new URL(value);
+    return (url.protocol === "http:" || url.protocol === "https:") && Boolean(url.hostname);
+  } catch {
+    return false;
+  }
+}
 
 export async function loadManifest(root) {
   const candidates = ["sdk-manifest.yaml", "sdk-manifest.yml", "standards/sdk-manifest.yaml"];
@@ -40,7 +50,7 @@ export function validateManifest(value) {
     if (typeof value.package.name !== "string" || value.package.name.length === 0) errors.push("package.name is required");
     if (typeof value.package.version !== "string" || !semver.test(value.package.version)) errors.push("package.version must be semver");
   }
-  if (typeof value.repository !== "string" || !/^https?:\/\//.test(value.repository)) errors.push("repository must be an http URL");
+  if (typeof value.repository !== "string" || !isHttpUrlWithHost(value.repository)) errors.push("repository must be an http URL");
   if (!value.demo || value.demo.defaultLanguage !== "zh-CN" || typeof value.demo.url !== "string") errors.push("demo must declare a URL and zh-CN defaultLanguage");
   if (!value.docs || typeof value.docs.zhCN !== "string" || typeof value.docs.en !== "string") errors.push("docs.zhCN and docs.en are required");
   if (!value.runtime || !Array.isArray(value.runtime.backends) || value.runtime.backends.length === 0 || !Array.isArray(value.runtime.executionModes)) errors.push("runtime backends and executionModes are required");
@@ -53,12 +63,13 @@ export function validateManifest(value) {
   if (value.model && typeof value.model === "object") {
     if (value.model.defaultVariant !== undefined && (typeof value.model.defaultVariant !== "string" || value.model.defaultVariant.length === 0)) errors.push("model.defaultVariant must be a non-empty string");
     if (value.model.defaultSource !== undefined && !sourceKinds.has(value.model.defaultSource)) errors.push("model.defaultSource must be a supported source kind");
-    for (const variant of value.model.variants ?? []) {
+    if (value.model.variants !== undefined && !Array.isArray(value.model.variants)) errors.push("model.variants must be an array");
+    for (const variant of Array.isArray(value.model.variants) ? value.model.variants : []) {
       const label = variant?.id ?? "unknown";
       if (!variant || typeof variant !== "object") { errors.push("model variant must be an object"); continue; }
       if (typeof variant.id !== "string" || variant.id.length === 0) errors.push("model variant id is required");
       if (typeof variant.precision !== "string" || variant.precision.length === 0) errors.push(`variant ${label} precision is required`);
-      if (variant.quantization !== null && variant.quantization !== undefined && typeof variant.quantization !== "string") errors.push(`variant ${label} quantization must be a string or null`);
+      if (!("quantization" in variant) || (variant.quantization !== null && typeof variant.quantization !== "string")) errors.push(`variant ${label} quantization must be a string or null`);
       if (!Number.isInteger(variant.opset) || variant.opset < 1) errors.push(`variant ${label} opset must be positive`);
       if (!Number.isInteger(variant.bytes) || variant.bytes <= 0) errors.push(`variant ${label} bytes must be positive`);
       if (variant.parameterCount !== null && (!Number.isInteger(variant.parameterCount) || variant.parameterCount < 0)) errors.push(`variant ${label} parameterCount must be non-negative`);
@@ -68,9 +79,9 @@ export function validateManifest(value) {
         const sourceLabel = `${label}/${source?.kind ?? "unknown"}`;
         if (!sourceKinds.has(source?.kind)) errors.push(`source ${sourceLabel} kind is unsupported`);
         if (typeof source?.repository !== "string" || source.repository.length === 0) errors.push(`source ${sourceLabel} repository is required`);
-        if (typeof source?.revision !== "string" || source.revision.trim().length === 0) errors.push(`source ${sourceLabel} revision must be fixed and non-empty`);
+        if (typeof source?.revision !== "string" || !immutableRevision.test(source.revision)) errors.push(`source ${sourceLabel} revision must be a 40-64 character immutable hex revision`);
         if (typeof source?.path !== "string" || source.path.length === 0) errors.push(`source ${sourceLabel} path is required`);
-        if (typeof source?.downloadUrl !== "string" || !/^https?:\/\//.test(source.downloadUrl)) errors.push(`source ${sourceLabel} downloadUrl must be an HTTP(S) URL`);
+        if (typeof source?.downloadUrl !== "string" || !isHttpUrlWithHost(source.downloadUrl)) errors.push(`source ${sourceLabel} downloadUrl must be an HTTP(S) URL with a host`);
         if (!Number.isInteger(source?.bytes) || source.bytes <= 0) errors.push(`source ${sourceLabel} bytes must be positive`);
         if (typeof source?.sha256 !== "string" || !sha256.test(source.sha256)) errors.push(`source ${sourceLabel} sha256 must be 64 hex characters`);
       }

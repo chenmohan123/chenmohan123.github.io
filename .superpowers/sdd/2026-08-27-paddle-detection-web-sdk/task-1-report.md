@@ -50,3 +50,14 @@
   真实模型证据。
 - schema 与手写校验器均保留旧 manifest 的 `assets` 要求；新增变体字段不会
   破坏 v1.0.0/v1.1.0 旧清单。
+
+## 审查修复记录
+
+- 为 `model.variants` 增加数组类型守卫，非法对象或字符串只返回校验错误，不再抛出 TypeError。
+- revision 统一要求 40 至 64 位十六进制不可变 revision，拒绝 `main`、`latest` 等浮动引用，并同步 schema、文档和 fixture。
+- `quantization` 在 schema 与手写校验器中均为必填，允许字符串或 `null`，并增加缺失字段负测。
+- URL 改为 URL 解析并要求 HTTP(S) 协议和 hostname；schema 增加等价格式约束，拒绝 `https://` 和其他无主机地址。
+
+审查修复验证：`pnpm sdk:check:test -- --run tools/sdk-standard-check/standard-files.test.ts`
+通过（16 tests）；`pnpm test` 通过（23 tests）；schema JSON 解析和
+`git diff --check` 通过。

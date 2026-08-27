@@ -46,7 +46,7 @@ model:
       sources:
         - kind: git-lfs
           repository: https://github.com/example/web-sdk-multi-source-model
-          revision: v1.0.0
+          revision: "0123456789abcdef0123456789abcdef01234567"
           path: models/model-fp16.onnx
           downloadUrl: https://github.com/example/web-sdk-multi-source-model/raw/v1.0.0/models/model-fp16.onnx
           bytes: 800000
@@ -60,14 +60,14 @@ model:
           sha256: "1111111111111111111111111111111111111111111111111111111111111111"
         - kind: modelscope
           repository: example/multi-source-model
-          revision: v1.0.0
+          revision: "0123456789abcdef0123456789abcdef01234567"
           path: model-fp16.onnx
           downloadUrl: https://modelscope.cn/models/example/multi-source-model/resolve/v1.0.0/model-fp16.onnx
           bytes: 800000
           sha256: "1111111111111111111111111111111111111111111111111111111111111111"
         - kind: custom
           repository: internal
-          revision: 2026-08-27
+          revision: "0123456789abcdef0123456789abcdef01234567"
           path: model-fp16.onnx
           downloadUrl: https://models.example.com/model-fp16.onnx
           bytes: 800000
@@ -82,7 +82,7 @@ model:
       sources:
         - kind: git-lfs
           repository: https://github.com/example/web-sdk-multi-source-model
-          revision: v1.0.0
+          revision: "0123456789abcdef0123456789abcdef01234567"
           path: models/model-fp32.onnx
           downloadUrl: https://github.com/example/web-sdk-multi-source-model/raw/v1.0.0/models/model-fp32.onnx
           bytes: 1000000

@@ -46,7 +46,7 @@ model:
       sources:
         - kind: git-lfs
           repository: https://github.com/owner/web-sdk-example-model
-          revision: v0.1.0
+          revision: "0123456789abcdef0123456789abcdef01234567"
           path: models/example.onnx
           downloadUrl: https://github.com/owner/web-sdk-example-model/raw/v0.1.0/models/example.onnx
           bytes: 1000000

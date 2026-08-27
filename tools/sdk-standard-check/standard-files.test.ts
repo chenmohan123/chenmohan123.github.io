@@ -94,9 +94,27 @@ describe("v1 standard source", () => {
     invalid.model.variants[1].backends = ["cpu"];
 
     expect(validateManifest(invalid)).toEqual(expect.arrayContaining([
-      "source fp16/git-lfs revision must be fixed and non-empty",
-      "source fp16/huggingface downloadUrl must be an HTTP(S) URL",
+      "source fp16/git-lfs revision must be a 40-64 character immutable hex revision",
+      "source fp16/huggingface downloadUrl must be an HTTP(S) URL with a host",
       "variant fp32 backends must use wasm or webgpu",
+    ]));
+  });
+
+  it("拒绝非法变体类型、浮动 revision、缺失量化字段和无主机 URL", async () => {
+    const fixture = await loadManifest("tools/sdk-standard-check/fixtures/multi-source-sdk");
+    const invalid = structuredClone(fixture.value);
+    invalid.model.variants = "fp16";
+    expect(validateManifest(invalid)).toContain("model.variants must be an array");
+
+    const invalidVariant = structuredClone(fixture.value.model.variants[0]);
+    delete invalidVariant.quantization;
+    invalidVariant.sources[0].revision = "latest";
+    invalidVariant.sources[0].downloadUrl = "https://";
+    const errors = validateManifest({ ...fixture.value, model: { ...fixture.value.model, variants: [invalidVariant] } });
+    expect(errors).toEqual(expect.arrayContaining([
+      "variant fp16 quantization must be a string or null",
+      "source fp16/git-lfs revision must be a 40-64 character immutable hex revision",
+      "source fp16/git-lfs downloadUrl must be an HTTP(S) URL with a host",
     ]));
   });
 });

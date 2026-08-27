@@ -178,9 +178,9 @@
       "properties": {
         "kind": { "type": "string", "enum": ["git-lfs", "huggingface", "modelscope", "custom"] },
         "repository": { "type": "string", "minLength": 1 },
-        "revision": { "type": "string", "minLength": 1 },
+        "revision": { "type": "string", "pattern": "^[a-fA-F0-9]{40,64}$" },
         "path": { "type": "string", "minLength": 1 },
-        "downloadUrl": { "type": "string", "pattern": "^https?://" },
+        "downloadUrl": { "type": "string", "pattern": "^https?://[^/\\s?#]+(?:[/?#]|$)" },
         "bytes": { "type": "integer", "minimum": 1 },
         "sha256": { "type": "string", "pattern": "^[a-fA-F0-9]{64}$" }
       },
