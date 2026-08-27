@@ -116,5 +116,9 @@ describe("v1 standard source", () => {
       "source fp16/git-lfs revision must be a 40-64 character immutable hex revision",
       "source fp16/git-lfs downloadUrl must be an HTTP(S) URL with a host",
     ]));
+
+    invalidVariant.sources[0].downloadUrl = "https://foo:bad/model.onnx";
+    expect(validateManifest({ ...fixture.value, model: { ...fixture.value.model, variants: [invalidVariant] } }))
+      .toContain("source fp16/git-lfs downloadUrl must be an HTTP(S) URL with a host");
   });
 });
