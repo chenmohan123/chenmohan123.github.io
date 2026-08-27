@@ -77,11 +77,11 @@ OCRv6 的 Vite 开发服务器会把 ONNX Runtime WASM 资产请求回退为 HTM
 | 门户测试 / Astro check / build | `20/20`、0 diagnostics、构建通过 |
 | SDK 标准检查 | OCRv6 `locally-compliant`；DocLayoutV3/LCNet 保持既有 `partial` |
 
-DocLayoutV3 的仓库级 `pnpm verify` 未整体通过：第一步 `prettier --check .`
-发现 36 个既有格式漂移文件；提升工作区权限后，12 项示例构建断言全部通过，
-但 Vitest worker 在约 65 秒结束时发生 `onTaskUpdate` RPC 超时并将进程标记为失败。
-该仓库的 81 项 SDK 单元测试、Demo 类型检查、lint、生产构建和 15 项
-Playwright 测试均已分别通过。
+DocLayoutV3 的 GitHub Actions `CI #111 / Validate workspace` 已完整执行
+`pnpm verify` 并通过，用时 3 分 32 秒。本地 Windows 受限环境曾因 `tsup`
+临时文件权限和 Vitest worker RPC 超时无法完整跑完同一命令；对应的 12 项
+示例构建断言、81 项 SDK 单元测试、Demo 类型检查、lint、生产构建和 15 项
+Playwright 测试均已分别通过，且上述环境差异未在干净 Linux CI 中复现。
 
 DocLayoutV3 的标准检查仍有 6 项 required、2 项 recommended 本地缺口；LCNet 仍有 7 项 required、2 项 recommended 本地缺口。两者另有 4 项远程规则被离线检查器标记为 `skip`。这些是已有治理缺口，不由本次 Demo 来源改动引入。
 
