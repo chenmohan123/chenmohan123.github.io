@@ -15,16 +15,16 @@
     "sdk:check:test": "vitest run tools/sdk-standard-check"
   },
   "dependencies": {
-    "@astrojs/react": "4.4.2",
+    "@astrojs/react": "6.0.4",
     "@types/react": "latest",
     "@types/react-dom": "latest",
-    "astro": "5.18.2",
+    "astro": "7.2.8",
     "lucide-react": "latest",
     "react": "latest",
     "react-dom": "latest",
     "tinyglobby": "latest",
     "yaml": "latest",
-    "zod": "3.25.76"
+    "zod": "4.4.3"
   },
   "devDependencies": {
     "@astrojs/check": "latest",
