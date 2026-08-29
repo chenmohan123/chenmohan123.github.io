@@ -1,7 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { readFileSync } from "node:fs";
+import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import path from "node:path";
 import YAML from "yaml";
 import { scanRepository } from "./src/check.mjs";
+import { listFiles } from "./src/files.mjs";
 import { validateManifest } from "./src/manifest.mjs";
 import { summarize, renderJson, renderMarkdown, renderTable } from "./src/report.mjs";
 
@@ -33,6 +36,22 @@ describe("SDK repository discovery", () => {
     const report = await scanRepository(complete);
     expect(report.evidence.paths.every((path: string) => !path.includes(complete))).toBe(true);
     expect(report.evidence.paths).toContain("README.md");
+  });
+
+  it("ignores generated Python and test cache directories", async () => {
+    const root = mkdtempSync(path.join(tmpdir(), "sdk-standard-check-"));
+    try {
+      mkdirSync(path.join(root, ".pytest_cache"), { recursive: true });
+      mkdirSync(path.join(root, "__pycache__"), { recursive: true });
+      mkdirSync(path.join(root, "src"), { recursive: true });
+      writeFileSync(path.join(root, ".pytest_cache", "state"), "cache");
+      writeFileSync(path.join(root, "__pycache__", "module.pyc"), "cache");
+      writeFileSync(path.join(root, "src", "index.ts"), "export {};");
+
+      expect(await listFiles(root)).toEqual(["src/index.ts"]);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
   });
 
   it("reports missing evidence without throwing for an old SDK", async () => {

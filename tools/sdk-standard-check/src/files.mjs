@@ -1,7 +1,30 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 
-const ignoredDirectories = new Set([".git", "node_modules", "dist", "build", ".astro", ".pnpm-store", "coverage", "test-results"]);
+// 忽略依赖、构建、测试和 Python 环境生成的目录；这些目录不提供标准证据。
+const ignoredDirectories = new Set([
+  ".git",
+  "node_modules",
+  "dist",
+  "build",
+  ".astro",
+  ".pnpm-store",
+  "coverage",
+  "test-results",
+  ".pytest_cache",
+  "__pycache__",
+  ".mypy_cache",
+  ".ruff_cache",
+  ".tox",
+  ".nox",
+  ".venv",
+  "venv",
+  "work",
+]);
+
+function isIgnoredDirectory(name) {
+  return ignoredDirectories.has(name) || /^pytest-/i.test(name);
+}
 
 export async function exists(filePath) {
   try {
@@ -38,7 +61,7 @@ export async function listFiles(root) {
   async function visit(directory) {
     const entries = await fs.readdir(directory, { withFileTypes: true });
     for (const entry of entries) {
-      if (entry.isDirectory() && ignoredDirectories.has(entry.name)) continue;
+      if (entry.isDirectory() && isIgnoredDirectory(entry.name)) continue;
       const absolute = path.join(directory, entry.name);
       if (entry.isDirectory()) await visit(absolute);
       else files.push(path.relative(root, absolute).replaceAll(path.sep, "/"));
