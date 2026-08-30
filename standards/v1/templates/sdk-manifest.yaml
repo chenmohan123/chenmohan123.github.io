@@ -27,12 +27,30 @@ model:
   precision: [fp32]
   source: Upstream model repository or release URL
   license: Apache-2.0
+  defaultVariant: fp32
+  defaultSource: git-lfs
   assets:
     - id: fp32
       bytes: 1000000
       precision: fp32
       url: https://cdn.example.com/example-model.onnx
       sha256: "0000000000000000000000000000000000000000000000000000000000000000"
+  variants:
+    - id: fp32
+      precision: fp32
+      quantization: null
+      opset: 17
+      bytes: 1000000
+      parameterCount: null
+      backends: [wasm]
+      sources:
+        - kind: git-lfs
+          repository: https://github.com/owner/web-sdk-example-model
+          revision: "0123456789abcdef0123456789abcdef01234567"
+          path: models/example.onnx
+          downloadUrl: https://github.com/owner/web-sdk-example-model/raw/v0.1.0/models/example.onnx
+          bytes: 1000000
+          sha256: "0000000000000000000000000000000000000000000000000000000000000000"
 performance:
   timings: [modelDownloadMs, modelCacheReadMs, integrityMs, sessionMs, preprocessMs, inferenceMs, postprocessMs, totalMs]
   coldStartDefined: true

@@ -25,3 +25,10 @@ an explicit option and the result reports both requested and actual backend.
 
 The manifest is the source of truth for model identity, version, assets,
 precision, format, checksum, input/output contract, and verification matrix.
+
+模型清单兼容旧版必填的 `model.assets`，并可用 `model.variants[]` 描述同一
+模型的 FP32、FP16、INT8 等精度或量化变体。变体必须声明 `id`、`precision`、
+`quantization`、`opset`、文件大小、参数量、`wasm`/`webgpu` 后端及一个或多个
+来源。来源的 `kind` 只能是 `git-lfs`、`huggingface`、`modelscope`、`custom`，
+且必须使用 40 至 64 位十六进制不可变 revision、含主机的 HTTP(S) 下载地址、文件大小和 SHA-256；显式来源失败时
+不得自动换源，只有 `auto` 策略可以按清单尝试。Git LFS pointer 不是模型本体。
