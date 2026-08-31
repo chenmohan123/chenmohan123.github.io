@@ -1,0 +1,35 @@
+id: pp-detection
+name: PaddleDetection PicoDet-L-320
+brand: baidu
+task: detection
+status: available
+summary: 在浏览器本地运行 PaddleDetection PicoDet-L-320 目标检测，支持图片、摄像头和视频帧。
+repository: https://github.com/chenmohan123/web-sdk-PP-Detection
+license: Apache-2.0
+package:
+  name: web-sdk-pp-detection
+  version: 0.1.0
+demo:
+  url: https://chenmohan123.github.io/web-sdk-PP-Detection/
+  localProcessing: true
+runtime:
+  backends:
+    - { name: wasm, status: stable }
+    - { name: webgpu, status: stable }
+  capabilities: [worker, checksum, model-cache, image, camera, video, multi-source, fp32]
+  verifiedEnvironments:
+    - { browser: Chromium 151, os: Linux, device: CPU, testedAt: 2026-08-27 }
+    - { browser: Chromium 151, os: Windows 10, device: NVIDIA Blackwell, testedAt: 2026-08-27 }
+io:
+  input: [Blob, Canvas, CanvasImageSource, ImageBitmap, HTMLVideoElement, VideoFrame]
+  output: [bounding boxes, labels, scores]
+assets:
+  - id: fp32
+    precision: fp32
+    bytes: 23243834
+    url: https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/b089403d908b40f28e56e4c0330c3c8b6e71183f/1.0.1/picodet-l-320-fp32.onnx
+    sha256: 0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1
+limitations:
+  - FP16、INT8、INT4 和 FP8 尚未达到稳定发布门槛，本目录仅登记 FP32 变体。
+  - 移动端浏览器和微信 WebView 尚未完成本版本的独立验证；微信原生小程序不支持 JavaScript/WASM runtime。
+  - 多线程 WASM 依赖跨域隔离（COOP/COEP）；未满足时应使用单线程模式。
