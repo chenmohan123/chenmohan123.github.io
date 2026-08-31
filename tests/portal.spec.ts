@@ -22,7 +22,7 @@ test('PaddleDetection detail exposes package, repository, asset, and live demo',
   await expect(page.getByRole('link', { name: 'GitHub 仓库' })).toHaveAttribute('href', 'https://github.com/chenmohan123/web-sdk-PP-Detection');
   await expect(page.getByRole('link', { name: 'npm 包' })).toHaveAttribute('href', 'https://www.npmjs.com/package/web-sdk-pp-detection');
   await expect(page.getByRole('link', { name: '打开在线 Demo' })).toHaveAttribute('href', 'https://chenmohan123.github.io/web-sdk-PP-Detection/');
-  await expect(page.getByText('web-sdk-pp-detection@0.1.0')).toBeVisible();
+  await expect(page.getByText('web-sdk-pp-detection@0.1.1')).toBeVisible();
   await expect(page.getByText('22.17 MiB')).toBeVisible();
 });
 

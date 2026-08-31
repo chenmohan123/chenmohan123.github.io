@@ -8,7 +8,7 @@ repository: https://github.com/chenmohan123/web-sdk-PP-Detection
 license: Apache-2.0
 package:
   name: web-sdk-pp-detection
-  version: 0.1.0
+  version: 0.1.1
 demo:
   url: https://chenmohan123.github.io/web-sdk-PP-Detection/
   localProcessing: true
