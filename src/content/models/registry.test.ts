@@ -16,7 +16,7 @@ describe('model registry', () => {
     const value = parse(readFileSync('src/content/models/pp-detection.yaml', 'utf8'));
     const model = modelSchema.parse(value);
     expect(model.task).toBe('detection');
-    expect(model.package).toEqual({ name: 'web-sdk-pp-detection', version: '0.1.0' });
+    expect(model.package).toEqual({ name: 'web-sdk-pp-detection', version: '0.1.1' });
     expect(model.repository).toBe('https://github.com/chenmohan123/web-sdk-PP-Detection');
     expect(model.demo.url).toBe('https://chenmohan123.github.io/web-sdk-PP-Detection/');
     expect(model.runtime.backends.map((backend) => backend.name)).toEqual(expect.arrayContaining(['wasm', 'webgpu']));
