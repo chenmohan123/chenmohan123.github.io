@@ -5,3 +5,8 @@ playwright-report/
 test-results/
 .worktrees/
 .pnpm-store/
+.tmp/
+work/
+_tmp.txt
+packages/sdk/tests/fixtures/model-output-reference.json
+reports/sdk-standard/pp-detection-*.json

@@ -45,7 +45,7 @@ describe("SDK repository discovery", () => {
         errors: [],
       });
       expect(evidence.examples).toContain("vite");
-      expect(evidence.evidenceByKey["example.vite"]).toContain("examples/vanilla-vite/index.html");
+      expect((evidence.evidenceByKey as Record<string, string[]>)["example.vite"]).toContain("examples/vanilla-vite/index.html");
     } finally {
       rmSync(root, { recursive: true, force: true });
     }

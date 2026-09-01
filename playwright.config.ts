@@ -7,7 +7,10 @@ export default defineConfig({
     ...devices['Desktop Chrome'],
   },
   webServer: {
-    command: 'pnpm dev --host 127.0.0.1',
+    command: 'node ./node_modules/astro/bin/astro.mjs dev --host 127.0.0.1',
+    env: {
+      ASTRO_DEV_BACKGROUND: '0',
+    },
     port: 4321,
     reuseExistingServer: !process.env.CI,
   },
