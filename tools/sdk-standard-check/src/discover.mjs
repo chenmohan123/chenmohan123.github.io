@@ -66,8 +66,13 @@ export async function discoverRepository(root, manifest) {
   if (files.some((file) => /^\.github\/workflows\/ci\.(?:yml|yaml)$/i.test(file))) { evidence.ciWorkflow = true; addEvidence(evidence, "ciWorkflow", files.find((file) => /^\.github\/workflows\/ci\.(?:yml|yaml)$/i.test(file))); }
   if (files.some((file) => /^\.github\/workflows\/(?:release|publish)\.(?:yml|yaml)$/i.test(file))) { evidence.releaseWorkflow = true; addEvidence(evidence, "releaseWorkflow", files.find((file) => /^\.github\/workflows\/(?:release|publish)\.(?:yml|yaml)$/i.test(file))); }
   if (files.some((file) => /(^|\/)ui-tokens\.json$/i.test(file)) || /ui-tokens|--sdk-color|--color-action/i.test(joined)) { evidence.uiTokens = true; addEvidence(evidence, "uiTokens", "standards/v1/ui-tokens.json"); }
-  for (const surface of ["vanilla", "react", "vue", "cdn", "vite", "wechat-web-view"]) {
-    const match = files.find((file) => new RegExp(`^examples/${surface}(?:/|$)`, "i").test(file));
+  const exampleDirectories = {
+    vanilla: ["vanilla"], react: ["react"], vue: ["vue"], cdn: ["cdn"],
+    // 清单保持 `vite` 表面名称，同时兼容已有 SDK 使用的 `vanilla-vite` 目录。
+    vite: ["vite", "vanilla-vite"], "wechat-web-view": ["wechat-web-view", "wechat-webview"],
+  };
+  for (const [surface, directories] of Object.entries(exampleDirectories)) {
+    const match = files.find((file) => directories.some((directory) => new RegExp(`^examples/${directory}(?:/|$)`, "i").test(file)));
     if (match) { evidence.examples.push(surface === "wechat-web-view" ? "wechatWebView" : surface); addEvidence(evidence, `example.${surface}`, match); }
   }
   evidence.locales = [...new Set(evidence.locales)];

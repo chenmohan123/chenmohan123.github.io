@@ -4,6 +4,7 @@ import { tmpdir } from "node:os";
 import path from "node:path";
 import YAML from "yaml";
 import { scanRepository } from "./src/check.mjs";
+import { discoverRepository } from "./src/discover.mjs";
 import { listFiles } from "./src/files.mjs";
 import { validateManifest } from "./src/manifest.mjs";
 import { summarize, renderJson, renderMarkdown, renderTable } from "./src/report.mjs";
@@ -30,6 +31,24 @@ describe("SDK repository discovery", () => {
     expect(report.evidence.examples).toEqual(expect.arrayContaining(["vanilla", "react"]));
     expect(report.evidence.releaseWorkflow).toBe(true);
     expect(report.evidence.manifestDeclared).toBe(true);
+  });
+
+  it("将 vanilla-vite 目录映射到清单的 vite 表面", async () => {
+    const root = mkdtempSync(path.join(tmpdir(), "sdk-standard-vite-example-"));
+    try {
+      mkdirSync(path.join(root, "examples", "vanilla-vite"), { recursive: true });
+      writeFileSync(path.join(root, "examples", "vanilla-vite", "index.html"), "<!doctype html>");
+      const evidence = await discoverRepository(root, {
+        declared: true,
+        path: "sdk-manifest.yaml",
+        value: { examples: { vite: { status: "available" } } },
+        errors: [],
+      });
+      expect(evidence.examples).toContain("vite");
+      expect((evidence.evidenceByKey as Record<string, string[]>)["example.vite"]).toContain("examples/vanilla-vite/index.html");
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
   });
 
   it("keeps evidence paths relative to the scanned repository", async () => {
