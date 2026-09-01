@@ -27,7 +27,7 @@ assets:
   - id: fp32
     precision: fp32
     bytes: 23243834
-    url: https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/b089403d908b40f28e56e4c0330c3c8b6e71183f/1.0.1/picodet-l-320-fp32.onnx
+    url: https://huggingface.co/chenmohan/web-sdk-pp-detection/resolve/main/picodet-l-320-fp32.onnx?v=1.0.1
     sha256: 0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1
 limitations:
   - FP16、INT8、INT4 和 FP8 尚未达到稳定发布门槛，本目录仅登记 FP32 变体。

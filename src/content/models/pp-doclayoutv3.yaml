@@ -25,12 +25,12 @@ assets:
   - id: fp16
     precision: fp16
     bytes: 74279796
-    url: https://chenmohan123.github.io/web-sdk-PP-DocLayoutV3/models/v1.0.2/model-fp16.onnx
+    url: https://chenmohan123.github.io/web-sdk-PP-DocLayoutV3/models/model-fp16.onnx
     sha256: 463ba56faa555baf84271b4002b33b0c5fcc50776fe4f39344235eccb72073f2
   - id: fp32
     precision: fp32
     bytes: 142574928
-    url: https://chenmohan123.github.io/web-sdk-PP-DocLayoutV3/models/v1.0.2/model-fp32.onnx
+    url: https://chenmohan123.github.io/web-sdk-PP-DocLayoutV3/models/model-fp32.onnx
     sha256: 476da6d3892bc6211ec90f53df1f68722626b3cf67af77d1c75bd0bd2ee8d269
 limitations:
   - Multithreaded WASM depends on cross-origin isolation; the default GitHub Pages host may run single-threaded.
