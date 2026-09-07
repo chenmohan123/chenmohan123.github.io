@@ -1,0 +1,34 @@
+id: pp-lcnet-x1-0-doc-ori
+name: PP-LCNet_x1_0_doc_ori
+brand: baidu
+task: image-correction
+status: available
+summary: 在浏览器本地检测文档图片的 0°、90°、180° 和 270° 朝向，提供纠正角度、运行耗时与模型缓存管理。
+repository: https://github.com/chenmohan123/web-sdk-PP-LCNet_x1_0_doc_ori
+license: Apache-2.0
+package:
+  name: web-sdk-pp-lcnet-x1-0-doc-ori
+  version: 0.2.0
+demo:
+  url: https://chenmohan123.github.io/web-sdk-PP-LCNet_x1_0_doc_ori/
+  localProcessing: true
+runtime:
+  backends:
+    - { name: wasm, status: stable }
+    - { name: webgpu, status: experimental }
+  capabilities: [worker, checksum, model-cache, scoped-cache-clear, cache-estimate, exif, multi-source, fp32]
+  verifiedEnvironments: []
+io:
+  input: [Blob, File, ImageBitmap, HTMLCanvasElement, OffscreenCanvas]
+  output: [orientation, correctionAngle, probabilities, timings]
+assets:
+  - id: official-fp32
+    precision: fp32
+    bytes: 6788069
+    url: https://chenmohan123.github.io/web-sdk-PP-LCNet_x1_0_doc_ori/models/inference.onnx
+    sha256: af9a0a4f317ff0709ce752067807f819cb15d883f8ecad89f28df1c6ee2d9c92
+limitations:
+  - 本次验证覆盖 Windows 无头 Chromium 的 WASM 推理；移动视口模拟不代表实体手机验证。
+  - WebGPU 为显式可选后端，本次环境未提供适配器，尚无本版本的真实 GPU 验证记录。
+  - 清理缓存不会释放调用方持有的推理会话；跨标签页并发任务需由宿主协调。
+  - 默认使用 ModelScope，另可选择 Hugging Face；显式所选来源失败不会静默换源。

@@ -1,0 +1,460 @@
+{
+  "verifiedAt": "2026-09-07T14:01:26.2454260Z",
+  "scope": "两 SDK 本次发布的 PR、main/tag Ruleset、Pages、npm 与来源证明；门户上线在合并后另行核验。",
+  "records": [
+    {
+      "repository": "web-sdk-PP-DocLayoutV3",
+      "pullRequest": {
+        "mergedAt": "2026-09-07T13:41:42Z",
+        "url": "https://github.com/chenmohan123/web-sdk-PP-DocLayoutV3/pull/41",
+        "commit": "b4c10c2c3914cc3399b1851f0926910fe777b4f8"
+      },
+      "mainRule": {
+        "id": 20787243,
+        "name": "Protect main",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "chenmohan123/web-sdk-PP-DocLayoutV3",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": false,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": true,
+              "allowed_merge_methods": [
+                "merge",
+                "squash",
+                "rebase"
+              ]
+            }
+          },
+          {
+            "type": "required_status_checks",
+            "parameters": {
+              "strict_required_status_checks_policy": true,
+              "do_not_enforce_on_create": false,
+              "required_status_checks": [
+                {
+                  "context": "Validate workspace",
+                  "integration_id": 15368
+                },
+                {
+                  "context": "Browser WASM and package smoke",
+                  "integration_id": 15368
+                }
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5PTrPjzgE9MCs",
+        "created_at": "2026-08-13T16:23:08.809+08:00",
+        "updated_at": "2026-08-13T16:23:08.872+08:00",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/chenmohan123/web-sdk-PP-DocLayoutV3/rulesets/20787243"
+          },
+          "html": {
+            "href": "https://github.com/chenmohan123/web-sdk-PP-DocLayoutV3/rules/20787243"
+          }
+        }
+      },
+      "tagRule": {
+        "id": 21227862,
+        "name": "Protect release tags",
+        "target": "tag",
+        "source_type": "Repository",
+        "source": "chenmohan123/web-sdk-PP-DocLayoutV3",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "refs/tags/v*"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "update"
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5PTrPjzgFD6VY",
+        "created_at": "2026-08-23T15:03:36.693+08:00",
+        "updated_at": "2026-08-23T15:03:36.712+08:00",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/chenmohan123/web-sdk-PP-DocLayoutV3/rulesets/21227862"
+          },
+          "html": {
+            "href": "https://github.com/chenmohan123/web-sdk-PP-DocLayoutV3/rules/21227862"
+          }
+        }
+      },
+      "pages": {
+        "url": "https://api.github.com/repos/chenmohan123/web-sdk-PP-DocLayoutV3/pages",
+        "status": null,
+        "cname": null,
+        "custom_404": false,
+        "html_url": "https://chenmohan123.github.io/web-sdk-PP-DocLayoutV3/",
+        "build_type": "workflow",
+        "source": {
+          "branch": "main",
+          "path": "/"
+        },
+        "public": true,
+        "protected_domain_state": null,
+        "pending_domain_unverified_at": null,
+        "https_enforced": true
+      },
+      "pagesRun": {
+        "id": 34128828963,
+        "url": "https://github.com/chenmohan123/web-sdk-PP-DocLayoutV3/actions/runs/34128828963",
+        "commit": "b4c10c2c3914cc3399b1851f0926910fe777b4f8",
+        "conclusion": "success"
+      },
+      "npmRun": {
+        "publishStep": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v7",
+            "conclusion": "success"
+          },
+          {
+            "name": "Require the release tag to be on main",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run pnpm/action-setup@v6",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-node@v7",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run pnpm install --frozen-lockfile",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run pnpm exec playwright install --with-deps chromium",
+            "conclusion": "success"
+          },
+          {
+            "name": "Verify tag, package, models, workspace, and packed package",
+            "conclusion": "success"
+          },
+          {
+            "name": "Publish with npm provenance",
+            "conclusion": "success"
+          },
+          {
+            "name": "Record published integrity",
+            "conclusion": "failure"
+          },
+          {
+            "name": "Post Run actions/setup-node@v7",
+            "conclusion": "skipped"
+          },
+          {
+            "name": "Post Run pnpm/action-setup@v6",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v7",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "conclusion": "success"
+          }
+        ],
+        "commit": "b4c10c2c3914cc3399b1851f0926910fe777b4f8",
+        "url": "https://github.com/chenmohan123/web-sdk-PP-DocLayoutV3/actions/runs/34129623612",
+        "id": 34129623612,
+        "conclusion": "failure"
+      },
+      "npm": {
+        "verifiedAt": "2026-09-07T14:00:21.6571184Z",
+        "package": "web-sdk-pp-doclayoutv3",
+        "version": "1.2.0",
+        "integrity": "sha512-77VmiSuTrqWkeUdO9jt7OvKuW5x2Pc+UV2ve/xCNVkCgycsK/Lg+0rNHdsf7yYGN+T9rs6bBbhp0tboH93XrQA==",
+        "attestationUrl": "https://registry.npmjs.org/-/npm/v1/attestations/web-sdk-pp-doclayoutv3@1.2.0",
+        "workflow": {
+          "ref": "refs/tags/v1.2.0",
+          "repository": "https://github.com/chenmohan123/web-sdk-PP-DocLayoutV3",
+          "path": ".github/workflows/release.yml"
+        },
+        "commit": "b4c10c2c3914cc3399b1851f0926910fe777b4f8",
+        "invocation": "https://github.com/chenmohan123/web-sdk-PP-DocLayoutV3/actions/runs/34129623612/attempts/1"
+      },
+      "release": {
+        "status": "待创建，中文发布说明已准备",
+        "notes": "https://github.com/chenmohan123/web-sdk-PP-DocLayoutV3/blob/v1.2.0/docs/releases/1.2.0.md"
+      }
+    },
+    {
+      "repository": "web-sdk-PP-LCNet_x1_0_doc_ori",
+      "pullRequest": {
+        "mergedAt": "2026-09-07T13:02:31Z",
+        "url": "https://github.com/chenmohan123/web-sdk-PP-LCNet_x1_0_doc_ori/pull/5",
+        "commit": "0e404877890ab79442f3db43b44aaf726b81e131"
+      },
+      "mainRule": {
+        "id": 21226718,
+        "name": "Protect main",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "chenmohan123/web-sdk-PP-LCNet_x1_0_doc_ori",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": false,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": true,
+              "allowed_merge_methods": [
+                "merge",
+                "squash",
+                "rebase"
+              ]
+            }
+          },
+          {
+            "type": "required_status_checks",
+            "parameters": {
+              "strict_required_status_checks_policy": true,
+              "do_not_enforce_on_create": false,
+              "required_status_checks": [
+                {
+                  "context": "verify",
+                  "integration_id": 15368
+                }
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5QBoONzgFD5N4",
+        "created_at": "2026-08-23T14:14:29.34+08:00",
+        "updated_at": "2026-08-23T15:03:16.484+08:00",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/chenmohan123/web-sdk-PP-LCNet_x1_0_doc_ori/rulesets/21226718"
+          },
+          "html": {
+            "href": "https://github.com/chenmohan123/web-sdk-PP-LCNet_x1_0_doc_ori/rules/21226718"
+          }
+        }
+      },
+      "tagRule": {
+        "id": 21227870,
+        "name": "Protect release tags",
+        "target": "tag",
+        "source_type": "Repository",
+        "source": "chenmohan123/web-sdk-PP-LCNet_x1_0_doc_ori",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "refs/tags/v*"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "update"
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5QBoONzgFD6V4",
+        "created_at": "2026-08-23T15:03:51.483+08:00",
+        "updated_at": "2026-08-23T15:03:51.506+08:00",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/chenmohan123/web-sdk-PP-LCNet_x1_0_doc_ori/rulesets/21227870"
+          },
+          "html": {
+            "href": "https://github.com/chenmohan123/web-sdk-PP-LCNet_x1_0_doc_ori/rules/21227870"
+          }
+        }
+      },
+      "pages": {
+        "url": "https://api.github.com/repos/chenmohan123/web-sdk-PP-LCNet_x1_0_doc_ori/pages",
+        "status": null,
+        "cname": null,
+        "custom_404": false,
+        "html_url": "https://chenmohan123.github.io/web-sdk-PP-LCNet_x1_0_doc_ori/",
+        "build_type": "workflow",
+        "source": {
+          "branch": "main",
+          "path": "/"
+        },
+        "public": true,
+        "protected_domain_state": null,
+        "pending_domain_unverified_at": null,
+        "https_enforced": true
+      },
+      "pagesRun": {
+        "id": 34125160316,
+        "url": "https://github.com/chenmohan123/web-sdk-PP-LCNet_x1_0_doc_ori/actions/runs/34125160316",
+        "commit": "0e404877890ab79442f3db43b44aaf726b81e131",
+        "conclusion": "success"
+      },
+      "npmRun": {
+        "publishStep": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run pnpm/action-setup@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-node@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "校验标签、版本与 main 归属",
+            "conclusion": "success"
+          },
+          {
+            "name": "安装支持可信发布的固定 npm 版本",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run pnpm install --frozen-lockfile",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run pnpm verify",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run pnpm lint",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run pnpm exec playwright install --with-deps chromium",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run pnpm examples:verify",
+            "conclusion": "success"
+          },
+          {
+            "name": "通过 GitHub OIDC 发布并生成来源证明",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-node@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run pnpm/action-setup@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "conclusion": "success"
+          }
+        ],
+        "commit": "0e404877890ab79442f3db43b44aaf726b81e131",
+        "url": "https://github.com/chenmohan123/web-sdk-PP-LCNet_x1_0_doc_ori/actions/runs/34125589719",
+        "id": 34125589719,
+        "conclusion": "success"
+      },
+      "npm": {
+        "verifiedAt": "2026-09-07T13:17:01.763208Z",
+        "package": "web-sdk-pp-lcnet-x1-0-doc-ori",
+        "version": "0.2.0",
+        "integrity": "sha512-3je6yVpdeFCXUBU/DcmoEaaJjIcg+VOKubkKDM5Gh069IKDNeA/DYBGkze+svs3jQGUDREe4lO6YP1yMP1ee5A==",
+        "attestationUrl": "https://registry.npmjs.org/-/npm/v1/attestations/web-sdk-pp-lcnet-x1-0-doc-ori@0.2.0",
+        "workflow": {
+          "ref": "refs/tags/v0.2.0",
+          "repository": "https://github.com/chenmohan123/web-sdk-PP-LCNet_x1_0_doc_ori",
+          "path": ".github/workflows/release.yml"
+        },
+        "commit": "0e404877890ab79442f3db43b44aaf726b81e131",
+        "invocation": "https://github.com/chenmohan123/web-sdk-PP-LCNet_x1_0_doc_ori/actions/runs/34125589719/attempts/1"
+      },
+      "release": {
+        "html_url": "https://github.com/chenmohan123/web-sdk-PP-LCNet_x1_0_doc_ori/releases/tag/v0.2.0",
+        "tag_name": "v0.2.0",
+        "published_at": "2026-09-07T13:11:49Z",
+        "target_commitish": "main"
+      }
+    }
+  ]
+}

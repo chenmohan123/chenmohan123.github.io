@@ -67,13 +67,18 @@ export async function discoverRepository(root, manifest) {
   if (files.some((file) => /^\.github\/workflows\/(?:release|publish)\.(?:yml|yaml)$/i.test(file))) { evidence.releaseWorkflow = true; addEvidence(evidence, "releaseWorkflow", files.find((file) => /^\.github\/workflows\/(?:release|publish)\.(?:yml|yaml)$/i.test(file))); }
   if (files.some((file) => /(^|\/)ui-tokens\.json$/i.test(file)) || /ui-tokens|--sdk-color|--color-action/i.test(joined)) { evidence.uiTokens = true; addEvidence(evidence, "uiTokens", "standards/v1/ui-tokens.json"); }
   const exampleDirectories = {
-    vanilla: ["vanilla"], react: ["react"], vue: ["vue"], cdn: ["cdn"],
+    vanilla: ["vanilla", "vanilla-vite"], react: ["react"], vue: ["vue"], cdn: ["cdn"],
     // 清单保持 `vite` 表面名称，同时兼容已有 SDK 使用的 `vanilla-vite` 目录。
     vite: ["vite", "vanilla-vite"], "wechat-web-view": ["wechat-web-view", "wechat-webview"],
   };
   for (const [surface, directories] of Object.entries(exampleDirectories)) {
     const match = files.find((file) => directories.some((directory) => new RegExp(`^examples/${directory}(?:/|$)`, "i").test(file)));
-    if (match) { evidence.examples.push(surface === "wechat-web-view" ? "wechatWebView" : surface); addEvidence(evidence, `example.${surface}`, match); }
+    if (match) {
+      evidence.examples.push(surface === "wechat-web-view" ? "wechatWebView" : surface);
+      addEvidence(evidence, `example.${surface}`, match);
+      if (surface === "vanilla" || surface === "react") addEvidence(evidence, `${surface}Example`, match);
+      addEvidence(evidence, "declaredExamples", match);
+    }
   }
   evidence.locales = [...new Set(evidence.locales)];
   evidence.paths.sort();

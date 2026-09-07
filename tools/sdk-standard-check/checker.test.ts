@@ -33,7 +33,7 @@ describe("SDK repository discovery", () => {
     expect(report.evidence.manifestDeclared).toBe(true);
   });
 
-  it("将 vanilla-vite 目录映射到清单的 vite 表面", async () => {
+  it("将 vanilla-vite 目录同时识别为 Vanilla 基线和 Vite 示例", async () => {
     const root = mkdtempSync(path.join(tmpdir(), "sdk-standard-vite-example-"));
     try {
       mkdirSync(path.join(root, "examples", "vanilla-vite"), { recursive: true });
@@ -45,7 +45,28 @@ describe("SDK repository discovery", () => {
         errors: [],
       });
       expect(evidence.examples).toContain("vite");
+      expect(evidence.examples).toContain("vanilla");
+      expect((evidence.evidenceByKey as Record<string, string[]>)["example.vanilla"]).toContain("examples/vanilla-vite/index.html");
       expect((evidence.evidenceByKey as Record<string, string[]>)["example.vite"]).toContain("examples/vanilla-vite/index.html");
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it("示例规则报告指向实际示例文件", async () => {
+    const report = await scanRepository(complete);
+    expect(report.findings.find((finding: { id: string }) => finding.id === "EXAMPLE-001")?.path).toBe("examples/vanilla/README.md");
+    expect(report.findings.find((finding: { id: string }) => finding.id === "EXAMPLE-002")?.path).toBe("examples/react/README.md");
+  });
+
+  it("缺少 Vanilla 示例时不会误用其他示例的存在作为证据", async () => {
+    const root = mkdtempSync(path.join(tmpdir(), "sdk-standard-other-example-"));
+    try {
+      mkdirSync(path.join(root, "examples", "react"), { recursive: true });
+      writeFileSync(path.join(root, "examples", "react", "README.md"), "React 示例");
+      const evidence = await discoverRepository(root, { declared: false, errors: [] });
+      expect(evidence.examples).not.toContain("vanilla");
+      expect(evidence.examples).toContain("react");
     } finally {
       rmSync(root, { recursive: true, force: true });
     }
