@@ -3,12 +3,12 @@ name: PP-DocLayoutV3
 brand: baidu
 task: document-layout
 status: available
-summary: Browser-native document layout analysis powered by ONNX Runtime Web with WebGPU and WASM fallback.
+summary: 在浏览器本地识别文档版面、区域与阅读顺序，支持 WebGPU、WASM 及按模型版本管理缓存。
 repository: https://github.com/chenmohan123/web-sdk-PP-DocLayoutV3
 license: Apache-2.0
 package:
   name: web-sdk-pp-doclayoutv3
-  version: 1.1.0
+  version: 1.2.0
 demo:
   url: https://chenmohan123.github.io/web-sdk-PP-DocLayoutV3/
   localProcessing: true
@@ -16,7 +16,7 @@ runtime:
   backends:
     - { name: webgpu, status: stable }
     - { name: wasm, status: fallback }
-  capabilities: [shader-f16, wasm-simd, wasm-threads, worker, checksum, model-cache]
+  capabilities: [shader-f16, wasm-simd, wasm-threads, worker, checksum, model-cache, scoped-cache-clear, cache-estimate]
   verifiedEnvironments: []
 io:
   input: [Blob, CanvasImageSource, ImageBitmap]

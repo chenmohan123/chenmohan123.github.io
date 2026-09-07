@@ -1,0 +1,274 @@
+{
+  "verifiedAt": "2026-09-07T10:43:05Z",
+  "scope": "整改前现有 main/tag Ruleset 与 Pages 设置；未修改远程配置，不代表本轮待提交代码已经部署。",
+  "records": [
+    {
+      "endpoint": "repos/chenmohan123/web-sdk-PP-DocLayoutV3/rulesets/20787243",
+      "response": {
+        "id": 20787243,
+        "name": "Protect main",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "chenmohan123/web-sdk-PP-DocLayoutV3",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": false,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": true,
+              "allowed_merge_methods": [
+                "merge",
+                "squash",
+                "rebase"
+              ]
+            }
+          },
+          {
+            "type": "required_status_checks",
+            "parameters": {
+              "strict_required_status_checks_policy": true,
+              "do_not_enforce_on_create": false,
+              "required_status_checks": [
+                {
+                  "context": "Validate workspace",
+                  "integration_id": 15368
+                },
+                {
+                  "context": "Browser WASM and package smoke",
+                  "integration_id": 15368
+                }
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5PTrPjzgE9MCs",
+        "created_at": "2026-08-13T16:23:08.809+08:00",
+        "updated_at": "2026-08-13T16:23:08.872+08:00",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/chenmohan123/web-sdk-PP-DocLayoutV3/rulesets/20787243"
+          },
+          "html": {
+            "href": "https://github.com/chenmohan123/web-sdk-PP-DocLayoutV3/rules/20787243"
+          }
+        }
+      }
+    },
+    {
+      "endpoint": "repos/chenmohan123/web-sdk-PP-DocLayoutV3/rulesets/21227862",
+      "response": {
+        "id": 21227862,
+        "name": "Protect release tags",
+        "target": "tag",
+        "source_type": "Repository",
+        "source": "chenmohan123/web-sdk-PP-DocLayoutV3",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "refs/tags/v*"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "update"
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5PTrPjzgFD6VY",
+        "created_at": "2026-08-23T15:03:36.693+08:00",
+        "updated_at": "2026-08-23T15:03:36.712+08:00",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/chenmohan123/web-sdk-PP-DocLayoutV3/rulesets/21227862"
+          },
+          "html": {
+            "href": "https://github.com/chenmohan123/web-sdk-PP-DocLayoutV3/rules/21227862"
+          }
+        }
+      }
+    },
+    {
+      "endpoint": "repos/chenmohan123/web-sdk-PP-LCNet_x1_0_doc_ori/rulesets/21226718",
+      "response": {
+        "id": 21226718,
+        "name": "Protect main",
+        "target": "branch",
+        "source_type": "Repository",
+        "source": "chenmohan123/web-sdk-PP-LCNet_x1_0_doc_ori",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "pull_request",
+            "parameters": {
+              "required_approving_review_count": 0,
+              "dismiss_stale_reviews_on_push": false,
+              "required_reviewers": [],
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_review_thread_resolution": true,
+              "require_extra_approval_for_unattributed_changes": true,
+              "allowed_merge_methods": [
+                "merge",
+                "squash",
+                "rebase"
+              ]
+            }
+          },
+          {
+            "type": "required_status_checks",
+            "parameters": {
+              "strict_required_status_checks_policy": true,
+              "do_not_enforce_on_create": false,
+              "required_status_checks": [
+                {
+                  "context": "verify",
+                  "integration_id": 15368
+                }
+              ]
+            }
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5QBoONzgFD5N4",
+        "created_at": "2026-08-23T14:14:29.34+08:00",
+        "updated_at": "2026-08-23T15:03:16.484+08:00",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/chenmohan123/web-sdk-PP-LCNet_x1_0_doc_ori/rulesets/21226718"
+          },
+          "html": {
+            "href": "https://github.com/chenmohan123/web-sdk-PP-LCNet_x1_0_doc_ori/rules/21226718"
+          }
+        }
+      }
+    },
+    {
+      "endpoint": "repos/chenmohan123/web-sdk-PP-LCNet_x1_0_doc_ori/rulesets/21227870",
+      "response": {
+        "id": 21227870,
+        "name": "Protect release tags",
+        "target": "tag",
+        "source_type": "Repository",
+        "source": "chenmohan123/web-sdk-PP-LCNet_x1_0_doc_ori",
+        "enforcement": "active",
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "refs/tags/v*"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "update"
+          }
+        ],
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5QBoONzgFD6V4",
+        "created_at": "2026-08-23T15:03:51.483+08:00",
+        "updated_at": "2026-08-23T15:03:51.506+08:00",
+        "bypass_actors": [],
+        "current_user_can_bypass": "never",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/chenmohan123/web-sdk-PP-LCNet_x1_0_doc_ori/rulesets/21227870"
+          },
+          "html": {
+            "href": "https://github.com/chenmohan123/web-sdk-PP-LCNet_x1_0_doc_ori/rules/21227870"
+          }
+        }
+      }
+    },
+    {
+      "endpoint": "repos/chenmohan123/web-sdk-PP-DocLayoutV3/pages",
+      "response": {
+        "url": "https://api.github.com/repos/chenmohan123/web-sdk-PP-DocLayoutV3/pages",
+        "status": null,
+        "cname": null,
+        "custom_404": false,
+        "html_url": "https://chenmohan123.github.io/web-sdk-PP-DocLayoutV3/",
+        "build_type": "workflow",
+        "source": {
+          "branch": "main",
+          "path": "/"
+        },
+        "public": true,
+        "protected_domain_state": null,
+        "pending_domain_unverified_at": null,
+        "https_enforced": true
+      }
+    },
+    {
+      "endpoint": "repos/chenmohan123/web-sdk-PP-LCNet_x1_0_doc_ori/pages",
+      "response": {
+        "url": "https://api.github.com/repos/chenmohan123/web-sdk-PP-LCNet_x1_0_doc_ori/pages",
+        "status": null,
+        "cname": null,
+        "custom_404": false,
+        "html_url": "https://chenmohan123.github.io/web-sdk-PP-LCNet_x1_0_doc_ori/",
+        "build_type": "workflow",
+        "source": {
+          "branch": "main",
+          "path": "/"
+        },
+        "public": true,
+        "protected_domain_state": null,
+        "pending_domain_unverified_at": null,
+        "https_enforced": true
+      }
+    }
+  ]
+}

@@ -10,7 +10,7 @@ test('homepage exposes the model SDK directory and Models navigation', async ({ 
 test('PP-DocLayoutV3 detail exposes package, assets, and live demo', async ({ page }) => {
   await page.goto('/models/pp-doclayoutv3/');
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('PP-DocLayoutV3');
-  await expect(page.getByText('web-sdk-pp-doclayoutv3@1.1.0')).toBeVisible();
+  await expect(page.getByText('web-sdk-pp-doclayoutv3@1.2.0')).toBeVisible();
   await expect(page.getByRole('link', { name: '打开在线 Demo' })).toHaveAttribute('href', 'https://chenmohan123.github.io/web-sdk-PP-DocLayoutV3/');
   await expect(page.getByText('70.84 MiB')).toBeVisible();
 });
