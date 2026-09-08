@@ -1,0 +1,92 @@
+{
+  "verifiedAt": "2026-09-08T05:59:30.115Z",
+  "integrityAndSourcePassed": true,
+  "signatureVerification": "未执行 Sigstore 签名验证；核对公开 provenance 内容及归档摘要",
+  "records": [
+    {
+      "package": "web-sdk-pp-detection",
+      "version": "0.2.0",
+      "commit": "32b057b825037802ed025f1740409b1529d97fc5",
+      "integrity": "sha512-5z58eNg6mtbLqWQ4MKmnBgidkx7Ik7N0m1lxroC1qjxDknZvgZ/O7AZo0TRpkG3Su8wApf5JGcHvM9/e6EiDig==",
+      "tarballBytes": 1337711,
+      "fileCount": 9,
+      "sourceFilesMatched": [
+        "packages/sdk/src/browser-global.ts",
+        "packages/sdk/src/cache/coordination.ts",
+        "packages/sdk/src/cache/indexeddb-cache.ts",
+        "packages/sdk/src/cache/memory-cache.ts",
+        "packages/sdk/src/cache/model-cache.ts",
+        "packages/sdk/src/detection/decode-output.ts",
+        "packages/sdk/src/detection/detector.ts",
+        "packages/sdk/src/detection/nms.ts",
+        "packages/sdk/src/detection/preprocess.ts",
+        "packages/sdk/src/errors.ts",
+        "packages/sdk/src/index.ts",
+        "packages/sdk/src/input/decode-image.ts",
+        "packages/sdk/src/model/download.ts",
+        "packages/sdk/src/model/integrity.ts",
+        "packages/sdk/src/model/manifest.ts",
+        "packages/sdk/src/model/model-manager.ts",
+        "packages/sdk/src/model/public-manifest.ts",
+        "packages/sdk/src/model/source-resolver.ts",
+        "packages/sdk/src/runtime/capabilities.ts",
+        "packages/sdk/src/runtime/inference.worker.ts",
+        "packages/sdk/src/runtime/ort-session.ts",
+        "packages/sdk/src/runtime/protocol.ts",
+        "packages/sdk/src/runtime/select-plan.ts",
+        "packages/sdk/src/runtime/worker-bridge.ts"
+      ],
+      "provenanceWorkflow": {
+        "ref": "refs/tags/v0.2.0",
+        "repository": "https://github.com/chenmohan123/web-sdk-PP-Detection",
+        "path": ".github/workflows/release.yml"
+      },
+      "provenanceRun": "https://github.com/chenmohan123/web-sdk-PP-Detection/actions/runs/34191507994/attempts/1"
+    },
+    {
+      "package": "web-sdk-pp-ocrv6",
+      "version": "0.2.0",
+      "commit": "ccecf95adcd18517c802828b45577c3c5985623c",
+      "integrity": "sha512-UUzUyHXNg1yGpbgw/DjF3O0bQaRQG0pcDWoOyCM1C6W5q/C+MJYTuIPHkMyedTYvRfIdvJmu/EsN3LypLmcO8g==",
+      "tarballBytes": 171352,
+      "fileCount": 11,
+      "sourceFilesMatched": [
+        "packages/sdk/src/cache/coordinator.ts",
+        "packages/sdk/src/cache/indexeddb-cache.ts",
+        "packages/sdk/src/cache/memory-cache.ts",
+        "packages/sdk/src/detector/decode.ts",
+        "packages/sdk/src/detector/detector.ts",
+        "packages/sdk/src/detector/postprocess.ts",
+        "packages/sdk/src/detector/preprocess.ts",
+        "packages/sdk/src/detector/reading-order.ts",
+        "packages/sdk/src/errors.ts",
+        "packages/sdk/src/factory.ts",
+        "packages/sdk/src/inference.worker.ts",
+        "packages/sdk/src/model/download.ts",
+        "packages/sdk/src/model/integrity.ts",
+        "packages/sdk/src/model/manifest.ts",
+        "packages/sdk/src/model/model-manager.ts",
+        "packages/sdk/src/pipeline/ocr.ts",
+        "packages/sdk/src/progress.ts",
+        "packages/sdk/src/recognizer/crop.ts",
+        "packages/sdk/src/recognizer/decode.ts",
+        "packages/sdk/src/recognizer/dictionary.ts",
+        "packages/sdk/src/recognizer/preprocess.ts",
+        "packages/sdk/src/recognizer/recognizer.ts",
+        "packages/sdk/src/runtime/capabilities.ts",
+        "packages/sdk/src/runtime/executor.ts",
+        "packages/sdk/src/runtime/ort-session.ts",
+        "packages/sdk/src/runtime/protocol.ts",
+        "packages/sdk/src/runtime/select-plan.ts",
+        "packages/sdk/src/runtime/worker-bridge.ts",
+        "packages/sdk/src/timing.ts"
+      ],
+      "provenanceWorkflow": {
+        "ref": "refs/tags/v0.2.0",
+        "repository": "https://github.com/chenmohan123/web-sdk-PP-OCRv6",
+        "path": ".github/workflows/release.yml"
+      },
+      "provenanceRun": "https://github.com/chenmohan123/web-sdk-PP-OCRv6/actions/runs/34191528481/attempts/1"
+    }
+  ]
+}
