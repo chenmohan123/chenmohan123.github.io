@@ -31,8 +31,9 @@ Draft 2020-12 schema，保留既有 HTTP 地址、必需耗时和缓存能力检
 
 四库原有 manifest 均通过完整 schema，无需为了本次扫描修改声明。
 报告状态为 `locally-compliant`。这是静态声明与文件证据核验，不代表重新
-完成所有推理、浏览器、网络或远程治理验收。既有运行验证见
-[运行时修复记录](../2026-09-08-runtime-performance/README.md)。
+完成所有推理、浏览器、网络或远程治理验收。既有运行验证见已合并的
+[Detection PR #25](https://github.com/chenmohan123/web-sdk-PP-Detection/pull/25)
+与 [OCR PR #18](https://github.com/chenmohan123/web-sdk-PP-OCRv6/pull/18)。
 
 ## 门户验证
 
