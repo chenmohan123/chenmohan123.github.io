@@ -1,0 +1,47 @@
+{
+  "version": "3.1.6",
+  "results": [
+    {
+      "name": "编码协议",
+      "expected": "%2f%2fevil.example:/pwn",
+      "actual": "%2f%2fevil.example:/pwn",
+      "pass": true
+    },
+    {
+      "name": "Unicode 编码协议",
+      "expected": "%u002f%u002fevil.example:/pwn",
+      "actual": "%u002f%u002fevil.example:/pwn",
+      "pass": true
+    },
+    {
+      "name": "错误 IPv6",
+      "expected": "http://[::not-valid]/private",
+      "actual": "http://[::not-valid]/private",
+      "pass": true
+    },
+    {
+      "name": "重复解码",
+      "expected": "https://127%252e0%252e0%252e1/private",
+      "actual": "https://127%252e0%252e0%252e1/private",
+      "pass": true
+    },
+    {
+      "name": "相对 IDN",
+      "expected": "http://127.0.0.1/private",
+      "actual": "http://127.0.0.1/private",
+      "pass": true
+    },
+    {
+      "name": "正常 HTTP 路径",
+      "expected": "https://example.com/b?x=1",
+      "actual": "https://example.com/b?x=1",
+      "pass": true
+    },
+    {
+      "name": "正常 Schema 引用",
+      "expected": "https://example.com/schema/root.json#/$defs/model",
+      "actual": "https://example.com/schema/root.json#/$defs/model",
+      "pass": true
+    }
+  ]
+}
