@@ -1,12 +1,48 @@
 import path from "node:path";
 import fs from "node:fs/promises";
+import { readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+import Ajv2020 from "ajv/dist/2020.js";
+import addFormats from "ajv-formats";
 import YAML from "yaml";
 
-const semver = /^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$/;
-const sha256 = /^[a-fA-F0-9]{64}$/;
-const sourceKinds = new Set(["git-lfs", "huggingface", "modelscope", "custom"]);
-const backends = new Set(["wasm", "webgpu"]);
-const immutableRevision = /^[a-fA-F0-9]{40,64}$/;
+const defaultStandardRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../../../standards/v1");
+const validators = new Map();
+
+function schemaValidator(standardRoot = defaultStandardRoot) {
+  const schemaPath = path.resolve(standardRoot, "sdk-manifest.schema.json");
+  let validate = validators.get(schemaPath);
+  if (!validate) {
+    const schema = JSON.parse(readFileSync(schemaPath, "utf8"));
+    const ajv = new Ajv2020({ allErrors: true, strict: true });
+    addFormats(ajv);
+    validate = ajv.compile(schema);
+    validators.set(schemaPath, validate);
+  }
+  return validate;
+}
+
+function pointerSegment(value) {
+  return String(value).replaceAll("~", "~0").replaceAll("/", "~1");
+}
+
+function describeSchemaError(error) {
+  const property = error.params.missingProperty ?? error.params.additionalProperty;
+  const field = `${error.instancePath}${property === undefined ? "" : `/${pointerSegment(property)}`}` || "/";
+  const descriptions = {
+    required: "缺少必填字段",
+    additionalProperties: "不允许此字段",
+    type: `类型必须为 ${error.params.type}`,
+    enum: `必须是 ${JSON.stringify(error.params.allowedValues)} 中的值`,
+    const: `必须为 ${JSON.stringify(error.params.allowedValue)}`,
+    format: `必须符合 ${error.params.format} 格式`,
+    pattern: "不符合标准规定的格式",
+    minLength: `长度不能小于 ${error.params.limit}`,
+    minItems: `至少包含 ${error.params.limit} 项`,
+    minimum: `数值不能小于 ${error.params.limit}`,
+  };
+  return `${field}：${descriptions[error.keyword] ?? `不符合 ${error.keyword} 约束`}`;
+}
 
 function isHttpUrlWithHost(value) {
   try {
@@ -17,80 +53,49 @@ function isHttpUrlWithHost(value) {
   }
 }
 
-export async function loadManifest(root) {
+export async function loadManifest(root, options = {}) {
   const candidates = ["sdk-manifest.yaml", "sdk-manifest.yml", "standards/sdk-manifest.yaml"];
   for (const relativePath of candidates) {
+    let source;
     try {
-      const source = await fs.readFile(path.join(root, relativePath), "utf8");
-      let value;
-      try {
-        value = YAML.parse(source);
-      } catch (error) {
-        return { declared: true, path: relativePath, value: null, errors: [`YAML parse failed: ${error.message}`] };
-      }
-      return { declared: true, path: relativePath, value, errors: validateManifest(value) };
+      source = await fs.readFile(path.join(root, relativePath), "utf8");
     } catch (error) {
-      if (error?.code !== "ENOENT") return { declared: true, path: relativePath, value: null, errors: [error.message] };
+      if (error?.code === "ENOENT") continue;
+      return { declared: true, path: relativePath, value: null, errors: [`无法读取清单：${error.message}`] };
     }
+    let value;
+    try {
+      value = YAML.parse(source);
+    } catch (error) {
+      return { declared: true, path: relativePath, value: null, errors: [`YAML 解析失败：${error.message}`] };
+    }
+    // 标准自身损坏应上报检查器错误，不伪装成被扫描仓库的清单问题。
+    return { declared: true, path: relativePath, value, errors: validateManifest(value, options) };
   }
   return { declared: false, path: undefined, value: null, errors: [] };
 }
 
-export function validateManifest(value) {
-  /** @type {string[]} */
+export function validateManifest(value, options = {}) {
+  const validate = schemaValidator(options.standardRoot);
+  if (!validate(value)) return validate.errors.map(describeSchemaError);
+
+  // 完整 schema 确认类型后，保留既有契约的 HTTP、必需耗时和缓存能力检查。
   const errors = [];
-  if (!value || typeof value !== "object" || Array.isArray(value)) return ["Manifest must be an object"];
-  const required = ["schemaVersion", "id", "name", "summary", "package", "repository", "demo", "docs", "runtime", "model", "performance", "cache", "examples", "verification"];
-  for (const key of required) if (!(key in value)) errors.push(`Missing ${key}`);
-  if (!["1.0.0", "1.1.0"].includes(value.schemaVersion)) errors.push("schemaVersion must be 1.0.0 or 1.1.0");
-  if (typeof value.id !== "string" || !/^[a-z0-9][a-z0-9-]*$/.test(value.id)) errors.push("id must be kebab-case");
-  if (typeof value.summary !== "string" || value.summary.length < 20) errors.push("summary must contain at least 20 characters");
-  if (!value.package || typeof value.package !== "object") errors.push("package must be an object");
-  else {
-    if (typeof value.package.name !== "string" || value.package.name.length === 0) errors.push("package.name is required");
-    if (typeof value.package.version !== "string" || !semver.test(value.package.version)) errors.push("package.version must be semver");
+  if (!isHttpUrlWithHost(value.repository)) errors.push("/repository：必须是含主机的 HTTP(S) 地址");
+  for (const [index, asset] of value.model.assets.entries()) {
+    if (!isHttpUrlWithHost(asset.url)) errors.push(`/model/assets/${index}/url：必须是含主机的 HTTP(S) 地址`);
   }
-  if (typeof value.repository !== "string" || !isHttpUrlWithHost(value.repository)) errors.push("repository must be an http URL");
-  if (!value.demo || value.demo.defaultLanguage !== "zh-CN" || typeof value.demo.url !== "string") errors.push("demo must declare a URL and zh-CN defaultLanguage");
-  if (!value.docs || typeof value.docs.zhCN !== "string" || typeof value.docs.en !== "string") errors.push("docs.zhCN and docs.en are required");
-  if (!value.runtime || !Array.isArray(value.runtime.backends) || value.runtime.backends.length === 0 || !Array.isArray(value.runtime.executionModes)) errors.push("runtime backends and executionModes are required");
-  if (!value.model || !Array.isArray(value.model.assets) || value.model.assets.length === 0) errors.push("model assets are required");
-  for (const asset of value.model?.assets ?? []) {
-    if (!Number.isInteger(asset.bytes) || asset.bytes <= 0) errors.push(`asset ${asset.id ?? "unknown"} bytes must be positive`);
-    if (typeof asset.sha256 !== "string" || !sha256.test(asset.sha256)) errors.push(`asset ${asset.id ?? "unknown"} sha256 must be 64 hex characters`);
-    if (typeof asset.url !== "string" || !/^https?:\/\//.test(asset.url)) errors.push(`asset ${asset.id ?? "unknown"} url must be an http URL`);
-  }
-  if (value.model && typeof value.model === "object") {
-    if (value.model.defaultVariant !== undefined && (typeof value.model.defaultVariant !== "string" || value.model.defaultVariant.length === 0)) errors.push("model.defaultVariant must be a non-empty string");
-    if (value.model.defaultSource !== undefined && !sourceKinds.has(value.model.defaultSource)) errors.push("model.defaultSource must be a supported source kind");
-    if (value.model.variants !== undefined && !Array.isArray(value.model.variants)) errors.push("model.variants must be an array");
-    for (const variant of Array.isArray(value.model.variants) ? value.model.variants : []) {
-      const label = variant?.id ?? "unknown";
-      if (!variant || typeof variant !== "object") { errors.push("model variant must be an object"); continue; }
-      if (typeof variant.id !== "string" || variant.id.length === 0) errors.push("model variant id is required");
-      if (typeof variant.precision !== "string" || variant.precision.length === 0) errors.push(`variant ${label} precision is required`);
-      if (!("quantization" in variant) || (variant.quantization !== null && typeof variant.quantization !== "string")) errors.push(`variant ${label} quantization must be a string or null`);
-      if (!Number.isInteger(variant.opset) || variant.opset < 1) errors.push(`variant ${label} opset must be positive`);
-      if (!Number.isInteger(variant.bytes) || variant.bytes <= 0) errors.push(`variant ${label} bytes must be positive`);
-      if (variant.parameterCount !== null && (!Number.isInteger(variant.parameterCount) || variant.parameterCount < 0)) errors.push(`variant ${label} parameterCount must be non-negative`);
-      if (!Array.isArray(variant.backends) || variant.backends.length === 0 || variant.backends.some((backend) => !backends.has(backend))) errors.push(`variant ${label} backends must use wasm or webgpu`);
-      if (!Array.isArray(variant.sources) || variant.sources.length === 0) { errors.push(`variant ${label} sources are required`); continue; }
-      for (const source of variant.sources) {
-        const sourceLabel = `${label}/${source?.kind ?? "unknown"}`;
-        if (!sourceKinds.has(source?.kind)) errors.push(`source ${sourceLabel} kind is unsupported`);
-        if (typeof source?.repository !== "string" || source.repository.length === 0) errors.push(`source ${sourceLabel} repository is required`);
-        if (typeof source?.revision !== "string" || !immutableRevision.test(source.revision)) errors.push(`source ${sourceLabel} revision must be a 40-64 character immutable hex revision`);
-        if (typeof source?.path !== "string" || source.path.length === 0) errors.push(`source ${sourceLabel} path is required`);
-        if (typeof source?.downloadUrl !== "string" || !isHttpUrlWithHost(source.downloadUrl)) errors.push(`source ${sourceLabel} downloadUrl must be an HTTP(S) URL with a host`);
-        if (!Number.isInteger(source?.bytes) || source.bytes <= 0) errors.push(`source ${sourceLabel} bytes must be positive`);
-        if (typeof source?.sha256 !== "string" || !sha256.test(source.sha256)) errors.push(`source ${sourceLabel} sha256 must be 64 hex characters`);
-      }
+  for (const [variantIndex, variant] of (value.model.variants ?? []).entries()) {
+    for (const [sourceIndex, source] of variant.sources.entries()) {
+      if (!isHttpUrlWithHost(source.downloadUrl)) errors.push(`/model/variants/${variantIndex}/sources/${sourceIndex}/downloadUrl：必须是含主机的 HTTP(S) 地址`);
     }
   }
-  const timingSet = new Set(value.performance?.timings ?? []);
-  for (const field of ["modelDownloadMs", "modelCacheReadMs", "integrityMs", "sessionMs", "inferenceMs", "totalMs"]) if (!timingSet.has(field)) errors.push(`performance.timings missing ${field}`);
-  if (!value.cache || value.cache.versionedKeys !== true || value.cache.clearCurrent !== true || value.cache.clearAll !== true || value.cache.estimate !== true) errors.push("cache must declare versioned keys, estimate, and both cleanup actions");
-  if (!value.examples?.vanilla || !value.examples?.react) errors.push("examples.vanilla and examples.react are required");
-  if (!value.verification || !Array.isArray(value.verification.environments)) errors.push("verification.environments is required");
+  const timingSet = new Set(value.performance.timings);
+  for (const field of ["modelDownloadMs", "modelCacheReadMs", "integrityMs", "sessionMs", "inferenceMs", "totalMs"]) {
+    if (!timingSet.has(field)) errors.push(`/performance/timings：缺少 ${field}`);
+  }
+  for (const field of ["versionedKeys", "clearCurrent", "clearAll", "estimate"]) {
+    if (value.cache[field] !== true) errors.push(`/cache/${field}：必须声明为 true`);
+  }
   return errors;
 }

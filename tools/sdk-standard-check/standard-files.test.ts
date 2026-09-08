@@ -94,9 +94,9 @@ describe("v1 standard source", () => {
     invalid.model.variants[1].backends = ["cpu"];
 
     expect(validateManifest(invalid)).toEqual(expect.arrayContaining([
-      "source fp16/git-lfs revision must be a 40-64 character immutable hex revision",
-      "source fp16/huggingface downloadUrl must be an HTTP(S) URL with a host",
-      "variant fp32 backends must use wasm or webgpu",
+      expect.stringContaining("/model/variants/0/sources/0/revision"),
+      expect.stringContaining("/model/variants/0/sources/1/downloadUrl"),
+      expect.stringContaining("/model/variants/1/backends/0"),
     ]));
   });
 
@@ -104,7 +104,7 @@ describe("v1 standard source", () => {
     const fixture = await loadManifest("tools/sdk-standard-check/fixtures/multi-source-sdk");
     const invalid = structuredClone(fixture.value);
     invalid.model.variants = "fp16";
-    expect(validateManifest(invalid)).toContain("model.variants must be an array");
+    expect(validateManifest(invalid)).toContainEqual(expect.stringContaining("/model/variants"));
 
     const invalidVariant = structuredClone(fixture.value.model.variants[0]);
     delete invalidVariant.quantization;
@@ -112,13 +112,13 @@ describe("v1 standard source", () => {
     invalidVariant.sources[0].downloadUrl = "https://";
     const errors = validateManifest({ ...fixture.value, model: { ...fixture.value.model, variants: [invalidVariant] } });
     expect(errors).toEqual(expect.arrayContaining([
-      "variant fp16 quantization must be a string or null",
-      "source fp16/git-lfs revision must be a 40-64 character immutable hex revision",
-      "source fp16/git-lfs downloadUrl must be an HTTP(S) URL with a host",
+      expect.stringContaining("/model/variants/0/quantization"),
+      expect.stringContaining("/model/variants/0/sources/0/revision"),
+      expect.stringContaining("/model/variants/0/sources/0/downloadUrl"),
     ]));
 
     invalidVariant.sources[0].downloadUrl = "https://foo:bad/model.onnx";
     expect(validateManifest({ ...fixture.value, model: { ...fixture.value.model, variants: [invalidVariant] } }))
-      .toContain("source fp16/git-lfs downloadUrl must be an HTTP(S) URL with a host");
+      .toContainEqual(expect.stringContaining("/model/variants/0/sources/0/downloadUrl"));
   });
 });

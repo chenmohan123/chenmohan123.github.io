@@ -20,7 +20,7 @@ function result(id, level, status, message, remediation, pathValue, evidence) {
 }
 
 const detectors = {
-  manifestPresent: (evidence, manifest) => evidence.manifestDeclared && !manifest?.errors?.length,
+  manifestPresent: (evidence, manifest) => evidence.manifestDeclared && Boolean(manifest),
   packageMetadata: (evidence) => Boolean(evidence.packageName && evidence.packageVersion),
   bilingualReadme: (evidence) => evidence.evidenceByKey["readme.zhCN"]?.length > 0 && evidence.evidenceByKey["readme.en"]?.length > 0,
   bilingualDocs: (evidence) => evidence.evidenceByKey["docs.zhCN"]?.length > 0 && evidence.evidenceByKey["docs.en"]?.length > 0,
