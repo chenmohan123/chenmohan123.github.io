@@ -35,6 +35,8 @@
     "@playwright/test": "latest",
     "@testing-library/jest-dom": "latest",
     "@testing-library/react": "latest",
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1",
     "jsdom": "latest",
     "playwright": "latest",
     "typescript": "5.9.3",

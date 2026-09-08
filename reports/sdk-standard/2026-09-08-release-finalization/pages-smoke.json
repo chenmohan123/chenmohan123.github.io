@@ -1,0 +1,27 @@
+{
+  "date": "2026-09-08",
+  "environment": { "os": "Windows 10.0.26200", "browser": "Chromium 151.0.7922.34", "backend": "WASM" },
+  "scope": "线上页面、SDK、Worker 和 WASM，模型网络传输替换为现有微型 ONNX fixture",
+  "results": [
+    {
+      "repository": "chenmohan123/web-sdk-PP-Detection",
+      "sourceCommit": "32b057b825037802ed025f1740409b1529d97fc5",
+      "url": "https://chenmohan123.github.io/web-sdk-PP-Detection/",
+      "command": "pnpm exec playwright test --config .tmp/pages-0.2.0/config.ts",
+      "stats": { "startTime": "2026-09-08T04:49:59.708Z", "duration": 8999.285, "expected": 3, "skipped": 0, "unexpected": 0, "flaky": 0 },
+      "displayedVersion": "0.2.0",
+      "defaultModelSource": "modelscope",
+      "modelSources": ["modelscope", "huggingface"]
+    },
+    {
+      "repository": "chenmohan123/web-sdk-PP-OCRv6",
+      "sourceCommit": "ccecf95adcd18517c802828b45577c3c5985623c",
+      "url": "https://chenmohan123.github.io/web-sdk-PP-OCRv6/",
+      "command": "pnpm --filter @ppocrv6/demo exec playwright test --config test-results/pages-0.2.0/config.ts",
+      "stats": { "startTime": "2026-09-08T04:51:07.283Z", "duration": 26892.989, "expected": 10, "skipped": 0, "unexpected": 0, "flaky": 0 },
+      "displayedVersion": "0.2.0",
+      "defaultModelSource": "modelscope",
+      "modelSources": ["modelscope", "huggingface"]
+    }
+  ]
+}

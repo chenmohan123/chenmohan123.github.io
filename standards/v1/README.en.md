@@ -20,7 +20,21 @@ real composition use case are recorded.
 
 Rules are `required`, `recommended`, or `labs`. The local checker is read-only,
 offline by default, accepts local repository paths, and returns exit code `0`
-only when all required rules pass.
+when no local required rule fails (remote rules may remain skipped). Exit code
+`1` means required failures, `2` means invalid input/configuration, and `3`
+means a checker error.
+
+Manifests are validated against the complete JSON Schema in the selected
+standard directory, including nested types, enums, date/URI formats, and unknown
+properties. Invalid manifests produce `CONFIG-001` diagnostics with JSON Pointer
+field paths and exit code `1`; scanning continues for the remaining repositories,
+including when array fields have invalid types. A missing or broken standard
+schema is a checker error and returns `3`.
+
+Passing the schema only establishes structural validity. Local rules statically
+inspect declarations and file evidence; they do not prove model downloads,
+inference, browser compatibility, or live deployments. Those conclusions still
+require dated runtime verification and remote evidence.
 
 Audit snapshots may be written to `reports/sdk-standard/` as JSON or Markdown.
 Required failures block compliance; recommended findings are improvements and
