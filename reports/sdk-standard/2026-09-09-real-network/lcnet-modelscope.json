@@ -1,0 +1,288 @@
+{
+  "verifiedAt": "2026-09-08T23:33:15.802Z",
+  "sdk": "lcnet",
+  "source": "modelscope",
+  "url": "https://chenmohan123.github.io/web-sdk-PP-LCNet_x1_0_doc_ori/",
+  "transport": "公开 Pages 和真实模型服务；无请求响应替换。冷启动取消阶段使用 CDP 限速，重试前恢复正常网络。各来源使用独立临时浏览器环境，HTTP 缓存禁用，IndexedDB 保留。",
+  "stages": [
+    {
+      "phase": "下载取消",
+      "status": "示例文档已准备好，可以检测。",
+      "statusClass": "status-line",
+      "runtime": [
+        "运行环境请求后端webgpu实际会话后端-执行模式-运行时版本-"
+      ],
+      "timing": [
+        "耗时本次重新创建会话；模型来源为缓存时仍包含缓存读取与校验。推理总计不包含模型加载。"
+      ],
+      "cache": [
+        "当前模型缓存: 0 B"
+      ],
+      "loadWall": [],
+      "runState": [],
+      "initialization": [],
+      "results": "方向\n-\n置信度\n-\n校正角度\n-",
+      "databases": [
+        {
+          "name": "pp-lcnet-doc-orientation",
+          "version": 1,
+          "stores": {
+            "models": 0
+          }
+        }
+      ]
+    },
+    {
+      "phase": "首次下载重试",
+      "elapsedMs": 4775,
+      "modelRequestCount": 2,
+      "status": "检测完成。",
+      "statusClass": "status-line",
+      "runtime": [
+        "运行环境请求后端webgpu实际会话后端webgpu执行模式main运行时版本1.27.0测试环境Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36 · 2026-09-08"
+      ],
+      "timing": [
+        "耗时模型清单132.4 ms模型下载368.5 ms缓存读取2.9 ms完整性校验17.3 ms会话初始化2800.5 ms加载总计3743.3 ms来源network推理总计680.1 ms解码5.1 ms预处理11.5 ms推理662.7 ms后处理0.0 ms本次重新创建会话；模型来源为缓存时仍包含缓存读取与校验。推理总计不包含模型加载。"
+      ],
+      "cache": [
+        "当前模型缓存: 6,788,069 B"
+      ],
+      "loadWall": [],
+      "runState": [],
+      "initialization": [],
+      "results": "方向\n180°\n置信度\n43.57%\n校正角度\n180°",
+      "databases": [
+        {
+          "name": "pp-lcnet-doc-orientation",
+          "version": 1,
+          "stores": {
+            "models": 1
+          }
+        }
+      ]
+    },
+    {
+      "phase": "同页复用",
+      "elapsedMs": 868,
+      "modelRequestCount": 0,
+      "status": "检测完成。",
+      "statusClass": "status-line",
+      "runtime": [
+        "运行环境请求后端webgpu实际会话后端webgpu执行模式main运行时版本1.27.0测试环境Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36 · 2026-09-08"
+      ],
+      "timing": [
+        "耗时模型清单124.0 ms模型下载0.0 ms缓存读取15.6 ms完整性校验20.9 ms会话初始化114.1 ms加载总计291.6 ms来源cache推理总计90.5 ms解码6.8 ms预处理8.4 ms推理75.2 ms后处理0.0 ms本次重新创建会话；模型来源为缓存时仍包含缓存读取与校验。推理总计不包含模型加载。"
+      ],
+      "cache": [
+        "当前模型缓存: 6,788,069 B"
+      ],
+      "loadWall": [],
+      "runState": [],
+      "initialization": [],
+      "results": "方向\n180°\n置信度\n43.57%\n校正角度\n180°",
+      "databases": [
+        {
+          "name": "pp-lcnet-doc-orientation",
+          "version": 1,
+          "stores": {
+            "models": 1
+          }
+        }
+      ]
+    },
+    {
+      "phase": "刷新后缓存",
+      "elapsedMs": 1893,
+      "modelRequestCount": 0,
+      "status": "检测完成。",
+      "statusClass": "status-line",
+      "runtime": [
+        "运行环境请求后端webgpu实际会话后端webgpu执行模式main运行时版本1.27.0测试环境Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36 · 2026-09-08"
+      ],
+      "timing": [
+        "耗时模型清单120.6 ms模型下载0.0 ms缓存读取7.2 ms完整性校验17.3 ms会话初始化509.9 ms加载总计895.5 ms来源cache推理总计665.6 ms解码3.2 ms预处理7.5 ms推理654.8 ms后处理0.0 ms本次重新创建会话；模型来源为缓存时仍包含缓存读取与校验。推理总计不包含模型加载。"
+      ],
+      "cache": [
+        "当前模型缓存: 6,788,069 B"
+      ],
+      "loadWall": [],
+      "runState": [],
+      "initialization": [],
+      "results": "方向\n180°\n置信度\n43.57%\n校正角度\n180°",
+      "databases": [
+        {
+          "name": "pp-lcnet-doc-orientation",
+          "version": 1,
+          "stores": {
+            "models": 1
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "phase": "下载取消",
+      "url": "https://modelscope.cn/models/chenmohan/web-sdk-pp-lcnet-x1-0-doc-ori/resolve/master/inference.onnx",
+      "method": "GET",
+      "startedAt": "2026-09-08T23:33:18.434Z",
+      "status": 302,
+      "fromServiceWorker": false,
+      "contentLength": "360",
+      "contentType": "text/html; charset=utf-8",
+      "finishedAt": "2026-09-08T23:33:18.553Z",
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 653,
+        "responseBodySize": 360,
+        "responseHeadersSize": 1310
+      }
+    },
+    {
+      "phase": "下载取消",
+      "url": "https://cdn-lfs-cn-1.modelscope.cn/prod/lfs-objects/af/9a/0a4f317ff0709ce752067807f819cb15d883f8ecad89f28df1c6ee2d9c92",
+      "method": "GET",
+      "startedAt": "2026-09-08T23:33:18.554Z",
+      "status": 200,
+      "fromServiceWorker": false,
+      "contentLength": "6788069",
+      "contentType": "application/octet-stream",
+      "error": "net::ERR_ABORTED",
+      "failedAt": "2026-09-08T23:33:19.929Z"
+    },
+    {
+      "phase": "首次下载重试",
+      "url": "https://modelscope.cn/models/chenmohan/web-sdk-pp-lcnet-x1-0-doc-ori/resolve/master/inference.onnx",
+      "method": "GET",
+      "startedAt": "2026-09-08T23:33:20.481Z",
+      "status": 302,
+      "fromServiceWorker": false,
+      "contentLength": "360",
+      "contentType": "text/html; charset=utf-8",
+      "finishedAt": "2026-09-08T23:33:20.583Z",
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 653,
+        "responseBodySize": 360,
+        "responseHeadersSize": 1310
+      }
+    },
+    {
+      "phase": "首次下载重试",
+      "url": "https://cdn-lfs-cn-1.modelscope.cn/prod/lfs-objects/af/9a/0a4f317ff0709ce752067807f819cb15d883f8ecad89f28df1c6ee2d9c92",
+      "method": "GET",
+      "startedAt": "2026-09-08T23:33:20.583Z",
+      "status": 200,
+      "fromServiceWorker": false,
+      "contentLength": "6788069",
+      "contentType": "application/octet-stream",
+      "finishedAt": "2026-09-08T23:33:20.848Z",
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 969,
+        "responseBodySize": 6795758,
+        "responseHeadersSize": 0
+      }
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [
+    {
+      "phase": "页面",
+      "message": "Failed to load resource: the server responded with a status of 404 ()"
+    },
+    {
+      "phase": "首次下载重试",
+      "message": "\u001b[0;93m2026-09-09 07:33:23.730698 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'p2o.pd_op.full.0.0'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "首次下载重试",
+      "message": "\u001b[0;93m2026-09-09 07:33:23.733498 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'p2o.pd_op.full_int_array.6.0'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "首次下载重试",
+      "message": "\u001b[0;93m2026-09-09 07:33:23.733999 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'p2o.pd_op.full_int_array.3.0'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "首次下载重试",
+      "message": "\u001b[0;93m2026-09-09 07:33:23.734398 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'p2o.pd_op.full_int_array.0.0'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "首次下载重试",
+      "message": "\u001b[0;93m2026-09-09 07:33:23.991498 [W:onnxruntime:, session_state.cc:1367 VerifyEachNodeIsAssignedToAnEp] Some nodes were not assigned to the preferred execution providers which may or may not have an negative impact on performance. e.g. ORT explicitly assigns shape related ops to CPU to improve perf.\u001b[m"
+    },
+    {
+      "phase": "首次下载重试",
+      "message": "\u001b[0;93m2026-09-09 07:33:23.992298 [W:onnxruntime:, session_state.cc:1369 VerifyEachNodeIsAssignedToAnEp] Rerunning with verbose output on a non-minimal build will show node assignments.\u001b[m"
+    },
+    {
+      "phase": "同页复用",
+      "message": "\u001b[0;93m2026-09-09 07:33:25.506698 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'p2o.pd_op.full.0.0'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "同页复用",
+      "message": "\u001b[0;93m2026-09-09 07:33:25.507098 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'p2o.pd_op.full_int_array.6.0'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "同页复用",
+      "message": "\u001b[0;93m2026-09-09 07:33:25.507498 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'p2o.pd_op.full_int_array.3.0'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "同页复用",
+      "message": "\u001b[0;93m2026-09-09 07:33:25.507798 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'p2o.pd_op.full_int_array.0.0'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "同页复用",
+      "message": "\u001b[0;93m2026-09-09 07:33:25.534698 [W:onnxruntime:, session_state.cc:1367 VerifyEachNodeIsAssignedToAnEp] Some nodes were not assigned to the preferred execution providers which may or may not have an negative impact on performance. e.g. ORT explicitly assigns shape related ops to CPU to improve perf.\u001b[m"
+    },
+    {
+      "phase": "同页复用",
+      "message": "\u001b[0;93m2026-09-09 07:33:25.535098 [W:onnxruntime:, session_state.cc:1369 VerifyEachNodeIsAssignedToAnEp] Rerunning with verbose output on a non-minimal build will show node assignments.\u001b[m"
+    },
+    {
+      "phase": "刷新后缓存",
+      "message": "\u001b[0;93m2026-09-09 07:33:27.660100 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'p2o.pd_op.full.0.0'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "刷新后缓存",
+      "message": "\u001b[0;93m2026-09-09 07:33:27.660499 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'p2o.pd_op.full_int_array.6.0'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "刷新后缓存",
+      "message": "\u001b[0;93m2026-09-09 07:33:27.660800 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'p2o.pd_op.full_int_array.3.0'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "刷新后缓存",
+      "message": "\u001b[0;93m2026-09-09 07:33:27.661100 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'p2o.pd_op.full_int_array.0.0'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "刷新后缓存",
+      "message": "\u001b[0;93m2026-09-09 07:33:27.686000 [W:onnxruntime:, session_state.cc:1367 VerifyEachNodeIsAssignedToAnEp] Some nodes were not assigned to the preferred execution providers which may or may not have an negative impact on performance. e.g. ORT explicitly assigns shape related ops to CPU to improve perf.\u001b[m"
+    },
+    {
+      "phase": "刷新后缓存",
+      "message": "\u001b[0;93m2026-09-09 07:33:27.686400 [W:onnxruntime:, session_state.cc:1369 VerifyEachNodeIsAssignedToAnEp] Rerunning with verbose output on a non-minimal build will show node assignments.\u001b[m"
+    }
+  ],
+  "otherNetworkFailures": [
+    {
+      "phase": "页面",
+      "url": "https://modelscope.cn/models/chenmohan/web-sdk-pp-lcnet-x1-0-doc-ori/resolve/master/manifest.json",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "phase": "刷新页面",
+      "url": "https://modelscope.cn/models/chenmohan/web-sdk-pp-lcnet-x1-0-doc-ori/resolve/master/manifest.json",
+      "error": "net::ERR_ABORTED"
+    }
+  ],
+  "browser": "151.0.7922.34",
+  "pageStatus": 200,
+  "adapter": {
+    "vendor": "nvidia",
+    "architecture": "blackwell",
+    "fallback": false
+  },
+  "status": "passed",
+  "finishedAt": "2026-09-08T23:33:28.814Z"
+}

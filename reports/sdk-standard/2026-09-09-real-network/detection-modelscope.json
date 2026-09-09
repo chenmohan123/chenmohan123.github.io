@@ -1,0 +1,412 @@
+{
+  "verifiedAt": "2026-09-08T23:31:36.693Z",
+  "sdk": "detection",
+  "source": "modelscope",
+  "url": "https://chenmohan123.github.io/web-sdk-PP-Detection/",
+  "transport": "公开 Pages 和真实模型服务；无请求响应替换。冷启动取消阶段使用 CDP 限速，重试前恢复正常网络。各来源使用独立临时浏览器环境，HTTP 缓存禁用，IndexedDB 保留。",
+  "stages": [
+    {
+      "phase": "下载取消",
+      "status": "准备就绪\npeople.jpg",
+      "statusClass": "status-line ready",
+      "runtime": [
+        "模型信息模型来源ModelScope模型清单https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/master/manifest.json?v=1.0.1名称-请求来源ModelScope实际来源-固定 revision-SHA-256-大小-参数量-实际后端-实际精度-运行模式-ORT 运行时版本-运行平台-浏览器环境-环境采集时间-"
+      ],
+      "timing": [
+        "性能初始化图片每次检测重新初始化；以下为本次初始化耗时。初始化总耗时-模型下载-缓存读取-完整性校验-模型来源-Session 创建-本次检测端到端耗时-图片解码-预处理-模型推理-后处理-端到端耗时还包含 Worker 通信与结果传输等少量开销。"
+      ],
+      "cache": [
+        "当前模型缓存: 0 B",
+        "全部本 SDK 缓存: 0 B"
+      ],
+      "loadWall": [],
+      "runState": [],
+      "initialization": [
+        "初始化图片每次检测重新初始化；以下为本次初始化耗时。初始化总耗时-模型下载-缓存读取-完整性校验-模型来源-Session 创建-"
+      ],
+      "results": "检测结果\n0 个目标\n\n未检测到目标",
+      "databases": [
+        {
+          "name": "web-sdk-pp-detection-models-v1",
+          "version": 1,
+          "stores": {
+            "models": 0
+          }
+        }
+      ]
+    },
+    {
+      "phase": "首次下载重试",
+      "elapsedMs": 9360,
+      "modelRequestCount": 2,
+      "status": "检测完成\npeople.jpg",
+      "statusClass": "status-line success",
+      "runtime": [
+        "模型信息模型来源ModelScope模型清单https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/master/manifest.json?v=1.0.1名称pp-picodet-l-320请求来源ModelScope实际来源modelscope固定 revision78208e9444c9f110a2eac46284bb78892e15c69cSHA-2560397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1大小22.2 MB参数量5,787,988实际后端webgpu实际精度fp32运行模式mainORT 运行时版本1.27.0运行平台Win32浏览器环境Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36环境采集时间2026-09-08T23:31:46.755Z"
+      ],
+      "timing": [
+        "性能初始化图片每次检测重新初始化；以下为本次初始化耗时。初始化总耗时6826 ms模型下载3246 ms缓存读取1 ms完整性校验93 ms模型来源网络下载Session 创建3277 ms本次检测端到端耗时2239 ms图片解码14 ms预处理98 ms模型推理2125 ms后处理1 ms端到端耗时还包含 Worker 通信与结果传输等少量开销。"
+      ],
+      "cache": [
+        "当前模型缓存: 22.2 MB",
+        "全部本 SDK 缓存: 22.2 MB"
+      ],
+      "loadWall": [],
+      "runState": [],
+      "initialization": [
+        "初始化图片每次检测重新初始化；以下为本次初始化耗时。初始化总耗时6826 ms模型下载3246 ms缓存读取1 ms完整性校验93 ms模型来源网络下载Session 创建3277 ms"
+      ],
+      "results": "检测结果\n12 个目标\n01\nperson\n87.7% · 414,90\n02\nkite\n85.3% · 164,85\n03\nperson\n83.2% · 506,115\n04\nperson\n81.4% · 161,82\n05\nperson\n79.9% · 267,81\n06\nperson\n76.5% · 105,47\n07\nperson\n75.9% · 581,113\n08\nperson\n75.1% · 379,42\n09\nperson\n55.6% · 352,44\n10\nperson\n55.4% · 328,41\n11\nperson\n54.7% · 24,118\n12\nperson\n50.9% · 366,66",
+      "databases": [
+        {
+          "name": "web-sdk-pp-detection-models-v1",
+          "version": 1,
+          "stores": {
+            "models": 1
+          }
+        }
+      ]
+    },
+    {
+      "phase": "同页复用",
+      "elapsedMs": 1243,
+      "modelRequestCount": 0,
+      "status": "检测完成\npeople.jpg",
+      "statusClass": "status-line success",
+      "runtime": [
+        "模型信息模型来源ModelScope模型清单https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/master/manifest.json?v=1.0.1名称pp-picodet-l-320请求来源ModelScope实际来源modelscope固定 revision78208e9444c9f110a2eac46284bb78892e15c69cSHA-2560397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1大小22.2 MB参数量5,787,988实际后端webgpu实际精度fp32运行模式mainORT 运行时版本1.27.0运行平台Win32浏览器环境Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36环境采集时间2026-09-08T23:31:50.194Z"
+      ],
+      "timing": [
+        "性能初始化图片每次检测重新初始化；以下为本次初始化耗时。初始化总耗时620 ms模型下载-缓存读取36 ms完整性校验82 ms模型来源持久缓存Session 创建382 ms本次检测端到端耗时365 ms图片解码16 ms预处理79 ms模型推理269 ms后处理0 ms端到端耗时还包含 Worker 通信与结果传输等少量开销。"
+      ],
+      "cache": [
+        "当前模型缓存: 22.2 MB",
+        "全部本 SDK 缓存: 22.2 MB"
+      ],
+      "loadWall": [],
+      "runState": [],
+      "initialization": [
+        "初始化图片每次检测重新初始化；以下为本次初始化耗时。初始化总耗时620 ms模型下载-缓存读取36 ms完整性校验82 ms模型来源持久缓存Session 创建382 ms"
+      ],
+      "results": "检测结果\n12 个目标\n01\nperson\n87.7% · 414,90\n02\nkite\n85.3% · 164,85\n03\nperson\n83.2% · 506,115\n04\nperson\n81.4% · 161,82\n05\nperson\n79.9% · 267,81\n06\nperson\n76.5% · 105,47\n07\nperson\n75.9% · 581,113\n08\nperson\n75.1% · 379,42\n09\nperson\n55.6% · 352,44\n10\nperson\n55.4% · 328,41\n11\nperson\n54.7% · 24,118\n12\nperson\n50.9% · 366,66",
+      "databases": [
+        {
+          "name": "web-sdk-pp-detection-models-v1",
+          "version": 1,
+          "stores": {
+            "models": 1
+          }
+        }
+      ]
+    },
+    {
+      "phase": "刷新后缓存",
+      "elapsedMs": 4699,
+      "modelRequestCount": 0,
+      "status": "检测完成\npeople.jpg",
+      "statusClass": "status-line success",
+      "runtime": [
+        "模型信息模型来源ModelScope模型清单https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/master/manifest.json?v=1.0.1名称pp-picodet-l-320请求来源ModelScope实际来源modelscope固定 revision78208e9444c9f110a2eac46284bb78892e15c69cSHA-2560397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1大小22.2 MB参数量5,787,988实际后端webgpu实际精度fp32运行模式mainORT 运行时版本1.27.0运行平台Win32浏览器环境Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36环境采集时间2026-09-08T23:31:53.960Z"
+      ],
+      "timing": [
+        "性能初始化图片每次检测重新初始化；以下为本次初始化耗时。初始化总耗时2115 ms模型下载-缓存读取32 ms完整性校验68 ms模型来源持久缓存Session 创建1867 ms本次检测端到端耗时2327 ms图片解码16 ms预处理88 ms模型推理2223 ms后处理0 ms端到端耗时还包含 Worker 通信与结果传输等少量开销。"
+      ],
+      "cache": [
+        "当前模型缓存: 22.2 MB",
+        "全部本 SDK 缓存: 22.2 MB"
+      ],
+      "loadWall": [],
+      "runState": [],
+      "initialization": [
+        "初始化图片每次检测重新初始化；以下为本次初始化耗时。初始化总耗时2115 ms模型下载-缓存读取32 ms完整性校验68 ms模型来源持久缓存Session 创建1867 ms"
+      ],
+      "results": "检测结果\n12 个目标\n01\nperson\n87.7% · 414,90\n02\nkite\n85.3% · 164,85\n03\nperson\n83.2% · 506,115\n04\nperson\n81.4% · 161,82\n05\nperson\n79.9% · 267,81\n06\nperson\n76.5% · 105,47\n07\nperson\n75.9% · 581,113\n08\nperson\n75.1% · 379,42\n09\nperson\n55.6% · 352,44\n10\nperson\n55.4% · 328,41\n11\nperson\n54.7% · 24,118\n12\nperson\n50.9% · 366,66",
+      "databases": [
+        {
+          "name": "web-sdk-pp-detection-models-v1",
+          "version": 1,
+          "stores": {
+            "models": 1
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "phase": "下载取消",
+      "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/78208e9444c9f110a2eac46284bb78892e15c69c/picodet-l-320-fp32.onnx",
+      "method": "GET",
+      "startedAt": "2026-09-08T23:31:39.643Z",
+      "error": "net::ERR_ABORTED",
+      "failedAt": "2026-09-08T23:31:39.814Z"
+    },
+    {
+      "phase": "首次下载重试",
+      "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/78208e9444c9f110a2eac46284bb78892e15c69c/picodet-l-320-fp32.onnx",
+      "method": "GET",
+      "startedAt": "2026-09-08T23:31:40.087Z",
+      "status": 302,
+      "fromServiceWorker": false,
+      "contentLength": "394",
+      "contentType": "text/html; charset=utf-8",
+      "finishedAt": "2026-09-08T23:31:40.198Z",
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 691,
+        "responseBodySize": 394,
+        "responseHeadersSize": 1344
+      }
+    },
+    {
+      "phase": "首次下载重试",
+      "url": "https://cdn-lfs-cn-1.modelscope.cn/prod/lfs-objects/03/97/bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
+      "method": "GET",
+      "startedAt": "2026-09-08T23:31:40.199Z",
+      "status": 200,
+      "fromServiceWorker": false,
+      "contentLength": "23243834",
+      "contentType": "application/octet-stream",
+      "finishedAt": "2026-09-08T23:31:43.473Z",
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 1003,
+        "responseBodySize": 23270224,
+        "responseHeadersSize": 0
+      }
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [
+    {
+      "phase": "页面",
+      "message": "Failed to load resource: the server responded with a status of 404 ()"
+    },
+    {
+      "phase": "首次下载重试",
+      "message": "\u001b[0;93m2026-09-09 07:31:45.879699 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_24'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "首次下载重试",
+      "message": "\u001b[0;93m2026-09-09 07:31:45.883100 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_23'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "首次下载重试",
+      "message": "\u001b[0;93m2026-09-09 07:31:45.883900 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_22'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "首次下载重试",
+      "message": "\u001b[0;93m2026-09-09 07:31:45.884299 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_18'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "首次下载重试",
+      "message": "\u001b[0;93m2026-09-09 07:31:45.884799 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_17'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "首次下载重试",
+      "message": "\u001b[0;93m2026-09-09 07:31:45.885800 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_16'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "首次下载重试",
+      "message": "\u001b[0;93m2026-09-09 07:31:45.886200 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_12'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "首次下载重试",
+      "message": "\u001b[0;93m2026-09-09 07:31:45.886699 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_11'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "首次下载重试",
+      "message": "\u001b[0;93m2026-09-09 07:31:45.887400 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_6'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "首次下载重试",
+      "message": "\u001b[0;93m2026-09-09 07:31:45.887999 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_5'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "首次下载重试",
+      "message": "\u001b[0;93m2026-09-09 07:31:45.888400 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_4'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "首次下载重试",
+      "message": "\u001b[0;93m2026-09-09 07:31:45.889199 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_3'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "首次下载重试",
+      "message": "\u001b[0;93m2026-09-09 07:31:45.892600 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_2'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "首次下载重试",
+      "message": "\u001b[0;93m2026-09-09 07:31:45.892999 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_1'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "首次下载重试",
+      "message": "\u001b[0;93m2026-09-09 07:31:45.893600 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_10'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "首次下载重试",
+      "message": "\u001b[0;93m2026-09-09 07:31:45.894100 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_0'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "首次下载重试",
+      "message": "\u001b[0;93m2026-09-09 07:31:46.514400 [W:onnxruntime:, session_state.cc:1367 VerifyEachNodeIsAssignedToAnEp] Some nodes were not assigned to the preferred execution providers which may or may not have an negative impact on performance. e.g. ORT explicitly assigns shape related ops to CPU to improve perf.\u001b[m"
+    },
+    {
+      "phase": "首次下载重试",
+      "message": "\u001b[0;93m2026-09-09 07:31:46.515100 [W:onnxruntime:, session_state.cc:1369 VerifyEachNodeIsAssignedToAnEp] Rerunning with verbose output on a non-minimal build will show node assignments.\u001b[m"
+    },
+    {
+      "phase": "同页复用",
+      "message": "\u001b[0;93m2026-09-09 07:31:49.893099 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_24'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "同页复用",
+      "message": "\u001b[0;93m2026-09-09 07:31:49.893400 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_23'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "同页复用",
+      "message": "\u001b[0;93m2026-09-09 07:31:49.894000 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_22'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "同页复用",
+      "message": "\u001b[0;93m2026-09-09 07:31:49.894200 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_18'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "同页复用",
+      "message": "\u001b[0;93m2026-09-09 07:31:49.894699 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_17'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "同页复用",
+      "message": "\u001b[0;93m2026-09-09 07:31:49.895000 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_16'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "同页复用",
+      "message": "\u001b[0;93m2026-09-09 07:31:49.895300 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_12'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "同页复用",
+      "message": "\u001b[0;93m2026-09-09 07:31:49.895499 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_11'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "同页复用",
+      "message": "\u001b[0;93m2026-09-09 07:31:49.895800 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_6'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "同页复用",
+      "message": "\u001b[0;93m2026-09-09 07:31:49.896100 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_5'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "同页复用",
+      "message": "\u001b[0;93m2026-09-09 07:31:49.896400 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_4'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "同页复用",
+      "message": "\u001b[0;93m2026-09-09 07:31:49.896600 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_3'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "同页复用",
+      "message": "\u001b[0;93m2026-09-09 07:31:49.896900 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_2'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "同页复用",
+      "message": "\u001b[0;93m2026-09-09 07:31:49.897199 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_1'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "同页复用",
+      "message": "\u001b[0;93m2026-09-09 07:31:49.897500 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_10'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "同页复用",
+      "message": "\u001b[0;93m2026-09-09 07:31:49.897700 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_0'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "同页复用",
+      "message": "\u001b[0;93m2026-09-09 07:31:50.069299 [W:onnxruntime:, session_state.cc:1367 VerifyEachNodeIsAssignedToAnEp] Some nodes were not assigned to the preferred execution providers which may or may not have an negative impact on performance. e.g. ORT explicitly assigns shape related ops to CPU to improve perf.\u001b[m"
+    },
+    {
+      "phase": "同页复用",
+      "message": "\u001b[0;93m2026-09-09 07:31:50.069800 [W:onnxruntime:, session_state.cc:1369 VerifyEachNodeIsAssignedToAnEp] Rerunning with verbose output on a non-minimal build will show node assignments.\u001b[m"
+    },
+    {
+      "phase": "刷新后缓存",
+      "message": "\u001b[0;93m2026-09-09 07:31:53.168300 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_24'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "刷新后缓存",
+      "message": "\u001b[0;93m2026-09-09 07:31:53.171400 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_23'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "刷新后缓存",
+      "message": "\u001b[0;93m2026-09-09 07:31:53.171900 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_22'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "刷新后缓存",
+      "message": "\u001b[0;93m2026-09-09 07:31:53.172300 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_18'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "刷新后缓存",
+      "message": "\u001b[0;93m2026-09-09 07:31:53.172800 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_17'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "刷新后缓存",
+      "message": "\u001b[0;93m2026-09-09 07:31:53.173499 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_16'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "刷新后缓存",
+      "message": "\u001b[0;93m2026-09-09 07:31:53.173900 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_12'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "刷新后缓存",
+      "message": "\u001b[0;93m2026-09-09 07:31:53.174300 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_11'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "刷新后缓存",
+      "message": "\u001b[0;93m2026-09-09 07:31:53.174700 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_6'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "刷新后缓存",
+      "message": "\u001b[0;93m2026-09-09 07:31:53.175200 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_5'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "刷新后缓存",
+      "message": "\u001b[0;93m2026-09-09 07:31:53.175500 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_4'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "刷新后缓存",
+      "message": "\u001b[0;93m2026-09-09 07:31:53.175900 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_3'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "刷新后缓存",
+      "message": "\u001b[0;93m2026-09-09 07:31:53.176400 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_2'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "刷新后缓存",
+      "message": "\u001b[0;93m2026-09-09 07:31:53.176699 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_1'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "刷新后缓存",
+      "message": "\u001b[0;93m2026-09-09 07:31:53.177199 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_10'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "刷新后缓存",
+      "message": "\u001b[0;93m2026-09-09 07:31:53.177600 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'Reshape_0'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "刷新后缓存",
+      "message": "\u001b[0;93m2026-09-09 07:31:53.706300 [W:onnxruntime:, session_state.cc:1367 VerifyEachNodeIsAssignedToAnEp] Some nodes were not assigned to the preferred execution providers which may or may not have an negative impact on performance. e.g. ORT explicitly assigns shape related ops to CPU to improve perf.\u001b[m"
+    },
+    {
+      "phase": "刷新后缓存",
+      "message": "\u001b[0;93m2026-09-09 07:31:53.707400 [W:onnxruntime:, session_state.cc:1369 VerifyEachNodeIsAssignedToAnEp] Rerunning with verbose output on a non-minimal build will show node assignments.\u001b[m"
+    }
+  ],
+  "otherNetworkFailures": [],
+  "browser": "151.0.7922.34",
+  "pageStatus": 200,
+  "adapter": {
+    "vendor": "nvidia",
+    "architecture": "blackwell",
+    "fallback": false
+  },
+  "status": "passed",
+  "finishedAt": "2026-09-08T23:31:56.723Z"
+}

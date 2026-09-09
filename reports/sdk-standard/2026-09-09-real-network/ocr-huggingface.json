@@ -1,0 +1,276 @@
+{
+  "verifiedAt": "2026-09-08T23:35:54.701Z",
+  "sdk": "ocr",
+  "source": "huggingface",
+  "url": "https://chenmohan123.github.io/web-sdk-PP-OCRv6/",
+  "transport": "公开 Pages 和真实模型服务；无请求响应替换。冷启动取消阶段使用 CDP 限速，重试前恢复正常网络。各来源使用独立临时浏览器环境，HTTP 缓存禁用，IndexedDB 保留。",
+  "stages": [
+    {
+      "phase": "下载取消",
+      "status": "等待图片",
+      "statusClass": "run-status idle",
+      "runtime": [
+        "运行环境请求后端webgpu实际后端-执行位置worker运行时onnxruntime-web@1.27.0"
+      ],
+      "timing": [
+        "耗时运行类型-本次端到端-本次初始化等待-SDK 本次运行-模型下载-模型加载-缓存读取-完整性校验-图像解码-预处理-推理-后处理-"
+      ],
+      "cache": [
+        "当前模型缓存: 0 B · 本 SDK 全部缓存: 0 B"
+      ],
+      "loadWall": [
+        "-"
+      ],
+      "runState": [
+        "-"
+      ],
+      "initialization": [],
+      "results": {
+        "rows": 0,
+        "text": "OCR 结果\n0\n\n运行后将在这里显示文字结果"
+      },
+      "databases": [
+        {
+          "name": "web-sdk-pp-ocrv6",
+          "version": 1,
+          "stores": {
+            "models": 0
+          }
+        }
+      ]
+    },
+    {
+      "phase": "首次下载重试",
+      "elapsedMs": 11255,
+      "modelRequestCount": 4,
+      "status": "识别完成",
+      "statusClass": "run-status success",
+      "runtime": [
+        "运行环境请求后端webgpu实际后端DET: webgpu / REC: webgpu执行位置worker运行时onnxruntime-web@1.27.0"
+      ],
+      "timing": [
+        "耗时运行类型冷启动（新会话）本次端到端10681.2 ms本次初始化等待6067.6 msSDK 本次运行4613.3 ms模型下载0.0 ms模型加载0.0 ms缓存读取0.0 ms完整性校验0.0 ms图像解码10.6 ms预处理84.0 ms推理2983.4 ms后处理1504.1 ms首次初始化分项模型下载4689.0 ms缓存读取0.9 ms完整性校验82.5 ms模型加载4782.0 ms模型获取网络下载这是历史初始化记录，不计入热运行。DET/REC 分项为累计工作量，可并行，不相加为等待时间。"
+      ],
+      "cache": [
+        "当前模型缓存: 31,039,890 B · 本 SDK 全部缓存: 31,039,890 B"
+      ],
+      "loadWall": [
+        "6067.6 ms"
+      ],
+      "runState": [
+        "冷启动（新会话）"
+      ],
+      "initialization": [],
+      "results": {
+        "rows": 146,
+        "text": "OCR 结果\n146\n01\n3\n识别置信度 100.0%\n02\naoia l s\n识别置信度 38.9%\n03\nt r\n识别置信度 38.2%\n04\n识别置信度 32.5%\n05\nt .\n识别置信度 30.9%\n06\nta\n识别置信度 36.8%\n07\ndouble power-law\n识别置信度 100.0%\n08\nnnast d e he\n识别置信度 28.7%\n09\ndn\n识别置信度 95.7%\n10\nφ\n识别置信度 99.8%\n11\nne\n识别置信度 24.2%\n12\nφ(L) =\n识别置信度 90.7%\n13\n(9)\n识别置信度 100.0%\n14\ne i.\n识别置信度 43.0%\n15\nd logio L\n识别置信度 90.3%\n16\n(L/L)7i + (L/L)72\n识别置信度 83.8%\n17\nwi a\n识别置信度 28.8%\n18\nnt\n识别置信度 44.7%\n19\n识别置信度 30.1%\n20\ntat\n识别置信度 40.4%\n21\ne e.\n识别置信度 36.2%\n22\nh e\n识别置信度 26.6%\n23\nin ,\n识别置信度 35.0%\n24\nvia\n识别置信度 99.8%\n25\nare sy r al rehiite.\n识别置信度 42.6%\n26\nh t r r e n\n识别置信度 32.7%\n27\nφ(L,0)dlgL = (M,)(M, t)M.\n识别置信度 53.6%\n28\n(4)\n识别置信度 100.0%\n29\n(1 − cr) λ²c²\n识别置信度 82.6%\n30\nψo(M) ψ(M, z) =\n识别置信度 87.8%\n31\nX\n识别置信度 52.2%\n32\nTe it e).\n识别置信度 28.2%\n33\nü\n识别置信度 72.0%\n34\nln(10)\n识别置信度 92.3%\n35\n(10)\n识别置信度 99.9%\n36\nB( . d\n识别置信度 33.0%\n37\n, dt ∂φ |\n识别置信度 87.2%\n38\nd:\n识别置信度 94.7%\n39\ndz’ δL |\n识别置信度 67.1%\n40\n(1 − c)\n识别置信度 82.9%\n41\ndL\n识别置信度 99.4%\n42\nIL=λM c² /te.\n识别置信度 76.9%\n43\n(M(M, t))ψb(M, t) =\n识别置信度 86.1%\n44\nφ(L,t)\n识别置信度 99.0%\n45\n(5)\n识别置信度 100.0%\n46\n€, c2 1n(10)\n识别置信度 93.6%\n47\ndM\n识别置信度 98.4%\n48\ny\n识别置信度 45.9%\n49\nhi o\n识别置信度 36.9%\n50\nerer .\n识别置信度 25.8%\n51\n识别置信度 35.8%\n52\ne e i i\n识别置信度 23.5%\n53\n识别置信度 0.0%\n54\nme rin k ie it\n识别置信度 30.5%\n55\n∂φ\n识别置信度 76.7%\n56\n(1 − €r)\n识别置信度 87.2%\n57\nλ²♂²\n识别置信度 72.5%\n58\n∂φ\n识别置信度 93.8%\n59\n-(M, t) +\n识别置信度 91.0%\n60\n= 0. (6)\n识别置信度 91.1%\n61\nsummarize here.\n识别置信度 98.6%\n62\n∂t\n识别置信度 86.0%\n63\n6\n识别置信度 56.3%\n64\n1r(10) ∂ t\n识别置信度 69.8%\n65\nII=λM²/\n识别置信度 78.8%\n66\nTe penda M rim e .\n识别置信度 31.9%\n67\nnnt f a ate s\n识别置信度 29.7%\n68\ni e\n识别置信度 33.6%\n69\n识别置信度 56.2%\n70\n识别置信度 0.0%\n71\n识别置信度 37.8%\n72\n识别置信度 35.3%\n73\nis expressed as\n识别置信度 100.0%\n74\nfunction\n识别置信度 97.3%\n75\nlog10 M = a. + b log1n X.\n识别置信度 90.5%\n76\n(11)\n识别置信度 100.0%\n77\nPBH =\n识别置信度 85.0%\n78\n1 dMψ(M)M\n识别置信度 84.9%\n79\n(7)\n识别置信度 99.5%\n80\ny\n识别置信度 52.9%\n81\n– tr\n识别置信度 86.2%\n82\ndt\n识别置信度 99.3%\n83\n1\n识别置信度 62.7%\n84\nL e n\n识别置信度 38.2%\n85\ndz\n识别置信度 99.7%\n86\nd log10 Lφ(L, z)L. (8)\n识别置信度 90.5%\n87\n一\n识别置信度 41.6%\n88\n€c²\n识别置信度 66.1%\n89\ndz J\n识别置信度 82.9%\n90\nfunction (VDF) as\n识别置信度 96.5%\n91\nJn\n识别置信度 71.7%\n92\ndn\n识别置信度 93.7%\n93\nā\n识别置信度 44.3%\n94\n° e (σ/σ)\n识别置信度 85.6%\n95\nwhic is he ota rgment .\n识别置信度 55.6%\n96\n, dσ\n识别置信度 84.8%\n97\nEdσ = φ+ (\n识别置信度 81.6%\n98\n(12)\n识别置信度 100.0%\n99\nNhet trer.\n识别置信度 30.5%\n100\ndσ\n识别置信度 80.1%\n101\nσ\n识别置信度 97.7%\n102\nΓ(a/β)\n识别置信度 85.3%\n103\nσ\n识别置信度 43.4%\n104\naa e ees\n识别置信度 25.2%\n105\no e\n识别置信度 43.0%\n106\nes\n识别置信度 28.9%\n107\naii t\n识别置信度 20.7%\n108\n1 and galaxy property leads to\n识别置信度 96.5%\n109\nn .\n识别置信度 40.4%\n110\n,_p(log10 M|log10 σ) dn ,−)\n识别置信度 87.9%\n111\ne\n识别置信度 37.7%\n112\nψo(M) =\n识别置信度 91.0%\n113\nda\n识别置信度 73.6%\n114\n(σ),\n识别置信度 97.7%\n115\n(13)\n识别置信度 100.0%\n116\nMog(10)\n识别置信度 98.6%\n117\nda\n识别置信度 84.0%\n118\n.\n识别置信度 38.4%\n119\no\n识别置信度 36.3%\n120\nwher i e l\n识别置信度 57.6%\n121\nore r s ie\n识别置信度 25.0%\n122\n识别置信度 32.1%\n123\np(l0g10M|10g10 σ) = =\n识别置信度 88.0%\n124\ne\n识别置信度 26.0%\n125\nV2πt0\n识别置信度 69.9%\n126\no r tn.\n识别置信度 29.1%\n127\n1 (10g10 M − a− b l0g10σ)\n识别置信度 76.6%\n128\n2\n识别置信度 99.0%\n129\now e hi .\n识别置信度 35.6%\n130\n× exp\n识别置信度 96.9%\n131\n2\n识别置信度 98.4%\n132\nhhe e.\n识"
+      },
+      "databases": [
+        {
+          "name": "web-sdk-pp-ocrv6",
+          "version": 1,
+          "stores": {
+            "models": 2
+          }
+        }
+      ]
+    },
+    {
+      "phase": "同页复用",
+      "elapsedMs": 2674,
+      "modelRequestCount": 0,
+      "status": "识别完成",
+      "statusClass": "run-status success",
+      "runtime": [
+        "运行环境请求后端webgpu实际后端DET: webgpu / REC: webgpu执行位置worker运行时onnxruntime-web@1.27.0"
+      ],
+      "timing": [
+        "耗时运行类型热运行（复用会话）本次端到端2101.3 ms本次初始化等待0.0 msSDK 本次运行2100.0 ms模型下载0.0 ms模型加载0.0 ms缓存读取0.0 ms完整性校验0.0 ms图像解码19.8 ms预处理69.0 ms推理622.0 ms后处理1359.6 ms首次初始化分项模型下载4689.0 ms缓存读取0.9 ms完整性校验82.5 ms模型加载4782.0 ms模型获取网络下载这是历史初始化记录，不计入热运行。DET/REC 分项为累计工作量，可并行，不相加为等待时间。"
+      ],
+      "cache": [
+        "当前模型缓存: 31,039,890 B · 本 SDK 全部缓存: 31,039,890 B"
+      ],
+      "loadWall": [
+        "0.0 ms"
+      ],
+      "runState": [
+        "热运行（复用会话）"
+      ],
+      "initialization": [],
+      "results": {
+        "rows": 146,
+        "text": "OCR 结果\n146\n01\n3\n识别置信度 100.0%\n02\naoia l s\n识别置信度 38.9%\n03\nt r\n识别置信度 38.2%\n04\n识别置信度 32.5%\n05\nt .\n识别置信度 30.9%\n06\nta\n识别置信度 36.8%\n07\ndouble power-law\n识别置信度 100.0%\n08\nnnast d e he\n识别置信度 28.7%\n09\ndn\n识别置信度 95.7%\n10\nφ\n识别置信度 99.8%\n11\nne\n识别置信度 24.2%\n12\nφ(L) =\n识别置信度 90.7%\n13\n(9)\n识别置信度 100.0%\n14\ne i.\n识别置信度 43.0%\n15\nd logio L\n识别置信度 90.3%\n16\n(L/L)7i + (L/L)72\n识别置信度 83.8%\n17\nwi a\n识别置信度 28.8%\n18\nnt\n识别置信度 44.7%\n19\n识别置信度 30.1%\n20\ntat\n识别置信度 40.4%\n21\ne e.\n识别置信度 36.2%\n22\nh e\n识别置信度 26.6%\n23\nin ,\n识别置信度 35.0%\n24\nvia\n识别置信度 99.8%\n25\nare sy r al rehiite.\n识别置信度 42.6%\n26\nh t r r e n\n识别置信度 32.7%\n27\nφ(L,0)dlgL = (M,)(M, t)M.\n识别置信度 53.6%\n28\n(4)\n识别置信度 100.0%\n29\n(1 − cr) λ²c²\n识别置信度 82.6%\n30\nψo(M) ψ(M, z) =\n识别置信度 87.8%\n31\nX\n识别置信度 52.2%\n32\nTe it e).\n识别置信度 28.2%\n33\nü\n识别置信度 72.0%\n34\nln(10)\n识别置信度 92.3%\n35\n(10)\n识别置信度 99.9%\n36\nB( . d\n识别置信度 33.0%\n37\n, dt ∂φ |\n识别置信度 87.2%\n38\nd:\n识别置信度 94.7%\n39\ndz’ δL |\n识别置信度 67.1%\n40\n(1 − c)\n识别置信度 82.9%\n41\ndL\n识别置信度 99.4%\n42\nIL=λM c² /te.\n识别置信度 76.9%\n43\n(M(M, t))ψb(M, t) =\n识别置信度 86.1%\n44\nφ(L,t)\n识别置信度 99.0%\n45\n(5)\n识别置信度 100.0%\n46\n€, c2 1n(10)\n识别置信度 93.6%\n47\ndM\n识别置信度 98.4%\n48\ny\n识别置信度 45.9%\n49\nhi o\n识别置信度 36.9%\n50\nerer .\n识别置信度 25.8%\n51\n识别置信度 35.8%\n52\ne e i i\n识别置信度 23.5%\n53\n识别置信度 0.0%\n54\nme rin k ie it\n识别置信度 30.5%\n55\n∂φ\n识别置信度 76.7%\n56\n(1 − €r)\n识别置信度 87.2%\n57\nλ²♂²\n识别置信度 72.5%\n58\n∂φ\n识别置信度 93.8%\n59\n-(M, t) +\n识别置信度 91.0%\n60\n= 0. (6)\n识别置信度 91.1%\n61\nsummarize here.\n识别置信度 98.6%\n62\n∂t\n识别置信度 86.0%\n63\n6\n识别置信度 56.3%\n64\n1r(10) ∂ t\n识别置信度 69.8%\n65\nII=λM²/\n识别置信度 78.8%\n66\nTe penda M rim e .\n识别置信度 31.9%\n67\nnnt f a ate s\n识别置信度 29.7%\n68\ni e\n识别置信度 33.6%\n69\n识别置信度 56.2%\n70\n识别置信度 0.0%\n71\n识别置信度 37.8%\n72\n识别置信度 35.3%\n73\nis expressed as\n识别置信度 100.0%\n74\nfunction\n识别置信度 97.3%\n75\nlog10 M = a. + b log1n X.\n识别置信度 90.5%\n76\n(11)\n识别置信度 100.0%\n77\nPBH =\n识别置信度 85.0%\n78\n1 dMψ(M)M\n识别置信度 84.9%\n79\n(7)\n识别置信度 99.5%\n80\ny\n识别置信度 52.9%\n81\n– tr\n识别置信度 86.2%\n82\ndt\n识别置信度 99.3%\n83\n1\n识别置信度 62.7%\n84\nL e n\n识别置信度 38.2%\n85\ndz\n识别置信度 99.7%\n86\nd log10 Lφ(L, z)L. (8)\n识别置信度 90.5%\n87\n一\n识别置信度 41.6%\n88\n€c²\n识别置信度 66.1%\n89\ndz J\n识别置信度 82.9%\n90\nfunction (VDF) as\n识别置信度 96.5%\n91\nJn\n识别置信度 71.7%\n92\ndn\n识别置信度 93.7%\n93\nā\n识别置信度 44.3%\n94\n° e (σ/σ)\n识别置信度 85.6%\n95\nwhic is he ota rgment .\n识别置信度 55.6%\n96\n, dσ\n识别置信度 84.8%\n97\nEdσ = φ+ (\n识别置信度 81.6%\n98\n(12)\n识别置信度 100.0%\n99\nNhet trer.\n识别置信度 30.5%\n100\ndσ\n识别置信度 80.1%\n101\nσ\n识别置信度 97.7%\n102\nΓ(a/β)\n识别置信度 85.3%\n103\nσ\n识别置信度 43.4%\n104\naa e ees\n识别置信度 25.2%\n105\no e\n识别置信度 43.0%\n106\nes\n识别置信度 28.9%\n107\naii t\n识别置信度 20.7%\n108\n1 and galaxy property leads to\n识别置信度 96.5%\n109\nn .\n识别置信度 40.4%\n110\n,_p(log10 M|log10 σ) dn ,−)\n识别置信度 87.9%\n111\ne\n识别置信度 37.7%\n112\nψo(M) =\n识别置信度 91.0%\n113\nda\n识别置信度 73.6%\n114\n(σ),\n识别置信度 97.7%\n115\n(13)\n识别置信度 100.0%\n116\nMog(10)\n识别置信度 98.6%\n117\nda\n识别置信度 84.0%\n118\n.\n识别置信度 38.4%\n119\no\n识别置信度 36.3%\n120\nwher i e l\n识别置信度 57.6%\n121\nore r s ie\n识别置信度 25.0%\n122\n识别置信度 32.1%\n123\np(l0g10M|10g10 σ) = =\n识别置信度 88.0%\n124\ne\n识别置信度 26.0%\n125\nV2πt0\n识别置信度 69.9%\n126\no r tn.\n识别置信度 29.1%\n127\n1 (10g10 M − a− b l0g10σ)\n识别置信度 76.6%\n128\n2\n识别置信度 99.0%\n129\now e hi .\n识别置信度 35.6%\n130\n× exp\n识别置信度 96.9%\n131\n2\n识别置信度 98.4%\n132\nhhe e.\n识"
+      },
+      "databases": [
+        {
+          "name": "web-sdk-pp-ocrv6",
+          "version": 1,
+          "stores": {
+            "models": 2
+          }
+        }
+      ]
+    },
+    {
+      "phase": "刷新后缓存",
+      "elapsedMs": 7143,
+      "modelRequestCount": 0,
+      "status": "识别完成",
+      "statusClass": "run-status success",
+      "runtime": [
+        "运行环境请求后端webgpu实际后端DET: webgpu / REC: webgpu执行位置worker运行时onnxruntime-web@1.27.0"
+      ],
+      "timing": [
+        "耗时运行类型冷启动（新会话）本次端到端6562.5 ms本次初始化等待2350.0 msSDK 本次运行4212.2 ms模型下载0.0 ms模型加载0.0 ms缓存读取0.0 ms完整性校验0.0 ms图像解码10.8 ms预处理77.5 ms推理2766.8 ms后处理1329.4 ms首次初始化分项模型下载0.0 ms缓存读取29.7 ms完整性校验82.4 ms模型加载2731.3 ms模型获取缓存命中这是历史初始化记录，不计入热运行。DET/REC 分项为累计工作量，可并行，不相加为等待时间。"
+      ],
+      "cache": [
+        "当前模型缓存: 31,039,890 B · 本 SDK 全部缓存: 31,039,890 B"
+      ],
+      "loadWall": [
+        "2350.0 ms"
+      ],
+      "runState": [
+        "冷启动（新会话）"
+      ],
+      "initialization": [],
+      "results": {
+        "rows": 146,
+        "text": "OCR 结果\n146\n01\n3\n识别置信度 100.0%\n02\naoia l s\n识别置信度 38.9%\n03\nt r\n识别置信度 38.2%\n04\n识别置信度 32.5%\n05\nt .\n识别置信度 30.9%\n06\nta\n识别置信度 36.8%\n07\ndouble power-law\n识别置信度 100.0%\n08\nnnast d e he\n识别置信度 28.7%\n09\ndn\n识别置信度 95.7%\n10\nφ\n识别置信度 99.8%\n11\nne\n识别置信度 24.2%\n12\nφ(L) =\n识别置信度 90.7%\n13\n(9)\n识别置信度 100.0%\n14\ne i.\n识别置信度 43.0%\n15\nd logio L\n识别置信度 90.3%\n16\n(L/L)7i + (L/L)72\n识别置信度 83.8%\n17\nwi a\n识别置信度 28.8%\n18\nnt\n识别置信度 44.7%\n19\n识别置信度 30.1%\n20\ntat\n识别置信度 40.4%\n21\ne e.\n识别置信度 36.2%\n22\nh e\n识别置信度 26.6%\n23\nin ,\n识别置信度 35.0%\n24\nvia\n识别置信度 99.8%\n25\nare sy r al rehiite.\n识别置信度 42.6%\n26\nh t r r e n\n识别置信度 32.7%\n27\nφ(L,0)dlgL = (M,)(M, t)M.\n识别置信度 53.6%\n28\n(4)\n识别置信度 100.0%\n29\n(1 − cr) λ²c²\n识别置信度 82.6%\n30\nψo(M) ψ(M, z) =\n识别置信度 87.8%\n31\nX\n识别置信度 52.2%\n32\nTe it e).\n识别置信度 28.2%\n33\nü\n识别置信度 72.0%\n34\nln(10)\n识别置信度 92.3%\n35\n(10)\n识别置信度 99.9%\n36\nB( . d\n识别置信度 33.0%\n37\n, dt ∂φ |\n识别置信度 87.2%\n38\nd:\n识别置信度 94.7%\n39\ndz’ δL |\n识别置信度 67.1%\n40\n(1 − c)\n识别置信度 82.9%\n41\ndL\n识别置信度 99.4%\n42\nIL=λM c² /te.\n识别置信度 76.9%\n43\n(M(M, t))ψb(M, t) =\n识别置信度 86.1%\n44\nφ(L,t)\n识别置信度 99.0%\n45\n(5)\n识别置信度 100.0%\n46\n€, c2 1n(10)\n识别置信度 93.6%\n47\ndM\n识别置信度 98.4%\n48\ny\n识别置信度 45.9%\n49\nhi o\n识别置信度 36.9%\n50\nerer .\n识别置信度 25.8%\n51\n识别置信度 35.8%\n52\ne e i i\n识别置信度 23.5%\n53\n识别置信度 0.0%\n54\nme rin k ie it\n识别置信度 30.5%\n55\n∂φ\n识别置信度 76.7%\n56\n(1 − €r)\n识别置信度 87.2%\n57\nλ²♂²\n识别置信度 72.5%\n58\n∂φ\n识别置信度 93.8%\n59\n-(M, t) +\n识别置信度 91.0%\n60\n= 0. (6)\n识别置信度 91.1%\n61\nsummarize here.\n识别置信度 98.6%\n62\n∂t\n识别置信度 86.0%\n63\n6\n识别置信度 56.3%\n64\n1r(10) ∂ t\n识别置信度 69.8%\n65\nII=λM²/\n识别置信度 78.8%\n66\nTe penda M rim e .\n识别置信度 31.9%\n67\nnnt f a ate s\n识别置信度 29.7%\n68\ni e\n识别置信度 33.6%\n69\n识别置信度 56.2%\n70\n识别置信度 0.0%\n71\n识别置信度 37.8%\n72\n识别置信度 35.3%\n73\nis expressed as\n识别置信度 100.0%\n74\nfunction\n识别置信度 97.3%\n75\nlog10 M = a. + b log1n X.\n识别置信度 90.5%\n76\n(11)\n识别置信度 100.0%\n77\nPBH =\n识别置信度 85.0%\n78\n1 dMψ(M)M\n识别置信度 84.9%\n79\n(7)\n识别置信度 99.5%\n80\ny\n识别置信度 52.9%\n81\n– tr\n识别置信度 86.2%\n82\ndt\n识别置信度 99.3%\n83\n1\n识别置信度 62.7%\n84\nL e n\n识别置信度 38.2%\n85\ndz\n识别置信度 99.7%\n86\nd log10 Lφ(L, z)L. (8)\n识别置信度 90.5%\n87\n一\n识别置信度 41.6%\n88\n€c²\n识别置信度 66.1%\n89\ndz J\n识别置信度 82.9%\n90\nfunction (VDF) as\n识别置信度 96.5%\n91\nJn\n识别置信度 71.7%\n92\ndn\n识别置信度 93.7%\n93\nā\n识别置信度 44.3%\n94\n° e (σ/σ)\n识别置信度 85.6%\n95\nwhic is he ota rgment .\n识别置信度 55.6%\n96\n, dσ\n识别置信度 84.8%\n97\nEdσ = φ+ (\n识别置信度 81.6%\n98\n(12)\n识别置信度 100.0%\n99\nNhet trer.\n识别置信度 30.5%\n100\ndσ\n识别置信度 80.1%\n101\nσ\n识别置信度 97.7%\n102\nΓ(a/β)\n识别置信度 85.3%\n103\nσ\n识别置信度 43.4%\n104\naa e ees\n识别置信度 25.2%\n105\no e\n识别置信度 43.0%\n106\nes\n识别置信度 28.9%\n107\naii t\n识别置信度 20.7%\n108\n1 and galaxy property leads to\n识别置信度 96.5%\n109\nn .\n识别置信度 40.4%\n110\n,_p(log10 M|log10 σ) dn ,−)\n识别置信度 87.9%\n111\ne\n识别置信度 37.7%\n112\nψo(M) =\n识别置信度 91.0%\n113\nda\n识别置信度 73.6%\n114\n(σ),\n识别置信度 97.7%\n115\n(13)\n识别置信度 100.0%\n116\nMog(10)\n识别置信度 98.6%\n117\nda\n识别置信度 84.0%\n118\n.\n识别置信度 38.4%\n119\no\n识别置信度 36.3%\n120\nwher i e l\n识别置信度 57.6%\n121\nore r s ie\n识别置信度 25.0%\n122\n识别置信度 32.1%\n123\np(l0g10M|10g10 σ) = =\n识别置信度 88.0%\n124\ne\n识别置信度 26.0%\n125\nV2πt0\n识别置信度 69.9%\n126\no r tn.\n识别置信度 29.1%\n127\n1 (10g10 M − a− b l0g10σ)\n识别置信度 76.6%\n128\n2\n识别置信度 99.0%\n129\now e hi .\n识别置信度 35.6%\n130\n× exp\n识别置信度 96.9%\n131\n2\n识别置信度 98.4%\n132\nhhe e.\n识"
+      },
+      "databases": [
+        {
+          "name": "web-sdk-pp-ocrv6",
+          "version": 1,
+          "stores": {
+            "models": 2
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "phase": "下载取消",
+      "url": "https://huggingface.co/chenmohan/web-sdk-pp-ocrv6/resolve/main/PP-OCRv6_small_det.onnx",
+      "method": "GET",
+      "startedAt": "2026-09-08T23:35:58.120Z",
+      "error": "net::ERR_ABORTED",
+      "failedAt": "2026-09-08T23:35:58.164Z"
+    },
+    {
+      "phase": "下载取消",
+      "url": "https://huggingface.co/chenmohan/web-sdk-pp-ocrv6/resolve/main/PP-OCRv6_small_rec.onnx",
+      "method": "GET",
+      "startedAt": "2026-09-08T23:35:58.135Z",
+      "error": "net::ERR_ABORTED",
+      "failedAt": "2026-09-08T23:35:58.164Z"
+    },
+    {
+      "phase": "首次下载重试",
+      "url": "https://huggingface.co/chenmohan/web-sdk-pp-ocrv6/resolve/main/PP-OCRv6_small_rec.onnx",
+      "method": "GET",
+      "startedAt": "2026-09-08T23:35:58.722Z",
+      "status": 302,
+      "fromServiceWorker": false,
+      "contentLength": "1008",
+      "contentType": "text/plain; charset=utf-8",
+      "finishedAt": "2026-09-08T23:35:59.088Z",
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 744,
+        "responseBodySize": 1008,
+        "responseHeadersSize": 0
+      }
+    },
+    {
+      "phase": "首次下载重试",
+      "url": "https://huggingface.co/chenmohan/web-sdk-pp-ocrv6/resolve/main/PP-OCRv6_small_det.onnx",
+      "method": "GET",
+      "startedAt": "2026-09-08T23:35:58.727Z",
+      "status": 302,
+      "fromServiceWorker": false,
+      "contentLength": "1012",
+      "contentType": "text/plain; charset=utf-8",
+      "finishedAt": "2026-09-08T23:35:59.091Z",
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 744,
+        "responseBodySize": 1012,
+        "responseHeadersSize": 0
+      }
+    },
+    {
+      "phase": "首次下载重试",
+      "url": "https://us.aws.cdn.hf.co/xet-bridge-us/6a8fa66ad7ebe9e5cd591328/b620020542891e03945057270f878896653aa76d2ff70420a79ab7add42829ec",
+      "method": "GET",
+      "startedAt": "2026-09-08T23:35:59.088Z",
+      "status": 200,
+      "fromServiceWorker": false,
+      "contentLength": "21159378",
+      "contentType": "application/octet-stream",
+      "finishedAt": "2026-09-08T23:36:01.304Z",
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 1658,
+        "responseBodySize": 21172042,
+        "responseHeadersSize": 0
+      }
+    },
+    {
+      "phase": "首次下载重试",
+      "url": "https://us.aws.cdn.hf.co/xet-bridge-us/6a8fa66ad7ebe9e5cd591328/e8bfe657f7f96a4c0df43cba9d629ed0b55ade3ddf278928dd17a78743f79390",
+      "method": "GET",
+      "startedAt": "2026-09-08T23:35:59.091Z",
+      "status": 200,
+      "fromServiceWorker": false,
+      "contentLength": "9880512",
+      "contentType": "application/octet-stream",
+      "finishedAt": "2026-09-08T23:36:00.916Z",
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 1662,
+        "responseBodySize": 9886829,
+        "responseHeadersSize": 0
+      }
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [
+    {
+      "phase": "页面",
+      "message": "Failed to load resource: the server responded with a status of 404 ()"
+    },
+    {
+      "phase": "首次下载重试",
+      "message": "\u001b[0;93m2026-09-09 07:36:03.328399 [W:onnxruntime:, session_state.cc:1367 VerifyEachNodeIsAssignedToAnEp] Some nodes were not assigned to the preferred execution providers which may or may not have an negative impact on performance. e.g. ORT explicitly assigns shape related ops to CPU to improve perf.\u001b[m"
+    },
+    {
+      "phase": "首次下载重试",
+      "message": "\u001b[0;93m2026-09-09 07:36:03.334899 [W:onnxruntime:, session_state.cc:1369 VerifyEachNodeIsAssignedToAnEp] Rerunning with verbose output on a non-minimal build will show node assignments.\u001b[m"
+    },
+    {
+      "phase": "刷新后缓存",
+      "message": "\u001b[0;93m2026-09-09 07:36:14.875899 [W:onnxruntime:, session_state.cc:1367 VerifyEachNodeIsAssignedToAnEp] Some nodes were not assigned to the preferred execution providers which may or may not have an negative impact on performance. e.g. ORT explicitly assigns shape related ops to CPU to improve perf.\u001b[m"
+    },
+    {
+      "phase": "刷新后缓存",
+      "message": "\u001b[0;93m2026-09-09 07:36:14.890100 [W:onnxruntime:, session_state.cc:1369 VerifyEachNodeIsAssignedToAnEp] Rerunning with verbose output on a non-minimal build will show node assignments.\u001b[m"
+    }
+  ],
+  "otherNetworkFailures": [
+    {
+      "phase": "页面",
+      "url": "https://modelscope.cn/models/chenmohan/web-sdk-pp-ocrv6/resolve/master/manifest.json",
+      "error": "net::ERR_ABORTED"
+    }
+  ],
+  "browser": "151.0.7922.34",
+  "pageStatus": 200,
+  "adapter": {
+    "vendor": "nvidia",
+    "architecture": "blackwell",
+    "fallback": false
+  },
+  "status": "passed",
+  "finishedAt": "2026-09-08T23:36:20.380Z"
+}

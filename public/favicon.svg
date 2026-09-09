@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>Web Model SDK</title>
+  <rect width="64" height="64" rx="8" fill="#2563eb" />
+  <path d="M14 20 22 44 32 28 42 44 50 20" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

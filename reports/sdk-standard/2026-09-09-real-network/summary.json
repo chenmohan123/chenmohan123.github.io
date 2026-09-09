@@ -1,0 +1,189 @@
+{
+  "generatedAt": "2026-09-09T03:19:04.655Z",
+  "results": [
+    {
+      "sdk": "detection",
+      "name": "Detection",
+      "source": "modelscope",
+      "file": "detection-modelscope.json",
+      "url": "https://chenmohan123.github.io/web-sdk-PP-Detection/",
+      "browser": "151.0.7922.34",
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "fallback": false
+      },
+      "verifiedAt": "2026-09-08T23:31:36.693Z",
+      "finishedAt": "2026-09-08T23:31:56.723Z",
+      "modelBytes": 23243834,
+      "coldMs": 9360,
+      "repeatedMs": 1243,
+      "refreshedMs": 4699,
+      "inferenceResult": "12 个目标"
+    },
+    {
+      "sdk": "detection",
+      "name": "Detection",
+      "source": "huggingface",
+      "file": "detection-huggingface.json",
+      "url": "https://chenmohan123.github.io/web-sdk-PP-Detection/",
+      "browser": "151.0.7922.34",
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "fallback": false
+      },
+      "verifiedAt": "2026-09-08T23:34:02.355Z",
+      "finishedAt": "2026-09-08T23:34:22.359Z",
+      "modelBytes": 23243834,
+      "coldMs": 9513,
+      "repeatedMs": 1405,
+      "refreshedMs": 4420,
+      "inferenceResult": "12 个目标"
+    },
+    {
+      "sdk": "doclayout",
+      "name": "DocLayoutV3",
+      "source": "modelscope",
+      "file": "doclayout-modelscope.json",
+      "url": "https://chenmohan123.github.io/web-sdk-PP-DocLayoutV3/",
+      "browser": "151.0.7922.34",
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "fallback": false
+      },
+      "verifiedAt": "2026-09-08T23:37:21.782Z",
+      "finishedAt": "2026-09-08T23:37:52.359Z",
+      "modelBytes": 142574928,
+      "coldMs": 15419,
+      "repeatedMs": 5759,
+      "refreshedMs": 5828,
+      "inferenceResult": "13 个版面区域"
+    },
+    {
+      "sdk": "doclayout",
+      "name": "DocLayoutV3",
+      "source": "huggingface",
+      "file": "doclayout-huggingface.json",
+      "url": "https://chenmohan123.github.io/web-sdk-PP-DocLayoutV3/",
+      "browser": "151.0.7922.34",
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "fallback": false
+      },
+      "verifiedAt": "2026-09-08T23:38:06.595Z",
+      "finishedAt": "2026-09-08T23:43:27.642Z",
+      "modelBytes": 142574928,
+      "coldMs": 304891,
+      "repeatedMs": 6491,
+      "refreshedMs": 6232,
+      "inferenceResult": "13 个版面区域"
+    },
+    {
+      "sdk": "ocr",
+      "name": "OCRv6",
+      "source": "modelscope",
+      "file": "ocr-modelscope.json",
+      "url": "https://chenmohan123.github.io/web-sdk-PP-OCRv6/",
+      "browser": "151.0.7922.34",
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "fallback": false
+      },
+      "verifiedAt": "2026-09-08T23:34:59.446Z",
+      "finishedAt": "2026-09-08T23:35:27.914Z",
+      "modelBytes": 31039890,
+      "coldMs": 13810,
+      "repeatedMs": 2849,
+      "refreshedMs": 7393,
+      "inferenceResult": "146 行文字"
+    },
+    {
+      "sdk": "ocr",
+      "name": "OCRv6",
+      "source": "huggingface",
+      "file": "ocr-huggingface.json",
+      "url": "https://chenmohan123.github.io/web-sdk-PP-OCRv6/",
+      "browser": "151.0.7922.34",
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "fallback": false
+      },
+      "verifiedAt": "2026-09-08T23:35:54.701Z",
+      "finishedAt": "2026-09-08T23:36:20.380Z",
+      "modelBytes": 31039890,
+      "coldMs": 11255,
+      "repeatedMs": 2674,
+      "refreshedMs": 7143,
+      "inferenceResult": "146 行文字"
+    },
+    {
+      "sdk": "lcnet",
+      "name": "LCNet 文档方向",
+      "source": "modelscope",
+      "file": "lcnet-modelscope.json",
+      "url": "https://chenmohan123.github.io/web-sdk-PP-LCNet_x1_0_doc_ori/",
+      "browser": "151.0.7922.34",
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "fallback": false
+      },
+      "verifiedAt": "2026-09-08T23:33:15.802Z",
+      "finishedAt": "2026-09-08T23:33:28.814Z",
+      "modelBytes": 6788069,
+      "coldMs": 4775,
+      "repeatedMs": 868,
+      "refreshedMs": 1893,
+      "inferenceResult": "方向 / 180° / 置信度 / 43.57% / 校正角度 / 180°"
+    },
+    {
+      "sdk": "lcnet",
+      "name": "LCNet 文档方向",
+      "source": "huggingface",
+      "file": "lcnet-huggingface.json",
+      "url": "https://chenmohan123.github.io/web-sdk-PP-LCNet_x1_0_doc_ori/",
+      "browser": "151.0.7922.34",
+      "adapter": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "fallback": false
+      },
+      "verifiedAt": "2026-09-08T23:34:03.934Z",
+      "finishedAt": "2026-09-08T23:34:20.267Z",
+      "modelBytes": 6788069,
+      "coldMs": 7016,
+      "repeatedMs": 878,
+      "refreshedMs": 2429,
+      "inferenceResult": "方向 / 180° / 置信度 / 43.57% / 校正角度 / 180°"
+    }
+  ],
+  "release": {
+    "verifiedAt": "2026-09-08T23:40:23.3980275Z",
+    "pr": {
+      "headRefOid": "e241b7d4e996a6303a91d77f8e65fa29d2d955d3",
+      "mergeCommit": {
+        "oid": "3aedb7b35af49a1c207fd4f846211366a9d09973"
+      },
+      "mergedAt": "2026-09-08T23:27:02Z",
+      "state": "MERGED",
+      "url": "https://github.com/chenmohan123/web-sdk-PP-DocLayoutV3/pull/47"
+    },
+    "ci": {
+      "conclusion": "success",
+      "headSha": "3aedb7b35af49a1c207fd4f846211366a9d09973",
+      "status": "completed",
+      "url": "https://github.com/chenmohan123/web-sdk-PP-DocLayoutV3/actions/runs/34290702890"
+    },
+    "pages": {
+      "conclusion": "success",
+      "headSha": "3aedb7b35af49a1c207fd4f846211366a9d09973",
+      "status": "completed",
+      "url": "https://github.com/chenmohan123/web-sdk-PP-DocLayoutV3/actions/runs/34290702967"
+    }
+  }
+}

@@ -1,0 +1,229 @@
+{
+  "verifiedAt": "2026-09-08T23:38:06.595Z",
+  "sdk": "doclayout",
+  "source": "huggingface",
+  "url": "https://chenmohan123.github.io/web-sdk-PP-DocLayoutV3/",
+  "transport": "公开 Pages 和真实模型服务；无请求响应替换。冷启动取消阶段使用 CDP 限速，重试前恢复正常网络。各来源使用独立临时浏览器环境，HTTP 缓存禁用，SDK 持久缓存（IndexedDB 或 Cache Storage）保留。",
+  "stages": [
+    {
+      "phase": "下载取消",
+      "status": "准备就绪\nlayout-demo.jpg",
+      "statusClass": "status-line ready",
+      "runtime": [
+        "模型信息模型来源Hugging Face模型清单https://huggingface.co/chenmohan/web-sdk-pp-doclayoutv3/resolve/main/manifest.json?v=1.0.2名称-大小-参数量-实际后端-实际精度-运行模式-"
+      ],
+      "timing": [
+        "本次检测端到端耗时-图片解码-预处理-模型推理-后处理-端到端耗时还包含 Worker 通信与结果传输等少量开销。"
+      ],
+      "cache": [
+        "当前模型缓存: -"
+      ],
+      "loadWall": [],
+      "runState": [],
+      "initialization": [
+        "初始化初始化总耗时-模型下载-缓存读取-完整性校验-模型来源-Session 创建-"
+      ],
+      "results": "检测结果\n0 个版面区域\n\n未检测到版面区域",
+      "cacheStorage": [
+        {
+          "name": "ppdoclayout-models-v1",
+          "entries": 0
+        }
+      ],
+      "databases": []
+    },
+    {
+      "phase": "首次下载重试",
+      "elapsedMs": 304891,
+      "modelRequestCount": 2,
+      "status": "检测完成\nlayout-demo.jpg",
+      "statusClass": "status-line success",
+      "runtime": [
+        "模型信息模型来源Hugging Face模型清单https://huggingface.co/chenmohan/web-sdk-pp-doclayoutv3/resolve/main/manifest.json?v=1.0.2名称pp-doclayoutv3大小136.0 MB参数量33,175,165实际后端webgpu实际精度fp32运行模式worker"
+      ],
+      "timing": [
+        "本次检测端到端耗时3034 ms图片解码42 ms预处理226 ms模型推理2612 ms后处理138 ms端到端耗时还包含 Worker 通信与结果传输等少量开销。"
+      ],
+      "cache": [
+        "当前模型缓存: 136.0 MB"
+      ],
+      "loadWall": [],
+      "runState": [],
+      "initialization": [
+        "初始化初始化总耗时301507 ms模型下载297725 ms缓存读取0 ms完整性校验373 ms模型来源网络下载Session 创建2574 ms"
+      ],
+      "results": "检测结果\n13 个版面区域\n01\ntext\n96.1% · 337,183\n02\nparagraph_title\n90.5% · 338,685\n03\ntext\n95.2% · 921,186\n04\ntext\n94.8% · 921,485\n05\ntext\n96.4% · 336,842\n06\ntext\n95.2% · 921,846\n07\ntext\n92.2% · 922,1240\n08\nfootnote\n77.9% · 335,1616\n09\nfootnote\n79.7% · 337,1758\n10\nfootnote\n55.8% · 338,1911\n11\nfootnote\n74.1% · 343,2118\n12\nnumber\n70.2% · 106,2259\n13\nfooter\n83.8% · 340,2258",
+      "cacheStorage": [
+        {
+          "name": "ppdoclayout-models-v1",
+          "entries": 1
+        }
+      ],
+      "databases": []
+    },
+    {
+      "phase": "同页复用",
+      "elapsedMs": 6491,
+      "modelRequestCount": 0,
+      "status": "检测完成\nlayout-demo.jpg",
+      "statusClass": "status-line success",
+      "runtime": [
+        "模型信息模型来源Hugging Face模型清单https://huggingface.co/chenmohan/web-sdk-pp-doclayoutv3/resolve/main/manifest.json?v=1.0.2名称pp-doclayoutv3大小136.0 MB参数量33,175,165实际后端webgpu实际精度fp32运行模式worker"
+      ],
+      "timing": [
+        "本次检测端到端耗时3012 ms图片解码36 ms预处理211 ms模型推理2613 ms后处理137 ms端到端耗时还包含 Worker 通信与结果传输等少量开销。"
+      ],
+      "cache": [
+        "当前模型缓存: 136.0 MB"
+      ],
+      "loadWall": [],
+      "runState": [],
+      "initialization": [
+        "初始化初始化总耗时3087 ms模型下载0 ms缓存读取104 ms完整性校验368 ms模型来源持久缓存Session 创建1845 ms"
+      ],
+      "results": "检测结果\n13 个版面区域\n01\ntext\n96.1% · 337,183\n02\nparagraph_title\n90.5% · 338,685\n03\ntext\n95.2% · 921,186\n04\ntext\n94.8% · 921,485\n05\ntext\n96.4% · 336,842\n06\ntext\n95.2% · 921,846\n07\ntext\n92.2% · 922,1240\n08\nfootnote\n77.9% · 335,1616\n09\nfootnote\n79.7% · 337,1758\n10\nfootnote\n55.8% · 338,1911\n11\nfootnote\n74.1% · 343,2118\n12\nnumber\n70.2% · 106,2259\n13\nfooter\n83.8% · 340,2258",
+      "cacheStorage": [
+        {
+          "name": "ppdoclayout-models-v1",
+          "entries": 1
+        }
+      ],
+      "databases": []
+    },
+    {
+      "phase": "刷新后缓存",
+      "elapsedMs": 6232,
+      "modelRequestCount": 0,
+      "status": "检测完成\nlayout-demo.jpg",
+      "statusClass": "status-line success",
+      "runtime": [
+        "模型信息模型来源Hugging Face模型清单https://huggingface.co/chenmohan/web-sdk-pp-doclayoutv3/resolve/main/manifest.json?v=1.0.2名称pp-doclayoutv3大小136.0 MB参数量33,175,165实际后端webgpu实际精度fp32运行模式worker"
+      ],
+      "timing": [
+        "本次检测端到端耗时2876 ms图片解码34 ms预处理208 ms模型推理2445 ms后处理174 ms端到端耗时还包含 Worker 通信与结果传输等少量开销。"
+      ],
+      "cache": [
+        "当前模型缓存: 136.0 MB"
+      ],
+      "loadWall": [],
+      "runState": [],
+      "initialization": [
+        "初始化初始化总耗时2823 ms模型下载0 ms缓存读取85 ms完整性校验364 ms模型来源持久缓存Session 创建1772 ms"
+      ],
+      "results": "检测结果\n13 个版面区域\n01\ntext\n96.1% · 337,183\n02\nparagraph_title\n90.5% · 338,685\n03\ntext\n95.2% · 921,186\n04\ntext\n94.8% · 921,485\n05\ntext\n96.4% · 336,842\n06\ntext\n95.2% · 921,846\n07\ntext\n92.2% · 922,1240\n08\nfootnote\n77.9% · 335,1616\n09\nfootnote\n79.7% · 337,1758\n10\nfootnote\n55.8% · 338,1911\n11\nfootnote\n74.1% · 343,2118\n12\nnumber\n70.2% · 106,2259\n13\nfooter\n83.8% · 340,2258",
+      "cacheStorage": [
+        {
+          "name": "ppdoclayout-models-v1",
+          "entries": 1
+        }
+      ],
+      "databases": []
+    }
+  ],
+  "requests": [
+    {
+      "phase": "下载取消",
+      "url": "https://huggingface.co/chenmohan/web-sdk-pp-doclayoutv3/resolve/main/model-fp32.onnx",
+      "method": "GET",
+      "startedAt": "2026-09-08T23:38:08.957Z",
+      "error": "net::ERR_ABORTED",
+      "failedAt": "2026-09-08T23:38:08.995Z"
+    },
+    {
+      "phase": "首次下载重试",
+      "url": "https://huggingface.co/chenmohan/web-sdk-pp-doclayoutv3/resolve/main/model-fp32.onnx",
+      "method": "GET",
+      "startedAt": "2026-09-08T23:38:09.518Z",
+      "status": 302,
+      "fromServiceWorker": false,
+      "contentLength": "972",
+      "contentType": "text/plain; charset=utf-8",
+      "finishedAt": "2026-09-08T23:38:09.859Z",
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 748,
+        "responseBodySize": 972,
+        "responseHeadersSize": 0
+      }
+    },
+    {
+      "phase": "首次下载重试",
+      "url": "https://us.aws.cdn.hf.co/xet-bridge-us/6a8fa665386374c51a17c069/2c90e1206faae8dfbe521f724e82708323f86eb2a99d5a0dd271e20e1ae4d854",
+      "method": "GET",
+      "startedAt": "2026-09-08T23:38:09.860Z",
+      "status": 200,
+      "fromServiceWorker": false,
+      "contentLength": "142574928",
+      "contentType": "application/octet-stream",
+      "finishedAt": "2026-09-08T23:43:07.616Z",
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 1622,
+        "responseBodySize": 142666435,
+        "responseHeadersSize": 0
+      }
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [
+    {
+      "phase": "页面",
+      "message": "Failed to load resource: the server responded with a status of 404 ()"
+    },
+    {
+      "phase": "首次下载重试",
+      "message": "\u001b[0;93m2026-09-09 07:43:10.258599 [W:onnxruntime:, session_state.cc:1367 VerifyEachNodeIsAssignedToAnEp] Some nodes were not assigned to the preferred execution providers which may or may not have an negative impact on performance. e.g. ORT explicitly assigns shape related ops to CPU to improve perf.\u001b[m"
+    },
+    {
+      "phase": "首次下载重试",
+      "message": "\u001b[0;93m2026-09-09 07:43:10.260798 [W:onnxruntime:, session_state.cc:1369 VerifyEachNodeIsAssignedToAnEp] Rerunning with verbose output on a non-minimal build will show node assignments.\u001b[m"
+    },
+    {
+      "phase": "同页复用",
+      "message": "\u001b[0;93m2026-09-09 07:43:16.848300 [W:onnxruntime:, session_state.cc:1367 VerifyEachNodeIsAssignedToAnEp] Some nodes were not assigned to the preferred execution providers which may or may not have an negative impact on performance. e.g. ORT explicitly assigns shape related ops to CPU to improve perf.\u001b[m"
+    },
+    {
+      "phase": "同页复用",
+      "message": "\u001b[0;93m2026-09-09 07:43:16.849900 [W:onnxruntime:, session_state.cc:1369 VerifyEachNodeIsAssignedToAnEp] Rerunning with verbose output on a non-minimal build will show node assignments.\u001b[m"
+    },
+    {
+      "phase": "刷新后缓存",
+      "message": "\u001b[0;93m2026-09-09 07:43:23.813498 [W:onnxruntime:, session_state.cc:1367 VerifyEachNodeIsAssignedToAnEp] Some nodes were not assigned to the preferred execution providers which may or may not have an negative impact on performance. e.g. ORT explicitly assigns shape related ops to CPU to improve perf.\u001b[m"
+    },
+    {
+      "phase": "刷新后缓存",
+      "message": "\u001b[0;93m2026-09-09 07:43:23.815699 [W:onnxruntime:, session_state.cc:1369 VerifyEachNodeIsAssignedToAnEp] Rerunning with verbose output on a non-minimal build will show node assignments.\u001b[m"
+    }
+  ],
+  "otherNetworkFailures": [
+    {
+      "phase": "页面",
+      "url": "https://modelscope.cn/models/chenmohan/web-sdk-pp-doclayoutv3/resolve/master/manifest.json",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "phase": "下载取消",
+      "url": "https://huggingface.co/chenmohan/web-sdk-pp-doclayoutv3/resolve/main/manifest.json",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "phase": "刷新页面",
+      "url": "https://modelscope.cn/models/chenmohan/web-sdk-pp-doclayoutv3/resolve/master/manifest.json",
+      "error": "net::ERR_ABORTED"
+    },
+    {
+      "phase": "刷新后缓存",
+      "url": "https://huggingface.co/chenmohan/web-sdk-pp-doclayoutv3/resolve/main/manifest.json",
+      "error": "net::ERR_ABORTED"
+    }
+  ],
+  "browser": "151.0.7922.34",
+  "pageStatus": 200,
+  "adapter": {
+    "vendor": "nvidia",
+    "architecture": "blackwell",
+    "fallback": false
+  },
+  "status": "passed",
+  "finishedAt": "2026-09-08T23:43:27.642Z"
+}

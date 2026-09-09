@@ -1,0 +1,205 @@
+{
+  "verifiedAt": "2026-09-08T23:30:36.804Z",
+  "sdk": "lcnet",
+  "source": "modelscope",
+  "url": "https://chenmohan123.github.io/web-sdk-PP-LCNet_x1_0_doc_ori/",
+  "transport": "公开 Pages 和真实模型服务；无请求响应替换。冷启动取消阶段使用 CDP 限速，重试前恢复正常网络。各来源使用独立临时浏览器环境，HTTP 缓存禁用，IndexedDB 保留。",
+  "stages": [
+    {
+      "phase": "下载取消",
+      "status": "示例文档已准备好，可以检测。",
+      "statusClass": "status-line",
+      "runtime": [
+        "运行环境请求后端webgpu实际会话后端-执行模式-运行时版本-"
+      ],
+      "timing": [
+        "耗时本次重新创建会话；模型来源为缓存时仍包含缓存读取与校验。推理总计不包含模型加载。"
+      ],
+      "cache": [
+        "当前模型缓存: 0 B"
+      ],
+      "loadWall": [],
+      "runState": [],
+      "initialization": [],
+      "results": "方向\n-\n置信度\n-\n校正角度\n-",
+      "databases": [
+        {
+          "name": "pp-lcnet-doc-orientation",
+          "version": 1,
+          "stores": {
+            "models": 0
+          }
+        }
+      ]
+    },
+    {
+      "phase": "首次下载重试",
+      "elapsedMs": 5809,
+      "modelRequestCount": 2,
+      "status": "检测完成。",
+      "statusClass": "status-line",
+      "runtime": [
+        "运行环境请求后端webgpu实际会话后端webgpu执行模式main运行时版本1.27.0测试环境Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36 · 2026-09-08"
+      ],
+      "timing": [
+        "耗时模型清单147.1 ms模型下载707.5 ms缓存读取2.7 ms完整性校验17.6 ms会话初始化2505.4 ms加载总计3779.2 ms来源network推理总计1612.4 ms解码5.2 ms预处理12.2 ms推理1594.2 ms后处理0.2 ms本次重新创建会话；模型来源为缓存时仍包含缓存读取与校验。推理总计不包含模型加载。"
+      ],
+      "cache": [
+        "当前模型缓存: 6,788,069 B"
+      ],
+      "loadWall": [],
+      "runState": [],
+      "initialization": [],
+      "results": "方向\n0°\n置信度\n45.03%\n校正角度\n0°",
+      "databases": [
+        {
+          "name": "pp-lcnet-doc-orientation",
+          "version": 1,
+          "stores": {
+            "models": 1
+          }
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "phase": "下载取消",
+      "url": "https://modelscope.cn/models/chenmohan/web-sdk-pp-lcnet-x1-0-doc-ori/resolve/master/inference.onnx",
+      "method": "GET",
+      "startedAt": "2026-09-08T23:30:39.501Z",
+      "status": 302,
+      "fromServiceWorker": false,
+      "contentLength": "360",
+      "contentType": "text/html; charset=utf-8",
+      "finishedAt": "2026-09-08T23:30:39.637Z",
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 653,
+        "responseBodySize": 360,
+        "responseHeadersSize": 1310
+      }
+    },
+    {
+      "phase": "下载取消",
+      "url": "https://cdn-lfs-cn-1.modelscope.cn/prod/lfs-objects/af/9a/0a4f317ff0709ce752067807f819cb15d883f8ecad89f28df1c6ee2d9c92",
+      "method": "GET",
+      "startedAt": "2026-09-08T23:30:39.637Z",
+      "status": 200,
+      "fromServiceWorker": false,
+      "contentLength": "6788069",
+      "contentType": "application/octet-stream",
+      "error": "net::ERR_ABORTED",
+      "failedAt": "2026-09-08T23:30:40.857Z"
+    },
+    {
+      "phase": "首次下载重试",
+      "url": "https://modelscope.cn/models/chenmohan/web-sdk-pp-lcnet-x1-0-doc-ori/resolve/master/inference.onnx",
+      "method": "GET",
+      "startedAt": "2026-09-08T23:30:41.074Z",
+      "status": 302,
+      "fromServiceWorker": false,
+      "contentLength": "360",
+      "contentType": "text/html; charset=utf-8",
+      "finishedAt": "2026-09-08T23:30:41.186Z",
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 653,
+        "responseBodySize": 360,
+        "responseHeadersSize": 1310
+      }
+    },
+    {
+      "phase": "首次下载重试",
+      "url": "https://cdn-lfs-cn-1.modelscope.cn/prod/lfs-objects/af/9a/0a4f317ff0709ce752067807f819cb15d883f8ecad89f28df1c6ee2d9c92",
+      "method": "GET",
+      "startedAt": "2026-09-08T23:30:41.187Z",
+      "status": 200,
+      "fromServiceWorker": false,
+      "contentLength": "6788069",
+      "contentType": "application/octet-stream",
+      "finishedAt": "2026-09-08T23:30:41.781Z",
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 969,
+        "responseBodySize": 6795673,
+        "responseHeadersSize": 0
+      }
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [
+    {
+      "phase": "页面",
+      "message": "Failed to load resource: the server responded with a status of 404 ()"
+    },
+    {
+      "phase": "首次下载重试",
+      "message": "\u001b[0;93m2026-09-09 07:30:44.200499 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'p2o.pd_op.full.0.0'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "首次下载重试",
+      "message": "\u001b[0;93m2026-09-09 07:30:44.202500 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'p2o.pd_op.full_int_array.6.0'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "首次下载重试",
+      "message": "\u001b[0;93m2026-09-09 07:30:44.203000 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'p2o.pd_op.full_int_array.3.0'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "首次下载重试",
+      "message": "\u001b[0;93m2026-09-09 07:30:44.203300 [W:onnxruntime:, graph.cc:5457 CleanUnusedInitializersAndNodeArgs] Removing initializer 'p2o.pd_op.full_int_array.0.0'. It is not used by any node and should be removed from the model.\u001b[m"
+    },
+    {
+      "phase": "首次下载重试",
+      "message": "\u001b[0;93m2026-09-09 07:30:44.555200 [W:onnxruntime:, session_state.cc:1367 VerifyEachNodeIsAssignedToAnEp] Some nodes were not assigned to the preferred execution providers which may or may not have an negative impact on performance. e.g. ORT explicitly assigns shape related ops to CPU to improve perf.\u001b[m"
+    },
+    {
+      "phase": "首次下载重试",
+      "message": "\u001b[0;93m2026-09-09 07:30:44.557200 [W:onnxruntime:, session_state.cc:1369 VerifyEachNodeIsAssignedToAnEp] Rerunning with verbose output on a non-minimal build will show node assignments.\u001b[m"
+    }
+  ],
+  "otherNetworkFailures": [
+    {
+      "phase": "页面",
+      "url": "https://modelscope.cn/models/chenmohan/web-sdk-pp-lcnet-x1-0-doc-ori/resolve/master/manifest.json",
+      "error": "net::ERR_ABORTED"
+    }
+  ],
+  "browser": "151.0.7922.34",
+  "pageStatus": 200,
+  "adapter": {
+    "vendor": "nvidia",
+    "architecture": "blackwell",
+    "fallback": false
+  },
+  "status": "failed",
+  "failedPhase": "首次下载重试",
+  "error": "AssertionError [ERR_ASSERTION]: The input did not match the regular expression /180/. Input:\n\n'方向\\n0°\\n置信度\\n45.03%\\n校正角度\\n0°'\n\n    at inference (file:///F:/git/00_chenmohan/github/chenmohan123.github.io/.tmp/real-network-e2e.mjs:117:31)\n    at async file:///F:/git/00_chenmohan/github/chenmohan123.github.io/.tmp/real-network-e2e.mjs:148:3",
+  "failureSnapshot": {
+    "status": "检测完成。",
+    "statusClass": "status-line",
+    "runtime": [
+      "运行环境请求后端webgpu实际会话后端webgpu执行模式main运行时版本1.27.0测试环境Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36 · 2026-09-08"
+    ],
+    "timing": [
+      "耗时模型清单147.1 ms模型下载707.5 ms缓存读取2.7 ms完整性校验17.6 ms会话初始化2505.4 ms加载总计3779.2 ms来源network推理总计1612.4 ms解码5.2 ms预处理12.2 ms推理1594.2 ms后处理0.2 ms本次重新创建会话；模型来源为缓存时仍包含缓存读取与校验。推理总计不包含模型加载。"
+    ],
+    "cache": [
+      "当前模型缓存: 6,788,069 B"
+    ],
+    "loadWall": [],
+    "runState": [],
+    "initialization": [],
+    "results": "方向\n0°\n置信度\n45.03%\n校正角度\n0°",
+    "databases": [
+      {
+        "name": "pp-lcnet-doc-orientation",
+        "version": 1,
+        "stores": {
+          "models": 1
+        }
+      }
+    ]
+  },
+  "finishedAt": "2026-09-08T23:30:46.863Z"
+}
