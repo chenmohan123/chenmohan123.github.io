@@ -1,0 +1,145 @@
+{
+  "verifiedAt": "2026-09-08T02:17:47.269Z",
+  "browser": "151.0.7922.34",
+  "checks": [
+    {
+      "name": "PP-OCRv6",
+      "url": "https://chenmohan123.github.io/web-sdk-PP-OCRv6/",
+      "pageErrors": [],
+      "cacheActions": [
+        "清除此模型缓存",
+        "清除全部缓存"
+      ],
+      "overflow": false,
+      "englishCacheActions": [
+        "Clear model cache",
+        "Clear all cache"
+      ],
+      "sampleImages": [],
+      "status": "passed"
+    },
+    {
+      "name": "PP-Detection",
+      "url": "https://chenmohan123.github.io/web-sdk-PP-Detection/",
+      "pageErrors": [],
+      "cacheActions": [
+        "清理当前模型缓存",
+        "清理全部本 SDK 缓存"
+      ],
+      "overflow": false,
+      "englishCacheActions": [
+        "Clear current model cache",
+        "Clear all SDK caches"
+      ],
+      "sampleImages": [
+        {
+          "alt": "人物",
+          "url": "https://chenmohan123.github.io/web-sdk-PP-Detection/samples/people.jpg",
+          "width": 640,
+          "height": 404
+        },
+        {
+          "alt": "街景",
+          "url": "https://chenmohan123.github.io/web-sdk-PP-Detection/samples/street.jpg",
+          "width": 640,
+          "height": 480
+        },
+        {
+          "alt": "车辆",
+          "url": "https://chenmohan123.github.io/web-sdk-PP-Detection/samples/vehicles.jpg",
+          "width": 4317,
+          "height": 2775
+        },
+        {
+          "alt": "水果",
+          "url": "https://chenmohan123.github.io/web-sdk-PP-Detection/samples/fruit.jpg",
+          "width": 1400,
+          "height": 1249
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "name": "PP-DocLayoutV3",
+      "url": "https://chenmohan123.github.io/web-sdk-PP-DocLayoutV3/",
+      "pageErrors": [],
+      "cacheActions": [
+        "清理当前模型缓存",
+        "清理 SDK 全部缓存"
+      ],
+      "overflow": false,
+      "englishCacheActions": [
+        "Clear current model cache",
+        "Clear all SDK cache"
+      ],
+      "sampleImages": [
+        {
+          "alt": "版面示例",
+          "url": "https://chenmohan123.github.io/web-sdk-PP-DocLayoutV3/samples/layout-demo.jpg",
+          "width": 1654,
+          "height": 2339
+        },
+        {
+          "alt": "公式文档",
+          "url": "https://chenmohan123.github.io/web-sdk-PP-DocLayoutV3/samples/doc-formula.png",
+          "width": 816,
+          "height": 1056
+        },
+        {
+          "alt": "表格文档",
+          "url": "https://chenmohan123.github.io/web-sdk-PP-DocLayoutV3/samples/table.png",
+          "width": 550,
+          "height": 345
+        },
+        {
+          "alt": "图文混排",
+          "url": "https://chenmohan123.github.io/web-sdk-PP-DocLayoutV3/samples/image-layout.jpg",
+          "width": 1659,
+          "height": 757
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "name": "PP-LCNet_x1_0_doc_ori",
+      "url": "https://chenmohan123.github.io/web-sdk-PP-LCNet_x1_0_doc_ori/",
+      "pageErrors": [],
+      "cacheActions": [
+        "清理当前模型缓存",
+        "清理全部 SDK 模型缓存"
+      ],
+      "overflow": false,
+      "englishCacheActions": [
+        "Clear current model cache",
+        "Clear all SDK model caches"
+      ],
+      "sampleImages": [
+        {
+          "alt": "",
+          "url": "https://chenmohan123.github.io/web-sdk-PP-LCNet_x1_0_doc_ori/samples/orientation-0.jpg",
+          "width": 512,
+          "height": 384
+        },
+        {
+          "alt": "",
+          "url": "https://chenmohan123.github.io/web-sdk-PP-LCNet_x1_0_doc_ori/samples/orientation-90.jpg",
+          "width": 384,
+          "height": 512
+        },
+        {
+          "alt": "",
+          "url": "https://chenmohan123.github.io/web-sdk-PP-LCNet_x1_0_doc_ori/samples/orientation-180.jpg",
+          "width": 512,
+          "height": 384
+        },
+        {
+          "alt": "",
+          "url": "https://chenmohan123.github.io/web-sdk-PP-LCNet_x1_0_doc_ori/samples/orientation-270.jpg",
+          "width": 384,
+          "height": 512
+        }
+      ],
+      "status": "passed"
+    }
+  ]
+}

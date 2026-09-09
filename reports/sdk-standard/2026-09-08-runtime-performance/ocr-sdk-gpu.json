@@ -1,0 +1,248 @@
+{
+  "verifiedAt": "2026-09-08T01:58:54.553Z",
+  "scope": "本地当前源码、官方 small 模型、真实 ORT/GPU；隔离模型传输",
+  "runs": [
+    {
+      "execution": "main",
+      "records": [
+        {
+          "preload": false,
+          "loadWall": 0,
+          "lines": [
+            146,
+            146
+          ],
+          "runtime": {
+            "requestedBackend": "webgpu",
+            "actualBackend": "webgpu",
+            "execution": "main",
+            "runtimeVersion": "onnxruntime-web@1.27.0",
+            "componentBackends": {
+              "det": "webgpu",
+              "rec": "webgpu"
+            }
+          },
+          "first": {
+            "modelDownloadMs": 438.5,
+            "modelCacheReadMs": 3.100000023841858,
+            "integrityMs": 80.00000005960464,
+            "sessionMs": 1327.8999999761581,
+            "decodeMs": 7.899999976158142,
+            "preprocessMs": 93.29999995231628,
+            "inferenceMs": 6039.300000011921,
+            "postprocessMs": 1483.8999999761581,
+            "totalMs": 9572.699999988079,
+            "loadState": "cold",
+            "initialization": {
+              "modelDownloadMs": 438.5,
+              "modelCacheReadMs": 3.100000023841858,
+              "integrityMs": 80.00000005960464,
+              "sessionMs": 1327.8999999761581,
+              "source": "network"
+            }
+          },
+          "second": {
+            "modelDownloadMs": 0,
+            "modelCacheReadMs": 0,
+            "integrityMs": 0,
+            "sessionMs": 0,
+            "decodeMs": 7.5,
+            "preprocessMs": 74.90000003576279,
+            "inferenceMs": 664.3999999761581,
+            "postprocessMs": 1474.6000000238419,
+            "totalMs": 2254.5,
+            "loadState": "warm",
+            "initialization": {
+              "modelDownloadMs": 438.5,
+              "modelCacheReadMs": 3.100000023841858,
+              "integrityMs": 80.00000005960464,
+              "sessionMs": 1327.8999999761581,
+              "source": "network"
+            }
+          }
+        },
+        {
+          "preload": true,
+          "loadWall": 358.39999997615814,
+          "lines": [
+            146,
+            146
+          ],
+          "runtime": {
+            "requestedBackend": "webgpu",
+            "actualBackend": "webgpu",
+            "execution": "main",
+            "runtimeVersion": "onnxruntime-web@1.27.0",
+            "componentBackends": {
+              "det": "webgpu",
+              "rec": "webgpu"
+            }
+          },
+          "first": {
+            "modelDownloadMs": 0,
+            "modelCacheReadMs": 0,
+            "integrityMs": 0,
+            "sessionMs": 0,
+            "decodeMs": 10.199999988079071,
+            "preprocessMs": 87.10000002384186,
+            "inferenceMs": 558,
+            "postprocessMs": 1430.7000000476837,
+            "totalMs": 2111.800000011921,
+            "loadState": "warm",
+            "initialization": {
+              "modelDownloadMs": 0,
+              "modelCacheReadMs": 174.10000002384186,
+              "integrityMs": 88.10000002384186,
+              "sessionMs": 222.29999995231628,
+              "source": "cache"
+            }
+          },
+          "second": {
+            "modelDownloadMs": 0,
+            "modelCacheReadMs": 0,
+            "integrityMs": 0,
+            "sessionMs": 0,
+            "decodeMs": 7.699999988079071,
+            "preprocessMs": 136.00000005960464,
+            "inferenceMs": 560.3000000119209,
+            "postprocessMs": 1385.5,
+            "totalMs": 2118.600000023842,
+            "loadState": "warm",
+            "initialization": {
+              "modelDownloadMs": 0,
+              "modelCacheReadMs": 174.10000002384186,
+              "integrityMs": 88.10000002384186,
+              "sessionMs": 222.29999995231628,
+              "source": "cache"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "execution": "worker",
+      "records": [
+        {
+          "preload": false,
+          "loadWall": 0.09999996423721313,
+          "lines": [
+            146,
+            146
+          ],
+          "runtime": {
+            "requestedBackend": "webgpu",
+            "actualBackend": "webgpu",
+            "execution": "worker",
+            "runtimeVersion": "onnxruntime-web@1.27.0",
+            "componentBackends": {
+              "det": "webgpu",
+              "rec": "webgpu"
+            }
+          },
+          "first": {
+            "modelDownloadMs": 423.5999999642372,
+            "modelCacheReadMs": 0.8999999761581421,
+            "integrityMs": 87.19999998807907,
+            "sessionMs": 1389.0999999046326,
+            "decodeMs": 7.600000023841858,
+            "preprocessMs": 87.09999996423721,
+            "inferenceMs": 3509.6000000834465,
+            "postprocessMs": 1839.4999999403954,
+            "totalMs": 7432.200000047684,
+            "loadState": "cold",
+            "initialization": {
+              "modelDownloadMs": 423.5999999642372,
+              "modelCacheReadMs": 0.8999999761581421,
+              "integrityMs": 87.19999998807907,
+              "sessionMs": 1389.0999999046326,
+              "source": "network"
+            }
+          },
+          "second": {
+            "modelDownloadMs": 0,
+            "modelCacheReadMs": 0,
+            "integrityMs": 0,
+            "sessionMs": 0,
+            "decodeMs": 21.600000023841858,
+            "preprocessMs": 98.59999996423721,
+            "inferenceMs": 795.3000000715256,
+            "postprocessMs": 1893.2000000476837,
+            "totalMs": 2850,
+            "loadState": "warm",
+            "initialization": {
+              "modelDownloadMs": 423.5999999642372,
+              "modelCacheReadMs": 0.8999999761581421,
+              "integrityMs": 87.19999998807907,
+              "sessionMs": 1389.0999999046326,
+              "source": "network"
+            }
+          }
+        },
+        {
+          "preload": true,
+          "loadWall": 991.6999999880791,
+          "lines": [
+            146,
+            146
+          ],
+          "runtime": {
+            "requestedBackend": "webgpu",
+            "actualBackend": "webgpu",
+            "execution": "worker",
+            "runtimeVersion": "onnxruntime-web@1.27.0",
+            "componentBackends": {
+              "det": "webgpu",
+              "rec": "webgpu"
+            }
+          },
+          "first": {
+            "modelDownloadMs": 0,
+            "modelCacheReadMs": 0,
+            "integrityMs": 0,
+            "sessionMs": 0,
+            "decodeMs": 9,
+            "preprocessMs": 75.50000005960464,
+            "inferenceMs": 3141.2999999523163,
+            "postprocessMs": 1636.5999999642372,
+            "totalMs": 4897.5,
+            "loadState": "warm",
+            "initialization": {
+              "modelDownloadMs": 0,
+              "modelCacheReadMs": 104.59999996423721,
+              "integrityMs": 106.89999997615814,
+              "sessionMs": 1612.8999999761581,
+              "source": "cache"
+            }
+          },
+          "second": {
+            "modelDownloadMs": 0,
+            "modelCacheReadMs": 0,
+            "integrityMs": 0,
+            "sessionMs": 0,
+            "decodeMs": 60.09999996423721,
+            "preprocessMs": 78.89999997615814,
+            "inferenceMs": 653.1000000238419,
+            "postprocessMs": 1604.5,
+            "totalMs": 2425.7999999523163,
+            "loadState": "warm",
+            "initialization": {
+              "modelDownloadMs": 0,
+              "modelCacheReadMs": 104.59999996423721,
+              "integrityMs": 106.89999997615814,
+              "sessionMs": 1612.8999999761581,
+              "source": "cache"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "browser": "151.0.7922.34",
+  "adapter": {
+    "vendor": "nvidia",
+    "architecture": "blackwell",
+    "fallback": false
+  },
+  "status": "passed"
+}

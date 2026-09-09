@@ -1,0 +1,102 @@
+{
+  "verifiedAt": "2026-09-07T16:18:38.623Z",
+  "browser": "151.0.7922.34",
+  "checks": [
+    {
+      "name": "PP-OCRv6",
+      "url": "https://chenmohan123.github.io/web-sdk-PP-OCRv6/",
+      "pageErrors": [],
+      "status": "failed",
+      "error": "Error: expect(locator).toBeVisible() failed\n\nLocator: locator('[data-sdk-cache-usage]').first()\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"to.be.visible\" with timeout 5000ms\n  - waiting for locator('[data-sdk-cache-usage]').first()\n"
+    },
+    {
+      "name": "PP-Detection",
+      "url": "https://chenmohan123.github.io/web-sdk-PP-Detection/",
+      "pageErrors": [],
+      "status": "failed",
+      "error": "Error: expect(locator).toHaveCount(expected) failed\n\nLocator:  locator('[data-sdk-cache-clear]')\nExpected: 2\nReceived: 0\nTimeout:  5000ms\n\nCall log:\n  - Expect \"to.have.count\" with timeout 5000ms\n  - waiting for locator('[data-sdk-cache-clear]')\n    14 × locator resolved to 0 elements\n       - unexpected value \"0\"\n"
+    },
+    {
+      "name": "PP-DocLayoutV3",
+      "url": "https://chenmohan123.github.io/web-sdk-PP-DocLayoutV3/",
+      "pageErrors": [],
+      "cacheActions": [
+        "清理当前模型缓存",
+        "清理 SDK 全部缓存"
+      ],
+      "overflow": false,
+      "englishCacheActions": [
+        "Clear current model cache",
+        "Clear all SDK cache"
+      ],
+      "sampleImages": [
+        {
+          "alt": "版面示例",
+          "url": "https://chenmohan123.github.io/web-sdk-PP-DocLayoutV3/samples/layout-demo.jpg",
+          "width": 1654,
+          "height": 2339
+        },
+        {
+          "alt": "公式文档",
+          "url": "https://chenmohan123.github.io/web-sdk-PP-DocLayoutV3/samples/doc-formula.png",
+          "width": 816,
+          "height": 1056
+        },
+        {
+          "alt": "表格文档",
+          "url": "https://chenmohan123.github.io/web-sdk-PP-DocLayoutV3/samples/table.png",
+          "width": 550,
+          "height": 345
+        },
+        {
+          "alt": "图文混排",
+          "url": "https://chenmohan123.github.io/web-sdk-PP-DocLayoutV3/samples/image-layout.jpg",
+          "width": 1659,
+          "height": 757
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "name": "PP-LCNet_x1_0_doc_ori",
+      "url": "https://chenmohan123.github.io/web-sdk-PP-LCNet_x1_0_doc_ori/",
+      "pageErrors": [],
+      "cacheActions": [
+        "清理当前模型缓存",
+        "清理全部 SDK 模型缓存"
+      ],
+      "overflow": false,
+      "englishCacheActions": [
+        "Clear current model cache",
+        "Clear all SDK model caches"
+      ],
+      "sampleImages": [
+        {
+          "alt": "",
+          "url": "https://chenmohan123.github.io/web-sdk-PP-LCNet_x1_0_doc_ori/samples/orientation-0.jpg",
+          "width": 512,
+          "height": 384
+        },
+        {
+          "alt": "",
+          "url": "https://chenmohan123.github.io/web-sdk-PP-LCNet_x1_0_doc_ori/samples/orientation-90.jpg",
+          "width": 384,
+          "height": 512
+        },
+        {
+          "alt": "",
+          "url": "https://chenmohan123.github.io/web-sdk-PP-LCNet_x1_0_doc_ori/samples/orientation-180.jpg",
+          "width": 512,
+          "height": 384
+        },
+        {
+          "alt": "",
+          "url": "https://chenmohan123.github.io/web-sdk-PP-LCNet_x1_0_doc_ori/samples/orientation-270.jpg",
+          "width": 384,
+          "height": 512
+        }
+      ],
+      "status": "passed"
+    }
+  ]
+}

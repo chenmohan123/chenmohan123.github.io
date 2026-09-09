@@ -1,0 +1,79 @@
+{
+  "verifiedAt": "2026-09-07T17:17:31.1424132Z",
+  "repositories": [
+    {
+      "name": "OCRv6",
+      "pullRequest": {
+        "headRefOid": "91d08654ceaa7a17b0a1285ac5e4e0675bde7dd7",
+        "mergeCommit": {
+          "oid": "3ee2050c23461826214301613a187560aaf07cf9"
+        },
+        "mergedAt": "2026-09-07T16:57:05Z",
+        "state": "MERGED",
+        "url": "https://github.com/chenmohan123/web-sdk-PP-OCRv6/pull/17"
+      },
+      "ci": {
+        "conclusion": "success",
+        "databaseId": 34145537115,
+        "headSha": "3ee2050c23461826214301613a187560aaf07cf9",
+        "name": "CI",
+        "status": "completed",
+        "updatedAt": "2026-09-07T16:58:42Z",
+        "url": "https://github.com/chenmohan123/web-sdk-PP-OCRv6/actions/runs/34145537115"
+      },
+      "pagesRun": {
+        "conclusion": "success",
+        "databaseId": 34145537109,
+        "headSha": "3ee2050c23461826214301613a187560aaf07cf9",
+        "name": "GitHub Pages",
+        "status": "completed",
+        "updatedAt": "2026-09-07T16:58:13Z",
+        "url": "https://github.com/chenmohan123/web-sdk-PP-OCRv6/actions/runs/34145537109"
+      },
+      "pages": {
+        "html_url": "https://chenmohan123.github.io/web-sdk-PP-OCRv6/",
+        "https_enforced": true,
+        "build_type": "workflow"
+      },
+      "status": "passed"
+    },
+    {
+      "name": "Detection",
+      "pullRequest": {
+        "headRefOid": "460f17adbc4fb3f8e21936c96cf3f047b8353c55",
+        "mergeCommit": {
+          "oid": "c92e7e9baeba93b38c0d51aa4b5cee4d17a76c51"
+        },
+        "mergedAt": "2026-09-07T17:11:55Z",
+        "state": "MERGED",
+        "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/pull/24"
+      },
+      "ci": {
+        "conclusion": "success",
+        "databaseId": 34146587737,
+        "headSha": "c92e7e9baeba93b38c0d51aa4b5cee4d17a76c51",
+        "name": "CI",
+        "status": "completed",
+        "updatedAt": "2026-09-07T17:14:20Z",
+        "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/actions/runs/34146587737"
+      },
+      "pagesRun": {
+        "conclusion": "success",
+        "databaseId": 34146587806,
+        "headSha": "c92e7e9baeba93b38c0d51aa4b5cee4d17a76c51",
+        "name": "GitHub Pages",
+        "status": "completed",
+        "updatedAt": "2026-09-07T17:12:53Z",
+        "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/actions/runs/34146587806"
+      },
+      "pages": {
+        "html_url": "https://chenmohan123.github.io/web-sdk-PP-Detection/",
+        "https_enforced": true,
+        "build_type": "workflow"
+      },
+      "status": "passed"
+    }
+  ],
+  "npmPublished": false,
+  "runnerStarted": false
+}

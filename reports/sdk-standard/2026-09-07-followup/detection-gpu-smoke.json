@@ -1,0 +1,20 @@
+{
+  "verifiedAt": "2026-09-07T15:14:12.596Z",
+  "browser": "151.0.7922.34",
+  "url": "https://chenmohan123.github.io/web-sdk-PP-Detection/",
+  "errors": [],
+  "runs": [
+    {
+      "state": "检测完成\npeople.jpg",
+      "runtime": "模型信息\n模型来源\nModelScope\n模型清单\nhttps://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/master/manifest.json?v=1.0.1\n名称\npp-picodet-l-320\n请求来源\nModelScope\n实际来源\nmodelscope\n固定 revision\n78208e9444c9f110a2eac46284bb78892e15c69c\nSHA-256\n0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1\n大小\n22.2 MB\n参数量\n5,787,988\n实际后端\nwebgpu\n实际精度\nfp32\n运行模式\nmain",
+      "detections": "检测结果\n12 个目标\n01\nperson\n87.7% · 414,90\n02\nkite\n85.3% · 164,85\n03\nperson\n83.2% · 506,115\n04\nperson\n81.4% · 161,82\n05\nperson\n79.9% · 267,81\n06\nperson\n76.5% · 105,47\n07\nperson\n75.9% · 581,113\n08\nperson\n75.1% · 379,42\n09\nperson\n55.6% · 352,44\n10\nperson\n55.4% · 328,41\n11\nperson\n54.7% · 24,118\n12\nperson\n50.9% · 366,66",
+      "wallMs": 8342
+    }
+  ],
+  "adapter": {
+    "vendor": "nvidia",
+    "architecture": "blackwell",
+    "fallback": false
+  },
+  "status": "passed"
+}

@@ -1,0 +1,38 @@
+{
+  "verifiedAt": "2026-09-07T15:23:34.512Z",
+  "browser": "151.0.7922.34",
+  "url": "https://chenmohan123.github.io/web-sdk-PP-OCRv6/",
+  "runs": [
+    {
+      "name": "small 检测与识别，严格 GPU，Worker",
+      "state": "识别完成",
+      "runtime": "运行环境\n请求后端\nwebgpu\n实际后端\nwebgpu\n执行位置\nworker\n运行时\nonnxruntime-web@1.27.0",
+      "lines": 146,
+      "wallMs": 12533
+    },
+    {
+      "name": "切换 tiny 后严格 GPU 推理",
+      "state": "识别完成",
+      "runtime": "运行环境\n请求后端\nwebgpu\n实际后端\nwebgpu\n执行位置\nworker\n运行时\nonnxruntime-web@1.27.0",
+      "lines": 146,
+      "wallMs": 7436
+    },
+    {
+      "name": "下载失败后恢复 ModelScope 并严格 GPU 推理",
+      "state": "识别完成",
+      "runtime": "运行环境\n请求后端\nwebgpu\n实际后端\nwebgpu\n执行位置\nworker\n运行时\nonnxruntime-web@1.27.0",
+      "lines": 146,
+      "wallMs": 6248
+    }
+  ],
+  "errors": [],
+  "modelTransport": "模型请求使用经 SHA-256 校验的仓库官方字节；线上清单和 SDK 保持原样",
+  "adapter": {
+    "vendor": "nvidia",
+    "architecture": "blackwell",
+    "fallback": false
+  },
+  "expectedDownloadError": "识别失败\n错误码: MODEL_DOWNLOAD_FAILED · Manifest download failed with HTTP 503",
+  "mobileOverflow": false,
+  "status": "passed"
+}

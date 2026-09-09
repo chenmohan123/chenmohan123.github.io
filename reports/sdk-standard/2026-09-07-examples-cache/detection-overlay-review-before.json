@@ -1,0 +1,8 @@
+{
+  "verifiedAt": "2026-09-07T16:48:17.253Z",
+  "url": "http://127.0.0.1:4297/?fixture=1",
+  "before": 495121,
+  "after": 495121,
+  "status": "failed",
+  "error": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 0\nReceived: 495121"
+}

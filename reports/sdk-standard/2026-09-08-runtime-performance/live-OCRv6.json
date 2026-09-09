@@ -1,0 +1,26 @@
+{
+  "verifiedAt": "2026-09-08T02:17:28.155Z",
+  "modelTransport": "线上页面、SDK 与模型清单；ONNX 请求替换为 SHA-256 匹配的本机官方字节",
+  "checks": [
+    {
+      "name": "OCRv6",
+      "errors": [],
+      "runs": [
+        {
+          "runtime": "运行环境\n请求后端\nwebgpu\n实际后端\nDET: webgpu / REC: webgpu\n执行位置\nworker\n运行时\nonnxruntime-web@1.27.0",
+          "state": "冷启动（新会话）",
+          "lines": 146,
+          "timing": "耗时\n运行类型\n冷启动（新会话）\n本次端到端\n11918.7 ms\n本次初始化等待\n4248.6 ms\nSDK 本次运行\n7668.8 ms\n模型下载\n0.0 ms\n模型加载\n0.0 ms\n缓存读取\n0.0 ms\n完整性校验\n0.0 ms\n图像解码\n13.7 ms\n预处理\n85.1 ms\n推理\n6150.1 ms\n后处理\n1377.8 ms\n首次初始化分项"
+        },
+        {
+          "runtime": "运行环境\n请求后端\nwebgpu\n实际后端\nDET: webgpu / REC: webgpu\n执行位置\nworker\n运行时\nonnxruntime-web@1.27.0",
+          "state": "热运行（复用会话）",
+          "lines": 146,
+          "timing": "耗时\n运行类型\n热运行（复用会话）\n本次端到端\n2043.8 ms\n本次初始化等待\n0.0 ms\nSDK 本次运行\n2042.5 ms\n模型下载\n0.0 ms\n模型加载\n0.0 ms\n缓存读取\n0.0 ms\n完整性校验\n0.0 ms\n图像解码\n18.9 ms\n预处理\n70.2 ms\n推理\n557.3 ms\n后处理\n1362.9 ms\n首次初始化分项"
+        }
+      ],
+      "url": "https://chenmohan123.github.io/web-sdk-PP-OCRv6/",
+      "status": "passed"
+    }
+  ]
+}
