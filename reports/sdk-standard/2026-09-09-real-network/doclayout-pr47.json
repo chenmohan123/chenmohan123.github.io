@@ -1,0 +1,24 @@
+{
+  "verifiedAt": "2026-09-08T23:40:23.3980275Z",
+  "pr": {
+    "headRefOid": "e241b7d4e996a6303a91d77f8e65fa29d2d955d3",
+    "mergeCommit": {
+      "oid": "3aedb7b35af49a1c207fd4f846211366a9d09973"
+    },
+    "mergedAt": "2026-09-08T23:27:02Z",
+    "state": "MERGED",
+    "url": "https://github.com/chenmohan123/web-sdk-PP-DocLayoutV3/pull/47"
+  },
+  "ci": {
+    "conclusion": "success",
+    "headSha": "3aedb7b35af49a1c207fd4f846211366a9d09973",
+    "status": "completed",
+    "url": "https://github.com/chenmohan123/web-sdk-PP-DocLayoutV3/actions/runs/34290702890"
+  },
+  "pages": {
+    "conclusion": "success",
+    "headSha": "3aedb7b35af49a1c207fd4f846211366a9d09973",
+    "status": "completed",
+    "url": "https://github.com/chenmohan123/web-sdk-PP-DocLayoutV3/actions/runs/34290702967"
+  }
+}

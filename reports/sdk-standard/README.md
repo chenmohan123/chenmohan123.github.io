@@ -1,5 +1,13 @@
 # SDK Standard Reports
 
+## 最新验收
+
+- [2026-09-09 四个线上 Demo 真实网络验收](2026-09-09-real-network/README.md)：
+  ModelScope 与 Hugging Face 共 8 组，包含 GPU 推理、取消重试、缓存复用、
+  复现脚本、截图以及 DocLayoutV3 PR #47 的 CI/Pages 记录。
+
+## 标准检查报告
+
 This directory may contain generated evidence snapshots from the local SDK
 checker. Reports are optional portal inputs; they are not the normative source
 of rules. Name a report by the stable SDK ID, for example

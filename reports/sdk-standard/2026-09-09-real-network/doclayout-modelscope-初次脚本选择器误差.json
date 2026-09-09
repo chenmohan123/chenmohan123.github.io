@@ -1,0 +1,132 @@
+{
+  "verifiedAt": "2026-09-08T23:35:01.031Z",
+  "sdk": "doclayout",
+  "source": "modelscope",
+  "url": "https://chenmohan123.github.io/web-sdk-PP-DocLayoutV3/",
+  "transport": "公开 Pages 和真实模型服务；无请求响应替换。冷启动取消阶段使用 CDP 限速，重试前恢复正常网络。各来源使用独立临时浏览器环境，HTTP 缓存禁用，IndexedDB 保留。",
+  "stages": [
+    {
+      "phase": "下载取消",
+      "status": "准备就绪\nlayout-demo.jpg",
+      "statusClass": "status-line ready",
+      "runtime": [],
+      "timing": [],
+      "cache": [
+        "当前模型缓存: 0 B"
+      ],
+      "loadWall": [],
+      "runState": [],
+      "initialization": [
+        "初始化初始化总耗时-模型下载-缓存读取-完整性校验-模型来源-Session 创建-"
+      ],
+      "results": "检测结果\n0 个版面区域\n\n未检测到版面区域",
+      "databases": []
+    },
+    {
+      "phase": "首次下载重试",
+      "elapsedMs": 24859,
+      "modelRequestCount": 2,
+      "status": "检测完成\nlayout-demo.jpg",
+      "statusClass": "status-line success",
+      "runtime": [],
+      "timing": [],
+      "cache": [
+        "当前模型缓存: 136.0 MB"
+      ],
+      "loadWall": [],
+      "runState": [],
+      "initialization": [
+        "初始化初始化总耗时18181 ms模型下载12925 ms缓存读取1 ms完整性校验380 ms模型来源网络下载Session 创建4156 ms"
+      ],
+      "results": "检测结果\n13 个版面区域\n01\ntext\n96.1% · 337,183\n02\nparagraph_title\n90.5% · 338,685\n03\ntext\n95.2% · 921,186\n04\ntext\n94.8% · 921,485\n05\ntext\n96.4% · 336,842\n06\ntext\n95.2% · 921,846\n07\ntext\n92.2% · 922,1240\n08\nfootnote\n77.9% · 335,1616\n09\nfootnote\n79.7% · 337,1758\n10\nfootnote\n55.8% · 338,1911\n11\nfootnote\n74.1% · 343,2118\n12\nnumber\n70.2% · 106,2259\n13\nfooter\n83.8% · 340,2258",
+      "databases": []
+    }
+  ],
+  "requests": [
+    {
+      "phase": "下载取消",
+      "url": "https://modelscope.cn/models/chenmohan/web-sdk-pp-doclayoutv3/resolve/master/model-fp32.onnx",
+      "method": "GET",
+      "startedAt": "2026-09-08T23:35:04.061Z",
+      "error": "net::ERR_ABORTED",
+      "failedAt": "2026-09-08T23:35:04.110Z"
+    },
+    {
+      "phase": "首次下载重试",
+      "url": "https://modelscope.cn/models/chenmohan/web-sdk-pp-doclayoutv3/resolve/master/model-fp32.onnx",
+      "method": "GET",
+      "startedAt": "2026-09-08T23:35:04.439Z",
+      "status": 302,
+      "fromServiceWorker": false,
+      "contentLength": "354",
+      "contentType": "text/html; charset=utf-8",
+      "finishedAt": "2026-09-08T23:35:04.562Z",
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 647,
+        "responseBodySize": 354,
+        "responseHeadersSize": 1304
+      }
+    },
+    {
+      "phase": "首次下载重试",
+      "url": "https://cdn-lfs-cn-1.modelscope.cn/prod/lfs-objects/47/6d/a6d3892bc6211ec90f53df1f68722626b3cf67af77d1c75bd0bd2ee8d269",
+      "method": "GET",
+      "startedAt": "2026-09-08T23:35:04.563Z",
+      "status": 200,
+      "fromServiceWorker": false,
+      "contentLength": "142574928",
+      "contentType": "application/octet-stream",
+      "finishedAt": "2026-09-08T23:35:17.743Z",
+      "sizes": {
+        "requestBodySize": 0,
+        "requestHeadersSize": 963,
+        "responseBodySize": 142732434,
+        "responseHeadersSize": 0
+      }
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [
+    {
+      "phase": "页面",
+      "message": "Failed to load resource: the server responded with a status of 404 ()"
+    },
+    {
+      "phase": "首次下载重试",
+      "message": "\u001b[0;93m2026-09-09 07:35:21.838400 [W:onnxruntime:, session_state.cc:1367 VerifyEachNodeIsAssignedToAnEp] Some nodes were not assigned to the preferred execution providers which may or may not have an negative impact on performance. e.g. ORT explicitly assigns shape related ops to CPU to improve perf.\u001b[m"
+    },
+    {
+      "phase": "首次下载重试",
+      "message": "\u001b[0;93m2026-09-09 07:35:21.841200 [W:onnxruntime:, session_state.cc:1369 VerifyEachNodeIsAssignedToAnEp] Rerunning with verbose output on a non-minimal build will show node assignments.\u001b[m"
+    }
+  ],
+  "otherNetworkFailures": [],
+  "browser": "151.0.7922.34",
+  "pageStatus": 200,
+  "adapter": {
+    "vendor": "nvidia",
+    "architecture": "blackwell",
+    "fallback": false
+  },
+  "status": "failed",
+  "failedPhase": "首次下载重试",
+  "error": "AssertionError [ERR_ASSERTION]: 实际运行后端应为 WebGPU\n    at inference (file:///F:/git/00_chenmohan/github/chenmohan123.github.io/.tmp/real-network-e2e.mjs:116:10)\n    at async file:///F:/git/00_chenmohan/github/chenmohan123.github.io/.tmp/real-network-e2e.mjs:148:3",
+  "failureSnapshot": {
+    "status": "检测完成\nlayout-demo.jpg",
+    "statusClass": "status-line success",
+    "runtime": [],
+    "timing": [],
+    "cache": [
+      "当前模型缓存: 136.0 MB"
+    ],
+    "loadWall": [],
+    "runState": [],
+    "initialization": [
+      "初始化初始化总耗时18181 ms模型下载12925 ms缓存读取1 ms完整性校验380 ms模型来源网络下载Session 创建4156 ms"
+    ],
+    "results": "检测结果\n13 个版面区域\n01\ntext\n96.1% · 337,183\n02\nparagraph_title\n90.5% · 338,685\n03\ntext\n95.2% · 921,186\n04\ntext\n94.8% · 921,485\n05\ntext\n96.4% · 336,842\n06\ntext\n95.2% · 921,846\n07\ntext\n92.2% · 922,1240\n08\nfootnote\n77.9% · 335,1616\n09\nfootnote\n79.7% · 337,1758\n10\nfootnote\n55.8% · 338,1911\n11\nfootnote\n74.1% · 343,2118\n12\nnumber\n70.2% · 106,2259\n13\nfooter\n83.8% · 340,2258",
+    "databases": []
+  },
+  "finishedAt": "2026-09-08T23:35:29.230Z"
+}
