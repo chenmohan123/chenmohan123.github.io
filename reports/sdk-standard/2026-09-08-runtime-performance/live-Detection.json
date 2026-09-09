@@ -1,0 +1,24 @@
+{
+  "verifiedAt": "2026-09-08T02:10:00.159Z",
+  "modelTransport": "线上页面、SDK 与模型清单；ONNX 请求替换为 SHA-256 匹配的本机官方字节",
+  "checks": [
+    {
+      "name": "Detection",
+      "errors": [],
+      "runs": [
+        {
+          "runtime": "模型信息\n模型来源\nModelScope\n模型清单\nhttps://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/master/manifest.json?v=1.0.1\n名称\npp-picodet-l-320\n请求来源\nModelScope\n实际来源\nmodelscope\n固定 revision\n78208e9444c9f110a2eac46284bb78892e15c69c\nSHA-256\n0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1\n大小\n22.2 MB\n参数量\n5,787,988\n实际后端\nwebgpu\n实际精度\nfp32\n运行模式\nmain\nORT 运行时版本\n1.27.0\n运行平台\nWin32\n浏览器环境\nMozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36\n环境采集时间\n2026-09-08T02:10:06.020Z",
+          "initialization": "初始化\n\n图片每次检测重新初始化；以下为本次初始化耗时。\n\n初始化总耗时\n3723 ms\n模型下载\n320 ms\n缓存读取\n1 ms\n完整性校验\n60 ms\n模型来源\n网络下载\nSession 创建\n2999 ms",
+          "detections": "检测结果\n12 个目标\n01\nperson\n87.7% · 414,90\n02\nkite\n85.3% · 164,85\n03\nperson\n83.2% · 506,115\n04\nperson\n81.4% · 161,82\n05\nperson\n79.9% · 267,81\n06\nperson\n76.5% · 105,47\n07\nperson\n75.9% · 581,113\n08\nperson\n75.1% · 379,42\n09\nperson\n55.6% · 352,44\n10\nperson\n55.4% · 328,41\n11\nperson\n54.7% · 24,118\n12\nperson\n50.9% · 366,66"
+        },
+        {
+          "runtime": "模型信息\n模型来源\nModelScope\n模型清单\nhttps://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/master/manifest.json?v=1.0.1\n名称\npp-picodet-l-320\n请求来源\nModelScope\n实际来源\nmodelscope\n固定 revision\n78208e9444c9f110a2eac46284bb78892e15c69c\nSHA-256\n0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1\n大小\n22.2 MB\n参数量\n5,787,988\n实际后端\nwebgpu\n实际精度\nfp32\n运行模式\nmain\nORT 运行时版本\n1.27.0\n运行平台\nWin32\n浏览器环境\nMozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36\n环境采集时间\n2026-09-08T02:10:10.031Z",
+          "initialization": "初始化\n\n图片每次检测重新初始化；以下为本次初始化耗时。\n\n初始化总耗时\n497 ms\n模型下载\n-\n缓存读取\n28 ms\n完整性校验\n59 ms\n模型来源\n持久缓存\nSession 创建\n226 ms",
+          "detections": "检测结果\n12 个目标\n01\nperson\n87.7% · 414,90\n02\nkite\n85.3% · 164,85\n03\nperson\n83.2% · 506,115\n04\nperson\n81.4% · 161,82\n05\nperson\n79.9% · 267,81\n06\nperson\n76.5% · 105,47\n07\nperson\n75.9% · 581,113\n08\nperson\n75.1% · 379,42\n09\nperson\n55.6% · 352,44\n10\nperson\n55.4% · 328,41\n11\nperson\n54.7% · 24,118\n12\nperson\n50.9% · 366,66"
+        }
+      ],
+      "url": "https://chenmohan123.github.io/web-sdk-PP-Detection/",
+      "status": "passed"
+    }
+  ]
+}

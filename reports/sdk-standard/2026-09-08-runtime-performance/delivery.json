@@ -1,0 +1,331 @@
+{
+  "verifiedAt": "2026-09-08T02:18:31.5671811Z",
+  "repositories": [
+    {
+      "repository": "chenmohan123/web-sdk-PP-Detection",
+      "pr": {
+        "headRefOid": "e4be8cd4b8ff9ff3850bd3761590680c154736ae",
+        "mergeCommit": {
+          "oid": "5adeb3963a61f722d7570139beec7631df6cc351"
+        },
+        "mergedAt": "2026-09-08T02:04:29Z",
+        "state": "MERGED",
+        "statusCheckRollup": [
+          {
+            "__typename": "CheckRun",
+            "completedAt": "2026-09-08T02:01:12Z",
+            "conclusion": "SUCCESS",
+            "detailsUrl": "https://github.com/chenmohan123/web-sdk-PP-Detection/actions/runs/34178513330/job/101912613671",
+            "name": "Validate workspace",
+            "startedAt": "2026-09-08T01:59:51Z",
+            "status": "COMPLETED",
+            "workflowName": "CI"
+          },
+          {
+            "__typename": "CheckRun",
+            "completedAt": "2026-09-08T01:59:49Z",
+            "conclusion": "SKIPPED",
+            "detailsUrl": "https://github.com/chenmohan123/web-sdk-PP-Detection/actions/runs/34178513330/job/101912614380",
+            "name": "Browser WebGPU on physical GPU",
+            "startedAt": "2026-09-08T01:59:49Z",
+            "status": "COMPLETED",
+            "workflowName": "CI"
+          },
+          {
+            "__typename": "CheckRun",
+            "completedAt": "2026-09-08T02:02:22Z",
+            "conclusion": "SUCCESS",
+            "detailsUrl": "https://github.com/chenmohan123/web-sdk-PP-Detection/actions/runs/34178513330/job/101912864714",
+            "name": "Browser WASM and package smoke",
+            "startedAt": "2026-09-08T02:01:15Z",
+            "status": "COMPLETED",
+            "workflowName": "CI"
+          }
+        ],
+        "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/pull/25"
+      },
+      "runs": [
+        {
+          "conclusion": "success",
+          "databaseId": 34178788530,
+          "headSha": "5adeb3963a61f722d7570139beec7631df6cc351",
+          "status": "completed",
+          "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/actions/runs/34178788530",
+          "workflowName": "GitHub Pages"
+        },
+        {
+          "conclusion": "success",
+          "databaseId": 34178788473,
+          "headSha": "5adeb3963a61f722d7570139beec7631df6cc351",
+          "status": "completed",
+          "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/actions/runs/34178788473",
+          "workflowName": "CI"
+        }
+      ],
+      "pages": {
+        "build_type": "workflow",
+        "html_url": "https://chenmohan123.github.io/web-sdk-PP-Detection/",
+        "https_enforced": true,
+        "status": null
+      },
+      "rulesets": [
+        {
+          "id": 21779070,
+          "name": "保护 main 分支",
+          "target": "branch",
+          "source_type": "Repository",
+          "source": "chenmohan123/web-sdk-PP-Detection",
+          "enforcement": "active",
+          "conditions": {
+            "ref_name": {
+              "exclude": [],
+              "include": [
+                "refs/heads/main"
+              ]
+            }
+          },
+          "rules": [
+            {
+              "type": "deletion"
+            },
+            {
+              "type": "non_fast_forward"
+            },
+            {
+              "type": "pull_request",
+              "parameters": {
+                "required_approving_review_count": 0,
+                "dismiss_stale_reviews_on_push": false,
+                "required_reviewers": [],
+                "require_code_owner_review": false,
+                "require_last_push_approval": false,
+                "required_review_thread_resolution": true,
+                "require_extra_approval_for_unattributed_changes": true,
+                "allowed_merge_methods": [
+                  "merge",
+                  "squash",
+                  "rebase"
+                ]
+              }
+            },
+            {
+              "type": "required_status_checks",
+              "parameters": {
+                "strict_required_status_checks_policy": true,
+                "do_not_enforce_on_create": false,
+                "required_status_checks": [
+                  {
+                    "context": "Validate workspace"
+                  },
+                  {
+                    "context": "Browser WASM and package smoke"
+                  }
+                ]
+              }
+            }
+          ],
+          "node_id": "RRS_lACqUmVwb3NpdG9yec5QdbehzgFMUn4",
+          "created_at": "2026-08-29T10:30:53.018+08:00",
+          "updated_at": "2026-08-29T10:30:53.069+08:00",
+          "bypass_actors": [],
+          "current_user_can_bypass": "never",
+          "_links": {
+            "self": {
+              "href": "https://api.github.com/repos/chenmohan123/web-sdk-PP-Detection/rulesets/21779070"
+            },
+            "html": {
+              "href": "https://github.com/chenmohan123/web-sdk-PP-Detection/rules/21779070"
+            }
+          }
+        },
+        {
+          "id": 21779094,
+          "name": "保护 v* 发布标签",
+          "target": "tag",
+          "source_type": "Repository",
+          "source": "chenmohan123/web-sdk-PP-Detection",
+          "enforcement": "active",
+          "conditions": {
+            "ref_name": {
+              "exclude": [],
+              "include": [
+                "refs/tags/v*"
+              ]
+            }
+          },
+          "rules": [
+            {
+              "type": "deletion"
+            },
+            {
+              "type": "update"
+            }
+          ],
+          "node_id": "RRS_lACqUmVwb3NpdG9yec5QdbehzgFMUpY",
+          "created_at": "2026-08-29T10:31:11.967+08:00",
+          "updated_at": "2026-08-31T13:03:56.569+08:00",
+          "bypass_actors": [],
+          "current_user_can_bypass": "never",
+          "_links": {
+            "self": {
+              "href": "https://api.github.com/repos/chenmohan123/web-sdk-PP-Detection/rulesets/21779094"
+            },
+            "html": {
+              "href": "https://github.com/chenmohan123/web-sdk-PP-Detection/rules/21779094"
+            }
+          }
+        }
+      ],
+      "environment": {
+        "deployment_branch_policy": {
+          "custom_branch_policies": true,
+          "protected_branches": false
+        },
+        "id": 20818900368,
+        "name": "github-pages",
+        "protection_rules": [
+          {
+            "id": 63996382,
+            "node_id": "GA_kwDOUHW3oc4D0IHe",
+            "type": "branch_policy"
+          }
+        ]
+      }
+    },
+    {
+      "repository": "chenmohan123/web-sdk-PP-OCRv6",
+      "pr": {
+        "headRefOid": "2d7b9f9d43121742879dcbc39b8d64016807f7c9",
+        "mergeCommit": {
+          "oid": "9cc1f8d9da54164a77bcb9ea781cedebddb6139e"
+        },
+        "mergedAt": "2026-09-08T02:14:16Z",
+        "state": "MERGED",
+        "statusCheckRollup": [
+          {
+            "__typename": "CheckRun",
+            "completedAt": "2026-09-08T02:10:58Z",
+            "conclusion": "SUCCESS",
+            "detailsUrl": "https://github.com/chenmohan123/web-sdk-PP-OCRv6/actions/runs/34179050246/job/101914184385",
+            "name": "verify",
+            "startedAt": "2026-09-08T02:09:00Z",
+            "status": "COMPLETED",
+            "workflowName": "CI"
+          }
+        ],
+        "url": "https://github.com/chenmohan123/web-sdk-PP-OCRv6/pull/18"
+      },
+      "runs": [
+        {
+          "conclusion": "success",
+          "databaseId": 34179356377,
+          "headSha": "9cc1f8d9da54164a77bcb9ea781cedebddb6139e",
+          "status": "completed",
+          "url": "https://github.com/chenmohan123/web-sdk-PP-OCRv6/actions/runs/34179356377",
+          "workflowName": "GitHub Pages"
+        },
+        {
+          "conclusion": "success",
+          "databaseId": 34179356388,
+          "headSha": "9cc1f8d9da54164a77bcb9ea781cedebddb6139e",
+          "status": "completed",
+          "url": "https://github.com/chenmohan123/web-sdk-PP-OCRv6/actions/runs/34179356388",
+          "workflowName": "CI"
+        }
+      ],
+      "pages": {
+        "build_type": "workflow",
+        "html_url": "https://chenmohan123.github.io/web-sdk-PP-OCRv6/",
+        "https_enforced": true,
+        "status": null
+      },
+      "rulesets": [
+        {
+          "id": 21529943,
+          "name": "main 分支保护",
+          "target": "branch",
+          "source_type": "Repository",
+          "source": "chenmohan123/web-sdk-PP-OCRv6",
+          "enforcement": "active",
+          "conditions": {
+            "ref_name": {
+              "exclude": [],
+              "include": [
+                "refs/heads/main"
+              ]
+            }
+          },
+          "rules": [
+            {
+              "type": "deletion"
+            },
+            {
+              "type": "non_fast_forward"
+            },
+            {
+              "type": "required_linear_history"
+            },
+            {
+              "type": "pull_request",
+              "parameters": {
+                "required_approving_review_count": 0,
+                "dismiss_stale_reviews_on_push": true,
+                "required_reviewers": [],
+                "require_code_owner_review": false,
+                "require_last_push_approval": false,
+                "required_review_thread_resolution": true,
+                "require_extra_approval_for_unattributed_changes": true,
+                "allowed_merge_methods": [
+                  "merge",
+                  "squash",
+                  "rebase"
+                ]
+              }
+            },
+            {
+              "type": "required_status_checks",
+              "parameters": {
+                "strict_required_status_checks_policy": true,
+                "do_not_enforce_on_create": false,
+                "required_status_checks": [
+                  {
+                    "context": "verify",
+                    "integration_id": 15368
+                  }
+                ]
+              }
+            }
+          ],
+          "node_id": "RRS_lACqUmVwb3NpdG9yec5QKliqzgFIhVc",
+          "created_at": "2026-08-26T12:25:04.462+08:00",
+          "updated_at": "2026-08-26T12:25:04.544+08:00",
+          "bypass_actors": [],
+          "current_user_can_bypass": "never",
+          "_links": {
+            "self": {
+              "href": "https://api.github.com/repos/chenmohan123/web-sdk-PP-OCRv6/rulesets/21529943"
+            },
+            "html": {
+              "href": "https://github.com/chenmohan123/web-sdk-PP-OCRv6/rules/21529943"
+            }
+          }
+        }
+      ],
+      "environment": {
+        "deployment_branch_policy": {
+          "custom_branch_policies": true,
+          "protected_branches": false
+        },
+        "id": 20484854905,
+        "name": "github-pages",
+        "protection_rules": [
+          {
+            "id": 63534538,
+            "node_id": "GA_kwDOUCpYqs4DyXXK",
+            "type": "branch_policy"
+          }
+        ]
+      }
+    }
+  ]
+}

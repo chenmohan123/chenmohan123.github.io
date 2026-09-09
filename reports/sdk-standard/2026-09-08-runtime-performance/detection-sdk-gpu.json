@@ -1,0 +1,222 @@
+{
+  "verifiedAt": "2026-09-08T01:13:51.506Z",
+  "scope": "当前源码 SDK；SHA-256 匹配的官方模型替换传输，真实 ORT 推理",
+  "runs": [
+    {
+      "mode": "main",
+      "records": [
+        {
+          "loadTimings": {
+            "modelCacheReadMs": 0.800000011920929,
+            "modelDownloadMs": 353,
+            "integrityMs": 72,
+            "sessionMs": 1326,
+            "totalMs": 1800.6000000238419,
+            "modelSource": "network"
+          },
+          "elapsed": 1801,
+          "runtime": {
+            "runtimeVersion": "1.27.0",
+            "environment": {
+              "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+              "platform": "Win32",
+              "capturedAt": "2026-09-08T01:13:54.155Z"
+            },
+            "requestedBackend": "webgpu",
+            "backend": "webgpu",
+            "precision": "fp32",
+            "mode": "main",
+            "fallbacks": [],
+            "capabilities": {
+              "webgpu": true,
+              "worker": true,
+              "offscreenCanvas": true,
+              "wasmSimd": false,
+              "wasmThreads": false
+            }
+          },
+          "count": 12,
+          "labels": [
+            "person",
+            "kite"
+          ],
+          "first": {
+            "decodeMs": 6.199999988079071,
+            "preprocessMs": 74.10000002384186,
+            "inferenceMs": 3339.399999976158,
+            "postprocessMs": 0.8999999761581421,
+            "totalMs": 3420.899999976158
+          },
+          "second": {
+            "decodeMs": 4.300000011920929,
+            "preprocessMs": 54.60000002384186,
+            "inferenceMs": 49.5,
+            "postprocessMs": 0.19999998807907104,
+            "totalMs": 108.80000001192093
+          }
+        },
+        {
+          "loadTimings": {
+            "modelCacheReadMs": 28.600000023841858,
+            "integrityMs": 58.5,
+            "sessionMs": 238.20000004768372,
+            "totalMs": 329.5,
+            "modelSource": "cache"
+          },
+          "elapsed": 329.5,
+          "runtime": {
+            "runtimeVersion": "1.27.0",
+            "environment": {
+              "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+              "platform": "Win32",
+              "capturedAt": "2026-09-08T01:13:58.030Z"
+            },
+            "requestedBackend": "webgpu",
+            "backend": "webgpu",
+            "precision": "fp32",
+            "mode": "main",
+            "fallbacks": [],
+            "capabilities": {
+              "webgpu": true,
+              "worker": true,
+              "offscreenCanvas": true,
+              "wasmSimd": false,
+              "wasmThreads": false
+            }
+          },
+          "count": 12,
+          "labels": [
+            "person",
+            "kite"
+          ],
+          "first": {
+            "decodeMs": 4.300000011920929,
+            "preprocessMs": 35.80000001192093,
+            "inferenceMs": 219,
+            "postprocessMs": 0.19999998807907104,
+            "totalMs": 259.5999999642372
+          },
+          "second": {
+            "decodeMs": 4.699999988079071,
+            "preprocessMs": 34.40000003576279,
+            "inferenceMs": 44.09999996423721,
+            "postprocessMs": 0.10000002384185791,
+            "totalMs": 83.5
+          }
+        }
+      ]
+    },
+    {
+      "mode": "worker",
+      "records": [
+        {
+          "loadTimings": {
+            "modelCacheReadMs": 1.5999999642372131,
+            "modelDownloadMs": 345.4000000357628,
+            "integrityMs": 61.5,
+            "sessionMs": 621.3999999761581,
+            "totalMs": 1097,
+            "modelSource": "network"
+          },
+          "elapsed": 1097.199999988079,
+          "runtime": {
+            "runtimeVersion": "1.27.0",
+            "environment": {
+              "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+              "platform": "Win32",
+              "capturedAt": "2026-09-08T01:13:59.515Z"
+            },
+            "requestedBackend": "webgpu",
+            "backend": "webgpu",
+            "precision": "fp32",
+            "mode": "worker",
+            "fallbacks": [],
+            "capabilities": {
+              "webgpu": true,
+              "worker": true,
+              "offscreenCanvas": true,
+              "wasmSimd": false,
+              "wasmThreads": false
+            }
+          },
+          "count": 12,
+          "labels": [
+            "person",
+            "kite"
+          ],
+          "first": {
+            "decodeMs": 5.100000023841858,
+            "preprocessMs": 40.19999998807907,
+            "inferenceMs": 1212.8999999761581,
+            "postprocessMs": 0.19999998807907104,
+            "totalMs": 1258.6000000238419
+          },
+          "second": {
+            "decodeMs": 4.399999976158142,
+            "preprocessMs": 30.899999976158142,
+            "inferenceMs": 46.5,
+            "postprocessMs": 0.10000002384185791,
+            "totalMs": 82
+          }
+        },
+        {
+          "loadTimings": {
+            "modelCacheReadMs": 51,
+            "integrityMs": 59.30000001192093,
+            "sessionMs": 573.6000000238419,
+            "totalMs": 690.9000000357628,
+            "modelSource": "cache"
+          },
+          "elapsed": 691,
+          "runtime": {
+            "runtimeVersion": "1.27.0",
+            "environment": {
+              "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+              "platform": "Win32",
+              "capturedAt": "2026-09-08T01:14:01.560Z"
+            },
+            "requestedBackend": "webgpu",
+            "backend": "webgpu",
+            "precision": "fp32",
+            "mode": "worker",
+            "fallbacks": [],
+            "capabilities": {
+              "webgpu": true,
+              "worker": true,
+              "offscreenCanvas": true,
+              "wasmSimd": false,
+              "wasmThreads": false
+            }
+          },
+          "count": 12,
+          "labels": [
+            "person",
+            "kite"
+          ],
+          "first": {
+            "decodeMs": 4.199999988079071,
+            "preprocessMs": 32.89999997615814,
+            "inferenceMs": 1338.9000000357628,
+            "postprocessMs": 0,
+            "totalMs": 1376.199999988079
+          },
+          "second": {
+            "decodeMs": 4.699999988079071,
+            "preprocessMs": 34.69999998807907,
+            "inferenceMs": 54.10000002384186,
+            "postprocessMs": 0.19999998807907104,
+            "totalMs": 94
+          }
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "browser": "151.0.7922.34",
+  "adapter": {
+    "vendor": "nvidia",
+    "architecture": "blackwell",
+    "fallback": false
+  },
+  "status": "passed"
+}

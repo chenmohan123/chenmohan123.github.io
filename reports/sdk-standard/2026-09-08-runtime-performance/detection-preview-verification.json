@@ -1,0 +1,30 @@
+{
+  "verifiedAt": "2026-09-07T23:54:11.0033306Z",
+  "scope": "Detection SDK 隔离副本验证；尚未应用到主工作区生产源码",
+  "base": "c92e7e9baeba93b38c0d51aa4b5cee4d17a76c51",
+  "patch": "F:/git/00_chenmohan/github/web-sdk-PP-Detection/.tmp/runtime-performance-sdk.patch",
+  "red": [
+    "完整初始化应为 188ms，旧实现为 61ms",
+    "内存模型校验应为 11ms，旧实现为 0ms",
+    "已加载 ORT 版本缺失",
+    "第二次回退将首次结果的 webgpu 改成 wasm",
+    "Worker 载入响应及工厂没有传递实际版本：2 项失败"
+  ],
+  "green": {
+    "sdkTests": 131,
+    "testFiles": 18,
+    "types": "passed",
+    "lint": "passed",
+    "build": "passed",
+    "docParity": {
+      "files": 22,
+      "typeScriptSamples": 12,
+      "errorCodes": 12
+    }
+  },
+  "environmentNotes": [
+    "副本通过临时 tsconfig 路径和构建 nodePaths 复用原仓库 ORT 依赖，未修改全局配置",
+    "SDK/Worker/IIFE 构建通过；没有在本轮运行真实模型或 GPU"
+  ],
+  "blocked": "宿主机文件写入及 Git 分支命令的自动权限审批多次超时；已请求用户确认，尚未收到回应"
+}

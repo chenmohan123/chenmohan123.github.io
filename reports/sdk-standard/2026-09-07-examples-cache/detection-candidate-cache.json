@@ -1,0 +1,43 @@
+{
+  "verifiedAt": "2026-09-07T17:01:39.251Z",
+  "browser": "151.0.7922.34",
+  "url": "http://127.0.0.1:4297/",
+  "runs": [
+    {
+      "scope": "current",
+      "cached": {
+        "entries": 1,
+        "bytes": 23243834
+      },
+      "usageBefore": "当前模型缓存: 22.2 MB\n全部本 SDK 缓存: 22.2 MB",
+      "resultBefore": "检测结果\n12 个目标\n01\nperson\n87.7% · 414,90\n02\nkite\n85.3% · 164,85\n03\nperson\n83.2% · 506,115\n04\nperson\n81.4% · 161,82\n05\nperson\n79.9% · 267,81\n06\nperson\n76.5% · 105,47\n07\nperson\n75.9% · 581,113\n08\nperson\n75.1% · 379,42\n09\nperson\n55.6% · 352,44\n10\nperson\n55.4% · 328,41\n11\nperson\n54.7% · 24,118\n12\nperson\n50.9% · 366,66",
+      "after": {
+        "entries": 0,
+        "bytes": 0
+      },
+      "usageAfter": "当前模型缓存: 0 B\n全部本 SDK 缓存: 0 B"
+    },
+    {
+      "scope": "all",
+      "cached": {
+        "entries": 1,
+        "bytes": 23243834
+      },
+      "usageBefore": "当前模型缓存: 22.2 MB\n全部本 SDK 缓存: 22.2 MB",
+      "resultBefore": "检测结果\n12 个目标\n01\nperson\n87.7% · 414,90\n02\nkite\n85.3% · 164,85\n03\nperson\n83.2% · 506,115\n04\nperson\n81.4% · 161,82\n05\nperson\n79.9% · 267,81\n06\nperson\n76.5% · 105,47\n07\nperson\n75.9% · 581,113\n08\nperson\n75.1% · 379,42\n09\nperson\n55.6% · 352,44\n10\nperson\n55.4% · 328,41\n11\nperson\n54.7% · 24,118\n12\nperson\n50.9% · 366,66",
+      "after": {
+        "entries": 0,
+        "bytes": 0
+      },
+      "usageAfter": "当前模型缓存: 0 B\n全部本 SDK 缓存: 0 B"
+    }
+  ],
+  "pageErrors": [],
+  "transport": "使用线上 ModelScope 清单和模型传输。",
+  "adapter": {
+    "vendor": "nvidia",
+    "architecture": "blackwell",
+    "fallback": false
+  },
+  "status": "passed"
+}

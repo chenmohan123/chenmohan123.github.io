@@ -1,0 +1,14 @@
+[
+  {
+    "name": "web-sdk-pp-ocrv6",
+    "version": "0.1.8",
+    "tarball": "https://registry.npmjs.org/web-sdk-pp-ocrv6/-/web-sdk-pp-ocrv6-0.1.8.tgz",
+    "integrity": "sha512-MuTYCc4EmvmbhkSdhIUKi4VADEE1ZJAeiBgWjyszqCe9FaCRyoBkQth4V1ZkUJKueRg+Cg5Kyif5O85A5+8jsg=="
+  },
+  {
+    "name": "web-sdk-pp-detection",
+    "version": "0.1.1",
+    "tarball": "https://registry.npmjs.org/web-sdk-pp-detection/-/web-sdk-pp-detection-0.1.1.tgz",
+    "integrity": "sha512-L5Z5jlp2+D79AgDUvOMWY1ucqHZHFvBCmUC/GtF/GmqVi29vJZYorNzNcopgp8XfqA5BfrBRJmkmdhHlnx8L7g=="
+  }
+]

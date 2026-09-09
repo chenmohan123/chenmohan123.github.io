@@ -1,0 +1,22 @@
+{
+  "verifiedAt": "2026-09-07T15:15:53.643Z",
+  "browser": "151.0.7922.34",
+  "url": "https://chenmohan123.github.io/web-sdk-PP-OCRv6/",
+  "runs": [
+    {
+      "name": "small 检测与识别，严格 GPU，Worker",
+      "state": "识别完成",
+      "runtime": "运行环境\n请求后端\nwebgpu\n实际后端\nwebgpu\n执行位置\nworker\n运行时\nonnxruntime-web@1.27.0",
+      "lines": 146,
+      "wallMs": 14967
+    }
+  ],
+  "errors": [],
+  "adapter": {
+    "vendor": "nvidia",
+    "architecture": "blackwell",
+    "fallback": false
+  },
+  "status": "failed",
+  "error": "Error: expect(locator).toHaveClass(expected) failed\n\nLocator: getByTestId('status')\nExpected pattern: /success|error|unsupported/\nReceived string:  \"run-status downloading\"\nTimeout: 180000ms\n\nCall log:\n  - Expect \"to.have.class\" with timeout 180000ms\n  - waiting for getByTestId('status')\n    5 × locator resolved to <div aria-live=\"polite\" data-testid=\"status\" class=\"run-status loading\">…</div>\n      - unexpected value \"run-status loading\"\n    191 × locator resolved to <div aria-live=\"polite\" data-testid=\"status\" class=\"run-status downloading\">…</div>\n        - unexpected value \"run-status downloading\"\n    - locator resolved to <div aria-live=\"polite\" data-testid=\"status\" class=\"run-status loading\">…</div>\n    - unexpected value \"run-status loading\"\n    162 × locator resolved to <div aria-live=\"polite\" data-testid=\"status\" class=\"run-status downloading\">…</div>\n        - unexpected value \"run-status downloading\"\n"
+}

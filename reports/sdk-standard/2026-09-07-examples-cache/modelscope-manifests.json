@@ -1,0 +1,28 @@
+{
+  "verifiedAt": "2026-09-07T15:56:27.5157440Z",
+  "manifests": [
+    {
+      "url": "https://modelscope.cn/models/chenmohan/web-sdk-pp-ocrv6/resolve/master/manifest.json?v=1.0.0",
+      "httpStatus": 200,
+      "modelId": "pp-ocrv6",
+      "version": "1.0.0",
+      "model": null,
+      "assetCount": 6,
+      "variantCount": 1
+    },
+    {
+      "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/master/manifest.json?v=1.0.1",
+      "httpStatus": 200,
+      "modelId": null,
+      "version": null,
+      "model": {
+        "id": "pp-picodet-l-320",
+        "version": "1.0.1",
+        "architecture": "PicoDet-L-320 LCNet",
+        "format": "onnx"
+      },
+      "assetCount": 1,
+      "variantCount": 1
+    }
+  ]
+}
