@@ -15,7 +15,7 @@ test('PP-DocLayoutV3 detail exposes package, assets, and live demo', async ({ pa
   await expect(page.getByText('70.84 MiB')).toBeVisible();
 });
 
-test('PaddleDetection 详情展示 0.3.1、两个模型资产和独立 Demo', async ({ page }) => {
+test('PaddleDetection 详情展示 0.3.1、六个模型变体和独立 Demo，窄屏不溢出', async ({ page }) => {
   await page.goto('/models/pp-detection/');
 
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('PaddleDetection PicoDet / PP-YOLOE');
@@ -25,6 +25,13 @@ test('PaddleDetection 详情展示 0.3.1、两个模型资产和独立 Demo', as
   await expect(page.getByText('web-sdk-pp-detection@0.3.1')).toBeVisible();
   await expect(page.getByText('22.17 MiB')).toBeVisible();
   await expect(page.getByText('30.47 MiB')).toBeVisible();
+  for (const model of ['picodet-l-320', 'ppyoloe-plus-s-640']) {
+    for (const precision of ['fp32', 'fp16', 'w8a32']) {
+      await expect(page.getByText(`${model}-${precision}`, { exact: true })).toBeVisible();
+    }
+  }
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
 
 test('brand and task routes are statically generated', async ({ page }) => {

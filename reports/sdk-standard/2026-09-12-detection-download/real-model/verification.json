@@ -1,0 +1,186 @@
+{
+  "status": "passed",
+  "url": "http://127.0.0.1:4186/web-sdk-PP-Detection/",
+  "testedAt": "2026-09-12T10:55:14.190Z",
+  "runs": [
+    {
+      "key": "modelscope-picodet-wasm-w8a32",
+      "model": {
+        "id": "pp-picodet-l-320",
+        "version": "1.0.2",
+        "variantId": "w8a32",
+        "precision": "int8",
+        "bytes": 6117685,
+        "parameterCount": 5787988,
+        "opset": 13,
+        "source": {
+          "kind": "modelscope",
+          "revision": "4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538",
+          "bytes": 6117685,
+          "sha256": "3c46094c52437768373e55e2f4f320be3725399b5a906abea251cc30b7a06d59"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-12T10:55:19.618Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "int8",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 12,
+      "resultFile": "modelscope-picodet-wasm-w8a32.json"
+    },
+    {
+      "key": "modelscope-picodet-webgpu-w8a32",
+      "model": {
+        "id": "pp-picodet-l-320",
+        "version": "1.0.2",
+        "variantId": "w8a32",
+        "precision": "int8",
+        "bytes": 6117685,
+        "parameterCount": 5787988,
+        "opset": 13,
+        "source": {
+          "kind": "modelscope",
+          "revision": "4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538",
+          "bytes": 6117685,
+          "sha256": "3c46094c52437768373e55e2f4f320be3725399b5a906abea251cc30b7a06d59"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-12T10:55:22.040Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "int8",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 12,
+      "resultFile": "modelscope-picodet-webgpu-w8a32.json"
+    },
+    {
+      "key": "modelscope-ppyoloe-wasm-w8a32",
+      "model": {
+        "id": "ppyoloe-plus-s-640",
+        "version": "0.1.1",
+        "variantId": "w8a32",
+        "precision": "int8",
+        "bytes": 8225467,
+        "parameterCount": null,
+        "opset": 13,
+        "source": {
+          "kind": "modelscope",
+          "revision": "4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538",
+          "bytes": 8225467,
+          "sha256": "cef7cd4dbbac67db53c75f0a3aca30343a5fb9be0b743c57d9dca8dec0d48b2e"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-12T10:55:24.509Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "int8",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 14,
+      "resultFile": "modelscope-ppyoloe-wasm-w8a32.json"
+    },
+    {
+      "key": "modelscope-ppyoloe-webgpu-w8a32",
+      "model": {
+        "id": "ppyoloe-plus-s-640",
+        "version": "0.1.1",
+        "variantId": "w8a32",
+        "precision": "int8",
+        "bytes": 8225467,
+        "parameterCount": null,
+        "opset": 13,
+        "source": {
+          "kind": "modelscope",
+          "revision": "4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538",
+          "bytes": 8225467,
+          "sha256": "cef7cd4dbbac67db53c75f0a3aca30343a5fb9be0b743c57d9dca8dec0d48b2e"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-12T10:55:26.005Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "int8",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 14,
+      "resultFile": "modelscope-ppyoloe-webgpu-w8a32.json"
+    }
+  ],
+  "errors": [],
+  "requests": [
+    "https://modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538/picodet-l-320/1.0.2/picodet-w8a32.onnx",
+    "https://cdn-lfs-cn-1.modelscope.cn/prod/lfs-objects/3c/46/094c52437768373e55e2f4f320be3725399b5a906abea251cc30b7a06d59",
+    "https://modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538/ppyoloe-plus-s-640/0.1.1/ppyoloe-w8a32.onnx",
+    "https://cdn-lfs-cn-1.modelscope.cn/prod/lfs-objects/ce/f7/cd4dbbac67db53c75f0a3aca30343a5fb9be0b743c57d9dca8dec0d48b2e"
+  ],
+  "environment": {
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+    "secureContext": true,
+    "crossOriginIsolated": false,
+    "gpu": {
+      "vendor": "nvidia",
+      "architecture": "blackwell",
+      "isFallbackAdapter": false,
+      "shaderF16": true
+    }
+  },
+  "browserVersion": "153.0.8010.12"
+}

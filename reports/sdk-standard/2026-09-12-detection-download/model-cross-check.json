@@ -1,0 +1,12 @@
+{
+  "date": "2026-09-12T11:02:42.167Z",
+  "assets": [
+    "picodet-l-320-fp32",
+    "picodet-l-320-fp16",
+    "picodet-l-320-w8a32",
+    "ppyoloe-plus-s-640-fp32",
+    "ppyoloe-plus-s-640-fp16",
+    "ppyoloe-plus-s-640-w8a32"
+  ],
+  "result": "门户六资产与 SDK 固定稳定清单完全一致"
+}

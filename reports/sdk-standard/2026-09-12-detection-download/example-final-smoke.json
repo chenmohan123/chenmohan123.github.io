@@ -1,0 +1,48 @@
+{
+  "date": "2026-09-12T11:41:20.519Z",
+  "browser": "153.0.8010.12",
+  "sdk": "0.3.1（公开 npm 包）",
+  "status": "passed",
+  "runs": [
+    {
+      "model": {
+        "id": "pp-picodet-l-320",
+        "version": "1.0.2",
+        "variantId": "w8a32",
+        "precision": "int8",
+        "bytes": 6117685,
+        "parameterCount": 5787988,
+        "opset": 13,
+        "source": {
+          "kind": "huggingface",
+          "revision": "768d6bdf1b9cb906a6b640516b835d39cc6c375e",
+          "bytes": 6117685,
+          "sha256": "3c46094c52437768373e55e2f4f320be3725399b5a906abea251cc30b7a06d59"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-12T11:41:24.758Z"
+        },
+        "requestedBackend": "auto",
+        "backend": "webgpu",
+        "precision": "int8",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detections": 12
+    }
+  ],
+  "errors": [],
+  "cancelAndResume": true
+}

@@ -1,0 +1,13 @@
+{
+  "date": "2026-09-12T11:01:36.252Z",
+  "browser": "151.0.7922.34",
+  "assets": [
+    "picodet-l-320-fp32",
+    "picodet-l-320-fp16",
+    "picodet-l-320-w8a32",
+    "ppyoloe-plus-s-640-fp32",
+    "ppyoloe-plus-s-640-fp16",
+    "ppyoloe-plus-s-640-w8a32"
+  ],
+  "mobileOverflow": false
+}
