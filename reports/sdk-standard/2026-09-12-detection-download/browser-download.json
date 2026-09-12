@@ -1,0 +1,378 @@
+{
+  "date": "2026-09-12T10:48:46.451Z",
+  "browser": "153.0.8010.12",
+  "transport": "真实本地 HTTP、fetch 与 ReadableStream，无路由拦截",
+  "results": [
+    {
+      "scenario": "headers",
+      "code": "MODEL_DOWNLOAD_FAILED",
+      "message": "模型下载长时间没有新增字节",
+      "details": {
+        "idleTimeoutMs": 150
+      },
+      "elapsedMs": 152.5,
+      "progress": [
+        {
+          "loadedBytes": 0,
+          "totalBytes": 4096,
+          "attempt": 1,
+          "maxAttempts": 1
+        }
+      ],
+      "requests": 1
+    },
+    {
+      "scenario": "idle",
+      "code": "MODEL_DOWNLOAD_FAILED",
+      "message": "模型下载长时间没有新增字节",
+      "details": {
+        "idleTimeoutMs": 150
+      },
+      "elapsedMs": 160,
+      "progress": [
+        {
+          "loadedBytes": 0,
+          "totalBytes": 4096,
+          "attempt": 1,
+          "maxAttempts": 1
+        },
+        {
+          "loadedBytes": 1,
+          "totalBytes": 4096,
+          "attempt": 1,
+          "maxAttempts": 1
+        }
+      ],
+      "requests": 1
+    },
+    {
+      "scenario": "trickle",
+      "code": "MODEL_DOWNLOAD_FAILED",
+      "message": "模型下载超过请求总时限",
+      "details": {
+        "timeoutMs": 360
+      },
+      "elapsedMs": 364.30000001192093,
+      "progress": [
+        {
+          "loadedBytes": 0,
+          "totalBytes": 4096,
+          "attempt": 1,
+          "maxAttempts": 1
+        },
+        {
+          "loadedBytes": 1,
+          "totalBytes": 4096,
+          "attempt": 1,
+          "maxAttempts": 1
+        },
+        {
+          "loadedBytes": 2,
+          "totalBytes": 4096,
+          "attempt": 1,
+          "maxAttempts": 1
+        },
+        {
+          "loadedBytes": 3,
+          "totalBytes": 4096,
+          "attempt": 1,
+          "maxAttempts": 1
+        },
+        {
+          "loadedBytes": 4,
+          "totalBytes": 4096,
+          "attempt": 1,
+          "maxAttempts": 1
+        },
+        {
+          "loadedBytes": 5,
+          "totalBytes": 4096,
+          "attempt": 1,
+          "maxAttempts": 1
+        },
+        {
+          "loadedBytes": 6,
+          "totalBytes": 4096,
+          "attempt": 1,
+          "maxAttempts": 1
+        },
+        {
+          "loadedBytes": 7,
+          "totalBytes": 4096,
+          "attempt": 1,
+          "maxAttempts": 1
+        },
+        {
+          "loadedBytes": 8,
+          "totalBytes": 4096,
+          "attempt": 1,
+          "maxAttempts": 1
+        },
+        {
+          "loadedBytes": 9,
+          "totalBytes": 4096,
+          "attempt": 1,
+          "maxAttempts": 1
+        },
+        {
+          "loadedBytes": 10,
+          "totalBytes": 4096,
+          "attempt": 1,
+          "maxAttempts": 1
+        },
+        {
+          "loadedBytes": 11,
+          "totalBytes": 4096,
+          "attempt": 1,
+          "maxAttempts": 1
+        },
+        {
+          "loadedBytes": 12,
+          "totalBytes": 4096,
+          "attempt": 1,
+          "maxAttempts": 1
+        }
+      ],
+      "requests": 1
+    },
+    {
+      "scenario": "status",
+      "code": "MODEL_DOWNLOAD_FAILED",
+      "message": "模型下载返回可重试状态",
+      "details": {
+        "sourceKind": "modelscope",
+        "status": 503,
+        "statusText": "Service Unavailable"
+      },
+      "elapsedMs": 1534.7999999970198,
+      "progress": [
+        {
+          "loadedBytes": 0,
+          "totalBytes": 4096,
+          "attempt": 1,
+          "maxAttempts": 3
+        },
+        {
+          "loadedBytes": 0,
+          "totalBytes": 4096,
+          "attempt": 2,
+          "maxAttempts": 3
+        },
+        {
+          "loadedBytes": 0,
+          "totalBytes": 4096,
+          "attempt": 3,
+          "maxAttempts": 3
+        }
+      ],
+      "requests": 3
+    },
+    {
+      "scenario": "idle-recovery",
+      "bytes": 4096,
+      "elapsedMs": 674.7000000029802,
+      "timings": {
+        "modelDownloadMs": 674.1999999880791,
+        "integrityMs": 0.4000000059604645
+      },
+      "progress": [
+        {
+          "loadedBytes": 0,
+          "totalBytes": 4096,
+          "attempt": 1,
+          "maxAttempts": 2
+        },
+        {
+          "loadedBytes": 1,
+          "totalBytes": 4096,
+          "attempt": 1,
+          "maxAttempts": 2
+        },
+        {
+          "loadedBytes": 0,
+          "totalBytes": 4096,
+          "attempt": 2,
+          "maxAttempts": 2
+        },
+        {
+          "loadedBytes": 4096,
+          "totalBytes": 4096,
+          "attempt": 2,
+          "maxAttempts": 2
+        },
+        {
+          "loadedBytes": 4096,
+          "totalBytes": 4096,
+          "attempt": 2,
+          "maxAttempts": 2
+        }
+      ],
+      "requests": 2
+    },
+    {
+      "scenario": "disconnect",
+      "bytes": 4096,
+      "elapsedMs": 565,
+      "timings": {
+        "modelDownloadMs": 565,
+        "integrityMs": 0
+      },
+      "progress": [
+        {
+          "loadedBytes": 0,
+          "totalBytes": 4096,
+          "attempt": 1,
+          "maxAttempts": 2
+        },
+        {
+          "loadedBytes": 1,
+          "totalBytes": 4096,
+          "attempt": 1,
+          "maxAttempts": 2
+        },
+        {
+          "loadedBytes": 0,
+          "totalBytes": 4096,
+          "attempt": 2,
+          "maxAttempts": 2
+        },
+        {
+          "loadedBytes": 4096,
+          "totalBytes": 4096,
+          "attempt": 2,
+          "maxAttempts": 2
+        },
+        {
+          "loadedBytes": 4096,
+          "totalBytes": 4096,
+          "attempt": 2,
+          "maxAttempts": 2
+        }
+      ],
+      "requests": 2
+    },
+    {
+      "scenario": "cancel-request",
+      "code": "ABORTED",
+      "message": "模型下载已取消",
+      "details": {},
+      "elapsedMs": 71.29999999701977,
+      "progress": [
+        {
+          "loadedBytes": 0,
+          "totalBytes": 4096,
+          "attempt": 1,
+          "maxAttempts": 3
+        }
+      ],
+      "requests": 1
+    },
+    {
+      "scenario": "cancel-wait",
+      "code": "ABORTED",
+      "message": "模型下载已取消",
+      "details": {},
+      "elapsedMs": 133.5,
+      "progress": [
+        {
+          "loadedBytes": 0,
+          "totalBytes": 4096,
+          "attempt": 1,
+          "maxAttempts": 3
+        }
+      ],
+      "requests": 1
+    },
+    {
+      "scenario": "corrupt",
+      "code": "MODEL_INTEGRITY_FAILED",
+      "message": "模型 SHA-256 与清单不一致",
+      "details": {
+        "expectedSha256": "a89b419787d50277a297d4b0f7d1c8ac42041352a6c80e79675ee9b8dfb56491",
+        "actualSha256": "46e4e5b3fe2549da0ecfcf8d067ac060b3b8fd132981043eeb66c7c3be875848"
+      },
+      "elapsedMs": 2,
+      "progress": [
+        {
+          "loadedBytes": 0,
+          "totalBytes": 4096,
+          "attempt": 1,
+          "maxAttempts": 3
+        },
+        {
+          "loadedBytes": 4096,
+          "totalBytes": 4096,
+          "attempt": 1,
+          "maxAttempts": 3
+        },
+        {
+          "loadedBytes": 4096,
+          "totalBytes": 4096,
+          "attempt": 1,
+          "maxAttempts": 3
+        }
+      ],
+      "requests": 1
+    },
+    {
+      "scenario": "partial",
+      "code": "MODEL_DOWNLOAD_FAILED",
+      "message": "206 响应未覆盖完整模型范围",
+      "details": {
+        "contentRange": "bytes 1-4095/4096",
+        "expectedContentRange": "bytes 0-4095/4096"
+      },
+      "elapsedMs": 1.7000000029802322,
+      "progress": [
+        {
+          "loadedBytes": 0,
+          "totalBytes": 4096,
+          "attempt": 1,
+          "maxAttempts": 3
+        }
+      ],
+      "requests": 1
+    },
+    {
+      "scenario": "forbidden",
+      "code": "MODEL_DOWNLOAD_FAILED",
+      "message": "模型下载返回非成功状态",
+      "details": {
+        "sourceKind": "modelscope",
+        "status": 403,
+        "statusText": "Forbidden"
+      },
+      "elapsedMs": 1.5999999940395355,
+      "progress": [
+        {
+          "loadedBytes": 0,
+          "totalBytes": 4096,
+          "attempt": 1,
+          "maxAttempts": 3
+        }
+      ],
+      "requests": 1
+    },
+    {
+      "scenario": "完整重试后才可复用缓存",
+      "firstFromCache": false,
+      "secondFromCache": true,
+      "bytes": 4096,
+      "requests": 2
+    }
+  ],
+  "closedResponses": {
+    "headers": 1,
+    "idle": 1,
+    "trickle": 1,
+    "status": 3,
+    "idle-recovery": 2,
+    "disconnect": 2,
+    "cancel-request": 1,
+    "cancel-wait": 1,
+    "corrupt": 1,
+    "partial": 1,
+    "forbidden": 1,
+    "idle-recovery/cache": 2
+  }
+}
