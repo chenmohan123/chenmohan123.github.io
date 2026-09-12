@@ -15,14 +15,14 @@ test('PP-DocLayoutV3 detail exposes package, assets, and live demo', async ({ pa
   await expect(page.getByText('70.84 MiB')).toBeVisible();
 });
 
-test('PaddleDetection 详情展示 0.3.0、两个模型资产和独立 Demo', async ({ page }) => {
+test('PaddleDetection 详情展示 0.3.1、两个模型资产和独立 Demo', async ({ page }) => {
   await page.goto('/models/pp-detection/');
 
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('PaddleDetection PicoDet / PP-YOLOE');
   await expect(page.getByRole('link', { name: 'GitHub 仓库' })).toHaveAttribute('href', 'https://github.com/chenmohan123/web-sdk-PP-Detection');
   await expect(page.getByRole('link', { name: 'npm 包' })).toHaveAttribute('href', 'https://www.npmjs.com/package/web-sdk-pp-detection');
   await expect(page.getByRole('link', { name: '打开在线 Demo' })).toHaveAttribute('href', 'https://chenmohan123.github.io/web-sdk-PP-Detection/');
-  await expect(page.getByText('web-sdk-pp-detection@0.3.0')).toBeVisible();
+  await expect(page.getByText('web-sdk-pp-detection@0.3.1')).toBeVisible();
   await expect(page.getByText('22.17 MiB')).toBeVisible();
   await expect(page.getByText('30.47 MiB')).toBeVisible();
 });

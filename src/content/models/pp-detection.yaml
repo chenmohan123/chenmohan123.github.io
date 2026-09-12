@@ -8,7 +8,7 @@ repository: https://github.com/chenmohan123/web-sdk-PP-Detection
 license: Apache-2.0
 package:
   name: web-sdk-pp-detection
-  version: 0.3.0
+  version: 0.3.1
 demo:
   url: https://chenmohan123.github.io/web-sdk-PP-Detection/
   localProcessing: true
@@ -36,8 +36,9 @@ assets:
     sha256: d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c
 limitations:
   - FP16、INT8、INT4 和 FP8 尚未达到稳定发布门槛，本目录仅登记 FP32 变体。
-  - 2026-09-12 小米 15 Android Edge 用户反馈 CPU/GPU 基础功能正常；完整系统版本与 CPU 独立记录待补齐，其他移动设备和微信 WebView 尚未验证。
-  - PP-YOLOE 的质量评测来自固定 64 张 COCO 子集，不代表全量 COCO mAP；完整验证记录见 SDK 0.3.0 Release。
+  - 2026-09-12 小米 15 Android Edge 152 用户确认两款模型 CPU/GPU 基础回归正常；截图直接确认 PP-YOLOE WebGPU/FP32/main，实际系统版本未知，其他移动设备和微信 WebView 尚未验证。
+  - 0.3.1 优化共用预处理；本机 PP-YOLOE WebGPU 三轮热端到端中位数降低 25.5%，不代表手机或其他设备的加速比例。
+  - PP-YOLOE 的质量评测来自固定 64 张 COCO 子集，不代表全量 COCO mAP；完整验证记录见 SDK 0.3.1 Release。
   - PP-YOLOE 稳定清单复用既有 0.1.0-labs.1 目录中的相同模型字节；模型状态以 v0.3.0 的固定清单为准。
   - 微信原生小程序不支持 JavaScript/WASM runtime。
   - 多线程 WASM 依赖跨域隔离（COOP/COEP）；未满足时应使用单线程模式。
