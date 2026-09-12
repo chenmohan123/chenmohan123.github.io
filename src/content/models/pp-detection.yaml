@@ -8,7 +8,7 @@ repository: https://github.com/chenmohan123/web-sdk-PP-Detection
 license: Apache-2.0
 package:
   name: web-sdk-pp-detection
-  version: 0.3.1
+  version: 0.3.2
 demo:
   url: https://chenmohan123.github.io/web-sdk-PP-Detection/
   localProcessing: true
@@ -55,6 +55,7 @@ assets:
     url: https://modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538/ppyoloe-plus-s-640/0.1.1/ppyoloe-w8a32.onnx
     sha256: cef7cd4dbbac67db53c75f0a3aca30343a5fb9be0b743c57d9dca8dec0d48b2e
 limitations:
+  - SDK 0.3.2 增加 ONNX 权重下载超时、取消和有限同源重试，默认总时限 180 秒、无新增字节 30 秒、最多重试 2 次；清单 JSON 不使用此策略。
   - W8A32 的精度标识为 int8，表示权重 INT8 存储、激活与卷积计算 FP32；体积缩小不代表推理速度或运行内存同比改善。FP16 保留敏感算子 FP32，INT4 和 FP8 尚未稳定发布。
   - 2026-09-12 小米 15 Android Edge 152 用户确认两款模型 FP32 CPU/GPU 基础回归正常；FP16 和 W8A32 尚无手机实测证据，实际系统版本未知，其他移动设备和微信 WebView 尚未验证。
   - 0.3.1 优化共用预处理；本机 PP-YOLOE WebGPU 三轮热端到端中位数降低 25.5%，不代表手机或其他设备的加速比例。
