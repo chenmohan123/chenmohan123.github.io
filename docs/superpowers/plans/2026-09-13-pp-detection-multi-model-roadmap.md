@@ -28,6 +28,14 @@
 - 验证采用桌面优先：迭代先完成与改动相关的 Chromium 桌面环境主线程/Worker、WASM/WebGPU 和生命周期验证；移动端按发布范围和风险安排复核，不作为每轮迭代的重复门槛。
 - 每个任务结束后保存报告并运行 `git diff --check`；只有候选通过完整门槛后才开始移植实现。
 
+## 当前执行状态（2026-09-13）
+
+- 任务 1 已完成：兼容矩阵覆盖 PicoDet、PP-YOLOE、PP-YOLO、FCOS、SSD、RTMDet、YOLO 家族和 PP-YOLOE-SOD，并将旋转框、分割、关键点、跟踪、3D 与业务组合列为独立路线。
+- 任务 2 已完成当前批次：PP-YOLOE+ SOD 640 与普通 PP-YOLOE+ L 640 均有固定转换和 Python 参考证据；L 的 FP16/W8A32 已完成转换，但逐框结果未达到稳定门槛。
+- 任务 3 已完成当前批次：SOD 与 L 精度变体已在桌面 Chromium 的 WASM/WebGPU 相关组合中验证；本轮不重复移动端测试。
+- 任务 4 已完成当前批次：SOD 和 L 的精度变体均保留为 labs/未发布状态，没有改动稳定 manifest、默认 ModelScope 来源或门户目录。PR #60 已合并到 SDK `main`。
+- 下一阶段入口：优先筛选体积更小且输出契约接近现有 Detection 的 2D 候选，或针对 FP16/W8A32 的量化误差做可复现改进；只有达到逐框和分发门槛才进入独立移植计划。
+
 ---
 
 ### 任务 1：建立 2D 检测候选兼容矩阵
@@ -41,11 +49,11 @@
 
 **产出契约：** `candidates.json` 的每个候选包含 `id`、`task`、`upstreamRevision`、`inputShape`、`outputContract`、`preprocess`、`postprocess`、`license`、`conversionPath`、`browserRisks`、`estimatedBytes`、`status` 和 `reason`。`status` 只能是 `candidate`、`blocked`、`deferred` 或 `selected`。
 
-- [ ] **步骤 1：** 从原规划的轴对齐 2D 表中登记 PP-YOLO、PP-YOLOE、PP-PicoDet、YOLO 系列、FCOS、SSD、RTMDet 和 PP-YOLOE-SOD；旋转框、分割、关键点、跟踪、3D 单独列为 deferred，不混入候选矩阵。
-- [ ] **步骤 2：** 为每个候选填写固定上游 revision、输入尺寸、输出张量、后处理类型、许可证和已知浏览器算子风险；缺失信息标记为 blocked 并写明需要的证据。
-- [ ] **步骤 3：** 依据模型体积、输入输出是否接近现有 `Detection` 契约、ONNX 导出可重复性、WebGPU/WASM 算子覆盖和真实使用场景排序。
-- [ ] **步骤 4：** 运行 JSON 结构校验、`git diff --check`，在 README 中明确“候选目录不代表兼容承诺”。
-- [ ] **步骤 5：** 提交矩阵和评估协议，提交信息使用中文：`建立 PP-Detection 2D 模型兼容矩阵`。
+- [x] **步骤 1：** 从原规划的轴对齐 2D 表中登记 PP-YOLO、PP-YOLOE、PP-PicoDet、YOLO 系列、FCOS、SSD、RTMDet 和 PP-YOLOE-SOD；旋转框、分割、关键点、跟踪、3D 单独列为 deferred，不混入候选矩阵。
+- [x] **步骤 2：** 为每个候选填写固定上游 revision、输入尺寸、输出张量、后处理类型、许可证和已知浏览器算子风险；缺失信息标记为 blocked 并写明需要的证据。
+- [x] **步骤 3：** 依据模型体积、输入输出是否接近现有 `Detection` 契约、ONNX 导出可重复性、WebGPU/WASM 算子覆盖和真实使用场景排序。
+- [x] **步骤 4：** 运行 JSON 结构校验、`git diff --check`，在 README 中明确“候选目录不代表兼容承诺”。
+- [x] **步骤 5：** 提交矩阵和评估协议，提交信息使用中文：`建立 PP-Detection 2D 模型兼容矩阵`。
 
 ### 任务 2：筛选一个首选候选并完成转换可行性证明
 
@@ -57,11 +65,11 @@
 
 **产出契约：** 转换报告记录精确命令、Paddle/Paddle2ONNX 版本、输入输出签名、opset、原始权重摘要、ONNX 字节数、ONNX Runtime Python 结果摘要和失败日志；不得用手工改图替代可复现命令。
 
-- [ ] **步骤 1：** 选择排序第一且许可证允许外部分发的候选；若 PP-YOLOE-SOD 的输入输出或体积风险高于普通 2D 候选，保留其评估记录并选择风险更低者。
-- [ ] **步骤 2：** 在固定环境中执行官方导出和 Paddle2ONNX 转换，记录 commit、命令和所有参数；转换失败时把候选标为 blocked，不改 runtime 迁就失败图。
-- [ ] **步骤 3：** 用 Python ONNX Runtime 对固定图片集生成参考输出，检查张量形状、有限值、类别映射、框坐标和空检测结果。
-- [ ] **步骤 4：** 计算 ONNX 文件字节数、SHA-256、参数量和 opset，检查许可证和 ModelScope/Hugging Face 分发条件。
-- [ ] **步骤 5：** 运行转换报告的自动校验；只有报告完整且结果满足现有轴对齐框契约，才把候选状态改为 `selected`。
+- [x] **步骤 1：** 选择排序第一且许可证允许外部分发的候选；若 PP-YOLOE-SOD 的输入输出或体积风险高于普通 2D 候选，保留其评估记录并选择风险更低者。
+- [x] **步骤 2：** 在固定环境中执行官方导出和 Paddle2ONNX 转换，记录 commit、命令和所有参数；转换失败时把候选标为 blocked，不改 runtime 迁就失败图。
+- [x] **步骤 3：** 用 Python ONNX Runtime 对固定图片集生成参考输出，检查张量形状、有限值、类别映射、框坐标和空检测结果。
+- [x] **步骤 4：** 计算 ONNX 文件字节数、SHA-256、参数量和 opset，检查许可证和 ModelScope/Hugging Face 分发条件。
+- [x] **步骤 5：** 运行转换报告的自动校验；只有报告完整且结果满足现有轴对齐框契约，才把候选状态改为 `selected`。
 
 ### 任务 3：验证浏览器后端和现有 Detection 契约
 
@@ -74,11 +82,11 @@
 
 **产出契约：** 浏览器报告按 `wasm/webgpu × main/worker` 记录加载、推理、取消、释放、输出坐标和实际后端；不以 feature detection 代替真实推理。
 
-- [ ] **步骤 1：** 先在 WASM/main 验证预处理、输出解码、NMS、阈值和坐标；固定输入与 Python 参考结果逐框比较。
-- [ ] **步骤 2：** 在可用的 WebGPU/main 和 WASM/Worker、WebGPU/Worker 中复用同一 manifest，验证 Worker 不改变结果且释放后返回稳定错误。
-- [ ] **步骤 3：** 验证显式来源、精度和后端失败路径；确认不会自动切换到其他来源、精度或后端。
-- [ ] **步骤 4：** 先在 Chromium 桌面环境记录实际 ORT 版本、适配器、WASM/WebGPU 后端和 main/Worker 执行结果；候选准备发布、涉及移动端专项问题或重大 runtime 变化时，按影响范围安排移动设备人工 smoke，缺少设备证据时明确保持移动端未验证。
-- [ ] **步骤 5：** 运行 SDK 单测、浏览器测试、`pnpm sdk:check -- --repo <path>` 和文档/manifest 校验；失败则回到候选状态，不进入稳定清单。
+- [x] **步骤 1：** 先在 WASM/main 验证预处理、输出解码、NMS、阈值和坐标；固定输入与 Python 参考结果逐框比较。
+- [x] **步骤 2：** 在可用的 WebGPU/main 和 WASM/Worker、WebGPU/Worker 中复用同一 manifest，验证 Worker 不改变结果且释放后返回稳定错误。
+- [x] **步骤 3：** 验证显式来源、精度和后端失败路径；确认不会自动切换到其他来源、精度或后端。
+- [x] **步骤 4：** 先在 Chromium 桌面环境记录实际 ORT 版本、适配器、WASM/WebGPU 后端和 main/Worker 执行结果；候选准备发布、涉及移动端专项问题或重大 runtime 变化时，按影响范围安排移动设备人工 smoke，缺少设备证据时明确保持移动端未验证。
+- [x] **步骤 5：** 运行 SDK 单测、浏览器测试、`pnpm sdk:check -- --repo <path>` 和文档/manifest 校验；失败则回到候选状态，不进入稳定清单。
 
 ### 任务 4：形成接入决策，不提前扩大 SDK 范围
 
@@ -88,11 +96,11 @@
 - 修改（门户）：`src/content/models/pp-detection.yaml`（仅当候选正式发布）
 - 修改（门户测试）：`src/content/models/registry.test.ts`（仅当版本登记变化）
 
-- [ ] **步骤 1：** 用固定门槛判断候选：转换可复现、许可证可分发、Python/浏览器结果对齐、WASM 至少通过、WebGPU 能力边界清楚、体积和耗时有记录。
+- [x] **步骤 1：** 用固定门槛判断候选：转换可复现、许可证可分发、Python/浏览器结果对齐、WASM 至少通过、WebGPU 能力边界清楚、体积和耗时有记录。
 - [ ] **步骤 2：** 若全部通过，创建独立实现计划，新增模型 manifest、来源、下载校验、API 兼容测试、Demo 选择项和双语文档；该实现计划不得同时引入跟踪、分割或其他任务代码。
-- [ ] **步骤 3：** 若未通过，记录 blocked/deferred 原因和复查条件，保留现有 0.4.0 稳定模型不变。
-- [ ] **步骤 4：** 只有新模型完成发布流程后，门户才登记版本和链接；不能把 `candidate` 或 `labs` 写成 stable。
-- [ ] **步骤 5：** 提交决策报告，提交信息使用中文：`记录 PP-Detection 候选模型接入决策`。
+- [x] **步骤 3：** 若未通过，记录 blocked/deferred 原因和复查条件，保留现有 0.4.0 稳定模型不变。
+- [x] **步骤 4：** 只有新模型完成发布流程后，门户才登记版本和链接；不能把 `candidate` 或 `labs` 写成 stable。
+- [x] **步骤 5：** 提交决策报告，提交信息使用中文：`记录 PP-Detection 候选模型接入决策`。
 
 ## 验收标准
 
