@@ -28,7 +28,15 @@
 - 验证采用桌面优先：迭代先完成与改动相关的 Chromium 桌面环境主线程/Worker、WASM/WebGPU 和生命周期验证；移动端按发布范围和风险安排复核，不作为每轮迭代的重复门槛。
 - 每个任务结束后保存报告并运行 `git diff --check`；只有候选通过完整门槛后才开始移植实现。
 
-## 当前执行状态（2026-09-13）
+## 当前执行状态（2026-09-14）
+
+- S/M/L/X 四规格 FP32 已通过模型与 Demo 独立发布流程，SDK PR [#65](https://github.com/chenmohan123/web-sdk-PP-Detection/pull/65) 已合并并完成 Pages 部署，提交为 `e87b6635c6699b2fae1a286ca497c422db4939f2`。M/L/X 新增 0.1.0 稳定清单，S 保留 0.1.1 的 FP32/FP16/W8A32；npm 仍为已发布的 0.4.0。
+- 五款模型均默认 ModelScope，仅提供 ModelScope 与 Hugging Face；M/L/X 六份远程权重完整回读校验通过。四规格沿用同一上游 Apache-2.0 发布口径，保留许可和转换归因，不存在本轮发现的按规格差异。
+- S/M/L/X × WASM/WebGPU × 主线程/Worker 的 16 组真实模型生命周期通过，新增规格只声明记录中的桌面环境。M/X 浏览器质量覆盖 64 图；L 复用同一模型摘要的 WebGPU 64 图、WASM 8 图证据，不混用子集排名。
+- [固定发布证据](https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e87b6635c6699b2fae1a286ca497c422db4939f2/reports/distribution/2026-09-14-ppyoloe-smlx/README.md)包含数值、生命周期、双源摘要与许可。门户登记五款模型九个稳定变体，保持同一 Detection SDK 和原有 2D 输出契约；这与最初规划一致。
+- L 的 FP16/W8A32 和 SOD 继续保留原 labs 结论，未因 FP32 发布而提升状态。下一阶段仍可评估更小的 2D 候选或改进精度变体；本轮范围止于 S/M/L/X FP32 发布收尾。
+
+### 前一批次记录（2026-09-13）
 
 - 任务 1 已完成：兼容矩阵覆盖 PicoDet、PP-YOLOE、PP-YOLO、FCOS、SSD、RTMDet、YOLO 家族和 PP-YOLOE-SOD，并将旋转框、分割、关键点、跟踪、3D 与业务组合列为独立路线。
 - 任务 2 已完成当前批次：PP-YOLOE+ SOD 640 与普通 PP-YOLOE+ L 640 均有固定转换和 Python 参考证据；L 的 FP16/W8A32 已完成转换，但逐框结果未达到稳定门槛。
@@ -97,7 +105,7 @@
 - 修改（门户测试）：`src/content/models/registry.test.ts`（仅当版本登记变化）
 
 - [x] **步骤 1：** 用固定门槛判断候选：转换可复现、许可证可分发、Python/浏览器结果对齐、WASM 至少通过、WebGPU 能力边界清楚、体积和耗时有记录。
-- [ ] **步骤 2：** 若全部通过，创建独立实现计划，新增模型 manifest、来源、下载校验、API 兼容测试、Demo 选择项和双语文档；该实现计划不得同时引入跟踪、分割或其他任务代码。
+- [x] **步骤 2：** S/M/L/X FP32 的独立发布已在 PR #65 完成：新增 M/L/X manifest、双源与下载校验、生命周期验证、Demo 选择项和双语文档；没有引入其他任务代码。
 - [x] **步骤 3：** 若未通过，记录 blocked/deferred 原因和复查条件，保留现有 0.4.0 稳定模型不变。
 - [x] **步骤 4：** 只有新模型完成发布流程后，门户才登记版本和链接；不能把 `candidate` 或 `labs` 写成 stable。
 - [x] **步骤 5：** 提交决策报告，提交信息使用中文：`记录 PP-Detection 候选模型接入决策`。

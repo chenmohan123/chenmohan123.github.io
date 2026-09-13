@@ -3,12 +3,12 @@ name: PaddleDetection PicoDet / PP-YOLOE
 brand: baidu
 task: detection
 status: available
-summary: 在浏览器本地运行 PicoDet-L-320 与 PP-YOLOE+ S 640，提供 FP32、FP16、W8A32 六个稳定变体，支持图片、摄像头和视频帧；默认 PicoDet、FP32 和 ModelScope。
+summary: 在浏览器本地运行 PicoDet-L-320 与 PP-YOLOE+ S/M/L/X 640，提供九个稳定变体；四种 PP-YOLOE+ 规格均支持 FP32，PicoDet 与 S 另提供 FP16、W8A32。支持图片、摄像头和视频帧，默认 PicoDet、FP32 和 ModelScope。
 repository: https://github.com/chenmohan123/web-sdk-PP-Detection
 license: Apache-2.0
 package:
   name: web-sdk-pp-detection
-  version: 0.3.2
+  version: 0.4.0
 demo:
   url: https://chenmohan123.github.io/web-sdk-PP-Detection/
   localProcessing: true
@@ -20,6 +20,8 @@ runtime:
   verifiedEnvironments:
     - { browser: Chromium 153, os: Windows 11, device: Intel Core i5-10400F / WASM，两个模型三种精度, testedAt: 2026-09-12 }
     - { browser: Chromium 153, os: Windows 11, device: NVIDIA Blackwell / WebGPU，两个模型三种精度, testedAt: 2026-09-12 }
+    - { browser: Chromium 153.0.8010.12, os: Windows 11 10.0.26200, device: Intel Core i5-10400F / WASM，PP-YOLOE+ S/M/L/X FP32 主线程与 Worker, testedAt: 2026-09-14 }
+    - { browser: Chromium 153.0.8010.12, os: Windows 11 10.0.26200, device: NVIDIA Blackwell / WebGPU，PP-YOLOE+ S/M/L/X FP32 主线程与 Worker, testedAt: 2026-09-14 }
 io:
   input: [Blob, Canvas, CanvasImageSource, ImageBitmap, HTMLVideoElement, VideoFrame]
   output: [bounding boxes, labels, scores]
@@ -54,7 +56,27 @@ assets:
     bytes: 8225467
     url: https://modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/4ec78fa50dcac4ecf02d0ae6b2f7bd1e0b26e538/ppyoloe-plus-s-640/0.1.1/ppyoloe-w8a32.onnx
     sha256: cef7cd4dbbac67db53c75f0a3aca30343a5fb9be0b743c57d9dca8dec0d48b2e
+  - id: ppyoloe-plus-m-640-fp32
+    precision: fp32
+    bytes: 94022904
+    url: https://modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/3939f806feff4cce7118913a1dfe2e348d4c7204/ppyoloe-plus-m-640/0.1.0/ppyoloe-plus-m-640-fp32.onnx
+    sha256: c6b56099c4866e4c4ff01d31982e9e1004c6ac2fd8f8e1d97a3188db3ea095aa
+  - id: ppyoloe-plus-l-640-fp32
+    precision: fp32
+    bytes: 209181400
+    url: https://modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/3939f806feff4cce7118913a1dfe2e348d4c7204/ppyoloe-plus-l-640/0.1.0/ppyoloe-plus-l-640-fp32.onnx
+    sha256: 01f325d228676b0494e5eec45f10e2830dc9f81bf67a03157c24a0abf7824075
+  - id: ppyoloe-plus-x-640-fp32
+    precision: fp32
+    bytes: 394163636
+    url: https://modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/3939f806feff4cce7118913a1dfe2e348d4c7204/ppyoloe-plus-x-640/0.1.0/ppyoloe-plus-x-640-fp32.onnx
+    sha256: 90b8ea67186b6df262b5ea441e4392144b71fa2562593892d60e2e81d5a0811e
 limitations:
+  - SDK 0.4.0 增加默认关闭的小目标增强实验策略，可能增加误检和耗时；不等同于 PP-YOLOE-SOD 模型。本次模型与 Demo 更新没有修改 runtime API，也不另发 npm 版本。
+  - PP-YOLOE+ S/M/L/X FP32 均已发布，M/L/X 模型清单版本为 0.1.0；五款模型均仅提供 ModelScope 与 Hugging Face，默认 ModelScope，显式来源失败不会静默换源。发布记录：https://github.com/chenmohan123/web-sdk-PP-Detection/pull/65
+  - 四规格来自同一固定 PaddleDetection 提交和官方 COCO 权重，沿用 S 的 Apache-2.0 发布口径并保留上游 LICENSE、归因和转换说明。两个 Hub 均为本项目维护的转换镜像，未发现按规格不同的许可或独立权重许可文件。
+  - S/M/L/X FP32 在 2026-09-14 完成桌面 WASM/WebGPU × 主线程/Worker 共 16 组生命周期验证。新增 M/L/X 尚无手机实测，X 下载约 394 MB，CPU 推理达到秒级，未测内存峰值；模型文件大小不代表运行内存需求。
+  - M/X 浏览器质量验证各覆盖 64 张固定 COCO 图片，L 复用同 SHA-256 的 WebGPU 64 图、WASM 8 图证据；不同子集结果不能直接排名，也不代表全量 COCO mAP。证据：https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e87b6635c6699b2fae1a286ca497c422db4939f2/reports/distribution/2026-09-14-ppyoloe-smlx/README.md
   - SDK 0.3.2 增加 ONNX 权重下载超时、取消和有限同源重试，默认总时限 180 秒、无新增字节 30 秒、最多重试 2 次；清单 JSON 不使用此策略。
   - W8A32 的精度标识为 int8，表示权重 INT8 存储、激活与卷积计算 FP32；体积缩小不代表推理速度或运行内存同比改善。FP16 保留敏感算子 FP32，INT4 和 FP8 尚未稳定发布。
   - 2026-09-12 小米 15 Android Edge 152 用户确认两款模型 FP32 CPU/GPU 基础回归正常；FP16 和 W8A32 尚无手机实测证据，实际系统版本未知，其他移动设备和微信 WebView 尚未验证。

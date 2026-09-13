@@ -1,0 +1,366 @@
+{
+  "testedAt": "2026-09-13T16:58:53.377Z",
+  "url": "https://chenmohan123.github.io/web-sdk-PP-Detection/",
+  "deploymentCommit": "e87b6635c6699b2fae1a286ca497c422db4939f2",
+  "rows": [
+    {
+      "size": "s",
+      "backend": "CPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "ppyoloe-plus-s-640",
+        "version": "0.1.1",
+        "variantId": "fp32",
+        "precision": "fp32",
+        "bytes": 31954220,
+        "parameterCount": null,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "af865f1c515634de08fe0fc5eeeac8942456241c",
+          "bytes": 31954220,
+          "sha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-13T16:59:00.264Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp32",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 15
+    },
+    {
+      "size": "s",
+      "backend": "GPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "ppyoloe-plus-s-640",
+        "version": "0.1.1",
+        "variantId": "fp32",
+        "precision": "fp32",
+        "bytes": 31954220,
+        "parameterCount": null,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "af865f1c515634de08fe0fc5eeeac8942456241c",
+          "bytes": 31954220,
+          "sha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-13T16:59:04.928Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "fp32",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 15
+    },
+    {
+      "size": "m",
+      "backend": "CPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "ppyoloe-plus-m-640",
+        "version": "0.1.0",
+        "variantId": "fp32",
+        "precision": "fp32",
+        "bytes": 94022904,
+        "parameterCount": null,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "3939f806feff4cce7118913a1dfe2e348d4c7204",
+          "bytes": 94022904,
+          "sha256": "c6b56099c4866e4c4ff01d31982e9e1004c6ac2fd8f8e1d97a3188db3ea095aa"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-13T16:59:12.925Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp32",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 20
+    },
+    {
+      "size": "m",
+      "backend": "GPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "ppyoloe-plus-m-640",
+        "version": "0.1.0",
+        "variantId": "fp32",
+        "precision": "fp32",
+        "bytes": 94022904,
+        "parameterCount": null,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "3939f806feff4cce7118913a1dfe2e348d4c7204",
+          "bytes": 94022904,
+          "sha256": "c6b56099c4866e4c4ff01d31982e9e1004c6ac2fd8f8e1d97a3188db3ea095aa"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-13T16:59:18.379Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "fp32",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 20
+    },
+    {
+      "size": "l",
+      "backend": "CPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "ppyoloe-plus-l-640",
+        "version": "0.1.0",
+        "variantId": "fp32",
+        "precision": "fp32",
+        "bytes": 209181400,
+        "parameterCount": null,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "3939f806feff4cce7118913a1dfe2e348d4c7204",
+          "bytes": 209181400,
+          "sha256": "01f325d228676b0494e5eec45f10e2830dc9f81bf67a03157c24a0abf7824075"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-13T16:59:41.467Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp32",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 15
+    },
+    {
+      "size": "l",
+      "backend": "GPU",
+      "sourceResponses": [
+        302,
+        200,
+        302,
+        200
+      ],
+      "model": {
+        "id": "ppyoloe-plus-l-640",
+        "version": "0.1.0",
+        "variantId": "fp32",
+        "precision": "fp32",
+        "bytes": 209181400,
+        "parameterCount": null,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "3939f806feff4cce7118913a1dfe2e348d4c7204",
+          "bytes": 209181400,
+          "sha256": "01f325d228676b0494e5eec45f10e2830dc9f81bf67a03157c24a0abf7824075"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-13T16:59:55.910Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "fp32",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 15
+    },
+    {
+      "size": "x",
+      "backend": "CPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "ppyoloe-plus-x-640",
+        "version": "0.1.0",
+        "variantId": "fp32",
+        "precision": "fp32",
+        "bytes": 394163636,
+        "parameterCount": null,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "3939f806feff4cce7118913a1dfe2e348d4c7204",
+          "bytes": 394163636,
+          "sha256": "90b8ea67186b6df262b5ea441e4392144b71fa2562593892d60e2e81d5a0811e"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-13T17:00:13.314Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp32",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 18
+    },
+    {
+      "size": "x",
+      "backend": "GPU",
+      "sourceResponses": [
+        302,
+        200,
+        302,
+        200
+      ],
+      "model": {
+        "id": "ppyoloe-plus-x-640",
+        "version": "0.1.0",
+        "variantId": "fp32",
+        "precision": "fp32",
+        "bytes": 394163636,
+        "parameterCount": null,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "3939f806feff4cce7118913a1dfe2e348d4c7204",
+          "bytes": 394163636,
+          "sha256": "90b8ea67186b6df262b5ea441e4392144b71fa2562593892d60e2e81d5a0811e"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-13T17:00:35.851Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "fp32",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 18
+    }
+  ],
+  "pageErrors": [],
+  "browser": "153.0.8010.12",
+  "status": "passed"
+}
