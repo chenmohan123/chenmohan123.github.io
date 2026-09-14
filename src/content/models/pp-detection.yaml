@@ -104,7 +104,7 @@ assets:
     url: https://modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/46cf1e3c9f847cd3108068b9d604b890fea3f79e/ppyoloe-plus-x-640/0.1.1/ppyoloe-plus-x-640-w8a32.onnx
     sha256: fbc57fbfe6e4e4497a08a3cecbf9c62f93d2c5963b4ddf2af1cb7dfc8cd9ee56
 limitations:
-  - PP-YOLOE+ S/M/L/X 当前清单均为 0.1.1，PicoDet 为 1.0.2，每款三精度；仅提供 ModelScope 与 Hugging Face，默认 ModelScope，显式来源失败不会静默换源。发布证据：https://github.com/chenmohan123/web-sdk-PP-Detection/blob/26333e2f7dc7f123ee5a2a3b9dd90aeb0d3d0de0/reports/distribution/2026-09-14-ppyoloe-mlx-precision/README.md
+  - PP-YOLOE+ S/M/L/X 当前清单均为 0.1.1，PicoDet 为 1.0.2，每款三精度；仅提供 ModelScope 与 Hugging Face，默认 ModelScope，显式来源失败不会静默换源。发布证据：https://github.com/chenmohan123/web-sdk-PP-Detection/blob/f6d79e4b51125c491eecd48bf7efd745ff5d3c9f/reports/distribution/2026-09-14-ppyoloe-mlx-precision/README.md
   - M/L/X 三规格三精度在固定64图、716标注子集上完成54组浏览器运行；新增六变体 AP 最大下降 0.348 个百分点，常规识别保留率至少 97.43%。门槛为 AP下降≤0.5点、score≥0.5/同类IoU≥0.5保留≥95% FP32检测；IoU≥0.99仅诊断。不代表全量 COCO mAP。
   - 新增六变体完成 WASM/WebGPU × main/Worker 共24组生命周期验证；预取消后可恢复，释放后禁止检测。FP16文件约缩小50%、W8A32约75%，但CPU仍为秒级；需要接近原始框坐标时选择FP32。
   - SDK 0.4.0 增加默认关闭的小目标增强实验策略，可能增加误检和耗时；不等同于 PP-YOLOE-SOD 模型。本次模型与 Demo 更新没有修改 runtime API，也不另发 npm 版本。

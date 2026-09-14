@@ -15,7 +15,7 @@ test('PP-DocLayoutV3 detail exposes package, assets, and live demo', async ({ pa
   await expect(page.getByText('70.84 MiB')).toBeVisible();
 });
 
-test('PaddleDetection 详情展示 0.4.0、九个模型变体和独立 Demo，窄屏不溢出', async ({ page }) => {
+test('PaddleDetection 详情展示 0.4.0、十五个模型变体和独立 Demo，窄屏不溢出', async ({ page }) => {
   await page.goto('/models/pp-detection/');
 
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('PaddleDetection PicoDet / PP-YOLOE');
@@ -31,7 +31,9 @@ test('PaddleDetection 详情展示 0.4.0、九个模型变体和独立 Demo，�
     }
   }
   for (const size of ['m', 'l', 'x']) {
-    await expect(page.getByText(`ppyoloe-plus-${size}-640-fp32`, { exact: true })).toBeVisible();
+    for (const precision of ['fp32', 'fp16', 'w8a32']) {
+      await expect(page.getByText(`ppyoloe-plus-${size}-640-${precision}`, { exact: true })).toBeVisible();
+    }
   }
   await page.setViewportSize({ width: 390, height: 844 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
