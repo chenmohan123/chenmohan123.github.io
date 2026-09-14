@@ -12,7 +12,7 @@ describe('model registry', () => {
     expect(model.demo.url).toBe('https://chenmohan123.github.io/web-sdk-PP-DocLayoutV3/');
   });
 
-  it('登记 Detection 0.4.0 及包含 PP-YOLOE+ 四规格的九个稳定变体', () => {
+  it('登记 Detection 0.4.0 及五款模型的十五个稳定变体', () => {
     const value = parse(readFileSync('src/content/models/pp-detection.yaml', 'utf8'));
     const model = modelSchema.parse(value);
     expect(model.task).toBe('detection');
@@ -24,7 +24,23 @@ describe('model registry', () => {
     expect(model.io.output).toEqual(expect.arrayContaining(['bounding boxes', 'labels', 'scores']));
     expect(model.assets[0].bytes).toBe(23243834);
     expect(model.assets[0].sha256).toMatch(/^[a-f0-9]{64}$/);
-    expect(model.assets.map((asset) => asset.bytes)).toEqual([23243834, 14813981, 6117685, 31954220, 16054567, 8225467, 94022904, 209181400, 394163636]);
+    expect(model.assets.map((asset) => asset.bytes)).toEqual([
+      23243834,
+      14813981,
+      6117685,
+      31954220,
+      16054567,
+      8225467,
+      94022904,
+      47104975,
+      23818631,
+      209181400,
+      104700181,
+      52698311,
+      394163636,
+      197207187,
+      99048805
+    ]);
     expect(model.limitations.join(' ')).toMatch(/微信/);
     expect(model.limitations.join(' ')).toMatch(/FP16|INT8|INT4|FP8/);
   });
