@@ -33,12 +33,14 @@
 当前进入 M/L/X 六个 FP16、W8A32 变体的独立模型发布。用户已在验证前确认识别门槛：相对同规格、同后端 FP32 的 AP 下降≤0.5 个百分点，score≥0.5、同类 IoU≥0.5 的一对一匹配保留≥95% FP32 检测。IoU≥0.99 只作坐标诊断，文件缩小独立计为收益。
 
 - [x] 固定发布协议，保留上一批次的原始结果和严格坐标门槛结论。
-- [ ] 完成 M/L/X × 三精度 × WASM/WebGPU × 三轮，共 54 组浏览器质量验证及证据复算。
-- [ ] 完成六个新增变体 × WASM/WebGPU × main/Worker，共 24 组生命周期验证。
-- [ ] 发布 M/L/X 0.1.1 稳定清单、ModelScope/Hugging Face 固定权重与许可，并完整回读。
-- [ ] 更新独立 Demo 和门户，完成检查、PR、合并和正式 HTTPS Demo 验收。
+- [x] 完成 M/L/X × 三精度 × WASM/WebGPU × 三轮，共 54 组浏览器质量验证及证据复算。
+- [x] 完成六个新增变体 × WASM/WebGPU × main/Worker，共 24 组生命周期验证。
+- [x] 发布 M/L/X 0.1.1 稳定清单、ModelScope/Hugging Face 固定权重与许可，并完整回读。
+- [x] 更新独立 Demo 和门户，完成检查、PR、合并和正式 HTTPS Demo 验收。
 
-本批次完成后，五款模型各提供 FP32、FP16、W8A32，共 15 个稳定变体；默认仍为 PicoDet、FP32、ModelScope，npm 保持 0.4.0。原 2D 输出契约和单 SDK 多模型边界继续适用。后续回到既有 2D 候选矩阵，优先评估更轻量且有明确场景收益的模型；SOD、旋转框、分割、关键点、跟踪和 3D 不因本批次而扩大稳定兼容声明。
+质量 54/54、生命周期 24/24、双源权重 12/12、元数据与目录 20/20、正式 Demo 12/12 均通过；完整 Demo 回归 82/82，门户单测 50/50、浏览器检查 5/5。SDK PR #67、门户 PR #28 已合并上线，SDK PR #69 修正部署归因及文档数量。正式 Demo 接受验证的 SDK 提交为 `26333e2c77adf424b75a056e387f91f13c2d65d9`，Pages 运行 `34840438741`；[固定发布记录](https://github.com/chenmohan123/web-sdk-PP-Detection/blob/f6d79e4b51125c491eecd48bf7efd745ff5d3c9f/reports/distribution/2026-09-14-ppyoloe-mlx-precision/README.md)包含更正后的证据。
+
+本批次已完成，五款模型各提供 FP32、FP16、W8A32，共 15 个稳定变体；默认仍为 PicoDet、FP32、ModelScope，npm 保持 0.4.0。原 2D 输出契约和单 SDK 多模型边界继续适用。后续回到既有 2D 候选矩阵，优先评估更轻量且有明确场景收益的模型；SOD、旋转框、分割、关键点、跟踪和 3D 不因本批次而扩大稳定兼容声明。
 
 ### S/M/L/X FP32 发布批次（2026-09-14）
 
