@@ -1,0 +1,55 @@
+{
+  "testedAt": "2026-09-15T09:13:11.403801+00:00",
+  "status": "passed",
+  "scope": "门户本地目录、4项目入口及37个Detection稳定资产；正式部署另行校验",
+  "tests": 51,
+  "browserTests": 6,
+  "build": "passed",
+  "assets": 37,
+  "addedAssets": 14,
+  "projects": 4,
+  "npmVersion": "0.4.0",
+  "logs": [
+    {
+      "path": "tests.log",
+      "bytes": 920,
+      "sha256": "fd7b9809fb73c7e7c6ab719dcb99d50e82ce82697f9cfc99a88e1542f44b206b"
+    },
+    {
+      "path": "build.log",
+      "bytes": 4628,
+      "sha256": "f153fbb264f7b54d4b95bcaec9fe5f1b8992994d1b01b49c5e9d3c1c131fe8fa"
+    },
+    {
+      "path": "browser.log",
+      "bytes": 890,
+      "sha256": "cc2d1261188860451e8a097334f70190231edcfb1566142a9b35abfc8f59d69f"
+    }
+  ],
+  "sdkProduction": {
+    "status": "passed",
+    "deployment": {
+      "conclusion": "success",
+      "headBranch": "main",
+      "headSha": "025e207ff0a6a3a4e07f0a4c5b02834969b199ce",
+      "status": "completed",
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/actions/runs/34953535988",
+      "workflowName": "GitHub Pages"
+    },
+    "checkedAt": "2026-09-15T09:44:53.178Z",
+    "runs": 28,
+    "legacyManifests": 8,
+    "evidence": [
+      {
+        "path": "sdk-production.json",
+        "bytes": 39981,
+        "sha256": "269e256c05bacb95a2e86f681fd5845d32b3c5120eaa1c748fe30a92642ae85b"
+      },
+      {
+        "path": "sdk-legacy-manifests.json",
+        "bytes": 2873,
+        "sha256": "b6c84d1aa603faba2c167c93619c174561702675ec2e3a9e9bc1f9ded5b678f3"
+      }
+    ]
+  }
+}

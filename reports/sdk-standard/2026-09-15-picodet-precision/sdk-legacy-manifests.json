@@ -1,0 +1,71 @@
+{
+  "testedAt": "2026-09-15T09:40:17.442Z",
+  "commit": "025e207ff0a6a3a4e07f0a4c5b02834969b199ce",
+  "status": "passed",
+  "rows": [
+    {
+      "key": "xs-320",
+      "path": "models/pp-detection/picodet-xs-320/manifest.json",
+      "url": "https://chenmohan123.github.io/web-sdk-PP-Detection/models/pp-detection/picodet-xs-320/manifest.json",
+      "status": 200,
+      "bytes": 4470,
+      "sha256": "016bdc1db7522f6960be2f8123d5b4b4eeeb47738902b795e7dc8a54579cfc76"
+    },
+    {
+      "key": "xs-416",
+      "path": "models/pp-detection/picodet-xs-416/manifest.json",
+      "url": "https://chenmohan123.github.io/web-sdk-PP-Detection/models/pp-detection/picodet-xs-416/manifest.json",
+      "status": 200,
+      "bytes": 4470,
+      "sha256": "0eedb5f0b2d2fd2d731a1040c1772ebf6e50a2ba2bb6a71ba35d1f3c453f9141"
+    },
+    {
+      "key": "s-320",
+      "path": "models/pp-detection/picodet-s-320/manifest.json",
+      "url": "https://chenmohan123.github.io/web-sdk-PP-Detection/models/pp-detection/picodet-s-320/manifest.json",
+      "status": 200,
+      "bytes": 4459,
+      "sha256": "c0aa87d3b522065993da8672c697580abf0627bcdf7cffeddcd0b2f2b7117470"
+    },
+    {
+      "key": "s-416",
+      "path": "models/pp-detection/picodet-s-416/manifest.json",
+      "url": "https://chenmohan123.github.io/web-sdk-PP-Detection/models/pp-detection/picodet-s-416/manifest.json",
+      "status": 200,
+      "bytes": 4459,
+      "sha256": "2ab5daa36b9066be3348cc64f6f4c27b26fecb794e3a23c2d8fef6752d994ad1"
+    },
+    {
+      "key": "m-320",
+      "path": "models/pp-detection/picodet-m-320/manifest.json",
+      "url": "https://chenmohan123.github.io/web-sdk-PP-Detection/models/pp-detection/picodet-m-320/manifest.json",
+      "status": 200,
+      "bytes": 4463,
+      "sha256": "4fbf1b98c59a6f066d0a0e3c61f58195b711725084497120ff69530db1bad5a7"
+    },
+    {
+      "key": "m-416",
+      "path": "models/pp-detection/picodet-m-416/manifest.json",
+      "url": "https://chenmohan123.github.io/web-sdk-PP-Detection/models/pp-detection/picodet-m-416/manifest.json",
+      "status": 200,
+      "bytes": 4463,
+      "sha256": "55d4c2a7f0e9bb3710e60993388a46110ae1684d0afbf9912ce72bccafa5bb91"
+    },
+    {
+      "key": "l-416",
+      "path": "models/pp-detection/picodet-l-416/manifest.json",
+      "url": "https://chenmohan123.github.io/web-sdk-PP-Detection/models/pp-detection/picodet-l-416/manifest.json",
+      "status": 200,
+      "bytes": 4463,
+      "sha256": "5f4245306f38780e92386b0a491067d9fda43fb71a9e02380ed241573c1484e7"
+    },
+    {
+      "key": "l-640",
+      "path": "models/pp-detection/picodet-l-640/manifest.json",
+      "url": "https://chenmohan123.github.io/web-sdk-PP-Detection/models/pp-detection/picodet-l-640/manifest.json",
+      "status": 200,
+      "bytes": 4463,
+      "sha256": "2375a7ceb31bf83e0a2d8576a73c666ef957c270d29472fa8fb02f32707dd8d8"
+    }
+  ]
+}

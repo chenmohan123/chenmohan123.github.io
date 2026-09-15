@@ -1,0 +1,1354 @@
+{
+  "testedAt": "2026-09-15T09:39:42.929Z",
+  "url": "https://chenmohan123.github.io/web-sdk-PP-Detection/",
+  "deployment": {
+    "conclusion": "success",
+    "headBranch": "main",
+    "headSha": "025e207ff0a6a3a4e07f0a4c5b02834969b199ce",
+    "status": "completed",
+    "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/actions/runs/34953535988",
+    "workflowName": "GitHub Pages"
+  },
+  "os": {
+    "platform": "win32",
+    "release": "10.0.26200",
+    "arch": "x64"
+  },
+  "manifests": [
+    {
+      "key": "picodet-l-416",
+      "path": "models/pp-detection/picodet-l-416/1.0.1/manifest.json",
+      "sha256": "2065014f4732ad7709d001ca6ca28deea987c6dcc858cf13f1a1f735a24c7dbd"
+    },
+    {
+      "key": "picodet-l-416",
+      "path": "models/pp-detection/picodet-l-416/1.0.1/manifest.json",
+      "sha256": "2065014f4732ad7709d001ca6ca28deea987c6dcc858cf13f1a1f735a24c7dbd"
+    },
+    {
+      "key": "picodet-l-640",
+      "path": "models/pp-detection/picodet-l-640/1.0.1/manifest.json",
+      "sha256": "bae9c763b9f58ec71dd59f5d8c0f03f758fd46afa7ae680b0dacd522c14e409f"
+    },
+    {
+      "key": "picodet-l-640",
+      "path": "models/pp-detection/picodet-l-640/1.0.1/manifest.json",
+      "sha256": "bae9c763b9f58ec71dd59f5d8c0f03f758fd46afa7ae680b0dacd522c14e409f"
+    },
+    {
+      "key": "picodet-m-320",
+      "path": "models/pp-detection/picodet-m-320/1.0.1/manifest.json",
+      "sha256": "d2c4b7a63bbf679d8f7353ecc5c81e8aafe8f98aacf1f04e09cb60eb0d136fc9"
+    },
+    {
+      "key": "picodet-m-320",
+      "path": "models/pp-detection/picodet-m-320/1.0.1/manifest.json",
+      "sha256": "d2c4b7a63bbf679d8f7353ecc5c81e8aafe8f98aacf1f04e09cb60eb0d136fc9"
+    },
+    {
+      "key": "picodet-m-416",
+      "path": "models/pp-detection/picodet-m-416/1.0.1/manifest.json",
+      "sha256": "abd4b50170569ace71b10a9e90bfd916930aa866bf8211e767cf6a51328c2aca"
+    },
+    {
+      "key": "picodet-m-416",
+      "path": "models/pp-detection/picodet-m-416/1.0.1/manifest.json",
+      "sha256": "abd4b50170569ace71b10a9e90bfd916930aa866bf8211e767cf6a51328c2aca"
+    },
+    {
+      "key": "picodet-s-320",
+      "path": "models/pp-detection/picodet-s-320/1.0.1/manifest.json",
+      "sha256": "4403944d831b17f380912c75061f6e7b931fa8cfd0989a3881acb6e17a7b5061"
+    },
+    {
+      "key": "picodet-s-320",
+      "path": "models/pp-detection/picodet-s-320/1.0.1/manifest.json",
+      "sha256": "4403944d831b17f380912c75061f6e7b931fa8cfd0989a3881acb6e17a7b5061"
+    },
+    {
+      "key": "picodet-s-416",
+      "path": "models/pp-detection/picodet-s-416/1.0.1/manifest.json",
+      "sha256": "e00a8dff3caecb22b70b76e770c062741d424dcc8177039bcd4d1f26036f9868"
+    },
+    {
+      "key": "picodet-s-416",
+      "path": "models/pp-detection/picodet-s-416/1.0.1/manifest.json",
+      "sha256": "e00a8dff3caecb22b70b76e770c062741d424dcc8177039bcd4d1f26036f9868"
+    },
+    {
+      "key": "picodet-xs-320",
+      "path": "models/pp-detection/picodet-xs-320/1.0.1/manifest.json",
+      "sha256": "cf0be84a23ef92f3f009409c124547652db368a9689222f34fc68a836637cd66"
+    },
+    {
+      "key": "picodet-xs-416",
+      "path": "models/pp-detection/picodet-xs-416/1.0.1/manifest.json",
+      "sha256": "eb50a53666f3c4316fe20a79f9b624ce9621bb60b656051a710e287cc09495db"
+    }
+  ],
+  "rows": [
+    {
+      "key": "picodet-l-416",
+      "precision": "fp16",
+      "backend": "CPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "pp-picodet-l-416",
+        "version": "1.0.1",
+        "variantId": "fp16",
+        "precision": "fp16",
+        "bytes": 14836820,
+        "parameterCount": 5792407,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "f42a5255b3eee3fb9846002fb802af5ad7190771",
+          "bytes": 14836820,
+          "sha256": "8118d856d515e36c7ab4100c2dbdede35e77ab3b6e07bd906b323ce00330170f"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-15T09:39:53.683Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp16",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 11
+    },
+    {
+      "key": "picodet-l-416",
+      "precision": "fp16",
+      "backend": "GPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "pp-picodet-l-416",
+        "version": "1.0.1",
+        "variantId": "fp16",
+        "precision": "fp16",
+        "bytes": 14836820,
+        "parameterCount": 5792407,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "f42a5255b3eee3fb9846002fb802af5ad7190771",
+          "bytes": 14836820,
+          "sha256": "8118d856d515e36c7ab4100c2dbdede35e77ab3b6e07bd906b323ce00330170f"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-15T09:39:58.247Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "fp16",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 11
+    },
+    {
+      "key": "picodet-l-416",
+      "precision": "w8a32",
+      "backend": "CPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "pp-picodet-l-416",
+        "version": "1.0.1",
+        "variantId": "w8a32",
+        "precision": "int8",
+        "bytes": 6135363,
+        "parameterCount": 5844200,
+        "opset": 13,
+        "source": {
+          "kind": "modelscope",
+          "revision": "f42a5255b3eee3fb9846002fb802af5ad7190771",
+          "bytes": 6135363,
+          "sha256": "ecd31887f2c032140d592b42240c19848f200c0b5eeb91a6d9759884d666fea4"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-15T09:40:04.900Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "int8",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 11
+    },
+    {
+      "key": "picodet-l-416",
+      "precision": "w8a32",
+      "backend": "GPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "pp-picodet-l-416",
+        "version": "1.0.1",
+        "variantId": "w8a32",
+        "precision": "int8",
+        "bytes": 6135363,
+        "parameterCount": 5844200,
+        "opset": 13,
+        "source": {
+          "kind": "modelscope",
+          "revision": "f42a5255b3eee3fb9846002fb802af5ad7190771",
+          "bytes": 6135363,
+          "sha256": "ecd31887f2c032140d592b42240c19848f200c0b5eeb91a6d9759884d666fea4"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-15T09:40:07.722Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "int8",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 11
+    },
+    {
+      "key": "picodet-l-640",
+      "precision": "fp16",
+      "backend": "CPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "pp-picodet-l-640",
+        "version": "1.0.1",
+        "variantId": "fp16",
+        "precision": "fp16",
+        "bytes": 14874912,
+        "parameterCount": 5807113,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "f42a5255b3eee3fb9846002fb802af5ad7190771",
+          "bytes": 14874912,
+          "sha256": "f8a3ff8ce83b5c72e070d62319663b221f2b750bccf35384a96ee40537e0e73b"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-15T09:40:15.638Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp16",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 13
+    },
+    {
+      "key": "picodet-l-640",
+      "precision": "fp16",
+      "backend": "GPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "pp-picodet-l-640",
+        "version": "1.0.1",
+        "variantId": "fp16",
+        "precision": "fp16",
+        "bytes": 14874912,
+        "parameterCount": 5807113,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "f42a5255b3eee3fb9846002fb802af5ad7190771",
+          "bytes": 14874912,
+          "sha256": "f8a3ff8ce83b5c72e070d62319663b221f2b750bccf35384a96ee40537e0e73b"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-15T09:40:19.468Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "fp16",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 13
+    },
+    {
+      "key": "picodet-l-640",
+      "precision": "w8a32",
+      "backend": "CPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "pp-picodet-l-640",
+        "version": "1.0.1",
+        "variantId": "w8a32",
+        "precision": "int8",
+        "bytes": 6194232,
+        "parameterCount": 5858906,
+        "opset": 13,
+        "source": {
+          "kind": "modelscope",
+          "revision": "f42a5255b3eee3fb9846002fb802af5ad7190771",
+          "bytes": 6194232,
+          "sha256": "e3549e3bb180c10ac66644954b1390cb3a23bda6f862fc94cec1593eea789ef8"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-15T09:40:26.665Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "int8",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 13
+    },
+    {
+      "key": "picodet-l-640",
+      "precision": "w8a32",
+      "backend": "GPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "pp-picodet-l-640",
+        "version": "1.0.1",
+        "variantId": "w8a32",
+        "precision": "int8",
+        "bytes": 6194232,
+        "parameterCount": 5858906,
+        "opset": 13,
+        "source": {
+          "kind": "modelscope",
+          "revision": "f42a5255b3eee3fb9846002fb802af5ad7190771",
+          "bytes": 6194232,
+          "sha256": "e3549e3bb180c10ac66644954b1390cb3a23bda6f862fc94cec1593eea789ef8"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-15T09:40:30.736Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "int8",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 13
+    },
+    {
+      "key": "picodet-m-320",
+      "precision": "fp16",
+      "backend": "CPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "pp-picodet-m-320",
+        "version": "1.0.1",
+        "variantId": "fp16",
+        "precision": "fp16",
+        "bytes": 8869567,
+        "parameterCount": 3453940,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "f42a5255b3eee3fb9846002fb802af5ad7190771",
+          "bytes": 8869567,
+          "sha256": "43c56ded9b1e2dc0f90b0d1d2b2240e12f6cc315ff5ee77084182138e4ba4e14"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-15T09:40:36.848Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp16",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 11
+    },
+    {
+      "key": "picodet-m-320",
+      "precision": "fp16",
+      "backend": "GPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "pp-picodet-m-320",
+        "version": "1.0.1",
+        "variantId": "fp16",
+        "precision": "fp16",
+        "bytes": 8869567,
+        "parameterCount": 3453940,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "f42a5255b3eee3fb9846002fb802af5ad7190771",
+          "bytes": 8869567,
+          "sha256": "43c56ded9b1e2dc0f90b0d1d2b2240e12f6cc315ff5ee77084182138e4ba4e14"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-15T09:40:39.967Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "fp16",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 11
+    },
+    {
+      "key": "picodet-m-320",
+      "precision": "w8a32",
+      "backend": "CPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "pp-picodet-m-320",
+        "version": "1.0.1",
+        "variantId": "w8a32",
+        "precision": "int8",
+        "bytes": 3736832,
+        "parameterCount": 3494277,
+        "opset": 13,
+        "source": {
+          "kind": "modelscope",
+          "revision": "f42a5255b3eee3fb9846002fb802af5ad7190771",
+          "bytes": 3736832,
+          "sha256": "a4eb8623655b3b6255c0a1e91eb2b98f39e2b8b3468b0b4cd4b8c1c8311dc1cd"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-15T09:40:45.543Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "int8",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 11
+    },
+    {
+      "key": "picodet-m-320",
+      "precision": "w8a32",
+      "backend": "GPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "pp-picodet-m-320",
+        "version": "1.0.1",
+        "variantId": "w8a32",
+        "precision": "int8",
+        "bytes": 3736832,
+        "parameterCount": 3494277,
+        "opset": 13,
+        "source": {
+          "kind": "modelscope",
+          "revision": "f42a5255b3eee3fb9846002fb802af5ad7190771",
+          "bytes": 3736832,
+          "sha256": "a4eb8623655b3b6255c0a1e91eb2b98f39e2b8b3468b0b4cd4b8c1c8311dc1cd"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-15T09:40:48.517Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "int8",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 11
+    },
+    {
+      "key": "picodet-m-416",
+      "precision": "fp16",
+      "backend": "CPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "pp-picodet-m-416",
+        "version": "1.0.1",
+        "variantId": "fp16",
+        "precision": "fp16",
+        "bytes": 8885644,
+        "parameterCount": 3458359,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "f42a5255b3eee3fb9846002fb802af5ad7190771",
+          "bytes": 8885644,
+          "sha256": "44cccdccfd07c7f9a8d3f9120df04997a48fe2f0cc3edcb1f341855017f700ad"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-15T09:40:54.919Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp16",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 11
+    },
+    {
+      "key": "picodet-m-416",
+      "precision": "fp16",
+      "backend": "GPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "pp-picodet-m-416",
+        "version": "1.0.1",
+        "variantId": "fp16",
+        "precision": "fp16",
+        "bytes": 8885644,
+        "parameterCount": 3458359,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "f42a5255b3eee3fb9846002fb802af5ad7190771",
+          "bytes": 8885644,
+          "sha256": "44cccdccfd07c7f9a8d3f9120df04997a48fe2f0cc3edcb1f341855017f700ad"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-15T09:40:57.761Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "fp16",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 11
+    },
+    {
+      "key": "picodet-m-416",
+      "precision": "w8a32",
+      "backend": "CPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "pp-picodet-m-416",
+        "version": "1.0.1",
+        "variantId": "w8a32",
+        "precision": "int8",
+        "bytes": 3754515,
+        "parameterCount": 3498696,
+        "opset": 13,
+        "source": {
+          "kind": "modelscope",
+          "revision": "f42a5255b3eee3fb9846002fb802af5ad7190771",
+          "bytes": 3754515,
+          "sha256": "c4c1fe2407c20cd85f63199f2199c9c35f379bb6ba33eba29bb02f39f18db1cc"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-15T09:41:02.903Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "int8",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 11
+    },
+    {
+      "key": "picodet-m-416",
+      "precision": "w8a32",
+      "backend": "GPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "pp-picodet-m-416",
+        "version": "1.0.1",
+        "variantId": "w8a32",
+        "precision": "int8",
+        "bytes": 3754515,
+        "parameterCount": 3498696,
+        "opset": 13,
+        "source": {
+          "kind": "modelscope",
+          "revision": "f42a5255b3eee3fb9846002fb802af5ad7190771",
+          "bytes": 3754515,
+          "sha256": "c4c1fe2407c20cd85f63199f2199c9c35f379bb6ba33eba29bb02f39f18db1cc"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-15T09:41:05.527Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "int8",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 11
+    },
+    {
+      "key": "picodet-s-320",
+      "precision": "fp16",
+      "backend": "CPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "pp-picodet-s-320",
+        "version": "1.0.1",
+        "variantId": "fp16",
+        "precision": "fp16",
+        "bytes": 3082899,
+        "parameterCount": 1183148,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "f42a5255b3eee3fb9846002fb802af5ad7190771",
+          "bytes": 3082899,
+          "sha256": "b54a67ac5acb73023c74162732d1ff6bbe0d367963d562659a363fa602c26c46"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-15T09:41:11.681Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp16",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 9
+    },
+    {
+      "key": "picodet-s-320",
+      "precision": "fp16",
+      "backend": "GPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "pp-picodet-s-320",
+        "version": "1.0.1",
+        "variantId": "fp16",
+        "precision": "fp16",
+        "bytes": 3082899,
+        "parameterCount": 1183148,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "f42a5255b3eee3fb9846002fb802af5ad7190771",
+          "bytes": 3082899,
+          "sha256": "b54a67ac5acb73023c74162732d1ff6bbe0d367963d562659a363fa602c26c46"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-15T09:41:14.713Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "fp16",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 9
+    },
+    {
+      "key": "picodet-s-320",
+      "precision": "w8a32",
+      "backend": "CPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "pp-picodet-s-320",
+        "version": "1.0.1",
+        "variantId": "w8a32",
+        "precision": "int8",
+        "bytes": 1380421,
+        "parameterCount": 1205757,
+        "opset": 13,
+        "source": {
+          "kind": "modelscope",
+          "revision": "f42a5255b3eee3fb9846002fb802af5ad7190771",
+          "bytes": 1380421,
+          "sha256": "1fba3b2bef155c51bc971d1b9628923ec3668b40542b1677cb8b0cf15889c154"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-15T09:41:20.319Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "int8",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 7
+    },
+    {
+      "key": "picodet-s-320",
+      "precision": "w8a32",
+      "backend": "GPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "pp-picodet-s-320",
+        "version": "1.0.1",
+        "variantId": "w8a32",
+        "precision": "int8",
+        "bytes": 1380421,
+        "parameterCount": 1205757,
+        "opset": 13,
+        "source": {
+          "kind": "modelscope",
+          "revision": "f42a5255b3eee3fb9846002fb802af5ad7190771",
+          "bytes": 1380421,
+          "sha256": "1fba3b2bef155c51bc971d1b9628923ec3668b40542b1677cb8b0cf15889c154"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-15T09:41:22.629Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "int8",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 7
+    },
+    {
+      "key": "picodet-s-416",
+      "precision": "fp16",
+      "backend": "CPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "pp-picodet-s-416",
+        "version": "1.0.1",
+        "variantId": "fp16",
+        "precision": "fp16",
+        "bytes": 3097823,
+        "parameterCount": 1187567,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "f42a5255b3eee3fb9846002fb802af5ad7190771",
+          "bytes": 3097823,
+          "sha256": "af7a57ce3c2181c8235361e9f94d766a7db8ed13f9b4526013cce2852a7ca05a"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-15T09:41:29.989Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp16",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 9
+    },
+    {
+      "key": "picodet-s-416",
+      "precision": "fp16",
+      "backend": "GPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "pp-picodet-s-416",
+        "version": "1.0.1",
+        "variantId": "fp16",
+        "precision": "fp16",
+        "bytes": 3097823,
+        "parameterCount": 1187567,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "f42a5255b3eee3fb9846002fb802af5ad7190771",
+          "bytes": 3097823,
+          "sha256": "af7a57ce3c2181c8235361e9f94d766a7db8ed13f9b4526013cce2852a7ca05a"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-15T09:41:34.333Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "fp16",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 9
+    },
+    {
+      "key": "picodet-s-416",
+      "precision": "w8a32",
+      "backend": "CPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "pp-picodet-s-416",
+        "version": "1.0.1",
+        "variantId": "w8a32",
+        "precision": "int8",
+        "bytes": 1398104,
+        "parameterCount": 1210176,
+        "opset": 13,
+        "source": {
+          "kind": "modelscope",
+          "revision": "f42a5255b3eee3fb9846002fb802af5ad7190771",
+          "bytes": 1398104,
+          "sha256": "65ed20cd0ada456cfa3dd3eb3c05c0870fbf80d4ce97fd11488023e1171f3eca"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-15T09:41:43.944Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "int8",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 9
+    },
+    {
+      "key": "picodet-s-416",
+      "precision": "w8a32",
+      "backend": "GPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "pp-picodet-s-416",
+        "version": "1.0.1",
+        "variantId": "w8a32",
+        "precision": "int8",
+        "bytes": 1398104,
+        "parameterCount": 1210176,
+        "opset": 13,
+        "source": {
+          "kind": "modelscope",
+          "revision": "f42a5255b3eee3fb9846002fb802af5ad7190771",
+          "bytes": 1398104,
+          "sha256": "65ed20cd0ada456cfa3dd3eb3c05c0870fbf80d4ce97fd11488023e1171f3eca"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-15T09:41:46.577Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "int8",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 9
+    },
+    {
+      "key": "picodet-xs-320",
+      "precision": "fp16",
+      "backend": "CPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "pp-picodet-xs-320",
+        "version": "1.0.1",
+        "variantId": "fp16",
+        "precision": "fp16",
+        "bytes": 1863376,
+        "parameterCount": 703102,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "f42a5255b3eee3fb9846002fb802af5ad7190771",
+          "bytes": 1863376,
+          "sha256": "b96d5e62ee89fdcf0757880cbf591e28e69589c1e9ca6cd7d064aa7c57ab8d50"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-15T09:41:52.030Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp16",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 10
+    },
+    {
+      "key": "picodet-xs-320",
+      "precision": "fp16",
+      "backend": "GPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "pp-picodet-xs-320",
+        "version": "1.0.1",
+        "variantId": "fp16",
+        "precision": "fp16",
+        "bytes": 1863376,
+        "parameterCount": 703102,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "f42a5255b3eee3fb9846002fb802af5ad7190771",
+          "bytes": 1863376,
+          "sha256": "b96d5e62ee89fdcf0757880cbf591e28e69589c1e9ca6cd7d064aa7c57ab8d50"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-15T09:41:54.531Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "fp16",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 10
+    },
+    {
+      "key": "picodet-xs-416",
+      "precision": "fp16",
+      "backend": "CPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "pp-picodet-xs-416",
+        "version": "1.0.1",
+        "variantId": "fp16",
+        "precision": "fp16",
+        "bytes": 1875659,
+        "parameterCount": 707521,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "f42a5255b3eee3fb9846002fb802af5ad7190771",
+          "bytes": 1875659,
+          "sha256": "c416779803cae85b3ebb57ef94068a223578d3c1ac17a30512464433e6af0c97"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-15T09:42:01.060Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp16",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 9
+    },
+    {
+      "key": "picodet-xs-416",
+      "precision": "fp16",
+      "backend": "GPU",
+      "sourceResponses": [
+        302,
+        200
+      ],
+      "model": {
+        "id": "pp-picodet-xs-416",
+        "version": "1.0.1",
+        "variantId": "fp16",
+        "precision": "fp16",
+        "bytes": 1875659,
+        "parameterCount": 707521,
+        "opset": 11,
+        "source": {
+          "kind": "modelscope",
+          "revision": "f42a5255b3eee3fb9846002fb802af5ad7190771",
+          "bytes": 1875659,
+          "sha256": "c416779803cae85b3ebb57ef94068a223578d3c1ac17a30512464433e6af0c97"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-15T09:42:04.831Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "fp16",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detectionCount": 9
+    }
+  ],
+  "pageErrors": [],
+  "status": "passed",
+  "browser": "153.0.8010.12"
+}
