@@ -1,60 +1,92 @@
-import { describe, expect, it } from 'vitest';
-import { readFileSync } from 'node:fs';
-import { parse } from 'yaml';
-import { modelSchema } from '../../lib/registry/schema';
+import { describe, expect, it } from "vitest";
+import { readFileSync } from "node:fs";
+import { parse } from "yaml";
+import { modelSchema } from "../../lib/registry/schema";
 
-describe('model registry', () => {
-  it('accepts the PP-DocLayoutV3 catalog record', () => {
-    const value = parse(readFileSync('src/content/models/pp-doclayoutv3.yaml', 'utf8'));
+describe("model registry", () => {
+  it("accepts the PP-DocLayoutV3 catalog record", () => {
+    const value = parse(
+      readFileSync("src/content/models/pp-doclayoutv3.yaml", "utf8"),
+    );
     const model = modelSchema.parse(value);
-    expect(model.package.version).toBe('1.2.0');
+    expect(model.package.version).toBe("1.2.0");
     expect(model.assets[0].bytes).toBe(74279796);
-    expect(model.demo.url).toBe('https://chenmohan123.github.io/web-sdk-PP-DocLayoutV3/');
+    expect(model.demo.url).toBe(
+      "https://chenmohan123.github.io/web-sdk-PP-DocLayoutV3/",
+    );
   });
 
-  it('登记 Detection 0.4.0 及十三个规格的二十三个稳定变体', () => {
-    const value = parse(readFileSync('src/content/models/pp-detection.yaml', 'utf8'));
+  it("登记 Detection 0.4.0 及十三个规格的二十三个稳定变体", () => {
+    const value = parse(
+      readFileSync("src/content/models/pp-detection.yaml", "utf8"),
+    );
     const model = modelSchema.parse(value);
-    expect(model.task).toBe('detection');
-    expect(model.package).toEqual({ name: 'web-sdk-pp-detection', version: '0.4.0' });
-    expect(model.repository).toBe('https://github.com/chenmohan123/web-sdk-PP-Detection');
-    expect(model.demo.url).toBe('https://chenmohan123.github.io/web-sdk-PP-Detection/');
-    expect(model.runtime.backends.map((backend) => backend.name)).toEqual(expect.arrayContaining(['wasm', 'webgpu']));
-    expect(model.io.input).toEqual(expect.arrayContaining(['Blob', 'Canvas', 'ImageBitmap', 'VideoFrame']));
-    expect(model.io.output).toEqual(expect.arrayContaining(['bounding boxes', 'labels', 'scores']));
+    expect(model.task).toBe("detection");
+    expect(model.package).toEqual({
+      name: "web-sdk-pp-detection",
+      version: "0.4.0",
+    });
+    expect(model.repository).toBe(
+      "https://github.com/chenmohan123/web-sdk-PP-Detection",
+    );
+    expect(model.demo.url).toBe(
+      "https://chenmohan123.github.io/web-sdk-PP-Detection/",
+    );
+    expect(model.runtime.backends.map((backend) => backend.name)).toEqual(
+      expect.arrayContaining(["wasm", "webgpu"]),
+    );
+    expect(model.io.input).toEqual(
+      expect.arrayContaining(["Blob", "Canvas", "ImageBitmap", "VideoFrame"]),
+    );
+    expect(model.io.output).toEqual(
+      expect.arrayContaining(["bounding boxes", "labels", "scores"]),
+    );
     expect(model.assets[0].bytes).toBe(23243834);
     expect(model.assets[0].sha256).toMatch(/^[a-f0-9]{64}$/);
     expect(model.assets).toHaveLength(23);
     expect(model.assets.map((asset) => asset.bytes)).toEqual([
-      23243834,
-      14813981,
-      6117685,
-      31954220,
-      16054567,
-      8225467,
-      94022904,
-      47104975,
-      23818631,
-      209181400,
-      104700181,
-      52698311,
-      394163636,
-      197207187,
-      99048805,
-      23261512,
-      23320381,
-      13905160,
-      13922843,
-      4807906,
-      4825589,
-      2886024,
-      2903707
+      23243834, 14813981, 6117685, 31954220, 16054567, 8225467, 94022904,
+      47104975, 23818631, 209181400, 104700181, 52698311, 394163636, 197207187,
+      99048805, 23261512, 23320381, 13905160, 13922843, 4807906, 4825589,
+      2886024, 2903707,
     ]);
-    expect(model.limitations.join(' ')).toMatch(/微信/);
-    expect(model.limitations.join(' ')).toMatch(/FP16|INT8|INT4|FP8/);
+    expect(model.limitations.join(" ")).toMatch(/微信/);
+    expect(model.limitations.join(" ")).toMatch(/FP16|INT8|INT4|FP8/);
   });
 
-  it('rejects a stable backend without a backend name', () => {
-    expect(() => modelSchema.parse({ runtime: { backends: [{ status: 'stable' }] } })).toThrow();
+  it("登记 PP-OCRv6 0.2.0 的六个 FP32 资产", () => {
+    const value = parse(
+      readFileSync("src/content/models/pp-ocrv6.yaml", "utf8"),
+    );
+    const model = modelSchema.parse(value);
+    expect(model.task).toBe("ocr");
+    expect(model.package).toEqual({
+      name: "web-sdk-pp-ocrv6",
+      version: "0.2.0",
+    });
+    expect(model.repository).toBe(
+      "https://github.com/chenmohan123/web-sdk-PP-OCRv6",
+    );
+    expect(model.demo.url).toBe(
+      "https://chenmohan123.github.io/web-sdk-PP-OCRv6/",
+    );
+    expect(model.assets).toHaveLength(6);
+    expect(model.assets.every((asset) => asset.precision === "fp32")).toBe(
+      true,
+    );
+    expect(model.assets.map((asset) => asset.bytes)).toEqual([
+      62032837, 9880512, 1780590, 76554979, 21159378, 4462639,
+    ]);
+    expect(model.runtime.backends.map((backend) => backend.name)).toEqual([
+      "wasm",
+      "webgpu",
+    ]);
+    expect(model.limitations.join(" ")).toMatch(/WebGPU/);
+  });
+
+  it("rejects a stable backend without a backend name", () => {
+    expect(() =>
+      modelSchema.parse({ runtime: { backends: [{ status: "stable" }] } }),
+    ).toThrow();
   });
 });
