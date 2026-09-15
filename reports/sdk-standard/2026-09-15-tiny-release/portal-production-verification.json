@@ -1,0 +1,22 @@
+{
+  "capturedAt": "2026-09-15T15:16:53.462Z",
+  "deployment": {
+    "conclusion": "success",
+    "headBranch": "main",
+    "headSha": "5faba8ba55d8e6aa9cb5e95470783e3eabcec94d",
+    "status": "completed",
+    "url": "https://github.com/chenmohan123/chenmohan123.github.io/actions/runs/34987126033",
+    "workflowName": "Deploy GitHub Pages"
+  },
+  "browser": "151.0.7922.34",
+  "checks": [
+    "38项稳定资产与4个独立批次",
+    "Tiny CPU/GPU AP与热推理正确",
+    "Tiny仅FP32",
+    "390px无页面溢出",
+    "详情资产和独立Demo链接",
+    "四项目详情均可访问"
+  ],
+  "errors": [],
+  "status": "passed"
+}

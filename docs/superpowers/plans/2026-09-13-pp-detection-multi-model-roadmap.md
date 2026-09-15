@@ -64,7 +64,7 @@ FCOS R50-FPN因195.10MB官方权重及800/1333输入成本暂缓；VOC SSD为20�
 - [x] 固定最终ONNX为4,511,117字节、SHA-256 `1065a342456dfddf91d3220d2ec929640fa253d17562804cae5dbe7772c22653`，可训练参数1,086,147，保留原Apache许可、官方权重和转换归因。
 - [x] 双Hub权重及元数据完整GET回读通过；双源×CPU/GPU×main/Worker八组合缓存、预取消/恢复和释放验证通过。
 - [x] SDK [PR #73](https://github.com/chenmohan123/web-sdk-PP-Detection/pull/73)已合并；提交 `8c392ea7ffc196c47fa5380f5d910e32618d7849` 的CI与[Pages部署](https://github.com/chenmohan123/web-sdk-PP-Detection/actions/runs/34982552284)均成功，正式HTTPS Demo双源×CPU/GPU四组检测通过。
-- [x] 门户更新38项资产及Tiny独立第四批次选型数据，保留原37行数值；门户PR、部署复核记录由本轮验收补齐，不能将待合并工作误作已经上线。
+- [x] 门户更新38项资产及Tiny独立第四批次选型数据，保留原37行数值；门户PR #36已合并，提交5faba8b的CI与Pages均成功，正式门户六项复核通过，证据见本轮验收。
 
 [分发证据](https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/reports/distribution/2026-09-15-ppyolo-tiny/README.md)与[本轮正式验收](../../../reports/sdk-standard/2026-09-15-tiny-release/README.md)记录发布身份和设备边界。
 
