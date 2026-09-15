@@ -83,6 +83,15 @@ test("PaddleDetection 详情展示 0.4.0、三十七个模型变体和独立 Dem
   ).toBe(true);
 });
 
+test("LCNet 长模型标题在390px视口完整换行，不撑宽页面", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/models/pp-lcnet-x1-0-doc-ori/");
+  const title = page.getByRole("heading", { level: 1 });
+  await expect(title).toHaveText("PP-LCNet_x1_0_doc_ori");
+  expect(await title.evaluate((node) => node.scrollWidth <= node.clientWidth)).toBe(true);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+});
+
 test("PP-OCRv6 详情展示 0.2.0、六个 FP32 资产和独立 Demo", async ({ page }) => {
   await page.goto("/models/pp-ocrv6/");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
