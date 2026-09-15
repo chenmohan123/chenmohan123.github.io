@@ -39,16 +39,34 @@ PicoDet 九个输入规格和 PP-YOLOE+ S/M/L/X 已发布，共 **13 个规格�
 
 固定[模型精度证据](https://github.com/chenmohan123/web-sdk-PP-Detection/tree/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/reports/evaluation/2026-09-15-picodet-series-precision)及[正式Demo证据](../../../reports/sdk-standard/2026-09-15-picodet-precision/README.md)是上述状态依据。后文“五款模型、15变体”仅是2026-09-14历史批次，不能用作当前目录数量。
 
-### 当前阶段：统一选型整理
+### 已完成：统一选型整理
 
 - [x] 将当前37个稳定变体与固定版本清单逐项绑定，汇总文件大小、两后端三轮AP和原报告热推理数据，见[选型文档](../../zh-CN/pp-detection-selection.md)。
 - [x] 核对三批次的数据集、模型SHA、SDK和耗时口径。早期两款模型使用SDK0.3.1与第三轮耗时，其余使用SDK0.4.0与三轮中位数；同版本仍有不同SDK摘要，按原批次呈现。
 - [x] 覆盖37个变体、74份后端汇总，无质量或耗时缺项。本轮复用已发布证据；不为跨批次速度排名补造数据，不由文件大小推导推理速度或内存。
-- [x] 完成门户选型入口、精度/后端筛选和可滚动对比表；58项单元/标准测试、8项浏览器测试与生产构建本地检查通过，见[选型验收记录](../../../reports/sdk-standard/2026-09-15-detection-selection/README.md)。正式部署记录及合并后的HTTPS复核跟随本次PR归档。
+- [x] 完成门户选型入口、精度/后端筛选和可滚动对比表；58项单元/标准测试、8项浏览器测试与生产构建本地检查通过，见[选型验收记录](../../../reports/sdk-standard/2026-09-15-detection-selection/README.md)。门户[PR #34](https://github.com/chenmohan123/chenmohan123.github.io/pull/34)已合并，提交 `0878f4dcf75f121d8825f83141cfa8607996bb4a` 的[Pages部署](https://github.com/chenmohan123/chenmohan123.github.io/actions/runs/34961395875)与CI成功，正式HTTPS选型页7项复核通过。
 
-### 后续阶段：具体2D候选筛选
+### 已完成：具体2D候选筛选与Tiny可行性
 
-选型整理完成后，回到PP-YOLO、FCOS、SSD等候选，先固定具体配置、权重、许可证与导出链，按与现有模型的场景收益决定下一项FP32可行性验证。RTMDet当前只有固定PaddleDetection源码树入口缺失的版本限定结论；SOD保留既有暂缓结论；不在本阶段创建分割、跟踪、关键点或Workflow运行时。新架构筛选尚未开始。
+本批次固定PaddleDetection `b25522a0f4bde8c80603f3ba5e3472059972e3b5`，核验PP-YOLO Tiny、FCOS R50-FPN、VOC SSD MobileNetV1及COCO SSDLite MobileNetV3-small四个具体配置，选择 **PP-YOLO Tiny 320 FP32** 进入下一阶段发布准备。[固定可行性报告](https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8bcb2b329af5790021f9ef2fb1a7bfcf57aecb40/reports/evaluation/2026-09-15-2d-candidates/README.md)包含来源、许可边界、转换脚本和原始证据。
+
+- [x] 固定官方Tiny权重、源码ZIP及28份配置/源码/许可快照；Paddle2ONNX实际导出opset14。对固定原图的两个NMS Squeeze显式指定轴，修复单框输入失败；固定batch和辅助输入，未修改权重或SDK runtime。
+- [x] 完成64图Paddle与ONNX参考、三模型×CPU/GPU×三轮共18组浏览器检测和Tiny四组合生命周期。捕获实际浏览器输入，隔离12张ICC图片的解码差异；同输入Python/浏览器的208个阈值以上框全部匹配。
+- [x] 在本机同批次对照中，Tiny文件4.51MB、CPU热推理47.46ms、GPU31.54ms、子集AP22.60；PicoDet-XS分别为2.89MB、66.23ms、35.45ms、AP23.81。Tiny具有CPU速度收益，代价是文件更大、AP低约1.21个百分点；该结论不代表全量COCO、摄像头FPS或其他设备。
+- [x] 完成SDK前后静态标准检查、206项SDK单测、14项浏览器基准契约检查、构建、归档复算及独立审查。当前仅归档可行性资料，Tiny尚未进入稳定清单、双源仓库、Demo或门户选型目录。
+
+FCOS R50-FPN因195.10MB官方权重及800/1333输入成本暂缓；VOC SSD为20类，不能与当前COCO80类AP混排；COCO SSDLite配置存在，但本次固定模型表未提供完整检测权重，待来源明确后复查。结论只针对固定配置，不代表整个系列不可用。RTMDet和SOD保留既有版本限定结论。
+
+### 下一阶段：Tiny 320 FP32独立发布准备
+
+沿用一个Detection SDK接入多种轴对齐2D模型的原设计，通过manifest声明Tiny的预处理和NMS输出，不为每个权重新建SDK。Tiny作为可选CPU速度模型；发布工作完成前稳定目录仍为13个规格、37个变体，默认PicoDet-L-320 / FP32 / ModelScope，SDK/npm仍为0.4.0。
+
+- [ ] 固定Tiny发布版本、最终ONNX摘要与参数量，整理模型卡、Apache-2.0原文、官方权重链接及转换归因；保持本次NMS修正的可复现约束。
+- [ ] 完成ModelScope和Hugging Face固定revision分发，完整回读文件并核验大小、SHA-256、模型卡与许可，ModelScope为默认来源。
+- [ ] 接入独立Demo的Tiny FP32选项，完成双源真实下载、CPU/GPU及main/Worker、缓存/取消/释放验证；引用本批次同一模型摘要的质量证据，改动模型或预处理时重新评测。
+- [ ] 通过SDK检查、相关测试、构建、PR与CI后发布Demo，再完成正式HTTPS验证，最后更新门户资产和选型数据。门户登记正式发布模型，兼容声明限定已验证环境。
+
+FCOS、SSD与SSDLite待场景收益或完整来源明确后重新排序；本阶段不增加分割、关键点、跟踪、3D或Workflow运行时，也不将当前桌面证据扩大为移动端兼容承诺。
 
 ## 历史批次：M/L/X精度发布（2026-09-14）
 
