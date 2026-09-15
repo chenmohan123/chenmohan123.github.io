@@ -1,5 +1,7 @@
 # PaddleDetection Web SDK 实施计划
 
+> 2026-09-15状态说明：首次SDK、图片/摄像头/视频Demo及模型分发已落地，当前SDK/npm为0.4.0，共13个规格、37个稳定变体。默认PicoDet-L-320 / FP32 / ModelScope，Demo来源仅ModelScope与Hugging Face。本文保留最初实施步骤及当时默认来源作为历史设计；当前进度与后续阶段以[多模型路线](2026-09-13-pp-detection-multi-model-roadmap.md)和[模型选型表](../../zh-CN/pp-detection-selection.md)为准，旧复选框不代表当前功能缺失。
+
 > 给智能体执行者：必须使用 superpowers:subagent-driven-development 或
 > superpowers:executing-plans 执行本计划。所有步骤使用复选框跟踪。
 

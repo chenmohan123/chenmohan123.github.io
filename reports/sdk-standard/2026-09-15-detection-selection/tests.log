@@ -1,0 +1,25 @@
+$ vitest run
+
+ RUN  v3.2.7 F:/git/00_chenmohan/github/chenmohan123.github.io/.worktrees/portal-picodet-precision
+
+ ✓ tools/detection-comparison/build.test.ts (3 tests) 29ms
+ ✓ src/lib/registry/query.test.ts (3 tests) 10ms
+ ✓ tools/detection-comparison/catalog.test.ts (2 tests) 64ms
+ ✓ src/content/models/registry.test.ts (4 tests) 144ms
+ ✓ tools/sdk-standard-check/standard-files.test.ts (7 tests) 386ms
+ ✓ src/components/registry/ModelDirectory.test.tsx (2 tests) 464ms
+   ✓ ModelDirectory > filters model cards by search text  419ms
+ ✓ tools/sdk-standard-check/checker.test.ts (13 tests) 503ms
+ ✓ src/components/model/DetectionComparison.test.tsx (2 tests) 1287ms
+   ✓ Detection 模型选型 > 筛选稳定精度并保留批次，不把XS实验量化列入稳定表  706ms
+   ✓ Detection 模型选型 > 切换后端同时更新AP与耗时，明确不同汇总规则  579ms
+ ✓ tools/sdk-standard-check/manifest-validation.test.ts (22 tests) 1419ms
+   ✓ 清单完整 schema 校验 > 扫描使用所选标准的 schema，标准损坏时不归咎于仓库  319ms
+   ✓ 清单完整 schema 校验 > YAML 中错误的资产数组返回 CONFIG-001 和 CLI 退出码 1  536ms
+   ✓ 清单完整 schema 校验 > 多个仓库中的损坏清单不会阻止后续仓库扫描  403ms
+
+ Test Files  9 passed (9)
+      Tests  58 passed (58)
+   Start at  18:57:46
+   Duration  5.56s (transform 846ms, setup 5.56s, collect 2.93s, tests 4.31s, environment 19.38s, prepare 2.84s)
+

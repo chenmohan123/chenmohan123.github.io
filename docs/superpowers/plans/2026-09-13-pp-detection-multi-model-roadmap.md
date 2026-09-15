@@ -28,7 +28,29 @@
 - 验证采用桌面优先：迭代先完成与改动相关的 Chromium 桌面环境主线程/Worker、WASM/WebGPU 和生命周期验证；移动端按发布范围和风险安排复核，不作为每轮迭代的重复门槛。
 - 每个任务结束后保存报告并运行 `git diff --check`；只有候选通过完整门槛后才开始移植实现。
 
-## 当前执行状态（2026-09-14）
+## 当前执行状态（2026-09-15）
+
+PicoDet 九个输入规格和 PP-YOLOE+ S/M/L/X 已发布，共 **13 个规格、37 个稳定变体**。PicoDet XS-320/416 提供 FP32、FP16；其余11个规格提供 FP32、FP16、W8A32。XS 两个 W8A32 的检测保留率为94.38%/94.12%，保留labs。默认 PicoDet-L-320、FP32、ModelScope；来源选择仅ModelScope与Hugging Face；SDK/npm维持0.4.0。
+
+- [x] 完成 PicoDet 八个新增规格 FP32 和随后16个精度候选的转换与评测，14个精度候选通过发布门槛。
+- [x] PicoDet 精度批次完成144组浏览器评测、最终56组生命周期、28组双源浏览器下载与推理、双源文件完整回读。
+- [x] SDK [PR #71](https://github.com/chenmohan123/web-sdk-PP-Detection/pull/71) 合并；[Pages #34953535988](https://github.com/chenmohan123/web-sdk-PP-Detection/actions/runs/34953535988) 对应 `025e207ff0a6a3a4e07f0a4c5b02834969b199ce`，正式Demo新增精度28组CPU/GPU检测通过，八个旧清单地址保持可用。
+- [x] 门户PR #32同步37项资产，PR #33修复LCNet长标题；四项目、37资产和390px页面已完成正式验证。本轮已合并本地和远程分支已清理。
+
+固定[模型精度证据](https://github.com/chenmohan123/web-sdk-PP-Detection/tree/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/reports/evaluation/2026-09-15-picodet-series-precision)及[正式Demo证据](../../../reports/sdk-standard/2026-09-15-picodet-precision/README.md)是上述状态依据。后文“五款模型、15变体”仅是2026-09-14历史批次，不能用作当前目录数量。
+
+### 当前阶段：统一选型整理
+
+- [x] 将当前37个稳定变体与固定版本清单逐项绑定，汇总文件大小、两后端三轮AP和原报告热推理数据，见[选型文档](../../zh-CN/pp-detection-selection.md)。
+- [x] 核对三批次的数据集、模型SHA、SDK和耗时口径。早期两款模型使用SDK0.3.1与第三轮耗时，其余使用SDK0.4.0与三轮中位数；同版本仍有不同SDK摘要，按原批次呈现。
+- [x] 覆盖37个变体、74份后端汇总，无质量或耗时缺项。本轮复用已发布证据；不为跨批次速度排名补造数据，不由文件大小推导推理速度或内存。
+- [x] 完成门户选型入口、精度/后端筛选和可滚动对比表；58项单元/标准测试、8项浏览器测试与生产构建本地检查通过，见[选型验收记录](../../../reports/sdk-standard/2026-09-15-detection-selection/README.md)。正式部署记录及合并后的HTTPS复核跟随本次PR归档。
+
+### 后续阶段：具体2D候选筛选
+
+选型整理完成后，回到PP-YOLO、FCOS、SSD等候选，先固定具体配置、权重、许可证与导出链，按与现有模型的场景收益决定下一项FP32可行性验证。RTMDet当前只有固定PaddleDetection源码树入口缺失的版本限定结论；SOD保留既有暂缓结论；不在本阶段创建分割、跟踪、关键点或Workflow运行时。新架构筛选尚未开始。
+
+## 历史批次：M/L/X精度发布（2026-09-14）
 
 当前进入 M/L/X 六个 FP16、W8A32 变体的独立模型发布。用户已在验证前确认识别门槛：相对同规格、同后端 FP32 的 AP 下降≤0.5 个百分点，score≥0.5、同类 IoU≥0.5 的一对一匹配保留≥95% FP32 检测。IoU≥0.99 只作坐标诊断，文件缩小独立计为收益。
 

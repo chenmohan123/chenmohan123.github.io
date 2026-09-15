@@ -1,0 +1,18 @@
+$ playwright test
+[WebServer] (node:38296) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 8 tests using 1 worker
+
+(node:27692) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 tests\portal.spec.ts:3:1 › homepage exposes the model SDK directory and Models navigation (578ms)
+  ok 2 tests\portal.spec.ts:14:1 › PP-DocLayoutV3 detail exposes package, assets, and live demo (323ms)
+  ok 3 tests\portal.spec.ts:31:1 › PaddleDetection 详情展示 0.4.0、三十七个模型变体和独立 Demo，窄屏不溢出 (343ms)
+  ok 4 tests\portal.spec.ts:86:1 › LCNet 长模型标题在390px视口完整换行，不撑宽页面 (200ms)
+  ok 5 tests\portal.spec.ts:95:1 › Detection选型入口支持精度和后端筛选，390px保留完整可滚动表格 (718ms)
+  ok 6 tests\portal.spec.ts:120:1 › PP-OCRv6 详情展示 0.2.0、六个 FP32 资产和独立 Demo (222ms)
+  ok 7 tests\portal.spec.ts:146:1 › brand and task routes are statically generated (202ms)
+  ok 8 tests\portal.spec.ts:153:1 › docs distinguish stable backends from Labs (176ms)
+
+  8 passed (8.1s)

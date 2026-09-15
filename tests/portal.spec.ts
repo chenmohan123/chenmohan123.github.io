@@ -92,6 +92,31 @@ test("LCNet 长模型标题在390px视口完整换行，不撑宽页面", async 
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
 
+test("Detection选型入口支持精度和后端筛选，390px保留完整可滚动表格", async ({ page }) => {
+  await page.goto("/models/pp-detection/");
+  await page.getByRole("link", { name: "模型选型与对比 →" }).click();
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("找到适合的检测模型");
+  await expect(page.getByRole("status")).toHaveText("37 个稳定变体 · CPU / WASM");
+  await page.getByRole("combobox", { name: "模型系列", exact: true }).selectOption("picodet");
+  await page.getByRole("combobox", { name: "模型精度", exact: true }).selectOption("w8a32");
+  await expect(page.getByRole("status")).toHaveText("7 个稳定变体 · CPU / WASM");
+  await expect(page.locator('tr[data-variant^="picodet-xs-"]')).toHaveCount(0);
+  await page.getByRole("combobox", { name: "模型精度", exact: true }).selectOption("fp32");
+  const row = page.locator('tr[data-variant="picodet-xs-320-fp32"]');
+  await expect(row).toContainText("64.10");
+  await page.getByRole("radio", { name: "GPU / WebGPU" }).check();
+  await expect(row).toContainText("36.69");
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  const table = page.getByRole("region", { name: /PicoDet XS\/S\/M.*可横向滚动/ });
+  await table.focus();
+  await page.keyboard.press("End");
+  expect(await table.evaluate((node) => node.scrollWidth > node.clientWidth)).toBe(true);
+  await page.getByText("评测口径与环境", { exact: true }).click();
+  await expect(page.getByText(/不是对人工标注的召回率/)).toBeVisible();
+  await expect(page.locator('.batch-method').filter({ hasText: '仅第三轮' })).toBeVisible();
+});
+
 test("PP-OCRv6 详情展示 0.2.0、六个 FP32 资产和独立 Demo", async ({ page }) => {
   await page.goto("/models/pp-ocrv6/");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(

@@ -1,0 +1,1494 @@
+{
+  "date": "2026-09-15",
+  "sdkCommit": "025e207ff0a6a3a4e07f0a4c5b02834969b199ce",
+  "dataset": {
+    "images": 64,
+    "annotations": 716,
+    "annotationSha256": "d398fc9b09d97135e9b92d28d170681ed50bcd3a5518f16f559e6e379adc1b79",
+    "imageSetSha256": "1a36e342e8b8f00a4709d60f9f90d783ec61b179f89d64f041192d350281a99c"
+  },
+  "environment": {
+    "os": "Windows 11 10.0.26200",
+    "cpu": "Intel Core i5-10400F",
+    "gpu": "NVIDIA Blackwell（物理适配器）",
+    "browser": "Chromium 153.0.8010.12",
+    "ort": "1.27.0",
+    "mode": "主线程，WASM单线程，关闭SDK后端回退"
+  },
+  "groups": [
+    {
+      "id": "pico",
+      "title": "PicoDet XS/S/M 与 L-416/640",
+      "date": "2026-09-15",
+      "sdk": "0.4.0",
+      "sdkSha256": "c2b6a9733416571c77c8dc48fa68028251e5d8cccb201047c8387bf9433e1189",
+      "timingRounds": [
+        1,
+        2,
+        3
+      ],
+      "timingMethod": "各轮排除首图，取63图推理中位数，再取三轮中位数",
+      "retentionMethod": "三轮最小保留率",
+      "report": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/reports/evaluation/2026-09-15-picodet-series-precision/README.md"
+    },
+    {
+      "id": "mlx",
+      "title": "PP-YOLOE+ M/L/X",
+      "date": "2026-09-14",
+      "sdk": "0.4.0",
+      "sdkSha256": "d47789c4fa7f83a3025cf7de95113fdf4f83256505fe585f5d57305580e8bd02",
+      "timingRounds": [
+        1,
+        2,
+        3
+      ],
+      "timingMethod": "各轮排除首图，取63图推理中位数，再取三轮中位数",
+      "retentionMethod": "三轮最小保留率",
+      "report": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/reports/evaluation/2026-09-14-ppyoloe-mlx-release/README.md"
+    },
+    {
+      "id": "early",
+      "title": "PicoDet L-320 与 PP-YOLOE+ S",
+      "date": "2026-09-12",
+      "sdk": "0.3.1",
+      "sdkSha256": "9ea667b08b18818cfdfe47e122ccbb314379f8e83edb6c93aa62e8e7bd44743c",
+      "timingRounds": [
+        3
+      ],
+      "timingMethod": "仅第三轮排除首图后的63图推理中位数；前两轮可能与界面测试重叠",
+      "retentionMethod": "原发布报告的汇总保留率",
+      "report": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/reports/evaluation/2026-09-12-precision-variants/README.md"
+    }
+  ],
+  "excluded": [
+    {
+      "id": "picodet-xs-320-w8a32",
+      "minimumRetention": 0.94375
+    },
+    {
+      "id": "picodet-xs-416-w8a32",
+      "minimumRetention": 0.9411764705882353
+    }
+  ],
+  "rows": [
+    {
+      "id": "picodet-l-320-fp32",
+      "model": "PicoDet-L 320",
+      "family": "picodet",
+      "precision": "fp32",
+      "bytes": 23243834,
+      "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/pp-detection/1.0.2/manifest.json",
+      "modelVersion": "1.0.2",
+      "group": "early",
+      "wasm": {
+        "apRange": [
+          34.215273096451604,
+          34.215273096451604
+        ],
+        "minimumApDeltaPoints": 0,
+        "minimumRetention": 1,
+        "warmInferenceMs": 269.8850000053644,
+        "timingRounds": [
+          3
+        ]
+      },
+      "webgpu": {
+        "apRange": [
+          34.215273096451604,
+          34.215273096451604
+        ],
+        "minimumApDeltaPoints": 0,
+        "minimumRetention": 1,
+        "warmInferenceMs": 37.69999998807907,
+        "timingRounds": [
+          3
+        ]
+      }
+    },
+    {
+      "id": "picodet-l-320-fp16",
+      "model": "PicoDet-L 320",
+      "family": "picodet",
+      "precision": "fp16",
+      "bytes": 14813981,
+      "sha256": "4db8b0b2da7c5893ed532ba2b3e213318a35a18e9195d67b51cc94bcce6e21fa",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/pp-detection/1.0.2/manifest.json",
+      "modelVersion": "1.0.2",
+      "group": "early",
+      "wasm": {
+        "apRange": [
+          34.10934570095729,
+          34.10934570095729
+        ],
+        "minimumApDeltaPoints": -0.1059273954943123,
+        "minimumRetention": 1,
+        "warmInferenceMs": 273.7549999952316,
+        "timingRounds": [
+          3
+        ]
+      },
+      "webgpu": {
+        "apRange": [
+          34.20800763508575,
+          34.20800763508575
+        ],
+        "minimumApDeltaPoints": -0.007265461365854264,
+        "minimumRetention": 0.9897610921501706,
+        "warmInferenceMs": 36.18000000715256,
+        "timingRounds": [
+          3
+        ]
+      }
+    },
+    {
+      "id": "picodet-l-320-w8a32",
+      "model": "PicoDet-L 320",
+      "family": "picodet",
+      "precision": "w8a32",
+      "bytes": 6117685,
+      "sha256": "3c46094c52437768373e55e2f4f320be3725399b5a906abea251cc30b7a06d59",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/pp-detection/1.0.2/manifest.json",
+      "modelVersion": "1.0.2",
+      "group": "early",
+      "wasm": {
+        "apRange": [
+          34.260618097873476,
+          34.260618097873476
+        ],
+        "minimumApDeltaPoints": 0.0453450014218717,
+        "minimumRetention": 0.9897610921501706,
+        "warmInferenceMs": 277.29999999701977,
+        "timingRounds": [
+          3
+        ]
+      },
+      "webgpu": {
+        "apRange": [
+          34.260618097873476,
+          34.260618097873476
+        ],
+        "minimumApDeltaPoints": 0.0453450014218717,
+        "minimumRetention": 0.9897610921501706,
+        "warmInferenceMs": 43.76000000536442,
+        "timingRounds": [
+          3
+        ]
+      }
+    },
+    {
+      "id": "ppyoloe-plus-s-640-fp32",
+      "model": "PP-YOLOE+ S 640",
+      "family": "ppyoloe",
+      "precision": "fp32",
+      "bytes": 31954220,
+      "sha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/ppyoloe-plus-s-640/0.1.1/manifest.json",
+      "modelVersion": "0.1.1",
+      "group": "early",
+      "wasm": {
+        "apRange": [
+          43.426535438809466,
+          43.426535438809466
+        ],
+        "minimumApDeltaPoints": 0,
+        "minimumRetention": 1,
+        "warmInferenceMs": 845.3499999940395,
+        "timingRounds": [
+          3
+        ]
+      },
+      "webgpu": {
+        "apRange": [
+          43.426535438809466,
+          43.426535438809466
+        ],
+        "minimumApDeltaPoints": 0,
+        "minimumRetention": 1,
+        "warmInferenceMs": 50.560000002384186,
+        "timingRounds": [
+          3
+        ]
+      }
+    },
+    {
+      "id": "ppyoloe-plus-s-640-fp16",
+      "model": "PP-YOLOE+ S 640",
+      "family": "ppyoloe",
+      "precision": "fp16",
+      "bytes": 16054567,
+      "sha256": "c5f9cca5475b481132f5169b80a647966503f3ccf9c4e86c26aef76123df3fd4",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/ppyoloe-plus-s-640/0.1.1/manifest.json",
+      "modelVersion": "0.1.1",
+      "group": "early",
+      "wasm": {
+        "apRange": [
+          43.40307813020401,
+          43.40307813020401
+        ],
+        "minimumApDeltaPoints": -0.023457308605458138,
+        "minimumRetention": 1,
+        "warmInferenceMs": 869.0600000023842,
+        "timingRounds": [
+          3
+        ]
+      },
+      "webgpu": {
+        "apRange": [
+          43.85965491384927,
+          43.85965491384927
+        ],
+        "minimumApDeltaPoints": 0.43311947503980264,
+        "minimumRetention": 0.9954853273137697,
+        "warmInferenceMs": 48.63500000536442,
+        "timingRounds": [
+          3
+        ]
+      }
+    },
+    {
+      "id": "ppyoloe-plus-s-640-w8a32",
+      "model": "PP-YOLOE+ S 640",
+      "family": "ppyoloe",
+      "precision": "w8a32",
+      "bytes": 8225467,
+      "sha256": "cef7cd4dbbac67db53c75f0a3aca30343a5fb9be0b743c57d9dca8dec0d48b2e",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/ppyoloe-plus-s-640/0.1.1/manifest.json",
+      "modelVersion": "0.1.1",
+      "group": "early",
+      "wasm": {
+        "apRange": [
+          43.36402558100753,
+          43.36402558100753
+        ],
+        "minimumApDeltaPoints": -0.06250985780193474,
+        "minimumRetention": 0.9616252821670429,
+        "warmInferenceMs": 900.0200000107288,
+        "timingRounds": [
+          3
+        ]
+      },
+      "webgpu": {
+        "apRange": [
+          43.36402558100753,
+          43.36402558100753
+        ],
+        "minimumApDeltaPoints": -0.06250985780193474,
+        "minimumRetention": 0.9616252821670429,
+        "warmInferenceMs": 50.67499999701977,
+        "timingRounds": [
+          3
+        ]
+      }
+    },
+    {
+      "id": "ppyoloe-plus-m-640-fp32",
+      "model": "PP-YOLOE+ M 640",
+      "family": "ppyoloe",
+      "precision": "fp32",
+      "bytes": 94022904,
+      "sha256": "c6b56099c4866e4c4ff01d31982e9e1004c6ac2fd8f8e1d97a3188db3ea095aa",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/ppyoloe-plus-m-640/0.1.1/manifest.json",
+      "modelVersion": "0.1.1",
+      "group": "mlx",
+      "wasm": {
+        "apRange": [
+          48.92518498759489,
+          48.92518498759489
+        ],
+        "minimumApDeltaPoints": 0,
+        "minimumRetention": 1,
+        "warmInferenceMs": 2267.964999999851,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      },
+      "webgpu": {
+        "apRange": [
+          48.92518498759489,
+          48.92518498759489
+        ],
+        "minimumApDeltaPoints": 0,
+        "minimumRetention": 1,
+        "warmInferenceMs": 50.415000000968575,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "ppyoloe-plus-m-640-fp16",
+      "model": "PP-YOLOE+ M 640",
+      "family": "ppyoloe",
+      "precision": "fp16",
+      "bytes": 47104975,
+      "sha256": "e8ca077bb7ed8a02f01127a2fab0f7283a0f307b5384bdefc8084aecf2efa64b",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/ppyoloe-plus-m-640/0.1.1/manifest.json",
+      "modelVersion": "0.1.1",
+      "group": "mlx",
+      "wasm": {
+        "apRange": [
+          48.93342032717234,
+          48.93342032717234
+        ],
+        "minimumApDeltaPoints": 0.008235339577450373,
+        "minimumRetention": 0.9980237154150198,
+        "warmInferenceMs": 2271.679999999702,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      },
+      "webgpu": {
+        "apRange": [
+          48.70244880505673,
+          48.70244880505673
+        ],
+        "minimumApDeltaPoints": -0.22273618253815797,
+        "minimumRetention": 0.9920948616600791,
+        "warmInferenceMs": 54.0950000025332,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "ppyoloe-plus-m-640-w8a32",
+      "model": "PP-YOLOE+ M 640",
+      "family": "ppyoloe",
+      "precision": "w8a32",
+      "bytes": 23818631,
+      "sha256": "ef45621107bf35fe906c5f5d64f40306ec3d5929bcc43fa3a76857d2c5e086d6",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/ppyoloe-plus-m-640/0.1.1/manifest.json",
+      "modelVersion": "0.1.1",
+      "group": "mlx",
+      "wasm": {
+        "apRange": [
+          49.049936790122864,
+          49.049936790122864
+        ],
+        "minimumApDeltaPoints": 0.12475180252797258,
+        "minimumRetention": 0.974308300395257,
+        "warmInferenceMs": 2252.0200000032783,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      },
+      "webgpu": {
+        "apRange": [
+          49.049936790122864,
+          49.049936790122864
+        ],
+        "minimumApDeltaPoints": 0.12475180252797258,
+        "minimumRetention": 0.974308300395257,
+        "warmInferenceMs": 54.149999998509884,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "ppyoloe-plus-l-640-fp32",
+      "model": "PP-YOLOE+ L 640",
+      "family": "ppyoloe",
+      "precision": "fp32",
+      "bytes": 209181400,
+      "sha256": "01f325d228676b0494e5eec45f10e2830dc9f81bf67a03157c24a0abf7824075",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/ppyoloe-plus-l-640/0.1.1/manifest.json",
+      "modelVersion": "0.1.1",
+      "group": "mlx",
+      "wasm": {
+        "apRange": [
+          51.3911216271277,
+          51.3911216271277
+        ],
+        "minimumApDeltaPoints": 0,
+        "minimumRetention": 1,
+        "warmInferenceMs": 4759.894999999553,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      },
+      "webgpu": {
+        "apRange": [
+          51.3911216271277,
+          51.3911216271277
+        ],
+        "minimumApDeltaPoints": 0,
+        "minimumRetention": 1,
+        "warmInferenceMs": 61.82000000029802,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "ppyoloe-plus-l-640-fp16",
+      "model": "PP-YOLOE+ L 640",
+      "family": "ppyoloe",
+      "precision": "fp16",
+      "bytes": 104700181,
+      "sha256": "3f2545b97018dd4c556ae38ac494da23982aa0f5d0024c673ed43df24cab96a2",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/ppyoloe-plus-l-640/0.1.1/manifest.json",
+      "modelVersion": "0.1.1",
+      "group": "mlx",
+      "wasm": {
+        "apRange": [
+          51.522666851411955,
+          51.522666851411955
+        ],
+        "minimumApDeltaPoints": 0.1315452242842574,
+        "minimumRetention": 0.9981412639405205,
+        "warmInferenceMs": 4852.379999998957,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      },
+      "webgpu": {
+        "apRange": [
+          51.62106965911104,
+          51.62106965911104
+        ],
+        "minimumApDeltaPoints": 0.22994803198334024,
+        "minimumRetention": 0.9925650557620818,
+        "warmInferenceMs": 60.315000001341105,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "ppyoloe-plus-l-640-w8a32",
+      "model": "PP-YOLOE+ L 640",
+      "family": "ppyoloe",
+      "precision": "w8a32",
+      "bytes": 52698311,
+      "sha256": "e7e95c61f4ac28938de373781f8b62c6f7a3f7c7c80c2e2c163b79370eeb5e03",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/ppyoloe-plus-l-640/0.1.1/manifest.json",
+      "modelVersion": "0.1.1",
+      "group": "mlx",
+      "wasm": {
+        "apRange": [
+          51.20061349859591,
+          51.20061349859591
+        ],
+        "minimumApDeltaPoints": -0.19050812853179666,
+        "minimumRetention": 0.9962825278810409,
+        "warmInferenceMs": 4717.85000000149,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      },
+      "webgpu": {
+        "apRange": [
+          51.20061349859591,
+          51.20061349859591
+        ],
+        "minimumApDeltaPoints": -0.19050812853179666,
+        "minimumRetention": 0.9962825278810409,
+        "warmInferenceMs": 67.01500000059605,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "ppyoloe-plus-x-640-fp32",
+      "model": "PP-YOLOE+ X 640",
+      "family": "ppyoloe",
+      "precision": "fp32",
+      "bytes": 394163636,
+      "sha256": "90b8ea67186b6df262b5ea441e4392144b71fa2562593892d60e2e81d5a0811e",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/ppyoloe-plus-x-640/0.1.1/manifest.json",
+      "modelVersion": "0.1.1",
+      "group": "mlx",
+      "wasm": {
+        "apRange": [
+          52.98005837146349,
+          52.98005837146349
+        ],
+        "minimumApDeltaPoints": 0,
+        "minimumRetention": 1,
+        "warmInferenceMs": 8979.629999998957,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      },
+      "webgpu": {
+        "apRange": [
+          52.98005837146349,
+          52.98005837146349
+        ],
+        "minimumApDeltaPoints": 0,
+        "minimumRetention": 1,
+        "warmInferenceMs": 83.48999999836087,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "ppyoloe-plus-x-640-fp16",
+      "model": "PP-YOLOE+ X 640",
+      "family": "ppyoloe",
+      "precision": "fp16",
+      "bytes": 197207187,
+      "sha256": "0432be99a5012c427c685280df97e7b876345830b608396f0f87617f259c1394",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/ppyoloe-plus-x-640/0.1.1/manifest.json",
+      "modelVersion": "0.1.1",
+      "group": "mlx",
+      "wasm": {
+        "apRange": [
+          52.94596533509133,
+          52.94596533509133
+        ],
+        "minimumApDeltaPoints": -0.034093036372162544,
+        "minimumRetention": 1,
+        "warmInferenceMs": 8676.004999998957,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      },
+      "webgpu": {
+        "apRange": [
+          52.84634465969903,
+          52.84634465969903
+        ],
+        "minimumApDeltaPoints": -0.13371371176446045,
+        "minimumRetention": 0.9965156794425087,
+        "warmInferenceMs": 77.58500000089407,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "ppyoloe-plus-x-640-w8a32",
+      "model": "PP-YOLOE+ X 640",
+      "family": "ppyoloe",
+      "precision": "w8a32",
+      "bytes": 99048805,
+      "sha256": "fbc57fbfe6e4e4497a08a3cecbf9c62f93d2c5963b4ddf2af1cb7dfc8cd9ee56",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/ppyoloe-plus-x-640/0.1.1/manifest.json",
+      "modelVersion": "0.1.1",
+      "group": "mlx",
+      "wasm": {
+        "apRange": [
+          52.63157914826754,
+          52.63157914826754
+        ],
+        "minimumApDeltaPoints": -0.34847922319595215,
+        "minimumRetention": 0.9825783972125436,
+        "warmInferenceMs": 8697.170000001788,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      },
+      "webgpu": {
+        "apRange": [
+          52.63157914826754,
+          52.63157914826754
+        ],
+        "minimumApDeltaPoints": -0.34847922319595215,
+        "minimumRetention": 0.9825783972125436,
+        "warmInferenceMs": 90.02500000037253,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "picodet-l-416-fp32",
+      "model": "PicoDet-L 416",
+      "family": "picodet",
+      "precision": "fp32",
+      "bytes": 23261512,
+      "sha256": "46612bce478e30008f0dab63b7bd9bb2c944d7720b93726a03484567f3de91b4",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/pp-detection/picodet-l-416/1.0.1/manifest.json",
+      "modelVersion": "1.0.1",
+      "group": "pico",
+      "wasm": {
+        "apRange": [
+          37.487573497031185,
+          37.487573497031185
+        ],
+        "minimumApDeltaPoints": 0,
+        "minimumRetention": 1,
+        "warmInferenceMs": 466.18000000016764,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      },
+      "webgpu": {
+        "apRange": [
+          37.487573497031185,
+          37.487573497031185
+        ],
+        "minimumApDeltaPoints": 0,
+        "minimumRetention": 1,
+        "warmInferenceMs": 37.05500000016764,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "picodet-l-640-fp32",
+      "model": "PicoDet-L 640",
+      "family": "picodet",
+      "precision": "fp32",
+      "bytes": 23320381,
+      "sha256": "bbc0a02f543e49dfcbd50efcd700c99c8183c94e147bb83b7a921a6ec9aaf1df",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/pp-detection/picodet-l-640/1.0.1/manifest.json",
+      "modelVersion": "1.0.1",
+      "group": "pico",
+      "wasm": {
+        "apRange": [
+          39.510485179849155,
+          39.510485179849155
+        ],
+        "minimumApDeltaPoints": 0,
+        "minimumRetention": 1,
+        "warmInferenceMs": 1046.5,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      },
+      "webgpu": {
+        "apRange": [
+          39.510485179849155,
+          39.510485179849155
+        ],
+        "minimumApDeltaPoints": 0,
+        "minimumRetention": 1,
+        "warmInferenceMs": 43.65999999968335,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "picodet-m-320-fp32",
+      "model": "PicoDet-M 320",
+      "family": "picodet",
+      "precision": "fp32",
+      "bytes": 13905160,
+      "sha256": "2914a3bc0475e6596baac9495eea798da99aadc8db48afd995c53906f8299474",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/pp-detection/picodet-m-320/1.0.1/manifest.json",
+      "modelVersion": "1.0.1",
+      "group": "pico",
+      "wasm": {
+        "apRange": [
+          33.38996497269134,
+          33.38996497269134
+        ],
+        "minimumApDeltaPoints": 0,
+        "minimumRetention": 1,
+        "warmInferenceMs": 188.85999999986961,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      },
+      "webgpu": {
+        "apRange": [
+          33.38996497269134,
+          33.38996497269134
+        ],
+        "minimumApDeltaPoints": 0,
+        "minimumRetention": 1,
+        "warmInferenceMs": 35.109999999869615,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "picodet-m-416-fp32",
+      "model": "PicoDet-M 416",
+      "family": "picodet",
+      "precision": "fp32",
+      "bytes": 13922843,
+      "sha256": "a1dfa189118d72e95798c711badf967d03ea00d848f04bb8476fd5eae31a4f5f",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/pp-detection/picodet-m-416/1.0.1/manifest.json",
+      "modelVersion": "1.0.1",
+      "group": "pico",
+      "wasm": {
+        "apRange": [
+          37.224495068087045,
+          37.224495068087045
+        ],
+        "minimumApDeltaPoints": 0,
+        "minimumRetention": 1,
+        "warmInferenceMs": 308.63500000024214,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      },
+      "webgpu": {
+        "apRange": [
+          37.224495068087045,
+          37.224495068087045
+        ],
+        "minimumApDeltaPoints": 0,
+        "minimumRetention": 1,
+        "warmInferenceMs": 37.10000000009313,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "picodet-s-320-fp32",
+      "model": "PicoDet-S 320",
+      "family": "picodet",
+      "precision": "fp32",
+      "bytes": 4807906,
+      "sha256": "84cd653b3615f63f6e8d478d8c590578a6c9b0608d597948799e599e5c3ad1ab",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/pp-detection/picodet-s-320/1.0.1/manifest.json",
+      "modelVersion": "1.0.1",
+      "group": "pico",
+      "wasm": {
+        "apRange": [
+          29.014998332825947,
+          29.014998332825947
+        ],
+        "minimumApDeltaPoints": 0,
+        "minimumRetention": 1,
+        "warmInferenceMs": 87.43000000016764,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      },
+      "webgpu": {
+        "apRange": [
+          29.014998332825947,
+          29.014998332825947
+        ],
+        "minimumApDeltaPoints": 0,
+        "minimumRetention": 1,
+        "warmInferenceMs": 34.37999999988824,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "picodet-s-416-fp32",
+      "model": "PicoDet-S 416",
+      "family": "picodet",
+      "precision": "fp32",
+      "bytes": 4825589,
+      "sha256": "78328c4e9484db59bba41d95d381687503e8e905711672fec702975d85075682",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/pp-detection/picodet-s-416/1.0.1/manifest.json",
+      "modelVersion": "1.0.1",
+      "group": "pico",
+      "wasm": {
+        "apRange": [
+          33.15793309842404,
+          33.15793309842404
+        ],
+        "minimumApDeltaPoints": 0,
+        "minimumRetention": 1,
+        "warmInferenceMs": 144.36499999975786,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      },
+      "webgpu": {
+        "apRange": [
+          33.15793309842404,
+          33.15793309842404
+        ],
+        "minimumApDeltaPoints": 0,
+        "minimumRetention": 1,
+        "warmInferenceMs": 36.81000000005588,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "picodet-xs-320-fp32",
+      "model": "PicoDet-XS 320",
+      "family": "picodet",
+      "precision": "fp32",
+      "bytes": 2886024,
+      "sha256": "54417c113c07d4507af8f92027032a17a315a25014ee57922d18a2fd504797d3",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/pp-detection/picodet-xs-320/1.0.1/manifest.json",
+      "modelVersion": "1.0.1",
+      "group": "pico",
+      "wasm": {
+        "apRange": [
+          23.811324315404033,
+          23.811324315404033
+        ],
+        "minimumApDeltaPoints": 0,
+        "minimumRetention": 1,
+        "warmInferenceMs": 64.10499999998137,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      },
+      "webgpu": {
+        "apRange": [
+          23.811321103029197,
+          23.811321103029197
+        ],
+        "minimumApDeltaPoints": 0,
+        "minimumRetention": 1,
+        "warmInferenceMs": 36.68999999994412,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "picodet-xs-416-fp32",
+      "model": "PicoDet-XS 416",
+      "family": "picodet",
+      "precision": "fp32",
+      "bytes": 2903707,
+      "sha256": "c0e1208d1c2a30aaabb4cd52f31e07bbf20284ef88e8f12933da5dca481b6239",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/pp-detection/picodet-xs-416/1.0.1/manifest.json",
+      "modelVersion": "1.0.1",
+      "group": "pico",
+      "wasm": {
+        "apRange": [
+          27.680424214205424,
+          27.680424214205424
+        ],
+        "minimumApDeltaPoints": 0,
+        "minimumRetention": 1,
+        "warmInferenceMs": 104.79999999981374,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      },
+      "webgpu": {
+        "apRange": [
+          27.680424214205424,
+          27.680424214205424
+        ],
+        "minimumApDeltaPoints": 0,
+        "minimumRetention": 1,
+        "warmInferenceMs": 38.68000000016764,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "picodet-l-416-fp16",
+      "model": "PicoDet-L 416",
+      "family": "picodet",
+      "precision": "fp16",
+      "bytes": 14836820,
+      "sha256": "8118d856d515e36c7ab4100c2dbdede35e77ab3b6e07bd906b323ce00330170f",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/pp-detection/picodet-l-416/1.0.1/manifest.json",
+      "modelVersion": "1.0.1",
+      "group": "pico",
+      "wasm": {
+        "apRange": [
+          37.46946792137102,
+          37.46946792137102
+        ],
+        "minimumApDeltaPoints": -0.018105575660165574,
+        "minimumRetention": 1,
+        "warmInferenceMs": 447.39499999955297,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      },
+      "webgpu": {
+        "apRange": [
+          37.5895723757841,
+          37.5895723757841
+        ],
+        "minimumApDeltaPoints": 0.10199887875291802,
+        "minimumRetention": 0.9851190476190477,
+        "warmInferenceMs": 36.174999999813735,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "picodet-l-416-w8a32",
+      "model": "PicoDet-L 416",
+      "family": "picodet",
+      "precision": "w8a32",
+      "bytes": 6135363,
+      "sha256": "ecd31887f2c032140d592b42240c19848f200c0b5eeb91a6d9759884d666fea4",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/pp-detection/picodet-l-416/1.0.1/manifest.json",
+      "modelVersion": "1.0.1",
+      "group": "pico",
+      "wasm": {
+        "apRange": [
+          37.27917223810623,
+          37.27917223810623
+        ],
+        "minimumApDeltaPoints": -0.2084012589249562,
+        "minimumRetention": 0.9910714285714286,
+        "warmInferenceMs": 448.31499999947846,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      },
+      "webgpu": {
+        "apRange": [
+          37.27917223810623,
+          37.27917223810623
+        ],
+        "minimumApDeltaPoints": -0.2084012589249562,
+        "minimumRetention": 0.9910714285714286,
+        "warmInferenceMs": 41.79000000003725,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "picodet-l-640-fp16",
+      "model": "PicoDet-L 640",
+      "family": "picodet",
+      "precision": "fp16",
+      "bytes": 14874912,
+      "sha256": "f8a3ff8ce83b5c72e070d62319663b221f2b750bccf35384a96ee40537e0e73b",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/pp-detection/picodet-l-640/1.0.1/manifest.json",
+      "modelVersion": "1.0.1",
+      "group": "pico",
+      "wasm": {
+        "apRange": [
+          39.49995236009803,
+          39.49995236009803
+        ],
+        "minimumApDeltaPoints": -0.010532819751130074,
+        "minimumRetention": 0.9976133651551312,
+        "warmInferenceMs": 1028.9850000003353,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      },
+      "webgpu": {
+        "apRange": [
+          39.563265788553586,
+          39.563265788553586
+        ],
+        "minimumApDeltaPoints": 0.05278060870442802,
+        "minimumRetention": 0.9785202863961814,
+        "warmInferenceMs": 43.09499999973923,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "picodet-l-640-w8a32",
+      "model": "PicoDet-L 640",
+      "family": "picodet",
+      "precision": "w8a32",
+      "bytes": 6194232,
+      "sha256": "e3549e3bb180c10ac66644954b1390cb3a23bda6f862fc94cec1593eea789ef8",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/pp-detection/picodet-l-640/1.0.1/manifest.json",
+      "modelVersion": "1.0.1",
+      "group": "pico",
+      "wasm": {
+        "apRange": [
+          39.694207555521274,
+          39.694207555521274
+        ],
+        "minimumApDeltaPoints": 0.18372237567211291,
+        "minimumRetention": 0.9713603818615751,
+        "warmInferenceMs": 1037.2999999998137,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      },
+      "webgpu": {
+        "apRange": [
+          39.694207555521274,
+          39.694207555521274
+        ],
+        "minimumApDeltaPoints": 0.18372237567211291,
+        "minimumRetention": 0.9713603818615751,
+        "warmInferenceMs": 49.49500000011176,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "picodet-m-320-fp16",
+      "model": "PicoDet-M 320",
+      "family": "picodet",
+      "precision": "fp16",
+      "bytes": 8869567,
+      "sha256": "43c56ded9b1e2dc0f90b0d1d2b2240e12f6cc315ff5ee77084182138e4ba4e14",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/pp-detection/picodet-m-320/1.0.1/manifest.json",
+      "modelVersion": "1.0.1",
+      "group": "pico",
+      "wasm": {
+        "apRange": [
+          33.62040182523777,
+          33.62040182523777
+        ],
+        "minimumApDeltaPoints": 0.23043685254643398,
+        "minimumRetention": 1,
+        "warmInferenceMs": 183.08499999996275,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      },
+      "webgpu": {
+        "apRange": [
+          33.41607425808474,
+          33.41607425808474
+        ],
+        "minimumApDeltaPoints": 0.02610928539339974,
+        "minimumRetention": 0.9923371647509579,
+        "warmInferenceMs": 35.22000000067055,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "picodet-m-320-w8a32",
+      "model": "PicoDet-M 320",
+      "family": "picodet",
+      "precision": "w8a32",
+      "bytes": 3736832,
+      "sha256": "a4eb8623655b3b6255c0a1e91eb2b98f39e2b8b3468b0b4cd4b8c1c8311dc1cd",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/pp-detection/picodet-m-320/1.0.1/manifest.json",
+      "modelVersion": "1.0.1",
+      "group": "pico",
+      "wasm": {
+        "apRange": [
+          33.782590114001195,
+          33.782590114001195
+        ],
+        "minimumApDeltaPoints": 0.39262514130986026,
+        "minimumRetention": 0.9846743295019157,
+        "warmInferenceMs": 189.1949999993667,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      },
+      "webgpu": {
+        "apRange": [
+          33.782590114001195,
+          33.782590114001195
+        ],
+        "minimumApDeltaPoints": 0.39262514130986026,
+        "minimumRetention": 0.9846743295019157,
+        "warmInferenceMs": 40.11500000022352,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "picodet-m-416-fp16",
+      "model": "PicoDet-M 416",
+      "family": "picodet",
+      "precision": "fp16",
+      "bytes": 8885644,
+      "sha256": "44cccdccfd07c7f9a8d3f9120df04997a48fe2f0cc3edcb1f341855017f700ad",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/pp-detection/picodet-m-416/1.0.1/manifest.json",
+      "modelVersion": "1.0.1",
+      "group": "pico",
+      "wasm": {
+        "apRange": [
+          37.23231570140461,
+          37.23231570140461
+        ],
+        "minimumApDeltaPoints": 0.007820633317562331,
+        "minimumRetention": 1,
+        "warmInferenceMs": 306.1349999997765,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      },
+      "webgpu": {
+        "apRange": [
+          37.3068219575952,
+          37.3068219575952
+        ],
+        "minimumApDeltaPoints": 0.08232688950815525,
+        "minimumRetention": 0.9705014749262537,
+        "warmInferenceMs": 36.53500000014901,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "picodet-m-416-w8a32",
+      "model": "PicoDet-M 416",
+      "family": "picodet",
+      "precision": "w8a32",
+      "bytes": 3754515,
+      "sha256": "c4c1fe2407c20cd85f63199f2199c9c35f379bb6ba33eba29bb02f39f18db1cc",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/pp-detection/picodet-m-416/1.0.1/manifest.json",
+      "modelVersion": "1.0.1",
+      "group": "pico",
+      "wasm": {
+        "apRange": [
+          37.67165002563043,
+          37.67165002563043
+        ],
+        "minimumApDeltaPoints": 0.4471549575433831,
+        "minimumRetention": 0.9734513274336283,
+        "warmInferenceMs": 309.07500000018626,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      },
+      "webgpu": {
+        "apRange": [
+          37.67165002563043,
+          37.67165002563043
+        ],
+        "minimumApDeltaPoints": 0.4471549575433831,
+        "minimumRetention": 0.9734513274336283,
+        "warmInferenceMs": 40.84999999962747,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "picodet-s-320-fp16",
+      "model": "PicoDet-S 320",
+      "family": "picodet",
+      "precision": "fp16",
+      "bytes": 3082899,
+      "sha256": "b54a67ac5acb73023c74162732d1ff6bbe0d367963d562659a363fa602c26c46",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/pp-detection/picodet-s-320/1.0.1/manifest.json",
+      "modelVersion": "1.0.1",
+      "group": "pico",
+      "wasm": {
+        "apRange": [
+          28.676620305570673,
+          28.676620305570673
+        ],
+        "minimumApDeltaPoints": -0.3383780272552761,
+        "minimumRetention": 0.995260663507109,
+        "warmInferenceMs": 91.59000000078231,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      },
+      "webgpu": {
+        "apRange": [
+          28.73727082810229,
+          28.73727082810229
+        ],
+        "minimumApDeltaPoints": -0.27772750472365715,
+        "minimumRetention": 0.995260663507109,
+        "warmInferenceMs": 33.37000000011176,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "picodet-s-320-w8a32",
+      "model": "PicoDet-S 320",
+      "family": "picodet",
+      "precision": "w8a32",
+      "bytes": 1380421,
+      "sha256": "1fba3b2bef155c51bc971d1b9628923ec3668b40542b1677cb8b0cf15889c154",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/pp-detection/picodet-s-320/1.0.1/manifest.json",
+      "modelVersion": "1.0.1",
+      "group": "pico",
+      "wasm": {
+        "apRange": [
+          29.655438527941303,
+          29.655438527941303
+        ],
+        "minimumApDeltaPoints": 0.6404401951153549,
+        "minimumRetention": 0.985781990521327,
+        "warmInferenceMs": 85.57499999925494,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      },
+      "webgpu": {
+        "apRange": [
+          29.655438527941303,
+          29.655438527941303
+        ],
+        "minimumApDeltaPoints": 0.6404401951153549,
+        "minimumRetention": 0.985781990521327,
+        "warmInferenceMs": 36.97500000055879,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "picodet-s-416-fp16",
+      "model": "PicoDet-S 416",
+      "family": "picodet",
+      "precision": "fp16",
+      "bytes": 3097823,
+      "sha256": "af7a57ce3c2181c8235361e9f94d766a7db8ed13f9b4526013cce2852a7ca05a",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/pp-detection/picodet-s-416/1.0.1/manifest.json",
+      "modelVersion": "1.0.1",
+      "group": "pico",
+      "wasm": {
+        "apRange": [
+          33.065056610630805,
+          33.065056610630805
+        ],
+        "minimumApDeltaPoints": -0.09287648779323643,
+        "minimumRetention": 1,
+        "warmInferenceMs": 141.33499999996275,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      },
+      "webgpu": {
+        "apRange": [
+          32.81605014754728,
+          32.81605014754728
+        ],
+        "minimumApDeltaPoints": -0.3418829508767651,
+        "minimumRetention": 1,
+        "warmInferenceMs": 35.89999999944121,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "picodet-s-416-w8a32",
+      "model": "PicoDet-S 416",
+      "family": "picodet",
+      "precision": "w8a32",
+      "bytes": 1398104,
+      "sha256": "65ed20cd0ada456cfa3dd3eb3c05c0870fbf80d4ce97fd11488023e1171f3eca",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/pp-detection/picodet-s-416/1.0.1/manifest.json",
+      "modelVersion": "1.0.1",
+      "group": "pico",
+      "wasm": {
+        "apRange": [
+          33.41590626799814,
+          33.41590626799814
+        ],
+        "minimumApDeltaPoints": 0.25797316957409944,
+        "minimumRetention": 0.9721115537848606,
+        "warmInferenceMs": 140.23500000033528,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      },
+      "webgpu": {
+        "apRange": [
+          33.415905786370004,
+          33.415905786370004
+        ],
+        "minimumApDeltaPoints": 0.25797268794596206,
+        "minimumRetention": 0.9721115537848606,
+        "warmInferenceMs": 40.89000000059605,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "picodet-xs-320-fp16",
+      "model": "PicoDet-XS 320",
+      "family": "picodet",
+      "precision": "fp16",
+      "bytes": 1863376,
+      "sha256": "b96d5e62ee89fdcf0757880cbf591e28e69589c1e9ca6cd7d064aa7c57ab8d50",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/pp-detection/picodet-xs-320/1.0.1/manifest.json",
+      "modelVersion": "1.0.1",
+      "group": "pico",
+      "wasm": {
+        "apRange": [
+          23.87433571174346,
+          23.87433571174346
+        ],
+        "minimumApDeltaPoints": 0.06301139633942965,
+        "minimumRetention": 0.99375,
+        "warmInferenceMs": 66.33499999996275,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      },
+      "webgpu": {
+        "apRange": [
+          23.98840751956845,
+          23.98840751956845
+        ],
+        "minimumApDeltaPoints": 0.17708641653925716,
+        "minimumRetention": 0.98125,
+        "warmInferenceMs": 34.019999999552965,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "picodet-xs-416-fp16",
+      "model": "PicoDet-XS 416",
+      "family": "picodet",
+      "precision": "fp16",
+      "bytes": 1875659,
+      "sha256": "c416779803cae85b3ebb57ef94068a223578d3c1ac17a30512464433e6af0c97",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/pp-detection/picodet-xs-416/1.0.1/manifest.json",
+      "modelVersion": "1.0.1",
+      "group": "pico",
+      "wasm": {
+        "apRange": [
+          27.70712157433882,
+          27.70712157433882
+        ],
+        "minimumApDeltaPoints": 0.02669736013339863,
+        "minimumRetention": 0.9950980392156863,
+        "warmInferenceMs": 103.6000000005588,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      },
+      "webgpu": {
+        "apRange": [
+          27.846597704936336,
+          27.846597704936336
+        ],
+        "minimumApDeltaPoints": 0.16617349073091425,
+        "minimumRetention": 0.9852941176470589,
+        "warmInferenceMs": 35.99000000022352,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      }
+    }
+  ]
+}
