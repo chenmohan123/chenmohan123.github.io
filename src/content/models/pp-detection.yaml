@@ -3,7 +3,7 @@ name: PaddleDetection PicoDet / PP-YOLOE
 brand: baidu
 task: detection
 status: available
-summary: 在浏览器本地运行 PicoDet XS/S/M/L 九个输入规格与 PP-YOLOE+ S/M/L/X 640，共13个规格、37个稳定变体。支持图片、摄像头和视频帧，默认 PicoDet-L 320、FP32 和 ModelScope。
+summary: 在浏览器本地运行 PicoDet XS/S/M/L 九个输入规格、PP-YOLOE+ S/M/L/X 640 与 PP-YOLO Tiny 320，共14个规格、38个稳定变体。支持图片、摄像头和视频帧，默认 PicoDet-L 320、FP32 和 ModelScope。
 repository: https://github.com/chenmohan123/web-sdk-PP-Detection
 license: Apache-2.0
 package:
@@ -16,20 +16,83 @@ runtime:
   backends:
     - { name: wasm, status: stable }
     - { name: webgpu, status: stable }
-  capabilities: [worker, checksum, model-cache, image, camera, video, multi-source, fp32, fp16, int8]
+  capabilities:
+    [
+      worker,
+      checksum,
+      model-cache,
+      image,
+      camera,
+      video,
+      multi-source,
+      fp32,
+      fp16,
+      int8,
+    ]
   verifiedEnvironments:
-    - { browser: Chromium 153, os: Windows 11, device: Intel Core i5-10400F / WASM，两个模型三种精度, testedAt: 2026-09-12 }
-    - { browser: Chromium 153, os: Windows 11, device: NVIDIA Blackwell / WebGPU，两个模型三种精度, testedAt: 2026-09-12 }
-    - { browser: Chromium 153.0.8010.12, os: Windows 11 10.0.26200, device: Intel Core i5-10400F / WASM，PP-YOLOE+ S/M/L/X FP32 主线程与 Worker, testedAt: 2026-09-14 }
-    - { browser: Chromium 153.0.8010.12, os: Windows 11 10.0.26200, device: NVIDIA Blackwell / WebGPU，PP-YOLOE+ S/M/L/X FP32 主线程与 Worker, testedAt: 2026-09-14 }
-    - { browser: Chromium 153.0.8010.12, os: Windows 11 10.0.26200, device: Intel Core i5-10400F / WASM，PP-YOLOE+ M/L/X 三精度三轮及新增精度主线程与 Worker, testedAt: 2026-09-14 }
-    - { browser: Chromium 153.0.8010.12, os: Windows 11 10.0.26200, device: NVIDIA Blackwell / WebGPU，PP-YOLOE+ M/L/X 三精度三轮及新增精度主线程与 Worker, testedAt: 2026-09-14 }
-    - { browser: Chromium 153.0.8010.12, os: Windows 11 10.0.26200, device: Intel Core i5-10400F / WASM，PicoDet XS/S/M/L 九规格 FP32 主线程与 Worker, testedAt: 2026-09-15 }
-    - { browser: Chromium 153.0.8010.12, os: Windows 11 10.0.26200, device: NVIDIA Blackwell / WebGPU，PicoDet XS/S/M/L 九规格 FP32 主线程与 Worker, testedAt: 2026-09-15 }
-    - { browser: Chromium 153.0.8010.12, os: Windows 11 10.0.26200, device: Intel Core i5-10400F / WASM，PicoDet 新增14个精度变体三轮64图及主线程/Worker, testedAt: 2026-09-15 }
-    - { browser: Chromium 153.0.8010.12, os: Windows 11 10.0.26200, device: NVIDIA Blackwell / WebGPU，PicoDet 新增14个精度变体三轮64图及主线程/Worker, testedAt: 2026-09-15 }
+    - {
+        browser: Chromium 153,
+        os: Windows 11,
+        device: Intel Core i5-10400F / WASM，两个模型三种精度,
+        testedAt: 2026-09-12,
+      }
+    - {
+        browser: Chromium 153,
+        os: Windows 11,
+        device: NVIDIA Blackwell / WebGPU，两个模型三种精度,
+        testedAt: 2026-09-12,
+      }
+    - {
+        browser: Chromium 153.0.8010.12,
+        os: Windows 11 10.0.26200,
+        device: Intel Core i5-10400F / WASM，PP-YOLOE+ S/M/L/X FP32 主线程与 Worker,
+        testedAt: 2026-09-14,
+      }
+    - {
+        browser: Chromium 153.0.8010.12,
+        os: Windows 11 10.0.26200,
+        device: NVIDIA Blackwell / WebGPU，PP-YOLOE+ S/M/L/X FP32 主线程与 Worker,
+        testedAt: 2026-09-14,
+      }
+    - {
+        browser: Chromium 153.0.8010.12,
+        os: Windows 11 10.0.26200,
+        device: Intel Core i5-10400F / WASM，PP-YOLOE+ M/L/X 三精度三轮及新增精度主线程与 Worker,
+        testedAt: 2026-09-14,
+      }
+    - {
+        browser: Chromium 153.0.8010.12,
+        os: Windows 11 10.0.26200,
+        device: NVIDIA Blackwell / WebGPU，PP-YOLOE+ M/L/X 三精度三轮及新增精度主线程与 Worker,
+        testedAt: 2026-09-14,
+      }
+    - {
+        browser: Chromium 153.0.8010.12,
+        os: Windows 11 10.0.26200,
+        device: Intel Core i5-10400F / WASM，PicoDet XS/S/M/L 九规格 FP32 主线程与 Worker,
+        testedAt: 2026-09-15,
+      }
+    - {
+        browser: Chromium 153.0.8010.12,
+        os: Windows 11 10.0.26200,
+        device: NVIDIA Blackwell / WebGPU，PicoDet XS/S/M/L 九规格 FP32 主线程与 Worker,
+        testedAt: 2026-09-15,
+      }
+    - {
+        browser: Chromium 153.0.8010.12,
+        os: Windows 11 10.0.26200,
+        device: Intel Core i5-10400F / WASM，PicoDet 新增14个精度变体三轮64图及主线程/Worker,
+        testedAt: 2026-09-15,
+      }
+    - {
+        browser: Chromium 153.0.8010.12,
+        os: Windows 11 10.0.26200,
+        device: NVIDIA Blackwell / WebGPU，PicoDet 新增14个精度变体三轮64图及主线程/Worker,
+        testedAt: 2026-09-15,
+      }
 io:
-  input: [Blob, Canvas, CanvasImageSource, ImageBitmap, HTMLVideoElement, VideoFrame]
+  input:
+    [Blob, Canvas, CanvasImageSource, ImageBitmap, HTMLVideoElement, VideoFrame]
   output: [bounding boxes, labels, scores]
 assets:
   - id: picodet-l-320-fp32
@@ -217,7 +280,13 @@ assets:
     bytes: 1875659
     url: https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/f42a5255b3eee3fb9846002fb802af5ad7190771/picodet-xs-416/1.0.1/picodet-xs-416-fp16.onnx
     sha256: c416779803cae85b3ebb57ef94068a223578d3c1ac17a30512464433e6af0c97
+  - id: ppyolo-tiny-320-fp32
+    precision: fp32
+    bytes: 4511117
+    url: https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/9ca30805615e4e00e5a643aa89b5aaaaedfa2ad2/ppyolo-tiny-320/0.1.0/ppyolo-tiny-320-fp32.onnx
+    sha256: 1065a342456dfddf91d3220d2ec929640fa253d17562804cae5dbe7772c22653
 limitations:
+  - PP-YOLO Tiny 320 当前版本0.1.0，仅FP32，4.51MB；固定64图桌面三轮AP22.60，CPU/GPU热推理47.46/31.54ms。双Hub、CPU/GPU与main/Worker八组合验证通过，不新增手机或NPU兼容声明。发布证据：https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/reports/distribution/2026-09-15-ppyolo-tiny/README.md
   - PicoDet 本轮新增8个FP16和6个W8A32，通过三轮 × WASM/WebGPU × 固定64图的逐规格FP32对照。AP下降≤0.5点、score≥0.5/同类IoU≥0.5一对一保留率≥95%；XS-320/416 W8A32最低保留率94.38%/94.12%，保留labs。FP16文件减少约35%–36%，达标W8A32约71%–74%，不代表普遍加速或内存同比减少。证据：https://github.com/chenmohan123/web-sdk-PP-Detection/tree/cdf15b14ea20b3c09adbc76c65a0cbe41ceaf443/reports/evaluation/2026-09-15-picodet-series-precision
   - PP-YOLOE+ S/M/L/X 当前清单均为 0.1.1；PicoDet-L 320 为 1.0.2，新增 PicoDet XS/S/M 320/416 与 L 416/640 为 1.0.1；XS-320/416 提供 FP32、FP16，其余 PicoDet 规格提供 FP32、FP16、W8A32。所有规格仅提供 ModelScope 与 Hugging Face，默认 ModelScope，显式来源失败不会静默换源。发布证据：https://github.com/chenmohan123/web-sdk-PP-Detection/blob/f6d79e4b51125c491eecd48bf7efd745ff5d3c9f/reports/distribution/2026-09-14-ppyoloe-mlx-precision/README.md
   - M/L/X 三规格三精度在固定64图、716标注子集上完成54组浏览器运行；新增六变体 AP 最大下降 0.348 个百分点，常规识别保留率至少 97.43%。门槛为 AP下降≤0.5点、score≥0.5/同类IoU≥0.5保留≥95% FP32检测；IoU≥0.99仅诊断。不代表全量 COCO mAP。
