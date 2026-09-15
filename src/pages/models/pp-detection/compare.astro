@@ -1,0 +1,14 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+import DetectionComparison from '../../../components/model/DetectionComparison';
+import data from '../../../data/pp-detection-comparison.json';
+---
+<SiteLayout title="PP-Detection 模型选型 · Web Model SDK" description="比较37个稳定变体的模型体积、固定子集识别质量和桌面CPU/GPU耗时。">
+  <header class="page-heading">
+    <p><a href="/models/pp-detection/">← PP-Detection</a></p>
+    <h1>找到适合的检测模型</h1>
+    <p>13 个规格 · 37 个稳定变体 · 2026-09-15 更新</p>
+    <p class="model-links"><a href="https://chenmohan123.github.io/web-sdk-PP-Detection/">打开在线 Demo ↗</a><a href="https://github.com/chenmohan123/chenmohan123.github.io/blob/main/docs/zh-CN/pp-detection-selection.md">查看完整对比文档 ↗</a></p>
+  </header>
+  <DetectionComparison data={data} client:load />
+</SiteLayout>

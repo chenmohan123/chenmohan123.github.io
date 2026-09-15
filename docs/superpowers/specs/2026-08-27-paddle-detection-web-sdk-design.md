@@ -1,12 +1,14 @@
 # PaddleDetection Web SDK 设计
 
 - 日期：2026-08-27
-- 状态：方案已在对话中确认，等待文档审阅；尚未开始实现
+- 状态：核心设计已实现；截至2026-09-15，SDK/npm为0.4.0，13个规格、37个稳定变体已发布
 - 分层：单 SDK（首发）+ 门户登记 + 后续 Workflow 配方
 - 目标仓库：chenmohan123/web-sdk-PP-Detection
 - 建议 npm 包：web-sdk-pp-detection
 - 开源协议：Apache-2.0
 - 首发运行时：ONNX Runtime Web
+
+> 当前状态：默认PicoDet-L-320 / FP32 / ModelScope，Demo来源仅ModelScope与Hugging Face。本文后续的首发范围和Git LFS默认来源保留为原始设计记录，来源选择已按后续用户决策更新。单SDK负责轴对齐2D检测、门户负责选型、其他任务独立SDK的边界继续有效。当前进度见[多模型路线](../plans/2026-09-13-pp-detection-multi-model-roadmap.md)，模型对比见[选型文档](../../zh-CN/pp-detection-selection.md)。
 
 ## 背景与目标
 

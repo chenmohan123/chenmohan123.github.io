@@ -1,0 +1,66 @@
+{
+  "verifiedAt": "2026-09-15T11:01:08.1673603Z",
+  "scope": "门户选型与历史证据汇编；本轮未修改SDK或重新运行模型推理",
+  "sdkCommit": "025e207ff0a6a3a4e07f0a4c5b02834969b199ce",
+  "stableVariants": 37,
+  "backendSummaries": 74,
+  "sourceFiles": 30,
+  "unitTestsPassed": 58,
+  "browserTestsPassed": 8,
+  "build": {
+    "errors": 0,
+    "warnings": 0,
+    "hints": 6,
+    "pages": 12
+  },
+  "generatorCheck": "pass",
+  "review": "独立只读审查通过，无阻塞问题",
+  "production": "合并后验证，结果归档于对应PR和Actions",
+  "evidence": [
+    {
+      "path": "tests.log",
+      "bytes": 1518,
+      "sha256": "1665854dfc8eeb48c54a0ee7b44ec0b8fd59e683d2cc0c0691d0db777348ab34"
+    },
+    {
+      "path": "build.log",
+      "bytes": 4696,
+      "sha256": "1c63ff4cc4efcb8863d0c7b73bbcd6480a31ae64c284eeeba2fcebdf5ba369ec"
+    },
+    {
+      "path": "browser.log",
+      "bytes": 1323,
+      "sha256": "139fe8f4810a7f6fd2878b490c6fcee691326d7ce0d6859dbc7d205781575d76"
+    },
+    {
+      "path": "standard.json",
+      "bytes": 11837,
+      "sha256": "211019c521baf96e01670e72a98f726748147419a0df2a242e5fd8d7b03b2fdb"
+    },
+    {
+      "path": "local-smoke.json",
+      "bytes": 606,
+      "sha256": "1b0ec244f92db30bbfe9333b412da7c9adbb79bd5194b77b55027c49a82a07ac"
+    },
+    {
+      "path": "desktop.png",
+      "bytes": 91089,
+      "sha256": "28c28bfd5544a80805dc308ee79f1289fe7441974b25c5e83ec632cbedf64b57"
+    },
+    {
+      "path": "mobile-top.png",
+      "bytes": 48005,
+      "sha256": "6ac300a418e46a183eb4bd15fcd140c366912e20c0df59b6e5e3b98ba886423e"
+    },
+    {
+      "path": "mobile-table.png",
+      "bytes": 50178,
+      "sha256": "dbb0cdb5e468c9cd992bb0ea268ec89c225fa12184bf4ba126ab84f5dbdbe0a1"
+    },
+    {
+      "path": "sources.json",
+      "bytes": 12011,
+      "sha256": "a02e28d454d7a7dfb146bf6e14548b0869be267d1d94bdb943fb78afe4ce5d83"
+    }
+  ]
+}

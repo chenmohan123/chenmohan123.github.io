@@ -1,0 +1,70 @@
+$ astro check && astro build
+18:57:52 [vite] Re-optimizing dependencies because vite config has changed
+18:57:52 [content] Syncing content
+18:57:52 [content] Synced content
+18:57:52 [types] Generated 772ms
+18:57:52 [check] Getting diagnostics for Astro files in F:\git\00_chenmohan\github\chenmohan123.github.io\.worktrees\portal-picodet-precision...
+[96mreports/sdk-standard/2026-09-12-detection-download/verify-example.mjs[0m:[93m76[0m:[93m10[0m - [93mwarning[0m[90m ts(2568): [0mProperty 'error' may not exist on type '{ date: string; browser: string; sdk: string; status: string; runs: never[]; errors: never[]; }'. Did you mean 'errors'?
+
+[7m76[0m   report.error = String(error);
+[7m  [0m [93m         ~~~~~[0m
+[96mreports/sdk-standard/2026-09-12-detection-download/verify-example.mjs[0m:[93m36[0m:[93m12[0m - [93mwarning[0m[90m ts(2568): [0mProperty 'click' may not exist on type 'HTMLElement | SVGElement'. Did you mean 'onclick'?
+  Property 'click' does not exist on type 'SVGElement'.
+
+[7m36[0m     button.click();
+[7m  [0m [93m           ~~~~~[0m
+[96mreports/sdk-standard/2026-09-12-detection-download/verify-example.mjs[0m:[93m35[0m:[93m12[0m - [93mwarning[0m[90m ts(2568): [0mProperty 'click' may not exist on type 'HTMLElement | SVGElement'. Did you mean 'onclick'?
+  Property 'click' does not exist on type 'SVGElement'.
+
+[7m35[0m     button.click();
+[7m  [0m [93m           ~~~~~[0m
+
+[96msrc/lib/registry/schema.ts[0m:[93m22[0m:[93m121[0m - [93mwarning[0m[90m ts(6385): [0m'(params?: string | { normalize?: boolean | undefined; pattern?: RegExp | undefined; abort?: boolean | undefined; hostname?: RegExp | undefined; protocol?: RegExp | undefined; error?: string | ... 1 more ... | undefined; message?: string | undefined; } | undefined): ZodString' is deprecated.
+
+[7m22[0m   assets: z.array(z.object({ id: z.string(), precision: z.string(), bytes: z.number().int().positive(), url: z.string().url(), sha256: z.string().regex(/^[a-f0-9]{64}$/) })).min(1),
+[7m  [0m [93m                                                                                                                        ~~~[0m
+[96msrc/lib/registry/schema.ts[0m:[93m15[0m:[93m36[0m - [93mwarning[0m[90m ts(6385): [0m'(params?: string | { normalize?: boolean | undefined; pattern?: RegExp | undefined; abort?: boolean | undefined; hostname?: RegExp | undefined; protocol?: RegExp | undefined; error?: string | ... 1 more ... | undefined; message?: string | undefined; } | undefined): ZodString' is deprecated.
+
+[7m15[0m   demo: z.object({ url: z.string().url(), localProcessing: z.boolean() }),
+[7m  [0m [93m                                   ~~~[0m
+[96msrc/lib/registry/schema.ts[0m:[93m12[0m:[93m26[0m - [93mwarning[0m[90m ts(6385): [0m'(params?: string | { normalize?: boolean | undefined; pattern?: RegExp | undefined; abort?: boolean | undefined; hostname?: RegExp | undefined; protocol?: RegExp | undefined; error?: string | ... 1 more ... | undefined; message?: string | undefined; } | undefined): ZodString' is deprecated.
+
+[7m12[0m   repository: z.string().url(),
+[7m  [0m [93m                         ~~~[0m
+
+Result (47 files): 
+- 0 errors
+- 0 warnings
+- 6 hints
+
+18:58:00 [content] Syncing content
+18:58:00 [content] Synced content
+18:58:00 [types] Generated 590ms
+18:58:00 [build] output: "static"
+18:58:00 [build] mode: "static"
+18:58:00 [build] directory: F:\git\00_chenmohan\github\chenmohan123.github.io\.worktrees\portal-picodet-precision\dist\
+18:58:00 [build] Collecting build info...
+18:58:00 [build] ✓ Completed in 654ms.
+18:58:00 [build] Building static entrypoints...
+18:58:00 [vite] ✓ built in 216ms
+18:58:01 [vite] ✓ built in 350ms
+18:58:01 [build] Rearranging server assets...
+
+ generating static routes 
+18:58:01   ├─ /brands/baidu/index.html (+12ms) 
+18:58:01   ├─ /docs/index.html (+4ms) 
+18:58:01   ├─ /models/pp-detection/compare/index.html (+27ms) 
+18:58:01   ├─ /models/pp-detection/index.html (+4ms) 
+18:58:01   ├─ /models/pp-doclayoutv3/index.html (+3ms) 
+18:58:01   ├─ /models/pp-lcnet-x1-0-doc-ori/index.html (+3ms) 
+18:58:01   ├─ /models/pp-ocrv6/index.html (+39ms) 
+18:58:01   ├─ /tasks/detection/index.html (+3ms) 
+18:58:01   ├─ /tasks/document-layout/index.html (+3ms) 
+18:58:01   ├─ /tasks/image-correction/index.html (+4ms) 
+18:58:01   ├─ /tasks/ocr/index.html (+3ms) 
+18:58:01   ├─ /index.html (+97ms) 
+18:58:01 ✓ Completed in 235ms.
+
+18:58:01 [build] ✓ Completed in 842ms.
+18:58:01 [build] 12 page(s) built in 1.50s
+18:58:01 [build] Complete!

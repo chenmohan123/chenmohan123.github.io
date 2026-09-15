@@ -1,0 +1,192 @@
+{
+  "sdkCommit": "025e207ff0a6a3a4e07f0a4c5b02834969b199ce",
+  "sourceRepository": "chenmohan123/web-sdk-PP-Detection",
+  "sources": [
+    {
+      "path": "reports/evaluation/2026-09-12-precision-variants/summary.json",
+      "bytes": 20611,
+      "sha256": "8fae6a2e26cea79b2d7e6f10e3fa8fa6b2299a1d0f6fbfbcf9eed7b5291c7f04",
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/reports/evaluation/2026-09-12-precision-variants/summary.json"
+    },
+    {
+      "path": "reports/evaluation/2026-09-14-ppyoloe-mlx-release/summary.json",
+      "bytes": 108728,
+      "sha256": "36ac184b9c164233e599a306b810cd0589cd2e2f3da0f612580fd603a5d08f22",
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/reports/evaluation/2026-09-14-ppyoloe-mlx-release/summary.json"
+    },
+    {
+      "path": "reports/evaluation/2026-09-15-picodet-series-precision/summary.json",
+      "bytes": 604357,
+      "sha256": "6e83e61293f86fd5e36a72b5ea3003deff28e921efb59b35c1121c9c8a74d6c2",
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/reports/evaluation/2026-09-15-picodet-series-precision/summary.json"
+    },
+    {
+      "path": "reports/evaluation/2026-09-15-picodet-series-precision/inputs.lock.json",
+      "bytes": 16694,
+      "sha256": "3571ee753e070a158daa1f288ca25db77a1d71ef2cc061a4113ac515dfd13d8b",
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/reports/evaluation/2026-09-15-picodet-series-precision/inputs.lock.json"
+    },
+    {
+      "path": "reports/evaluation/2026-09-12-precision-variants/artifact-index.json",
+      "bytes": 20767,
+      "sha256": "837b41816ffb78ab06e3e1cbe9c073fb1d2bab58dc0499d24927aff5f62c67be",
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/reports/evaluation/2026-09-12-precision-variants/artifact-index.json"
+    },
+    {
+      "path": "models/pp-detection/1.0.2/manifest.json",
+      "bytes": 7405,
+      "sha256": "77f1471d97b3c70141be7952dd63f458f98585e07f01cd6772f5da1ca0963378",
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/pp-detection/1.0.2/manifest.json"
+    },
+    {
+      "path": "reports/evaluation/2026-09-12-precision-variants/browser/picodet-wasm-fp32-3.json.gz",
+      "bytes": 275786,
+      "sha256": "4c9372cdc16f4d130bcf91dad4630b20501616b798b3407cd8d57aa8b8c25836",
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/reports/evaluation/2026-09-12-precision-variants/browser/picodet-wasm-fp32-3.json.gz"
+    },
+    {
+      "path": "reports/evaluation/2026-09-12-precision-variants/browser/picodet-webgpu-fp32-3.json.gz",
+      "bytes": 275984,
+      "sha256": "a3996b0f52fd4162024d8d044489511138a0db0cd24cd4e50469051a8c81f2b5",
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/reports/evaluation/2026-09-12-precision-variants/browser/picodet-webgpu-fp32-3.json.gz"
+    },
+    {
+      "path": "reports/evaluation/2026-09-12-precision-variants/browser/picodet-wasm-fp16-3.json.gz",
+      "bytes": 137080,
+      "sha256": "cda00288f47d5ceef9737d0251d15493e3a9d1493f0dbe76718cd0efd0771b42",
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/reports/evaluation/2026-09-12-precision-variants/browser/picodet-wasm-fp16-3.json.gz"
+    },
+    {
+      "path": "reports/evaluation/2026-09-12-precision-variants/browser/picodet-webgpu-fp16-3.json.gz",
+      "bytes": 137047,
+      "sha256": "da2e73291d6413b0c4163bbf1aa1b44788449a407302d1c4caa36317a954f503",
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/reports/evaluation/2026-09-12-precision-variants/browser/picodet-webgpu-fp16-3.json.gz"
+    },
+    {
+      "path": "reports/evaluation/2026-09-12-precision-variants/browser/picodet-wasm-w8a32-3.json.gz",
+      "bytes": 277089,
+      "sha256": "21d81a99f5e02ec253962e6a25003bbe5906553772231bf3a0fdfccab79477b7",
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/reports/evaluation/2026-09-12-precision-variants/browser/picodet-wasm-w8a32-3.json.gz"
+    },
+    {
+      "path": "reports/evaluation/2026-09-12-precision-variants/browser/picodet-webgpu-w8a32-3.json.gz",
+      "bytes": 277054,
+      "sha256": "9bc23ff94c14fae6dd0bd4a6643a75ef0c3500a4ad37baf589c9f66ffe4db8b8",
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/reports/evaluation/2026-09-12-precision-variants/browser/picodet-webgpu-w8a32-3.json.gz"
+    },
+    {
+      "path": "models/ppyoloe-plus-s-640/0.1.1/manifest.json",
+      "bytes": 7561,
+      "sha256": "9db661d4394e296a0ac0c0cf959c5b3532df9f81edec69f6c59b58e2398edb63",
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/ppyoloe-plus-s-640/0.1.1/manifest.json"
+    },
+    {
+      "path": "reports/evaluation/2026-09-12-precision-variants/browser/ppyoloe-wasm-fp32-3.json.gz",
+      "bytes": 814186,
+      "sha256": "749772e2e859511f8f18ec0004f24d8b3296cd80b34715965081bdc64518fef6",
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/reports/evaluation/2026-09-12-precision-variants/browser/ppyoloe-wasm-fp32-3.json.gz"
+    },
+    {
+      "path": "reports/evaluation/2026-09-12-precision-variants/browser/ppyoloe-webgpu-fp32-3.json.gz",
+      "bytes": 816042,
+      "sha256": "74794add91e0b40c965eef8f847c69023aa5103269fe1fb3372bfb0aa10c223e",
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/reports/evaluation/2026-09-12-precision-variants/browser/ppyoloe-webgpu-fp32-3.json.gz"
+    },
+    {
+      "path": "reports/evaluation/2026-09-12-precision-variants/browser/ppyoloe-wasm-fp16-3.json.gz",
+      "bytes": 384055,
+      "sha256": "78e58ec6ba1bc3b77a4541c6f7cc0a0dde2033ae6be5fe94607db1785ae79608",
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/reports/evaluation/2026-09-12-precision-variants/browser/ppyoloe-wasm-fp16-3.json.gz"
+    },
+    {
+      "path": "reports/evaluation/2026-09-12-precision-variants/browser/ppyoloe-webgpu-fp16-3.json.gz",
+      "bytes": 376727,
+      "sha256": "feef5c7a1a7678af06642fe9116e8012c6150743a542265b2468f915352a1756",
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/reports/evaluation/2026-09-12-precision-variants/browser/ppyoloe-webgpu-fp16-3.json.gz"
+    },
+    {
+      "path": "reports/evaluation/2026-09-12-precision-variants/browser/ppyoloe-wasm-w8a32-3.json.gz",
+      "bytes": 811109,
+      "sha256": "acd2cf6062ffce446b7b207e9d84d7aaf2cf814c95d712e756facc57a093eb07",
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/reports/evaluation/2026-09-12-precision-variants/browser/ppyoloe-wasm-w8a32-3.json.gz"
+    },
+    {
+      "path": "reports/evaluation/2026-09-12-precision-variants/browser/ppyoloe-webgpu-w8a32-3.json.gz",
+      "bytes": 814450,
+      "sha256": "6ae92ea83cf3608a75c2db069046be4a063f66fe6e61c574e0c1fac22521f025",
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/reports/evaluation/2026-09-12-precision-variants/browser/ppyoloe-webgpu-w8a32-3.json.gz"
+    },
+    {
+      "path": "models/ppyoloe-plus-m-640/0.1.1/manifest.json",
+      "bytes": 7668,
+      "sha256": "13a59ca177f07c5de04f89db12c038c6c3a658de0b29503370de16423ca9169d",
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/ppyoloe-plus-m-640/0.1.1/manifest.json"
+    },
+    {
+      "path": "models/ppyoloe-plus-l-640/0.1.1/manifest.json",
+      "bytes": 7674,
+      "sha256": "71a6bdc00c9c616c01b135ac568e47627479ef7ebf1f46de7a9e0c2b01f6103c",
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/ppyoloe-plus-l-640/0.1.1/manifest.json"
+    },
+    {
+      "path": "models/ppyoloe-plus-x-640/0.1.1/manifest.json",
+      "bytes": 7674,
+      "sha256": "81b343ed6604d43a1023fc58cfc76071bbc7b513bc3824c882df06b453c0890d",
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/ppyoloe-plus-x-640/0.1.1/manifest.json"
+    },
+    {
+      "path": "models/pp-detection/picodet-l-416/1.0.1/manifest.json",
+      "bytes": 7600,
+      "sha256": "2065014f4732ad7709d001ca6ca28deea987c6dcc858cf13f1a1f735a24c7dbd",
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/pp-detection/picodet-l-416/1.0.1/manifest.json"
+    },
+    {
+      "path": "models/pp-detection/picodet-l-640/1.0.1/manifest.json",
+      "bytes": 7600,
+      "sha256": "bae9c763b9f58ec71dd59f5d8c0f03f758fd46afa7ae680b0dacd522c14e409f",
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/pp-detection/picodet-l-640/1.0.1/manifest.json"
+    },
+    {
+      "path": "models/pp-detection/picodet-m-320/1.0.1/manifest.json",
+      "bytes": 7597,
+      "sha256": "d2c4b7a63bbf679d8f7353ecc5c81e8aafe8f98aacf1f04e09cb60eb0d136fc9",
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/pp-detection/picodet-m-320/1.0.1/manifest.json"
+    },
+    {
+      "path": "models/pp-detection/picodet-m-416/1.0.1/manifest.json",
+      "bytes": 7597,
+      "sha256": "abd4b50170569ace71b10a9e90bfd916930aa866bf8211e767cf6a51328c2aca",
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/pp-detection/picodet-m-416/1.0.1/manifest.json"
+    },
+    {
+      "path": "models/pp-detection/picodet-s-320/1.0.1/manifest.json",
+      "bytes": 7593,
+      "sha256": "4403944d831b17f380912c75061f6e7b931fa8cfd0989a3881acb6e17a7b5061",
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/pp-detection/picodet-s-320/1.0.1/manifest.json"
+    },
+    {
+      "path": "models/pp-detection/picodet-s-416/1.0.1/manifest.json",
+      "bytes": 7593,
+      "sha256": "e00a8dff3caecb22b70b76e770c062741d424dcc8177039bcd4d1f26036f9868",
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/pp-detection/picodet-s-416/1.0.1/manifest.json"
+    },
+    {
+      "path": "models/pp-detection/picodet-xs-320/1.0.1/manifest.json",
+      "bytes": 6094,
+      "sha256": "cf0be84a23ef92f3f009409c124547652db368a9689222f34fc68a836637cd66",
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/pp-detection/picodet-xs-320/1.0.1/manifest.json"
+    },
+    {
+      "path": "models/pp-detection/picodet-xs-416/1.0.1/manifest.json",
+      "bytes": 6094,
+      "sha256": "eb50a53666f3c4316fe20a79f9b624ce9621bb60b656051a710e287cc09495db",
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/025e207ff0a6a3a4e07f0a4c5b02834969b199ce/models/pp-detection/picodet-xs-416/1.0.1/manifest.json"
+    }
+  ],
+  "output": {
+    "path": "src/data/pp-detection-comparison.json",
+    "bytes": 43518,
+    "sha256": "562c9dba3d0bcd12954aff56f1af517b818f351c7d17811bd3b328d56567edd0"
+  },
+  "interpretation": "原始发布证据的可追溯汇编；不新增推理运行，不改写旧批次，不生成跨批次性能排名。"
+}
