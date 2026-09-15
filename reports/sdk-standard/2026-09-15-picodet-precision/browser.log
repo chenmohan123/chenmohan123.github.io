@@ -1,0 +1,14 @@
+$ playwright test
+
+Running 6 tests using 1 worker
+
+(node:26052) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 tests\portal.spec.ts:3:1 › homepage exposes the model SDK directory and Models navigation (937ms)
+  ok 2 tests\portal.spec.ts:14:1 › PP-DocLayoutV3 detail exposes package, assets, and live demo (411ms)
+  ok 3 tests\portal.spec.ts:31:1 › PaddleDetection 详情展示 0.4.0、三十七个模型变体和独立 Demo，窄屏不溢出 (383ms)
+  ok 4 tests\portal.spec.ts:86:1 › PP-OCRv6 详情展示 0.2.0、六个 FP32 资产和独立 Demo (268ms)
+  ok 5 tests\portal.spec.ts:112:1 › brand and task routes are statically generated (220ms)
+  ok 6 tests\portal.spec.ts:119:1 › docs distinguish stable backends from Labs (154ms)
+
+  6 passed (4.4s)

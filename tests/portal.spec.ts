@@ -28,7 +28,7 @@ test("PP-DocLayoutV3 detail exposes package, assets, and live demo", async ({
   await expect(page.getByText("70.84 MiB")).toBeVisible();
 });
 
-test("PaddleDetection 详情展示 0.4.0、二十三个模型变体和独立 Demo，窄屏不溢出", async ({
+test("PaddleDetection 详情展示 0.4.0、三十七个模型变体和独立 Demo，窄屏不溢出", async ({
   page,
 }) => {
   await page.goto("/models/pp-detection/");
@@ -68,6 +68,12 @@ test("PaddleDetection 详情展示 0.4.0、二十三个模型变体和独立 Dem
         }),
       ).toBeVisible();
     }
+  }
+  for (const key of ["xs-320", "xs-416", "s-320", "s-416", "m-320", "m-416", "l-416", "l-640"]) {
+    await expect(page.getByText(`picodet-${key}-fp16`, { exact: true })).toBeVisible();
+    const quantized = page.getByText(`picodet-${key}-w8a32`, { exact: true });
+    if (key.startsWith("xs-")) await expect(quantized).toHaveCount(0);
+    else await expect(quantized).toBeVisible();
   }
   await page.setViewportSize({ width: 390, height: 844 });
   expect(

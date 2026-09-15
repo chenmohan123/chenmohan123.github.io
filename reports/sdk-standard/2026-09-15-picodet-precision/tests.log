@@ -1,0 +1,18 @@
+$ vitest run
+
+ RUN  v3.2.7 F:/git/00_chenmohan/github/chenmohan123.github.io/.worktrees/portal-picodet-precision
+
+ ✓ src/lib/registry/query.test.ts (3 tests) 7ms
+ ✓ src/content/models/registry.test.ts (4 tests) 83ms
+ ✓ tools/sdk-standard-check/standard-files.test.ts (7 tests) 232ms
+ ✓ src/components/registry/ModelDirectory.test.tsx (2 tests) 306ms
+ ✓ tools/sdk-standard-check/checker.test.ts (13 tests) 396ms
+ ✓ tools/sdk-standard-check/manifest-validation.test.ts (22 tests) 1060ms
+   ✓ 清单完整 schema 校验 > YAML 中错误的资产数组返回 CONFIG-001 和 CLI 退出码 1  367ms
+   ✓ 清单完整 schema 校验 > 多个仓库中的损坏清单不会阻止后续仓库扫描  331ms
+
+ Test Files  6 passed (6)
+      Tests  51 passed (51)
+   Start at  16:50:37
+   Duration  6.66s (transform 484ms, setup 6.05s, collect 1.76s, tests 2.08s, environment 21.03s, prepare 1.58s)
+
