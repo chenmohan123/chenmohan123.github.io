@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { summarizeVariant } from "./build.mjs";
+import { summarizeVariant, tinyRun } from "./build.mjs";
 
 const asset = { id: "fixture-fp16", precision: "fp16", bytes: 40, sha256: "a".repeat(64) };
 const runs = () => ["wasm", "webgpu"].flatMap((backend) => [1, 2, 3].map((round) => ({
@@ -32,5 +32,33 @@ describe("选型数据汇总", () => {
     expect(() => summarizeVariant(asset, invalid, [3])).toThrow(/数值/);
     const scale = runs(); scale[0].apPoints = 101;
     expect(() => summarizeVariant(asset, scale, [3])).toThrow(/数值/);
+  });
+});
+
+
+describe("Tiny FP32原始证据", () => {
+  const fixture = () => ({
+    status: "passed",
+    artifacts: { model: asset, sdk: { sha256: "sdk" }, annotations: { sha256: "d398fc9b09d97135e9b92d28d170681ed50bcd3a5518f16f559e6e379adc1b79" }, imageSetSha256: "1a36e342e8b8f00a4709d60f9f90d783ec61b179f89d64f041192d350281a99c" },
+    runtime: { backend: "wasm", requestedBackend: "wasm", mode: "main", precision: "fp32", fallbacks: [] as string[] },
+    images: Array.from({ length: 64 }, (_, imageId) => ({ imageId, timings: { inferenceMs: imageId === 0 ? 900 : 47 } })),
+  });
+  const summary = { rounds: [{ round: 1, AP: 22.6, warmInferenceMs: 47, pythonComparison: { matchedCount: 184, referenceCount: 208 } }] };
+  it("使用排除首图的真实耗时，自身FP32基线不受其他比较匹配率影响", () => {
+    const result = tinyRun(asset, summary, fixture(), "wasm", 1, "sdk");
+    expect(result.warmInferenceMs).toBe(47);
+    expect(result.retention).toBe(1);
+    expect(result.apDeltaPoints).toBe(0);
+  });
+  it("拒绝错模型、错后端、回退、重复图片与汇总耗时漂移", () => {
+    const wrongModel = fixture(); wrongModel.artifacts.model = { ...asset, sha256: "other" };
+    expect(() => tinyRun(asset, summary, wrongModel, "wasm", 1, "sdk")).toThrow();
+    const fallback = fixture(); fallback.runtime.fallbacks = ["wasm"];
+    expect(() => tinyRun(asset, summary, fallback, "wasm", 1, "sdk")).toThrow();
+    expect(() => tinyRun(asset, summary, fixture(), "webgpu", 1, "sdk")).toThrow();
+    const duplicate = fixture(); duplicate.images[1].imageId = 0;
+    expect(() => tinyRun(asset, summary, duplicate, "wasm", 1, "sdk")).toThrow();
+    expect(() => tinyRun(asset, { rounds: [{ round: 1, AP: 22.6, warmInferenceMs: 900 }] }, fixture(), "wasm", 1, "sdk")).toThrow();
+    expect(() => tinyRun(asset, summary, fixture(), "wasm", 2, "sdk")).toThrow(/轮次/);
   });
 });

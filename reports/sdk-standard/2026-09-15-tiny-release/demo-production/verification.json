@@ -1,0 +1,200 @@
+{
+  "date": "2026-09-15T14:44:53.119Z",
+  "base": "https://chenmohan123.github.io/web-sdk-PP-Detection/",
+  "deployment": {
+    "conclusion": "success",
+    "headBranch": "main",
+    "headSha": "8c392ea7ffc196c47fa5380f5d910e32618d7849",
+    "status": "completed",
+    "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/actions/runs/34982552284",
+    "workflowName": "GitHub Pages"
+  },
+  "os": "10.0.26200",
+  "cpu": "Intel(R) Core(TM) i5-10400F CPU @ 2.90GHz",
+  "manifestSha256": "52f37bb1a34281e99cd42d1b9458eb2c88ea39df26e4117337d95247712b0c3c",
+  "rows": [
+    {
+      "source": "modelscope",
+      "backend": "wasm",
+      "model": {
+        "id": "ppyolo-tiny-320",
+        "version": "0.1.0",
+        "variantId": "fp32",
+        "precision": "fp32",
+        "bytes": 4511117,
+        "parameterCount": 1086147,
+        "opset": 14,
+        "source": {
+          "kind": "modelscope",
+          "revision": "9ca30805615e4e00e5a643aa89b5aaaaedfa2ad2",
+          "bytes": 4511117,
+          "sha256": "1065a342456dfddf91d3220d2ec929640fa253d17562804cae5dbe7772c22653"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-15T14:44:59.684Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp32",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detections": 12,
+      "statuses": [
+        302,
+        200
+      ],
+      "status": "passed"
+    },
+    {
+      "source": "modelscope",
+      "backend": "webgpu",
+      "model": {
+        "id": "ppyolo-tiny-320",
+        "version": "0.1.0",
+        "variantId": "fp32",
+        "precision": "fp32",
+        "bytes": 4511117,
+        "parameterCount": 1086147,
+        "opset": 14,
+        "source": {
+          "kind": "modelscope",
+          "revision": "9ca30805615e4e00e5a643aa89b5aaaaedfa2ad2",
+          "bytes": 4511117,
+          "sha256": "1065a342456dfddf91d3220d2ec929640fa253d17562804cae5dbe7772c22653"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-15T14:45:05.370Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "fp32",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detections": 12,
+      "statuses": [
+        302,
+        200
+      ],
+      "status": "passed"
+    },
+    {
+      "source": "huggingface",
+      "backend": "wasm",
+      "model": {
+        "id": "ppyolo-tiny-320",
+        "version": "0.1.0",
+        "variantId": "fp32",
+        "precision": "fp32",
+        "bytes": 4511117,
+        "parameterCount": 1086147,
+        "opset": 14,
+        "source": {
+          "kind": "huggingface",
+          "revision": "0a9a95db338aa4e99264205c4f703fbd949af999",
+          "bytes": 4511117,
+          "sha256": "1065a342456dfddf91d3220d2ec929640fa253d17562804cae5dbe7772c22653"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-15T14:45:12.598Z"
+        },
+        "requestedBackend": "wasm",
+        "backend": "wasm",
+        "precision": "fp32",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detections": 12,
+      "statuses": [
+        302,
+        200
+      ],
+      "status": "passed"
+    },
+    {
+      "source": "huggingface",
+      "backend": "webgpu",
+      "model": {
+        "id": "ppyolo-tiny-320",
+        "version": "0.1.0",
+        "variantId": "fp32",
+        "precision": "fp32",
+        "bytes": 4511117,
+        "parameterCount": 1086147,
+        "opset": 14,
+        "source": {
+          "kind": "huggingface",
+          "revision": "0a9a95db338aa4e99264205c4f703fbd949af999",
+          "bytes": 4511117,
+          "sha256": "1065a342456dfddf91d3220d2ec929640fa253d17562804cae5dbe7772c22653"
+        }
+      },
+      "runtime": {
+        "runtimeVersion": "1.27.0",
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+          "platform": "Win32",
+          "capturedAt": "2026-09-15T14:45:17.192Z"
+        },
+        "requestedBackend": "webgpu",
+        "backend": "webgpu",
+        "precision": "fp32",
+        "mode": "main",
+        "fallbacks": [],
+        "capabilities": {
+          "webgpu": true,
+          "worker": true,
+          "offscreenCanvas": true,
+          "wasmSimd": false,
+          "wasmThreads": false
+        }
+      },
+      "detections": 12,
+      "statuses": [
+        302,
+        200
+      ],
+      "status": "passed"
+    }
+  ],
+  "errors": [],
+  "status": "passed",
+  "browser": "153.0.8010.12"
+}
