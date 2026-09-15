@@ -32,6 +32,11 @@ io:
   input: [Blob, Canvas, CanvasImageSource, ImageBitmap, HTMLVideoElement, VideoFrame]
   output: [bounding boxes, labels, scores]
 assets:
+  - id: ppyolo-tiny-320-fp32
+    precision: fp32
+    bytes: 4511117
+    url: https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/9ca30805615e4e00e5a643aa89b5aaaaedfa2ad2/ppyolo-tiny-320/0.1.0/ppyolo-tiny-320-fp32.onnx
+    sha256: 1065a342456dfddf91d3220d2ec929640fa253d17562804cae5dbe7772c22653
   - id: picodet-l-320-fp32
     precision: fp32
     bytes: 23243834
