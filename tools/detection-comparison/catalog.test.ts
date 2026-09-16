@@ -3,7 +3,7 @@ import { createHash } from 'node:crypto';
 import { describe, expect, it } from 'vitest';
 import { parse } from 'yaml';
 import data from '../../src/data/pp-detection-comparison.json';
-import receipt from '../../reports/sdk-standard/2026-09-15-detection-selection/sources.json';
+import receipt from '../../reports/sdk-standard/2026-09-16-tiny-precision/sources.json';
 
 describe('选型表与发布目录的一致性', () => {
   it('每份稳定权重恰好对应一行，排除未发布候选，防止目录更新后展示错误权重数据', () => {
