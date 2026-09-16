@@ -1,7 +1,7 @@
 # PaddleDetection Web SDK 设计
 
 - 日期：2026-08-27
-- 状态：核心设计已实现；截至2026-09-15，SDK/npm为0.4.0，13个规格、37个稳定变体已发布
+- 状态：2D 检测阶段于 2026-09-16 收口并进入稳定维护；SDK/npm 为 0.4.0，14 个规格、39 个稳定变体已发布
 - 分层：单 SDK（首发）+ 门户登记 + 后续 Workflow 配方
 - 目标仓库：chenmohan123/web-sdk-PP-Detection
 - 建议 npm 包：web-sdk-pp-detection
@@ -33,7 +33,7 @@ INT8 在实测后加入，INT4 和 FP8 只作为实验能力。
   检测变体；首发默认模型优先选择轻量 PicoDet。
 - web-sdk-pp-rotated-detection：旋转框和角度框后处理。
 - web-sdk-pp-segmentation：实例分割的 mask/多边形结果。
-- web-sdk-pp-tinypose：人体关键点和可见性结果。
+- web-sdk-pp-tinypose：人体关键点和响应分数；首个 TinyPose 模型不提供独立的可见性/遮挡分类，不能把分数改称可见性概率。
 - web-sdk-pp-tracking：跨帧轨迹生命周期和跟踪状态。
 
 PP-Human、PP-HumanV2、PP-Vehicle、PP-Sports 是多模型和业务规则组合，先
