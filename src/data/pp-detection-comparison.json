@@ -1,6 +1,6 @@
 {
-  "date": "2026-09-15",
-  "sdkCommit": "8c392ea7ffc196c47fa5380f5d910e32618d7849",
+  "date": "2026-09-16",
+  "sdkCommit": "e535ba6a04d715e064847769742b5243523eb0c8",
   "dataset": {
     "images": 64,
     "annotations": 716,
@@ -17,6 +17,54 @@
   },
   "groups": [
     {
+      "id": "tiny-precision",
+      "title": "PP-YOLO Tiny 320 精度对比",
+      "date": "2026-09-16",
+      "sdk": "0.4.0",
+      "sdkSha256": "c2b6a9733416571c77c8dc48fa68028251e5d8cccb201047c8387bf9433e1189",
+      "timingRounds": [
+        1,
+        2,
+        3
+      ],
+      "timingMethod": "各轮排除首图，取63图推理中位数，再取三轮中位数",
+      "retentionMethod": "相对本批次同轮同后端FP32，取三轮最小保留率",
+      "report": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-16-tiny-precision/README.md",
+      "reference": {
+        "label": "本批次 FP32 对照",
+        "bytes": 4511117,
+        "sha256": "1065a342456dfddf91d3220d2ec929640fa253d17562804cae5dbe7772c22653",
+        "wasm": {
+          "apRange": [
+            22.598156639707902,
+            22.598156639707902
+          ],
+          "minimumApDeltaPoints": 0,
+          "minimumRetention": 1,
+          "warmInferenceMs": 48.49500000476837,
+          "timingRounds": [
+            1,
+            2,
+            3
+          ]
+        },
+        "webgpu": {
+          "apRange": [
+            22.598156639707902,
+            22.598156639707902
+          ],
+          "minimumApDeltaPoints": 0,
+          "minimumRetention": 1,
+          "warmInferenceMs": 30.605000004172325,
+          "timingRounds": [
+            1,
+            2,
+            3
+          ]
+        }
+      }
+    },
+    {
       "id": "tiny",
       "title": "PP-YOLO Tiny 320",
       "date": "2026-09-15",
@@ -29,7 +77,7 @@
       ],
       "timingMethod": "各轮排除首图，取63图推理中位数，再取三轮中位数",
       "retentionMethod": "FP32自身基线，不是量化保留率或Python匹配率",
-      "report": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/reports/evaluation/2026-09-15-2d-candidates/README.md"
+      "report": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-15-2d-candidates/README.md"
     },
     {
       "id": "pico",
@@ -44,7 +92,7 @@
       ],
       "timingMethod": "各轮排除首图，取63图推理中位数，再取三轮中位数",
       "retentionMethod": "三轮最小保留率",
-      "report": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/reports/evaluation/2026-09-15-picodet-series-precision/README.md"
+      "report": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-15-picodet-series-precision/README.md"
     },
     {
       "id": "mlx",
@@ -59,7 +107,7 @@
       ],
       "timingMethod": "各轮排除首图，取63图推理中位数，再取三轮中位数",
       "retentionMethod": "三轮最小保留率",
-      "report": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/reports/evaluation/2026-09-14-ppyoloe-mlx-release/README.md"
+      "report": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-14-ppyoloe-mlx-release/README.md"
     },
     {
       "id": "early",
@@ -72,7 +120,7 @@
       ],
       "timingMethod": "仅第三轮排除首图后的63图推理中位数；前两轮可能与界面测试重叠",
       "retentionMethod": "原发布报告的汇总保留率",
-      "report": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/reports/evaluation/2026-09-12-precision-variants/README.md"
+      "report": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-12-precision-variants/README.md"
     }
   ],
   "excluded": [
@@ -83,6 +131,12 @@
     {
       "id": "picodet-xs-416-w8a32",
       "minimumRetention": 0.9411764705882353
+    },
+    {
+      "id": "ppyolo-tiny-320-w8a32",
+      "minimumRetention": 0.9663461538461539,
+      "minimumApDeltaPoints": -0.5373643303478809,
+      "reason": "AP下降超过0.5点"
     }
   ],
   "rows": [
@@ -93,7 +147,7 @@
       "precision": "fp32",
       "bytes": 23243834,
       "sha256": "0397bb449689d1bf57dfcb8849b3ddaa1c8962e1e63e533bd97d265908a428a1",
-      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/models/pp-detection/1.0.2/manifest.json",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/pp-detection/1.0.2/manifest.json",
       "modelVersion": "1.0.2",
       "group": "early",
       "wasm": {
@@ -128,7 +182,7 @@
       "precision": "fp16",
       "bytes": 14813981,
       "sha256": "4db8b0b2da7c5893ed532ba2b3e213318a35a18e9195d67b51cc94bcce6e21fa",
-      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/models/pp-detection/1.0.2/manifest.json",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/pp-detection/1.0.2/manifest.json",
       "modelVersion": "1.0.2",
       "group": "early",
       "wasm": {
@@ -163,7 +217,7 @@
       "precision": "w8a32",
       "bytes": 6117685,
       "sha256": "3c46094c52437768373e55e2f4f320be3725399b5a906abea251cc30b7a06d59",
-      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/models/pp-detection/1.0.2/manifest.json",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/pp-detection/1.0.2/manifest.json",
       "modelVersion": "1.0.2",
       "group": "early",
       "wasm": {
@@ -198,7 +252,7 @@
       "precision": "fp32",
       "bytes": 31954220,
       "sha256": "d3ae6a9f75311e7a05b535c4c0d4a1cdaad6342f87a0339cef5b4e52b106749c",
-      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/models/ppyoloe-plus-s-640/0.1.1/manifest.json",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/ppyoloe-plus-s-640/0.1.1/manifest.json",
       "modelVersion": "0.1.1",
       "group": "early",
       "wasm": {
@@ -233,7 +287,7 @@
       "precision": "fp16",
       "bytes": 16054567,
       "sha256": "c5f9cca5475b481132f5169b80a647966503f3ccf9c4e86c26aef76123df3fd4",
-      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/models/ppyoloe-plus-s-640/0.1.1/manifest.json",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/ppyoloe-plus-s-640/0.1.1/manifest.json",
       "modelVersion": "0.1.1",
       "group": "early",
       "wasm": {
@@ -268,7 +322,7 @@
       "precision": "w8a32",
       "bytes": 8225467,
       "sha256": "cef7cd4dbbac67db53c75f0a3aca30343a5fb9be0b743c57d9dca8dec0d48b2e",
-      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/models/ppyoloe-plus-s-640/0.1.1/manifest.json",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/ppyoloe-plus-s-640/0.1.1/manifest.json",
       "modelVersion": "0.1.1",
       "group": "early",
       "wasm": {
@@ -303,7 +357,7 @@
       "precision": "fp32",
       "bytes": 94022904,
       "sha256": "c6b56099c4866e4c4ff01d31982e9e1004c6ac2fd8f8e1d97a3188db3ea095aa",
-      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/models/ppyoloe-plus-m-640/0.1.1/manifest.json",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/ppyoloe-plus-m-640/0.1.1/manifest.json",
       "modelVersion": "0.1.1",
       "group": "mlx",
       "wasm": {
@@ -342,7 +396,7 @@
       "precision": "fp16",
       "bytes": 47104975,
       "sha256": "e8ca077bb7ed8a02f01127a2fab0f7283a0f307b5384bdefc8084aecf2efa64b",
-      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/models/ppyoloe-plus-m-640/0.1.1/manifest.json",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/ppyoloe-plus-m-640/0.1.1/manifest.json",
       "modelVersion": "0.1.1",
       "group": "mlx",
       "wasm": {
@@ -381,7 +435,7 @@
       "precision": "w8a32",
       "bytes": 23818631,
       "sha256": "ef45621107bf35fe906c5f5d64f40306ec3d5929bcc43fa3a76857d2c5e086d6",
-      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/models/ppyoloe-plus-m-640/0.1.1/manifest.json",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/ppyoloe-plus-m-640/0.1.1/manifest.json",
       "modelVersion": "0.1.1",
       "group": "mlx",
       "wasm": {
@@ -420,7 +474,7 @@
       "precision": "fp32",
       "bytes": 209181400,
       "sha256": "01f325d228676b0494e5eec45f10e2830dc9f81bf67a03157c24a0abf7824075",
-      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/models/ppyoloe-plus-l-640/0.1.1/manifest.json",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/ppyoloe-plus-l-640/0.1.1/manifest.json",
       "modelVersion": "0.1.1",
       "group": "mlx",
       "wasm": {
@@ -459,7 +513,7 @@
       "precision": "fp16",
       "bytes": 104700181,
       "sha256": "3f2545b97018dd4c556ae38ac494da23982aa0f5d0024c673ed43df24cab96a2",
-      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/models/ppyoloe-plus-l-640/0.1.1/manifest.json",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/ppyoloe-plus-l-640/0.1.1/manifest.json",
       "modelVersion": "0.1.1",
       "group": "mlx",
       "wasm": {
@@ -498,7 +552,7 @@
       "precision": "w8a32",
       "bytes": 52698311,
       "sha256": "e7e95c61f4ac28938de373781f8b62c6f7a3f7c7c80c2e2c163b79370eeb5e03",
-      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/models/ppyoloe-plus-l-640/0.1.1/manifest.json",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/ppyoloe-plus-l-640/0.1.1/manifest.json",
       "modelVersion": "0.1.1",
       "group": "mlx",
       "wasm": {
@@ -537,7 +591,7 @@
       "precision": "fp32",
       "bytes": 394163636,
       "sha256": "90b8ea67186b6df262b5ea441e4392144b71fa2562593892d60e2e81d5a0811e",
-      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/models/ppyoloe-plus-x-640/0.1.1/manifest.json",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/ppyoloe-plus-x-640/0.1.1/manifest.json",
       "modelVersion": "0.1.1",
       "group": "mlx",
       "wasm": {
@@ -576,7 +630,7 @@
       "precision": "fp16",
       "bytes": 197207187,
       "sha256": "0432be99a5012c427c685280df97e7b876345830b608396f0f87617f259c1394",
-      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/models/ppyoloe-plus-x-640/0.1.1/manifest.json",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/ppyoloe-plus-x-640/0.1.1/manifest.json",
       "modelVersion": "0.1.1",
       "group": "mlx",
       "wasm": {
@@ -615,7 +669,7 @@
       "precision": "w8a32",
       "bytes": 99048805,
       "sha256": "fbc57fbfe6e4e4497a08a3cecbf9c62f93d2c5963b4ddf2af1cb7dfc8cd9ee56",
-      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/models/ppyoloe-plus-x-640/0.1.1/manifest.json",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/ppyoloe-plus-x-640/0.1.1/manifest.json",
       "modelVersion": "0.1.1",
       "group": "mlx",
       "wasm": {
@@ -654,7 +708,7 @@
       "precision": "fp32",
       "bytes": 23261512,
       "sha256": "46612bce478e30008f0dab63b7bd9bb2c944d7720b93726a03484567f3de91b4",
-      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/models/pp-detection/picodet-l-416/1.0.1/manifest.json",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/pp-detection/picodet-l-416/1.0.1/manifest.json",
       "modelVersion": "1.0.1",
       "group": "pico",
       "wasm": {
@@ -693,7 +747,7 @@
       "precision": "fp32",
       "bytes": 23320381,
       "sha256": "bbc0a02f543e49dfcbd50efcd700c99c8183c94e147bb83b7a921a6ec9aaf1df",
-      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/models/pp-detection/picodet-l-640/1.0.1/manifest.json",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/pp-detection/picodet-l-640/1.0.1/manifest.json",
       "modelVersion": "1.0.1",
       "group": "pico",
       "wasm": {
@@ -732,7 +786,7 @@
       "precision": "fp32",
       "bytes": 13905160,
       "sha256": "2914a3bc0475e6596baac9495eea798da99aadc8db48afd995c53906f8299474",
-      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/models/pp-detection/picodet-m-320/1.0.1/manifest.json",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/pp-detection/picodet-m-320/1.0.1/manifest.json",
       "modelVersion": "1.0.1",
       "group": "pico",
       "wasm": {
@@ -771,7 +825,7 @@
       "precision": "fp32",
       "bytes": 13922843,
       "sha256": "a1dfa189118d72e95798c711badf967d03ea00d848f04bb8476fd5eae31a4f5f",
-      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/models/pp-detection/picodet-m-416/1.0.1/manifest.json",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/pp-detection/picodet-m-416/1.0.1/manifest.json",
       "modelVersion": "1.0.1",
       "group": "pico",
       "wasm": {
@@ -810,7 +864,7 @@
       "precision": "fp32",
       "bytes": 4807906,
       "sha256": "84cd653b3615f63f6e8d478d8c590578a6c9b0608d597948799e599e5c3ad1ab",
-      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/models/pp-detection/picodet-s-320/1.0.1/manifest.json",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/pp-detection/picodet-s-320/1.0.1/manifest.json",
       "modelVersion": "1.0.1",
       "group": "pico",
       "wasm": {
@@ -849,7 +903,7 @@
       "precision": "fp32",
       "bytes": 4825589,
       "sha256": "78328c4e9484db59bba41d95d381687503e8e905711672fec702975d85075682",
-      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/models/pp-detection/picodet-s-416/1.0.1/manifest.json",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/pp-detection/picodet-s-416/1.0.1/manifest.json",
       "modelVersion": "1.0.1",
       "group": "pico",
       "wasm": {
@@ -888,7 +942,7 @@
       "precision": "fp32",
       "bytes": 2886024,
       "sha256": "54417c113c07d4507af8f92027032a17a315a25014ee57922d18a2fd504797d3",
-      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/models/pp-detection/picodet-xs-320/1.0.1/manifest.json",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/pp-detection/picodet-xs-320/1.0.1/manifest.json",
       "modelVersion": "1.0.1",
       "group": "pico",
       "wasm": {
@@ -927,7 +981,7 @@
       "precision": "fp32",
       "bytes": 2903707,
       "sha256": "c0e1208d1c2a30aaabb4cd52f31e07bbf20284ef88e8f12933da5dca481b6239",
-      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/models/pp-detection/picodet-xs-416/1.0.1/manifest.json",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/pp-detection/picodet-xs-416/1.0.1/manifest.json",
       "modelVersion": "1.0.1",
       "group": "pico",
       "wasm": {
@@ -966,7 +1020,7 @@
       "precision": "fp16",
       "bytes": 14836820,
       "sha256": "8118d856d515e36c7ab4100c2dbdede35e77ab3b6e07bd906b323ce00330170f",
-      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/models/pp-detection/picodet-l-416/1.0.1/manifest.json",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/pp-detection/picodet-l-416/1.0.1/manifest.json",
       "modelVersion": "1.0.1",
       "group": "pico",
       "wasm": {
@@ -1005,7 +1059,7 @@
       "precision": "w8a32",
       "bytes": 6135363,
       "sha256": "ecd31887f2c032140d592b42240c19848f200c0b5eeb91a6d9759884d666fea4",
-      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/models/pp-detection/picodet-l-416/1.0.1/manifest.json",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/pp-detection/picodet-l-416/1.0.1/manifest.json",
       "modelVersion": "1.0.1",
       "group": "pico",
       "wasm": {
@@ -1044,7 +1098,7 @@
       "precision": "fp16",
       "bytes": 14874912,
       "sha256": "f8a3ff8ce83b5c72e070d62319663b221f2b750bccf35384a96ee40537e0e73b",
-      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/models/pp-detection/picodet-l-640/1.0.1/manifest.json",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/pp-detection/picodet-l-640/1.0.1/manifest.json",
       "modelVersion": "1.0.1",
       "group": "pico",
       "wasm": {
@@ -1083,7 +1137,7 @@
       "precision": "w8a32",
       "bytes": 6194232,
       "sha256": "e3549e3bb180c10ac66644954b1390cb3a23bda6f862fc94cec1593eea789ef8",
-      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/models/pp-detection/picodet-l-640/1.0.1/manifest.json",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/pp-detection/picodet-l-640/1.0.1/manifest.json",
       "modelVersion": "1.0.1",
       "group": "pico",
       "wasm": {
@@ -1122,7 +1176,7 @@
       "precision": "fp16",
       "bytes": 8869567,
       "sha256": "43c56ded9b1e2dc0f90b0d1d2b2240e12f6cc315ff5ee77084182138e4ba4e14",
-      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/models/pp-detection/picodet-m-320/1.0.1/manifest.json",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/pp-detection/picodet-m-320/1.0.1/manifest.json",
       "modelVersion": "1.0.1",
       "group": "pico",
       "wasm": {
@@ -1161,7 +1215,7 @@
       "precision": "w8a32",
       "bytes": 3736832,
       "sha256": "a4eb8623655b3b6255c0a1e91eb2b98f39e2b8b3468b0b4cd4b8c1c8311dc1cd",
-      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/models/pp-detection/picodet-m-320/1.0.1/manifest.json",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/pp-detection/picodet-m-320/1.0.1/manifest.json",
       "modelVersion": "1.0.1",
       "group": "pico",
       "wasm": {
@@ -1200,7 +1254,7 @@
       "precision": "fp16",
       "bytes": 8885644,
       "sha256": "44cccdccfd07c7f9a8d3f9120df04997a48fe2f0cc3edcb1f341855017f700ad",
-      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/models/pp-detection/picodet-m-416/1.0.1/manifest.json",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/pp-detection/picodet-m-416/1.0.1/manifest.json",
       "modelVersion": "1.0.1",
       "group": "pico",
       "wasm": {
@@ -1239,7 +1293,7 @@
       "precision": "w8a32",
       "bytes": 3754515,
       "sha256": "c4c1fe2407c20cd85f63199f2199c9c35f379bb6ba33eba29bb02f39f18db1cc",
-      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/models/pp-detection/picodet-m-416/1.0.1/manifest.json",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/pp-detection/picodet-m-416/1.0.1/manifest.json",
       "modelVersion": "1.0.1",
       "group": "pico",
       "wasm": {
@@ -1278,7 +1332,7 @@
       "precision": "fp16",
       "bytes": 3082899,
       "sha256": "b54a67ac5acb73023c74162732d1ff6bbe0d367963d562659a363fa602c26c46",
-      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/models/pp-detection/picodet-s-320/1.0.1/manifest.json",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/pp-detection/picodet-s-320/1.0.1/manifest.json",
       "modelVersion": "1.0.1",
       "group": "pico",
       "wasm": {
@@ -1317,7 +1371,7 @@
       "precision": "w8a32",
       "bytes": 1380421,
       "sha256": "1fba3b2bef155c51bc971d1b9628923ec3668b40542b1677cb8b0cf15889c154",
-      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/models/pp-detection/picodet-s-320/1.0.1/manifest.json",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/pp-detection/picodet-s-320/1.0.1/manifest.json",
       "modelVersion": "1.0.1",
       "group": "pico",
       "wasm": {
@@ -1356,7 +1410,7 @@
       "precision": "fp16",
       "bytes": 3097823,
       "sha256": "af7a57ce3c2181c8235361e9f94d766a7db8ed13f9b4526013cce2852a7ca05a",
-      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/models/pp-detection/picodet-s-416/1.0.1/manifest.json",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/pp-detection/picodet-s-416/1.0.1/manifest.json",
       "modelVersion": "1.0.1",
       "group": "pico",
       "wasm": {
@@ -1395,7 +1449,7 @@
       "precision": "w8a32",
       "bytes": 1398104,
       "sha256": "65ed20cd0ada456cfa3dd3eb3c05c0870fbf80d4ce97fd11488023e1171f3eca",
-      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/models/pp-detection/picodet-s-416/1.0.1/manifest.json",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/pp-detection/picodet-s-416/1.0.1/manifest.json",
       "modelVersion": "1.0.1",
       "group": "pico",
       "wasm": {
@@ -1434,7 +1488,7 @@
       "precision": "fp16",
       "bytes": 1863376,
       "sha256": "b96d5e62ee89fdcf0757880cbf591e28e69589c1e9ca6cd7d064aa7c57ab8d50",
-      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/models/pp-detection/picodet-xs-320/1.0.1/manifest.json",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/pp-detection/picodet-xs-320/1.0.1/manifest.json",
       "modelVersion": "1.0.1",
       "group": "pico",
       "wasm": {
@@ -1473,7 +1527,7 @@
       "precision": "fp16",
       "bytes": 1875659,
       "sha256": "c416779803cae85b3ebb57ef94068a223578d3c1ac17a30512464433e6af0c97",
-      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/models/pp-detection/picodet-xs-416/1.0.1/manifest.json",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/pp-detection/picodet-xs-416/1.0.1/manifest.json",
       "modelVersion": "1.0.1",
       "group": "pico",
       "wasm": {
@@ -1512,7 +1566,7 @@
       "precision": "fp32",
       "bytes": 4511117,
       "sha256": "1065a342456dfddf91d3220d2ec929640fa253d17562804cae5dbe7772c22653",
-      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/models/ppyolo-tiny-320/0.1.0/manifest.json",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/ppyolo-tiny-320/0.1.0/manifest.json",
       "modelVersion": "0.1.0",
       "group": "tiny",
       "wasm": {
@@ -1537,6 +1591,45 @@
         "minimumApDeltaPoints": 0,
         "minimumRetention": 1,
         "warmInferenceMs": 31.53500000014901,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "ppyolo-tiny-320-fp16",
+      "model": "PP-YOLO Tiny 320",
+      "family": "ppyolo",
+      "precision": "fp16",
+      "bytes": 2357376,
+      "sha256": "331cef176e8af2eacd9bfc6d011ade2d29cd41f013af2db2c716566e035413cc",
+      "manifest": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/ppyolo-tiny-320/0.1.1/manifest.json",
+      "modelVersion": "0.1.1",
+      "group": "tiny-precision",
+      "wasm": {
+        "apRange": [
+          22.52764248349048,
+          22.52764248349048
+        ],
+        "minimumApDeltaPoints": -0.07051415621741886,
+        "minimumRetention": 1,
+        "warmInferenceMs": 53.00499999523163,
+        "timingRounds": [
+          1,
+          2,
+          3
+        ]
+      },
+      "webgpu": {
+        "apRange": [
+          22.423507403241974,
+          22.423507403241974
+        ],
+        "minimumApDeltaPoints": -0.17464923646592634,
+        "minimumRetention": 0.9951923076923077,
+        "warmInferenceMs": 37.12999999523163,
         "timingRounds": [
           1,
           2,

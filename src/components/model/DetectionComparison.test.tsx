@@ -6,7 +6,7 @@ import data from "../../data/pp-detection-comparison.json";
 describe("Detection 模型选型", () => {
   it("筛选稳定精度并保留批次，不把XS实验量化列入稳定表", () => {
     render(<DetectionComparison data={data} />);
-    expect(screen.getByRole("status")).toHaveTextContent("38 个稳定变体");
+    expect(screen.getByRole("status")).toHaveTextContent("39 个稳定变体");
     fireEvent.change(screen.getByLabelText("模型系列"), {
       target: { value: "picodet" },
     });
@@ -38,7 +38,15 @@ describe("Detection 模型选型", () => {
     fireEvent.change(screen.getByLabelText("模型精度"), {
       target: { value: "fp16" },
     });
-    expect(screen.getByRole("status")).toHaveTextContent("0 个稳定变体");
+    expect(screen.getByRole("status")).toHaveTextContent("1 个稳定变体");
+    const fp16 = screen.getByRole("row", { name: /PP-YOLO Tiny 320 FP16/ });
+    expect(within(fp16).getByText("2.36")).toBeVisible();
+    expect(within(fp16).getByText("37.13")).toBeVisible();
+    expect(screen.getByText(/本批次 FP32 对照/)).toHaveTextContent("30.61 ms");
+    fireEvent.click(screen.getByRole("radio", { name: "CPU / WASM" }));
+    expect(within(fp16).getByText("53.00")).toBeVisible();
+    expect(screen.getByText(/本批次 FP32 对照/)).toHaveTextContent("48.50 ms");
+    expect(screen.getByText(/Tiny 320 W8A32 的最差 AP/)).toBeVisible();
   });
 
   it("切换后端同时更新AP与耗时，明确不同汇总规则", () => {
@@ -49,6 +57,6 @@ describe("Detection 模型选型", () => {
     expect(within(row).queryByText("64.10")).not.toBeInTheDocument();
     expect(within(row).getByText("36.69")).toBeVisible();
     expect(screen.getByText(/仅第三轮/)).toBeVisible();
-    expect(screen.getAllByText(/再取三轮中位数/)).toHaveLength(3);
+    expect(screen.getAllByText(/再取三轮中位数/)).toHaveLength(4);
   });
 });

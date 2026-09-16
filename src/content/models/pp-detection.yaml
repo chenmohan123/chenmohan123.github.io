@@ -3,7 +3,7 @@ name: PaddleDetection PicoDet / PP-YOLOE
 brand: baidu
 task: detection
 status: available
-summary: 在浏览器本地运行 PicoDet XS/S/M/L 九个输入规格、PP-YOLOE+ S/M/L/X 640 与 PP-YOLO Tiny 320，共14个规格、38个稳定变体。支持图片、摄像头和视频帧，默认 PicoDet-L 320、FP32 和 ModelScope。
+summary: 在浏览器本地运行 PicoDet XS/S/M/L 九个输入规格、PP-YOLOE+ S/M/L/X 640 与 PP-YOLO Tiny 320，共14个规格、39个稳定变体。支持图片、摄像头和视频帧，默认 PicoDet-L 320、FP32 和 ModelScope。
 repository: https://github.com/chenmohan123/web-sdk-PP-Detection
 license: Apache-2.0
 package:
@@ -285,8 +285,13 @@ assets:
     bytes: 4511117
     url: https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/9ca30805615e4e00e5a643aa89b5aaaaedfa2ad2/ppyolo-tiny-320/0.1.0/ppyolo-tiny-320-fp32.onnx
     sha256: 1065a342456dfddf91d3220d2ec929640fa253d17562804cae5dbe7772c22653
+  - id: ppyolo-tiny-320-fp16
+    precision: fp16
+    bytes: 2357376
+    url: https://www.modelscope.cn/models/chenmohan/web-sdk-pp-detection/resolve/f8641fe3a12e62c93af8e8b3397abfb1b78746f7/ppyolo-tiny-320/0.1.1/ppyolo-tiny-320-fp16.onnx
+    sha256: 331cef176e8af2eacd9bfc6d011ade2d29cd41f013af2db2c716566e035413cc
 limitations:
-  - PP-YOLO Tiny 320 当前版本0.1.0，仅FP32，4.51MB；固定64图桌面三轮AP22.60，CPU/GPU热推理47.46/31.54ms。双Hub、CPU/GPU与main/Worker八组合验证通过，不新增手机或NPU兼容声明。发布证据：https://github.com/chenmohan123/web-sdk-PP-Detection/blob/8c392ea7ffc196c47fa5380f5d910e32618d7849/reports/distribution/2026-09-15-ppyolo-tiny/README.md
+  - PP-YOLO Tiny 320 当前稳定版本0.1.0（FP32）与0.1.1（FP32+FP16）；保留0.1.0 FP32来源，新增FP16为2.36MB，固定64图三轮同后端对照AP为22.5276/22.4235（CPU/GPU），热推理53.005/37.130ms，仅体现体积优势，不承诺加速。FP16已通过本轮门槛并进入稳定目录；W8A32为1.57MB但最差AP下降0.537364点超过0.5点，继续保留labs。双Hub、CPU/GPU与main/Worker八组合验证通过，不新增手机或NPU兼容声明。当前评测证据：https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-16-tiny-precision/README.md；原0.1.0发布证据：https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/distribution/2026-09-15-ppyolo-tiny/README.md
   - PicoDet 本轮新增8个FP16和6个W8A32，通过三轮 × WASM/WebGPU × 固定64图的逐规格FP32对照。AP下降≤0.5点、score≥0.5/同类IoU≥0.5一对一保留率≥95%；XS-320/416 W8A32最低保留率94.38%/94.12%，保留labs。FP16文件减少约35%–36%，达标W8A32约71%–74%，不代表普遍加速或内存同比减少。证据：https://github.com/chenmohan123/web-sdk-PP-Detection/tree/cdf15b14ea20b3c09adbc76c65a0cbe41ceaf443/reports/evaluation/2026-09-15-picodet-series-precision
   - PP-YOLOE+ S/M/L/X 当前清单均为 0.1.1；PicoDet-L 320 为 1.0.2，新增 PicoDet XS/S/M 320/416 与 L 416/640 为 1.0.1；XS-320/416 提供 FP32、FP16，其余 PicoDet 规格提供 FP32、FP16、W8A32。所有规格仅提供 ModelScope 与 Hugging Face，默认 ModelScope，显式来源失败不会静默换源。发布证据：https://github.com/chenmohan123/web-sdk-PP-Detection/blob/f6d79e4b51125c491eecd48bf7efd745ff5d3c9f/reports/distribution/2026-09-14-ppyoloe-mlx-precision/README.md
   - M/L/X 三规格三精度在固定64图、716标注子集上完成54组浏览器运行；新增六变体 AP 最大下降 0.348 个百分点，常规识别保留率至少 97.43%。门槛为 AP下降≤0.5点、score≥0.5/同类IoU≥0.5保留≥95% FP32检测；IoU≥0.99仅诊断。不代表全量 COCO mAP。

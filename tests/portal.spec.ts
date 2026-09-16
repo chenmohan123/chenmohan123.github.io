@@ -118,7 +118,7 @@ test("Detection选型入口支持精度和后端筛选，390px保留完整可滚
     "找到适合的检测模型",
   );
   await expect(page.getByRole("status")).toHaveText(
-    "38 个稳定变体 · CPU / WASM",
+    "39 个稳定变体 · CPU / WASM",
   );
   await page
     .getByRole("combobox", { name: "模型系列", exact: true })
@@ -129,6 +129,19 @@ test("Detection选型入口支持精度和后端筛选，390px保留完整可滚
   const tiny = page.locator('tr[data-variant="ppyolo-tiny-320-fp32"]');
   await expect(tiny).toContainText("22.60");
   await expect(tiny).toContainText("47.46");
+  await page.getByRole("combobox", { name: "模型精度", exact: true }).selectOption("fp16");
+  const fp16 = page.locator('tr[data-variant="ppyolo-tiny-320-fp16"]');
+  await expect(fp16).toContainText("2.36");
+  await expect(fp16).toContainText("53.00");
+  await expect(page.locator(".batch-reference")).toContainText("48.50 ms");
+  await page.getByRole("radio", { name: "GPU / WebGPU" }).check();
+  await expect(fp16).toContainText("37.13");
+  await expect(page.locator(".batch-reference")).toContainText("30.61 ms");
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.getByRole("combobox", { name: "模型精度", exact: true }).selectOption("w8a32");
+  await expect(page.getByRole("status")).toHaveText("0 个稳定变体 · GPU / WebGPU");
+  await page.getByRole("radio", { name: "CPU / WASM" }).check();
   await page
     .getByRole("combobox", { name: "模型系列", exact: true })
     .selectOption("picodet");

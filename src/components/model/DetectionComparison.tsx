@@ -4,6 +4,14 @@ import tokens from "../../../standards/v1/ui-tokens.json";
 import "./detection-comparison.css";
 
 type Props = { data: typeof comparison };
+type Batch = (typeof comparison.groups)[number] & {
+  reference?: {
+    label: string;
+    bytes: number;
+    wasm: { apRange: number[]; warmInferenceMs: number };
+    webgpu: { apRange: number[]; warmInferenceMs: number };
+  };
+};
 const number = (value: number) => value.toFixed(2);
 const apRange = (values: number[]) =>
   number(values[0]) === number(values[1])
@@ -115,7 +123,7 @@ export default function DetectionComparison({ data }: Props) {
         各批次单独展示。AP 来自固定 64
         图，热推理耗时不含下载和初始化；不同批次不作统一速度排名。
       </p>
-      {data.groups.map((group) => {
+      {data.groups.map((group: Batch) => {
         const rows = visible.filter((row) => row.group === group.id);
         if (!rows.length) return null;
         return (
@@ -132,6 +140,14 @@ export default function DetectionComparison({ data }: Props) {
               {group.date} · SDK {group.sdk} · {group.timingMethod}
               。检测保留率：{group.retentionMethod}。
             </p>
+            {group.reference && (
+              <p className="batch-reference">
+                {group.reference.label}：{number(group.reference.bytes / 1e6)} MB
+                ，子集 AP {apRange(group.reference[backend].apRange)}，热推理{" "}
+                {number(group.reference[backend].warmInferenceMs)} ms。FP16 文件减少约
+                47.7%，本机未测得加速。
+              </p>
+            )}
             <div
               className="comparison-scroll"
               role="region"
@@ -203,7 +219,7 @@ export default function DetectionComparison({ data }: Props) {
       </details>
       <p className="comparison-labs">
         PicoDet-XS-320 / 416 的 W8A32 检测保留率为 94.38% / 94.12%，未达到 95%
-        门槛，继续保留实验状态。
+        门槛；Tiny 320 W8A32 的最差 AP 下降 0.537 点，超过 0.5 点门槛，均保留实验状态。
       </p>
     </section>
   );

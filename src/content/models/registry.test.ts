@@ -16,7 +16,7 @@ describe("model registry", () => {
     );
   });
 
-  it("登记 Detection 0.4.0 及十四个规格的三十八个稳定变体", () => {
+  it("登记 Detection 0.4.0 及十四个规格的三十九个稳定变体", () => {
     const value = parse(
       readFileSync("src/content/models/pp-detection.yaml", "utf8"),
     );
@@ -43,14 +43,14 @@ describe("model registry", () => {
     );
     expect(model.assets[0].bytes).toBe(23243834);
     expect(model.assets[0].sha256).toMatch(/^[a-f0-9]{64}$/);
-    expect(model.assets).toHaveLength(38);
+    expect(model.assets).toHaveLength(39);
     expect(model.assets.map((asset) => asset.bytes)).toEqual([
       23243834, 14813981, 6117685, 31954220, 16054567, 8225467, 94022904,
       47104975, 23818631, 209181400, 104700181, 52698311, 394163636, 197207187,
       99048805, 23261512, 23320381, 13905160, 13922843, 4807906, 4825589,
       2886024, 2903707, 14836820, 6135363, 14874912, 6194232, 8869567, 3736832,
       8885644, 3754515, 3082899, 1380421, 3097823, 1398104, 1863376, 1875659,
-      4511117,
+      4511117, 2357376,
     ]);
     expect(
       model.assets.some((asset) =>

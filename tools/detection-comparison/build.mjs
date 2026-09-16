@@ -6,11 +6,12 @@ import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { gunzipSync } from "node:zlib";
 import { parse } from "yaml";
+import { tinyPrecisionRun } from "./tiny-precision.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "../..");
-const sdkCommit = "8c392ea7ffc196c47fa5380f5d910e32618d7849";
+const sdkCommit = "e535ba6a04d715e064847769742b5243523eb0c8";
 const sdkUrl = `https://github.com/chenmohan123/web-sdk-PP-Detection/blob/${sdkCommit}`;
-const reportPath = "reports/sdk-standard/2026-09-15-detection-selection";
+const reportPath = "reports/sdk-standard/2026-09-16-tiny-precision";
 const dataPath = "src/data/pp-detection-comparison.json";
 const annotationSha =
   "d398fc9b09d97135e9b92d28d170681ed50bcd3a5518f16f559e6e379adc1b79";
@@ -151,6 +152,39 @@ async function main() {
   const mlxPath = "reports/evaluation/2026-09-14-ppyoloe-mlx-release";
   const picoPath = "reports/evaluation/2026-09-15-picodet-series-precision";
   const tinyPath = "reports/evaluation/2026-09-15-2d-candidates";
+  const precisionPath = "reports/evaluation/2026-09-16-tiny-precision";
+  const precisionReceipt = json(`${precisionPath}/quality-receipt.json`);
+  for (const [path, digest] of Object.entries(precisionReceipt.files))
+    assert.equal(sha(source(`${precisionPath}/${path}`)), digest, `Tiny质量收据不匹配：${path}`);
+  const tinyPrecision = json(`${precisionPath}/summary.json`);
+  const precisionIndex = json(`${precisionPath}/artifact-index.json`);
+  assert.deepEqual(precisionReceipt.evidence, precisionIndex);
+  assert.equal(precisionReceipt.browserRunCount, 18);
+  assert.equal(tinyPrecision.browserRunCount, 18);
+  assert.deepEqual(tinyPrecision.qualityGate, {
+    maximumApDropPoints: 0.5, minimumReferenceRetention: 0.95,
+    scoreThreshold: 0.5, iouThreshold: 0.5, strictIouDiagnostic: 0.99,
+  });
+  assert.equal(tinyPrecision.candidates.find((row) => row.precision === "fp16").qualityGatePassed, true);
+  assert.equal(tinyPrecision.candidates.find((row) => row.precision === "w8a32").qualityGatePassed, false);
+  function precisionRuns(asset) {
+    const rows = tinyPrecision.rows.filter((row) => row.precision === asset.precision);
+    return rows.map((row) => {
+      const references = tinyPrecision.rows.filter((r) => r.precision === "fp32" && r.backend === row.backend && r.round === row.round);
+      assert.equal(references.length, 1, "Tiny FP32对照缺失或重复");
+      const path = `evidence/round-${row.round}/ppyolo-tiny-320-${asset.precision}-${row.backend}.json.gz`;
+      const entries = precisionIndex.filter((item) => item.path === path);
+      assert.equal(entries.length, 1);
+      const entry = entries[0];
+      const packed = source(`${precisionPath}/${path}`);
+      assert.equal(sha(packed), entry.compressedSha256);
+      const bytes = gunzipSync(packed);
+      assert.equal(bytes.length, entry.bytes);
+      assert.equal(sha(bytes), entry.sha256);
+      assert.equal(row.sha256, entry.sha256);
+      return tinyPrecisionRun(asset, row, references[0], JSON.parse(bytes), row.backend, row.round, tinyPrecision.sdkSha256);
+    });
+  }
   const tiny = json(`${tinyPath}/summary.json`);
   const tinyIndex = json(`${tinyPath}/evidence-index.json`);
   assert.equal(tiny.annotationsSha256, annotationSha);
@@ -176,6 +210,13 @@ async function main() {
     pico.inputsLockSha256,
   );
   const groups = [
+    {
+      id: "tiny-precision", title: "PP-YOLO Tiny 320 精度对比", date: "2026-09-16",
+      sdk: "0.4.0", sdkSha256: tinyPrecision.sdkSha256, timingRounds: [1, 2, 3],
+      timingMethod: "各轮排除首图，取63图推理中位数，再取三轮中位数",
+      retentionMethod: "相对本批次同轮同后端FP32，取三轮最小保留率",
+      report: `${sdkUrl}/${precisionPath}/README.md`,
+    },
     {
       id: "tiny",
       title: "PP-YOLO Tiny 320",
@@ -228,6 +269,12 @@ async function main() {
       "utf8",
     ),
   );
+  const baselineAsset = catalog.assets.find((asset) => asset.id === "ppyolo-tiny-320-fp32");
+  assert(baselineAsset, "缺少Tiny FP32目录资产");
+  groups[0].reference = {
+    label: "本批次 FP32 对照", bytes: baselineAsset.bytes, sha256: baselineAsset.sha256,
+    ...summarizeVariant(baselineAsset, precisionRuns(baselineAsset), [1, 2, 3]),
+  };
   const rows = [];
   for (const asset of catalog.assets) {
     const precision = asset.id.split("-").at(-1);
@@ -238,7 +285,7 @@ async function main() {
       (g) =>
         g.id ===
         (isTiny
-          ? "tiny"
+          ? precision === "fp32" ? "tiny" : "tiny-precision"
           : isEarly
             ? "early"
             : key.startsWith("picodet")
@@ -246,7 +293,7 @@ async function main() {
               : "mlx"),
     );
     const manifestPath = isTiny
-      ? "models/ppyolo-tiny-320/0.1.0/manifest.json"
+      ? `models/ppyolo-tiny-320/${precision === "fp32" ? "0.1.0" : "0.1.1"}/manifest.json`
       : key === "picodet-l-320"
         ? "models/pp-detection/1.0.2/manifest.json"
         : key.startsWith("picodet")
@@ -261,7 +308,9 @@ async function main() {
     const remote = variant.sources.find((s) => s.kind === "modelscope");
     assert.equal(remote.downloadUrl, asset.url);
     let runs;
-    if (isTiny) {
+    if (isTiny && precision !== "fp32") {
+      runs = precisionRuns(asset);
+    } else if (isTiny) {
       runs = backends.flatMap((backend) => {
         const summaries = tiny.rows.filter(
           (row) => row.model === "tiny" && row.backend === backend,
@@ -394,8 +443,8 @@ async function main() {
       ...summarizeVariant(asset, runs, group.timingRounds),
     });
   }
-  assert.equal(rows.length, 38);
-  assert.equal(new Set(rows.map((r) => r.id)).size, 38);
+  assert.equal(rows.length, 39);
+  assert.equal(new Set(rows.map((r) => r.id)).size, 39);
   assert.equal(new Set(rows.map((r) => r.model)).size, 14);
   const excluded = pico.candidates
     .filter((r) => !r.qualityGatePassed)
@@ -403,10 +452,14 @@ async function main() {
       id: `${r.key}-${r.precision}`,
       minimumRetention: r.minimumRetention,
     }));
-  assert.equal(excluded.length, 2);
+  excluded.push(...tinyPrecision.candidates.filter((row) => !row.qualityGatePassed).map((row) => ({
+    id: `${row.key}-${row.precision}`, minimumRetention: row.minimumRetention,
+    minimumApDeltaPoints: row.minimumApDeltaPoints, reason: "AP下降超过0.5点",
+  })));
+  assert.equal(excluded.length, 3);
   assert(excluded.every((e) => !rows.some((r) => r.id === e.id)));
   const data = {
-    date: "2026-09-15",
+    date: "2026-09-16",
     sdkCommit,
     dataset: {
       images: 64,
@@ -464,27 +517,28 @@ async function main() {
     }
   }
   console.log(
-    `已核对38个稳定变体、76组后端汇总与${uniqueSources.length}份固定来源；${process.argv.includes("--check") ? "生成结果一致" : "数据和文档已生成"}。`,
+    `已核对39个稳定变体、78组后端汇总与${uniqueSources.length}份固定来源；${process.argv.includes("--check") ? "生成结果一致" : "数据和文档已生成"}。`,
   );
 }
 
 function makeMarkdown(data) {
   let text =
-    "# PP-Detection 模型选型与对比\n\n2026-09-15：14个规格、38个稳定变体。当前SDK/npm为0.4.0，默认PicoDet-L-320 / FP32 / ModelScope。\n\n[交互选型表](https://chenmohan123.github.io/models/pp-detection/compare/) · [在线Demo](https://chenmohan123.github.io/web-sdk-PP-Detection/)\n\n## 如何选择\n\n- 小体积：PicoDet-S-320 W8A32约1.38 MB，是当前38个稳定文件中最小的；适合优先减少首次下载量。\n- CPU速度优先：可比较Tiny 320 FP32与PicoDet-XS-320。Tiny独立批次CPU热推理47.46ms，相较同批次XS对照少约28%，文件大约56%、AP低1.21点；表中旧XS行保留原PicoDet批次64.10ms，不跨批次排名。\n- 识别质量优先：先比较PP-YOLOE+ M/L/X FP32；该批次X的子集AP更高，但文件和CPU耗时也更大。需要压缩下载量时再比较同规格FP16/W8A32。\n- 常规起点：继续使用默认PicoDet-L-320 FP32；需要框坐标尽量接近基线时保留FP32。\n\n## 数据口径\n\n体积采用十进制MB。AP为0–100的COCO AP@[.50:.95]，表中显示三个真实轮次的最小值至最大值；固定64图、716标注，不是全量COCO成绩。保留率指score≥0.5、同类别IoU≥0.5的一对一匹配，分母是同规格、同后端FP32检测数，并非对人工标注的召回率。Tiny仅FP32，显示自身基线，不把Python逐框匹配率或相较PicoDet的AP差值用于量化保留率。\n\n同一图集和设备不等于同一性能批次：四组的SDK摘要、执行日期和耗时汇总规则不同，保留分组，不形成全局速度排名。热推理只计模型inference，复用会话、排除首图；不包含下载、初始化和预处理，不可直接换算摄像头FPS。\n\n环境：Windows 11 10.0.26200；Intel Core i5-10400F；物理NVIDIA Blackwell；Chromium 153.0.8010.12；ORT Web 1.27.0；main模式，WASM单线程，关闭SDK后端回退。没有新增手机或峰值内存验证。W8A32仅压缩权重，激活/卷积仍为FP32；文件缩小不代表运行内存同比下降。\n";
+    "# PP-Detection 模型选型与对比\n\n2026-09-16：14个规格、39个稳定变体。当前SDK/npm为0.4.0，默认PicoDet-L-320 / FP32 / ModelScope。\n\n[交互选型表](https://chenmohan123.github.io/models/pp-detection/compare/) · [在线Demo](https://chenmohan123.github.io/web-sdk-PP-Detection/)\n\n## 如何选择\n\n- 小体积：PicoDet-S-320 W8A32约1.38 MB，是当前39个稳定文件中最小的；适合优先减少首次下载量。\n- Tiny下载量优先：FP16为2.36MB，比FP32减少47.7%，最差AP下降0.175点、检测保留率至少99.52%；本机没有加速收益。\n- CPU速度优先：可比较Tiny 320 FP32与PicoDet-XS-320。Tiny独立批次CPU热推理47.46ms，相较同批次XS对照少约28%，文件大约56%、AP低1.21点；表中旧XS行保留原PicoDet批次64.10ms，不跨批次排名。\n- 识别质量优先：先比较PP-YOLOE+ M/L/X FP32；该批次X的子集AP更高，但文件和CPU耗时也更大。需要压缩下载量时再比较同规格FP16/W8A32。\n- 常规起点：继续使用默认PicoDet-L-320 FP32；需要框坐标尽量接近基线时保留FP32。\n\n## 数据口径\n\n体积采用十进制MB。AP为0–100的COCO AP@[.50:.95]，表中显示三个真实轮次的最小值至最大值；固定64图、716标注，不是全量COCO成绩。保留率指score≥0.5、同类别IoU≥0.5的一对一匹配，分母是同规格、同后端FP32检测数，并非对人工标注的召回率。Tiny首发FP32保留原批次；FP16精度批次单独列出本轮FP32对照，不把旧批次耗时、Python匹配率或相较PicoDet的AP差值用于本轮精度比较。\n\n同一图集和设备不等于同一性能批次：五组的SDK摘要、执行日期和耗时汇总规则不同，保留分组，不形成全局速度排名。热推理只计模型inference，复用会话、排除首图；不包含下载、初始化和预处理，不可直接换算摄像头FPS。\n\n环境：Windows 11 10.0.26200；Intel Core i5-10400F；物理NVIDIA Blackwell；Chromium 153.0.8010.12；ORT Web 1.27.0；main模式，WASM单线程，关闭SDK后端回退。没有新增手机或峰值内存验证。W8A32仅压缩权重，激活/卷积仍为FP32；文件缩小不代表运行内存同比下降。\n";
   const n = (x) => x.toFixed(2);
   const range = (x) =>
     n(x[0]) === n(x[1]) ? n(x[0]) : `${n(x[0])}–${n(x[1])}`;
   for (const group of data.groups) {
-    text += `\n## ${group.title}\n\n${group.date}；SDK ${group.sdk}；${group.timingMethod}。保留率口径：${group.retentionMethod}。[原始报告](${group.report})\n\n| 模型 | 精度 | MB | CPU AP | GPU AP | CPU热推理ms | GPU热推理ms | CPU保留率 | GPU保留率 |\n| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |\n`;
+    const baseline = group.reference ? `本批次FP32对照：${n(group.reference.bytes / 1e6)} MB；CPU/GPU AP ${range(group.reference.wasm.apRange)}/${range(group.reference.webgpu.apRange)}；CPU/GPU热推理 ${n(group.reference.wasm.warmInferenceMs)}/${n(group.reference.webgpu.warmInferenceMs)} ms。该对照不重复计入稳定变体。\n\n` : "";
+    text += `\n## ${group.title}\n\n${group.date}；SDK ${group.sdk}；${group.timingMethod}。保留率口径：${group.retentionMethod}。[原始报告](${group.report})\n\n${baseline}| 模型 | 精度 | MB | CPU AP | GPU AP | CPU热推理ms | GPU热推理ms | CPU保留率 | GPU保留率 |\n| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |\n`;
     for (const row of data.rows.filter((r) => r.group === group.id))
       text += `| ${row.model} | ${row.precision.toUpperCase()} | ${n(row.bytes / 1e6)} | ${range(row.wasm.apRange)} | ${range(row.webgpu.apRange)} | ${n(row.wasm.warmInferenceMs)} | ${n(row.webgpu.warmInferenceMs)} | ${n(row.wasm.minimumRetention * 100)}% | ${n(row.webgpu.minimumRetention * 100)}% |\n`;
   }
   text +=
-    "\n## 未发布项与复现\n\nPicoDet-XS-320/416 W8A32的最低检测保留率为94.38%/94.12%，未达到95%门槛，保留labs，不列入38个稳定变体。原有实验报告不改写。\n\n本页与门户使用同一份自动生成数据，输入固定在SDK提交`" +
+    "\n## 未发布项与复现\n\nPicoDet-XS-320/416 W8A32的最低检测保留率为94.38%/94.12%，未达到95%门槛，保留labs，不列入39个稳定变体。Tiny W8A32为1.57MB，但最差AP下降0.537点，超过0.5点门槛，同样保留labs。原有实验报告不改写。\n\n本页与门户使用同一份自动生成数据，输入固定在SDK提交`" +
     sdkCommit +
     "`，来源文件摘要见[汇编记录](../../" +
     reportPath +
-    "/sources.json)。已有记录覆盖38个稳定变体的两后端质量和耗时，因此本轮不重复推理；跨批次统一排名、手机性能和峰值内存仍需另立同条件基准，当前不提供这些结论。\n\n```powershell\nnode tools/detection-comparison/build.mjs --sdk <包含固定提交的SDK路径> --check\n```\n";
+    "/sources.json)。已有记录覆盖39个稳定变体的两后端质量和耗时，因此本轮不重复推理；跨批次统一排名、手机性能和峰值内存仍需另立同条件基准，当前不提供这些结论。\n\n```powershell\nnode tools/detection-comparison/build.mjs --sdk <包含固定提交的SDK路径> --check\n```\n";
   return text;
 }
 
