@@ -22,7 +22,7 @@
 
 ## PP-YOLO Tiny 320 精度对比
 
-2026-09-16；SDK 0.4.0；各轮排除首图，取63图推理中位数，再取三轮中位数。保留率口径：相对本批次同轮同后端FP32，取三轮最小保留率。[原始报告](https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-16-tiny-precision/README.md)
+2026-09-16；SDK 0.4.0；各轮排除首图，取63图推理中位数，再取三轮中位数。保留率口径：相对本批次同轮同后端FP32，取三轮最小保留率。[原始报告](https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-16-tiny-precision/README.md)
 
 本批次FP32对照：4.51 MB；CPU/GPU AP 22.60/22.60；CPU/GPU热推理 48.50/30.61 ms。该对照不重复计入稳定变体。
 
@@ -32,7 +32,7 @@
 
 ## PP-YOLO Tiny 320
 
-2026-09-15；SDK 0.4.0；各轮排除首图，取63图推理中位数，再取三轮中位数。保留率口径：FP32自身基线，不是量化保留率或Python匹配率。[原始报告](https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-15-2d-candidates/README.md)
+2026-09-15；SDK 0.4.0；各轮排除首图，取63图推理中位数，再取三轮中位数。保留率口径：FP32自身基线，不是量化保留率或Python匹配率。[原始报告](https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-15-2d-candidates/README.md)
 
 | 模型 | 精度 | MB | CPU AP | GPU AP | CPU热推理ms | GPU热推理ms | CPU保留率 | GPU保留率 |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -40,7 +40,7 @@
 
 ## PicoDet XS/S/M 与 L-416/640
 
-2026-09-15；SDK 0.4.0；各轮排除首图，取63图推理中位数，再取三轮中位数。保留率口径：三轮最小保留率。[原始报告](https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-15-picodet-series-precision/README.md)
+2026-09-15；SDK 0.4.0；各轮排除首图，取63图推理中位数，再取三轮中位数。保留率口径：三轮最小保留率。[原始报告](https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-15-picodet-series-precision/README.md)
 
 | 模型 | 精度 | MB | CPU AP | GPU AP | CPU热推理ms | GPU热推理ms | CPU保留率 | GPU保留率 |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -69,7 +69,7 @@
 
 ## PP-YOLOE+ M/L/X
 
-2026-09-14；SDK 0.4.0；各轮排除首图，取63图推理中位数，再取三轮中位数。保留率口径：三轮最小保留率。[原始报告](https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-14-ppyoloe-mlx-release/README.md)
+2026-09-14；SDK 0.4.0；各轮排除首图，取63图推理中位数，再取三轮中位数。保留率口径：三轮最小保留率。[原始报告](https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-14-ppyoloe-mlx-release/README.md)
 
 | 模型 | 精度 | MB | CPU AP | GPU AP | CPU热推理ms | GPU热推理ms | CPU保留率 | GPU保留率 |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -85,7 +85,7 @@
 
 ## PicoDet L-320 与 PP-YOLOE+ S
 
-2026-09-12；SDK 0.3.1；仅第三轮排除首图后的63图推理中位数；前两轮可能与界面测试重叠。保留率口径：原发布报告的汇总保留率。[原始报告](https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-12-precision-variants/README.md)
+2026-09-12；SDK 0.3.1；仅第三轮排除首图后的63图推理中位数；前两轮可能与界面测试重叠。保留率口径：原发布报告的汇总保留率。[原始报告](https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-12-precision-variants/README.md)
 
 | 模型 | 精度 | MB | CPU AP | GPU AP | CPU热推理ms | GPU热推理ms | CPU保留率 | GPU保留率 |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -100,7 +100,7 @@
 
 PicoDet-XS-320/416 W8A32的最低检测保留率为94.38%/94.12%，未达到95%门槛，保留labs，不列入39个稳定变体。Tiny W8A32为1.57MB，但最差AP下降0.537点，超过0.5点门槛，同样保留labs。原有实验报告不改写。
 
-本页与门户使用同一份自动生成数据，输入固定在SDK提交`e535ba6a04d715e064847769742b5243523eb0c8`，来源文件摘要见[汇编记录](../../reports/sdk-standard/2026-09-16-tiny-precision/sources.json)。已有记录覆盖39个稳定变体的两后端质量和耗时，因此本轮不重复推理；跨批次统一排名、手机性能和峰值内存仍需另立同条件基准，当前不提供这些结论。
+本页与门户使用同一份自动生成数据，输入固定在SDK提交`7516d394be79533fdf4980fab8c02cb198e95d97`，来源文件摘要见[汇编记录](../../reports/sdk-standard/2026-09-16-tiny-precision/sources.json)。已有记录覆盖39个稳定变体的两后端质量和耗时，因此本轮不重复推理；跨批次统一排名、手机性能和峰值内存仍需另立同条件基准，当前不提供这些结论。
 
 ```powershell
 node tools/detection-comparison/build.mjs --sdk <包含固定提交的SDK路径> --check

@@ -9,7 +9,7 @@ import { parse } from "yaml";
 import { tinyPrecisionRun } from "./tiny-precision.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "../..");
-const sdkCommit = "e535ba6a04d715e064847769742b5243523eb0c8";
+const sdkCommit = "7516d394be79533fdf4980fab8c02cb198e95d97";
 const sdkUrl = `https://github.com/chenmohan123/web-sdk-PP-Detection/blob/${sdkCommit}`;
 const reportPath = "reports/sdk-standard/2026-09-16-tiny-precision";
 const dataPath = "src/data/pp-detection-comparison.json";

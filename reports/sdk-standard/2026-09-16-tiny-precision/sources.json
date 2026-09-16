@@ -1,378 +1,378 @@
 {
-  "sdkCommit": "e535ba6a04d715e064847769742b5243523eb0c8",
+  "sdkCommit": "7516d394be79533fdf4980fab8c02cb198e95d97",
   "sourceRepository": "chenmohan123/web-sdk-PP-Detection",
   "sources": [
     {
       "path": "reports/evaluation/2026-09-16-tiny-precision/quality-receipt.json",
       "bytes": 6111,
       "sha256": "6c766e921dcf2a3305b015a7e469075521c2f36230543fc7d8305ec03def3e11",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-16-tiny-precision/quality-receipt.json"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-16-tiny-precision/quality-receipt.json"
     },
     {
       "path": "reports/evaluation/2026-09-16-tiny-precision/protocol.json",
       "bytes": 686,
       "sha256": "2d619b27864c42aa1d20468591d20249e4624046008cb13a1f203806de15bff1",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-16-tiny-precision/protocol.json"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-16-tiny-precision/protocol.json"
     },
     {
       "path": "reports/evaluation/2026-09-16-tiny-precision/jobs.json",
       "bytes": 1657,
       "sha256": "d70bc3abb371d8243f4ae7c29aaa338b28cdaca9ca89556d3889d8ebf3a753ca",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-16-tiny-precision/jobs.json"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-16-tiny-precision/jobs.json"
     },
     {
       "path": "reports/evaluation/2026-09-16-tiny-precision/inputs.lock.json",
       "bytes": 12664,
       "sha256": "0affeb27e19bb041711b3bb555932123d53e4db42353277093025ac97e5e535c",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-16-tiny-precision/inputs.lock.json"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-16-tiny-precision/inputs.lock.json"
     },
     {
       "path": "reports/evaluation/2026-09-16-tiny-precision/summary.json",
       "bytes": 75249,
       "sha256": "fa0476fcaa09a3a9d5a7626c0befc46b842b893482920b984381e09ecd078c6e",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-16-tiny-precision/summary.json"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-16-tiny-precision/summary.json"
     },
     {
       "path": "reports/evaluation/2026-09-16-tiny-precision/artifact-index.json",
       "bytes": 4991,
       "sha256": "9ab74f5480e9e2bc8ddba0eeefccf7108e495f158786773e161aaa5fcc4f71f3",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-16-tiny-precision/artifact-index.json"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-16-tiny-precision/artifact-index.json"
     },
     {
       "path": "reports/evaluation/2026-09-16-tiny-precision/cpu-validation.json",
       "bytes": 1663,
       "sha256": "30d0a497bf6b2e9759bf8d1c2a3b1d93e43dd30cda3f757fb3696cf9733af473",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-16-tiny-precision/cpu-validation.json"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-16-tiny-precision/cpu-validation.json"
     },
     {
       "path": "reports/evaluation/2026-09-16-tiny-precision/validation.py",
       "bytes": 3582,
       "sha256": "4501b62fb9cea4445c74639aba90a2994c0e55410ec8e654611a994086bd5569",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-16-tiny-precision/validation.py"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-16-tiny-precision/validation.py"
     },
     {
       "path": "reports/evaluation/2026-09-16-tiny-precision/supplemental-validation.json",
       "bytes": 907,
       "sha256": "9f1204939be2d17aae115e70fb28046a60b682a1091117e4f533c14019852e3b",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-16-tiny-precision/supplemental-validation.json"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-16-tiny-precision/supplemental-validation.json"
     },
     {
       "path": "reports/evaluation/2026-09-15-2d-candidates/summary.json",
       "bytes": 14456,
       "sha256": "862d2febd4cac6c7e6e284093c6f7a55938de81ecbabb30c2564bfaa56ebb806",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-15-2d-candidates/summary.json"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-15-2d-candidates/summary.json"
     },
     {
       "path": "reports/evaluation/2026-09-15-2d-candidates/evidence-index.json",
       "bytes": 8635,
       "sha256": "a186533021ef8f4148b1857c7ed7b27aa2fc2f9df1e76560c9b51444d0b66f5e",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-15-2d-candidates/evidence-index.json"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-15-2d-candidates/evidence-index.json"
     },
     {
       "path": "reports/evaluation/2026-09-12-precision-variants/summary.json",
       "bytes": 20611,
       "sha256": "8fae6a2e26cea79b2d7e6f10e3fa8fa6b2299a1d0f6fbfbcf9eed7b5291c7f04",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-12-precision-variants/summary.json"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-12-precision-variants/summary.json"
     },
     {
       "path": "reports/evaluation/2026-09-14-ppyoloe-mlx-release/summary.json",
       "bytes": 108728,
       "sha256": "36ac184b9c164233e599a306b810cd0589cd2e2f3da0f612580fd603a5d08f22",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-14-ppyoloe-mlx-release/summary.json"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-14-ppyoloe-mlx-release/summary.json"
     },
     {
       "path": "reports/evaluation/2026-09-15-picodet-series-precision/summary.json",
       "bytes": 604357,
       "sha256": "6e83e61293f86fd5e36a72b5ea3003deff28e921efb59b35c1121c9c8a74d6c2",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-15-picodet-series-precision/summary.json"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-15-picodet-series-precision/summary.json"
     },
     {
       "path": "reports/evaluation/2026-09-15-picodet-series-precision/inputs.lock.json",
       "bytes": 16694,
       "sha256": "3571ee753e070a158daa1f288ca25db77a1d71ef2cc061a4113ac515dfd13d8b",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-15-picodet-series-precision/inputs.lock.json"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-15-picodet-series-precision/inputs.lock.json"
     },
     {
       "path": "reports/evaluation/2026-09-12-precision-variants/artifact-index.json",
       "bytes": 20767,
       "sha256": "837b41816ffb78ab06e3e1cbe9c073fb1d2bab58dc0499d24927aff5f62c67be",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-12-precision-variants/artifact-index.json"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-12-precision-variants/artifact-index.json"
     },
     {
       "path": "reports/evaluation/2026-09-16-tiny-precision/evidence/round-1/ppyolo-tiny-320-fp32-wasm.json.gz",
       "bytes": 193476,
       "sha256": "d68d7c6bff585944fc9e45a2d8952886bba24fa7a212a709bd89e02579e91830",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-16-tiny-precision/evidence/round-1/ppyolo-tiny-320-fp32-wasm.json.gz"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-16-tiny-precision/evidence/round-1/ppyolo-tiny-320-fp32-wasm.json.gz"
     },
     {
       "path": "reports/evaluation/2026-09-16-tiny-precision/evidence/round-1/ppyolo-tiny-320-fp32-webgpu.json.gz",
       "bytes": 193898,
       "sha256": "b6b155571a5942a4258d76773a00c70c399f6e4c3781524edd5e8b6a8caddc37",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-16-tiny-precision/evidence/round-1/ppyolo-tiny-320-fp32-webgpu.json.gz"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-16-tiny-precision/evidence/round-1/ppyolo-tiny-320-fp32-webgpu.json.gz"
     },
     {
       "path": "reports/evaluation/2026-09-16-tiny-precision/evidence/round-2/ppyolo-tiny-320-fp32-wasm.json.gz",
       "bytes": 193502,
       "sha256": "de36033a91ef77d96c201e72613a2f72ec1d01af127dccb26dc85a46b84684a0",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-16-tiny-precision/evidence/round-2/ppyolo-tiny-320-fp32-wasm.json.gz"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-16-tiny-precision/evidence/round-2/ppyolo-tiny-320-fp32-wasm.json.gz"
     },
     {
       "path": "reports/evaluation/2026-09-16-tiny-precision/evidence/round-2/ppyolo-tiny-320-fp32-webgpu.json.gz",
       "bytes": 193966,
       "sha256": "aa6d343696cd2c92dedabfc19ff8898e88f628b5cab493985950847ce8917e14",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-16-tiny-precision/evidence/round-2/ppyolo-tiny-320-fp32-webgpu.json.gz"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-16-tiny-precision/evidence/round-2/ppyolo-tiny-320-fp32-webgpu.json.gz"
     },
     {
       "path": "reports/evaluation/2026-09-16-tiny-precision/evidence/round-3/ppyolo-tiny-320-fp32-wasm.json.gz",
       "bytes": 193443,
       "sha256": "c663285872a1a94401d149496067813972c2a7db9cbedfeb78ac2540aeda19fb",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-16-tiny-precision/evidence/round-3/ppyolo-tiny-320-fp32-wasm.json.gz"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-16-tiny-precision/evidence/round-3/ppyolo-tiny-320-fp32-wasm.json.gz"
     },
     {
       "path": "reports/evaluation/2026-09-16-tiny-precision/evidence/round-3/ppyolo-tiny-320-fp32-webgpu.json.gz",
       "bytes": 193894,
       "sha256": "2c606828f286b1374dda4dc79c8a5d03651e817d48649daddde7fa391ed85dfd",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-16-tiny-precision/evidence/round-3/ppyolo-tiny-320-fp32-webgpu.json.gz"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-16-tiny-precision/evidence/round-3/ppyolo-tiny-320-fp32-webgpu.json.gz"
     },
     {
       "path": "models/pp-detection/1.0.2/manifest.json",
       "bytes": 7405,
       "sha256": "77f1471d97b3c70141be7952dd63f458f98585e07f01cd6772f5da1ca0963378",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/pp-detection/1.0.2/manifest.json"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/models/pp-detection/1.0.2/manifest.json"
     },
     {
       "path": "reports/evaluation/2026-09-12-precision-variants/browser/picodet-wasm-fp32-3.json.gz",
       "bytes": 275786,
       "sha256": "4c9372cdc16f4d130bcf91dad4630b20501616b798b3407cd8d57aa8b8c25836",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-12-precision-variants/browser/picodet-wasm-fp32-3.json.gz"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-12-precision-variants/browser/picodet-wasm-fp32-3.json.gz"
     },
     {
       "path": "reports/evaluation/2026-09-12-precision-variants/browser/picodet-webgpu-fp32-3.json.gz",
       "bytes": 275984,
       "sha256": "a3996b0f52fd4162024d8d044489511138a0db0cd24cd4e50469051a8c81f2b5",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-12-precision-variants/browser/picodet-webgpu-fp32-3.json.gz"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-12-precision-variants/browser/picodet-webgpu-fp32-3.json.gz"
     },
     {
       "path": "reports/evaluation/2026-09-12-precision-variants/browser/picodet-wasm-fp16-3.json.gz",
       "bytes": 137080,
       "sha256": "cda00288f47d5ceef9737d0251d15493e3a9d1493f0dbe76718cd0efd0771b42",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-12-precision-variants/browser/picodet-wasm-fp16-3.json.gz"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-12-precision-variants/browser/picodet-wasm-fp16-3.json.gz"
     },
     {
       "path": "reports/evaluation/2026-09-12-precision-variants/browser/picodet-webgpu-fp16-3.json.gz",
       "bytes": 137047,
       "sha256": "da2e73291d6413b0c4163bbf1aa1b44788449a407302d1c4caa36317a954f503",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-12-precision-variants/browser/picodet-webgpu-fp16-3.json.gz"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-12-precision-variants/browser/picodet-webgpu-fp16-3.json.gz"
     },
     {
       "path": "reports/evaluation/2026-09-12-precision-variants/browser/picodet-wasm-w8a32-3.json.gz",
       "bytes": 277089,
       "sha256": "21d81a99f5e02ec253962e6a25003bbe5906553772231bf3a0fdfccab79477b7",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-12-precision-variants/browser/picodet-wasm-w8a32-3.json.gz"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-12-precision-variants/browser/picodet-wasm-w8a32-3.json.gz"
     },
     {
       "path": "reports/evaluation/2026-09-12-precision-variants/browser/picodet-webgpu-w8a32-3.json.gz",
       "bytes": 277054,
       "sha256": "9bc23ff94c14fae6dd0bd4a6643a75ef0c3500a4ad37baf589c9f66ffe4db8b8",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-12-precision-variants/browser/picodet-webgpu-w8a32-3.json.gz"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-12-precision-variants/browser/picodet-webgpu-w8a32-3.json.gz"
     },
     {
       "path": "models/ppyoloe-plus-s-640/0.1.1/manifest.json",
       "bytes": 7561,
       "sha256": "9db661d4394e296a0ac0c0cf959c5b3532df9f81edec69f6c59b58e2398edb63",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/ppyoloe-plus-s-640/0.1.1/manifest.json"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/models/ppyoloe-plus-s-640/0.1.1/manifest.json"
     },
     {
       "path": "reports/evaluation/2026-09-12-precision-variants/browser/ppyoloe-wasm-fp32-3.json.gz",
       "bytes": 814186,
       "sha256": "749772e2e859511f8f18ec0004f24d8b3296cd80b34715965081bdc64518fef6",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-12-precision-variants/browser/ppyoloe-wasm-fp32-3.json.gz"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-12-precision-variants/browser/ppyoloe-wasm-fp32-3.json.gz"
     },
     {
       "path": "reports/evaluation/2026-09-12-precision-variants/browser/ppyoloe-webgpu-fp32-3.json.gz",
       "bytes": 816042,
       "sha256": "74794add91e0b40c965eef8f847c69023aa5103269fe1fb3372bfb0aa10c223e",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-12-precision-variants/browser/ppyoloe-webgpu-fp32-3.json.gz"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-12-precision-variants/browser/ppyoloe-webgpu-fp32-3.json.gz"
     },
     {
       "path": "reports/evaluation/2026-09-12-precision-variants/browser/ppyoloe-wasm-fp16-3.json.gz",
       "bytes": 384055,
       "sha256": "78e58ec6ba1bc3b77a4541c6f7cc0a0dde2033ae6be5fe94607db1785ae79608",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-12-precision-variants/browser/ppyoloe-wasm-fp16-3.json.gz"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-12-precision-variants/browser/ppyoloe-wasm-fp16-3.json.gz"
     },
     {
       "path": "reports/evaluation/2026-09-12-precision-variants/browser/ppyoloe-webgpu-fp16-3.json.gz",
       "bytes": 376727,
       "sha256": "feef5c7a1a7678af06642fe9116e8012c6150743a542265b2468f915352a1756",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-12-precision-variants/browser/ppyoloe-webgpu-fp16-3.json.gz"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-12-precision-variants/browser/ppyoloe-webgpu-fp16-3.json.gz"
     },
     {
       "path": "reports/evaluation/2026-09-12-precision-variants/browser/ppyoloe-wasm-w8a32-3.json.gz",
       "bytes": 811109,
       "sha256": "acd2cf6062ffce446b7b207e9d84d7aaf2cf814c95d712e756facc57a093eb07",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-12-precision-variants/browser/ppyoloe-wasm-w8a32-3.json.gz"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-12-precision-variants/browser/ppyoloe-wasm-w8a32-3.json.gz"
     },
     {
       "path": "reports/evaluation/2026-09-12-precision-variants/browser/ppyoloe-webgpu-w8a32-3.json.gz",
       "bytes": 814450,
       "sha256": "6ae92ea83cf3608a75c2db069046be4a063f66fe6e61c574e0c1fac22521f025",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-12-precision-variants/browser/ppyoloe-webgpu-w8a32-3.json.gz"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-12-precision-variants/browser/ppyoloe-webgpu-w8a32-3.json.gz"
     },
     {
       "path": "models/ppyoloe-plus-m-640/0.1.1/manifest.json",
       "bytes": 7668,
       "sha256": "13a59ca177f07c5de04f89db12c038c6c3a658de0b29503370de16423ca9169d",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/ppyoloe-plus-m-640/0.1.1/manifest.json"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/models/ppyoloe-plus-m-640/0.1.1/manifest.json"
     },
     {
       "path": "models/ppyoloe-plus-l-640/0.1.1/manifest.json",
       "bytes": 7674,
       "sha256": "71a6bdc00c9c616c01b135ac568e47627479ef7ebf1f46de7a9e0c2b01f6103c",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/ppyoloe-plus-l-640/0.1.1/manifest.json"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/models/ppyoloe-plus-l-640/0.1.1/manifest.json"
     },
     {
       "path": "models/ppyoloe-plus-x-640/0.1.1/manifest.json",
       "bytes": 7674,
       "sha256": "81b343ed6604d43a1023fc58cfc76071bbc7b513bc3824c882df06b453c0890d",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/ppyoloe-plus-x-640/0.1.1/manifest.json"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/models/ppyoloe-plus-x-640/0.1.1/manifest.json"
     },
     {
       "path": "models/pp-detection/picodet-l-416/1.0.1/manifest.json",
       "bytes": 7600,
       "sha256": "2065014f4732ad7709d001ca6ca28deea987c6dcc858cf13f1a1f735a24c7dbd",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/pp-detection/picodet-l-416/1.0.1/manifest.json"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/models/pp-detection/picodet-l-416/1.0.1/manifest.json"
     },
     {
       "path": "models/pp-detection/picodet-l-640/1.0.1/manifest.json",
       "bytes": 7600,
       "sha256": "bae9c763b9f58ec71dd59f5d8c0f03f758fd46afa7ae680b0dacd522c14e409f",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/pp-detection/picodet-l-640/1.0.1/manifest.json"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/models/pp-detection/picodet-l-640/1.0.1/manifest.json"
     },
     {
       "path": "models/pp-detection/picodet-m-320/1.0.1/manifest.json",
       "bytes": 7597,
       "sha256": "d2c4b7a63bbf679d8f7353ecc5c81e8aafe8f98aacf1f04e09cb60eb0d136fc9",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/pp-detection/picodet-m-320/1.0.1/manifest.json"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/models/pp-detection/picodet-m-320/1.0.1/manifest.json"
     },
     {
       "path": "models/pp-detection/picodet-m-416/1.0.1/manifest.json",
       "bytes": 7597,
       "sha256": "abd4b50170569ace71b10a9e90bfd916930aa866bf8211e767cf6a51328c2aca",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/pp-detection/picodet-m-416/1.0.1/manifest.json"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/models/pp-detection/picodet-m-416/1.0.1/manifest.json"
     },
     {
       "path": "models/pp-detection/picodet-s-320/1.0.1/manifest.json",
       "bytes": 7593,
       "sha256": "4403944d831b17f380912c75061f6e7b931fa8cfd0989a3881acb6e17a7b5061",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/pp-detection/picodet-s-320/1.0.1/manifest.json"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/models/pp-detection/picodet-s-320/1.0.1/manifest.json"
     },
     {
       "path": "models/pp-detection/picodet-s-416/1.0.1/manifest.json",
       "bytes": 7593,
       "sha256": "e00a8dff3caecb22b70b76e770c062741d424dcc8177039bcd4d1f26036f9868",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/pp-detection/picodet-s-416/1.0.1/manifest.json"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/models/pp-detection/picodet-s-416/1.0.1/manifest.json"
     },
     {
       "path": "models/pp-detection/picodet-xs-320/1.0.1/manifest.json",
       "bytes": 6094,
       "sha256": "cf0be84a23ef92f3f009409c124547652db368a9689222f34fc68a836637cd66",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/pp-detection/picodet-xs-320/1.0.1/manifest.json"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/models/pp-detection/picodet-xs-320/1.0.1/manifest.json"
     },
     {
       "path": "models/pp-detection/picodet-xs-416/1.0.1/manifest.json",
       "bytes": 6094,
       "sha256": "eb50a53666f3c4316fe20a79f9b624ce9621bb60b656051a710e287cc09495db",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/pp-detection/picodet-xs-416/1.0.1/manifest.json"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/models/pp-detection/picodet-xs-416/1.0.1/manifest.json"
     },
     {
       "path": "models/ppyolo-tiny-320/0.1.0/manifest.json",
       "bytes": 4102,
       "sha256": "52f37bb1a34281e99cd42d1b9458eb2c88ea39df26e4117337d95247712b0c3c",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/ppyolo-tiny-320/0.1.0/manifest.json"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/models/ppyolo-tiny-320/0.1.0/manifest.json"
     },
     {
       "path": "reports/evaluation/2026-09-15-2d-candidates/evidence/round-1/tiny-wasm.json.gz",
       "bytes": 193383,
       "sha256": "0a4d568f45b580fc3ad285b483fbdc6b58fa6622729faed6755837937a560966",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-15-2d-candidates/evidence/round-1/tiny-wasm.json.gz"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-15-2d-candidates/evidence/round-1/tiny-wasm.json.gz"
     },
     {
       "path": "reports/evaluation/2026-09-15-2d-candidates/evidence/round-2/tiny-wasm.json.gz",
       "bytes": 193466,
       "sha256": "38dd2c12d9f80e874b789275aa410bdbe57e15a1b95f2d88a55500d58714fa8c",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-15-2d-candidates/evidence/round-2/tiny-wasm.json.gz"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-15-2d-candidates/evidence/round-2/tiny-wasm.json.gz"
     },
     {
       "path": "reports/evaluation/2026-09-15-2d-candidates/evidence/round-3/tiny-wasm.json.gz",
       "bytes": 193464,
       "sha256": "1f2d736f0b0d06ed1c9b2b8142f2461c9e17cc929e9c457991e55e0988989555",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-15-2d-candidates/evidence/round-3/tiny-wasm.json.gz"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-15-2d-candidates/evidence/round-3/tiny-wasm.json.gz"
     },
     {
       "path": "reports/evaluation/2026-09-15-2d-candidates/evidence/round-1/tiny-webgpu.json.gz",
       "bytes": 193867,
       "sha256": "3a68b0e9ed3c45fac27d69f9a288408cf6893e6e337149f9c78641d725f7dbb4",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-15-2d-candidates/evidence/round-1/tiny-webgpu.json.gz"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-15-2d-candidates/evidence/round-1/tiny-webgpu.json.gz"
     },
     {
       "path": "reports/evaluation/2026-09-15-2d-candidates/evidence/round-2/tiny-webgpu.json.gz",
       "bytes": 193889,
       "sha256": "946e58fd091035034bef708e50d08e1c56cc7258c91074705c5e3ee1c97d6e2c",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-15-2d-candidates/evidence/round-2/tiny-webgpu.json.gz"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-15-2d-candidates/evidence/round-2/tiny-webgpu.json.gz"
     },
     {
       "path": "reports/evaluation/2026-09-15-2d-candidates/evidence/round-3/tiny-webgpu.json.gz",
       "bytes": 193877,
       "sha256": "e7588c57ffb76ab88702a718b7daa1e490657be8b1fb6a171b137dab37d36e84",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-15-2d-candidates/evidence/round-3/tiny-webgpu.json.gz"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-15-2d-candidates/evidence/round-3/tiny-webgpu.json.gz"
     },
     {
       "path": "models/ppyolo-tiny-320/0.1.1/manifest.json",
       "bytes": 6217,
       "sha256": "30e016974c0d725eca14d2a4eb9080e843444cc46fbff5d38be336a8efdb25ec",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/models/ppyolo-tiny-320/0.1.1/manifest.json"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/models/ppyolo-tiny-320/0.1.1/manifest.json"
     },
     {
       "path": "reports/evaluation/2026-09-16-tiny-precision/evidence/round-1/ppyolo-tiny-320-fp16-wasm.json.gz",
       "bytes": 100944,
       "sha256": "4b2c906ae3ac43bf0029765596ee265a27f0c2c7ffb9e72b608ca7e0866695b9",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-16-tiny-precision/evidence/round-1/ppyolo-tiny-320-fp16-wasm.json.gz"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-16-tiny-precision/evidence/round-1/ppyolo-tiny-320-fp16-wasm.json.gz"
     },
     {
       "path": "reports/evaluation/2026-09-16-tiny-precision/evidence/round-1/ppyolo-tiny-320-fp16-webgpu.json.gz",
       "bytes": 99508,
       "sha256": "6963adea3c54e66e5d6a854c4cec9a0ff0493228e2786dd88e1d932141857be7",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-16-tiny-precision/evidence/round-1/ppyolo-tiny-320-fp16-webgpu.json.gz"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-16-tiny-precision/evidence/round-1/ppyolo-tiny-320-fp16-webgpu.json.gz"
     },
     {
       "path": "reports/evaluation/2026-09-16-tiny-precision/evidence/round-2/ppyolo-tiny-320-fp16-wasm.json.gz",
       "bytes": 101005,
       "sha256": "162d858b57e81d1ecb06aab932b013e544b4b186881eafc8fb82aa21eebfc34b",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-16-tiny-precision/evidence/round-2/ppyolo-tiny-320-fp16-wasm.json.gz"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-16-tiny-precision/evidence/round-2/ppyolo-tiny-320-fp16-wasm.json.gz"
     },
     {
       "path": "reports/evaluation/2026-09-16-tiny-precision/evidence/round-2/ppyolo-tiny-320-fp16-webgpu.json.gz",
       "bytes": 99475,
       "sha256": "b212b258ab159cededc276d5be9ba7a3d285386e96a049f635bd0cc3da6154b8",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-16-tiny-precision/evidence/round-2/ppyolo-tiny-320-fp16-webgpu.json.gz"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-16-tiny-precision/evidence/round-2/ppyolo-tiny-320-fp16-webgpu.json.gz"
     },
     {
       "path": "reports/evaluation/2026-09-16-tiny-precision/evidence/round-3/ppyolo-tiny-320-fp16-wasm.json.gz",
       "bytes": 100901,
       "sha256": "661fb9628ce05e086268caa099b3181673a1f087484e4e242863eb2dc5bf2c06",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-16-tiny-precision/evidence/round-3/ppyolo-tiny-320-fp16-wasm.json.gz"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-16-tiny-precision/evidence/round-3/ppyolo-tiny-320-fp16-wasm.json.gz"
     },
     {
       "path": "reports/evaluation/2026-09-16-tiny-precision/evidence/round-3/ppyolo-tiny-320-fp16-webgpu.json.gz",
       "bytes": 99437,
       "sha256": "3e6a1244f6910aeb56990fd29789742ed455d16f79fdccc52e7d97636d5709b7",
-      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/e535ba6a04d715e064847769742b5243523eb0c8/reports/evaluation/2026-09-16-tiny-precision/evidence/round-3/ppyolo-tiny-320-fp16-webgpu.json.gz"
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Detection/blob/7516d394be79533fdf4980fab8c02cb198e95d97/reports/evaluation/2026-09-16-tiny-precision/evidence/round-3/ppyolo-tiny-320-fp16-webgpu.json.gz"
     }
   ],
   "output": {
     "path": "src/data/pp-detection-comparison.json",
     "bytes": 48018,
-    "sha256": "8ae71ea34d2122813ac9e1af4c406e2869ca47b2367e117fdec9ae2a87c0adeb"
+    "sha256": "ec1feadcc8389408dd2849cd1e600cdcc63e825bfcc9fccaa36220b369bb04e4"
   },
   "interpretation": "原始发布证据的可追溯汇编；不新增推理运行，不改写旧批次，不生成跨批次性能排名。"
 }
