@@ -3,12 +3,12 @@ name: PP-TinyPose
 brand: baidu
 task: pose-estimation
 status: available
-summary: 在浏览器本地估计单人人体姿态，支持单人图片或调用者提供的人体框，输出原图坐标的 17 个 COCO 关键点。增强版 256×192 FP32 支持 CPU/WASM、GPU/WebGPU 和主线程/Worker。
+summary: 在浏览器本地估计单人人体姿态，提供 256×192 与 128×96 两种输入规格；支持单人图片或调用者提供的人体框，输出原图坐标的 17 个 COCO 关键点，并支持 CPU/WASM、GPU/WebGPU 和主线程/Worker。
 repository: https://github.com/chenmohan123/web-sdk-PP-TinyPose
 license: Apache-2.0
 package:
   name: web-sdk-pp-tinypose
-  version: 0.1.0
+  version: 0.2.0
 demo:
   url: https://chenmohan123.github.io/web-sdk-PP-TinyPose/
   localProcessing: true
@@ -16,7 +16,7 @@ runtime:
   backends:
     - { name: wasm, status: stable }
     - { name: webgpu, status: stable }
-  capabilities: [worker, checksum, model-cache, scoped-cache-clear, cache-estimate, image, multi-source, fp32]
+  capabilities: [worker, checksum, model-cache, scoped-cache-clear, cache-estimate, image, multi-source, fp32, w16a32, input-size]
   verifiedEnvironments:
     - browser: Chromium 153.0.8010.12
       os: Windows 11 10.0.26200
@@ -35,9 +35,21 @@ assets:
     bytes: 5685847
     url: https://www.modelscope.cn/models/chenmohan/web-sdk-pp-tinypose/resolve/68e7b987b5daf36080fb16ed90bf67b64d722b20/tinypose-256x192/0.1.0/tinypose-256x192-fp32.onnx
     sha256: 7614d17acbe957200a8505e11a4fb8445103f9e44a7087115d8a1ea85f88b1b9
+  - id: tinypose-128x96-fp32
+    precision: fp32
+    bytes: 5685846
+    url: https://www.modelscope.cn/models/chenmohan/web-sdk-pp-tinypose/resolve/97c04100baef646f1b9c4d83295d8e2f14b4324d/tinypose-128x96/0.2.0/fp32/tinypose-128x96-fp32.onnx
+    sha256: a0e2edd5272f48243a9cbd571151eda966f1bfa865a954f39e1e344aa5a14cf8
+  - id: tinypose-128x96-w16a32
+    precision: w16a32
+    bytes: 3150847
+    url: https://www.modelscope.cn/models/chenmohan/web-sdk-pp-tinypose/resolve/97c04100baef646f1b9c4d83295d8e2f14b4324d/tinypose-128x96/0.2.0/w16a32/tinypose-128x96-w16a32.onnx
+    sha256: 8671c7b424d85d4f017b6410602de6095b1fbb9fffca38ad5489039dd2a0cfea
 limitations:
-  - 首版处理单人图片或调用者提供的人体框，没有内置人体检测器、自动多人检测、相机、视频或跟踪能力；score 为热力图响应，不是可见性概率。
+  - 当前处理单人图片或调用者提供的人体框，没有内置人体检测器、自动多人检测、相机、视频或跟踪能力；score 为热力图响应，不是可见性概率。
   - 默认 ModelScope，另可选择 Hugging Face；两个来源使用固定提交并提供相同 SHA-256 的模型，显式来源或后端失败不会静默切换。
-  - 2026-09-17 在上述 Windows 桌面环境完成双源 × WASM/WebGPU × 主线程/Worker 八组合真实图片推理，运行时为 ONNX Runtime Web 1.27.0；证据见 SDK reports/2026-09-17-release/distribution-browser.json 和 reports/release-acceptance.json。
-  - 手机、其他浏览器、微信 web-view、WebNN/NPU 和全量 COCO 关键点 AP 尚未验证；390px 视口检查不代表实体手机验证。首版仅提供 FP32。
+  - 2026-09-17 三模型 × 双源 × WASM/WebGPU × 主线程/Worker 的最终 24 组合已通过真实图片推理，并核验已发布 npm、Pages 与 GitHub Release 的 0.2.0；证据见 SDK reports/2026-09-17-variants/online-browser.json 与同目录 release/ 回执。
+  - W16A32 仅用于 128×96，以 FP16 权重存储并转回 FP32 计算，不是普通 FP16 推理；普通 FP16 与 256×192 W16A32 未通过质量门槛，未发布。
+  - 2026-09-17 固定 64 图/110 人 GT 框子集平均 OKS 仅用于同批次比较，不是全量 COCO AP；不能据此宣称压缩模型或 GPU 普遍更快。
+  - 手机、其他浏览器、微信 web-view 和 WebNN/NPU 尚未验证；390px 视口检查不代表实体手机验证。
   - SDK 与模型遵循 Apache-2.0，模型再分发须保留 LICENSE、NOTICE 和 PaddleDetection 上游归属；npm 包不包含 ONNX 权重。
