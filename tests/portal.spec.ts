@@ -18,8 +18,8 @@ for (const width of [1280, 390]) {
     await expect(page.getByText("web-sdk-pp-tinypose@0.2.0", { exact: true })).toBeVisible();
     await expect(page.getByText(/256×192.*128×96/)).toBeVisible();
     await expect(page.getByRole("listitem").filter({ hasText: "tinypose-256x192-fp32" })).toContainText("5.42 MiB");
-    await expect(page.getByRole("listitem").filter({ hasText: "tinypose-128x96-fp32" })).toContainText("5.42 MiB");
-    await expect(page.getByRole("listitem").filter({ hasText: "tinypose-128x96-w16a32" })).toContainText("3.00 MiB");
+    await expect(page.getByRole("listitem").filter({ has: page.getByText("tinypose-enhance-128x96", { exact: true }) })).toContainText("5.42 MiB");
+    await expect(page.getByRole("listitem").filter({ has: page.getByText("tinypose-enhance-128x96-w16a32", { exact: true }) })).toContainText("3.00 MiB");
     await expect(page.getByRole("link", { name: "GitHub 仓库", exact: true })).toHaveAttribute("href", "https://github.com/chenmohan123/web-sdk-PP-TinyPose");
     await expect(page.getByRole("link", { name: "npm 包", exact: true })).toHaveAttribute("href", "https://www.npmjs.com/package/web-sdk-pp-tinypose");
     await expect(page.getByRole("link", { name: "打开在线 Demo", exact: true })).toHaveAttribute("href", "https://chenmohan123.github.io/web-sdk-PP-TinyPose/");

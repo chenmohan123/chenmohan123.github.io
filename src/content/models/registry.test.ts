@@ -27,14 +27,14 @@ describe("model registry", () => {
         sha256: "7614d17acbe957200a8505e11a4fb8445103f9e44a7087115d8a1ea85f88b1b9",
       },
       {
-        id: "tinypose-128x96-fp32",
+        id: "tinypose-enhance-128x96",
         precision: "fp32",
         bytes: 5685846,
         url: "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-tinypose/resolve/97c04100baef646f1b9c4d83295d8e2f14b4324d/tinypose-128x96/0.2.0/fp32/tinypose-128x96-fp32.onnx",
         sha256: "a0e2edd5272f48243a9cbd571151eda966f1bfa865a954f39e1e344aa5a14cf8",
       },
       {
-        id: "tinypose-128x96-w16a32",
+        id: "tinypose-enhance-128x96-w16a32",
         precision: "w16a32",
         bytes: 3150847,
         url: "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-tinypose/resolve/97c04100baef646f1b9c4d83295d8e2f14b4324d/tinypose-128x96/0.2.0/w16a32/tinypose-128x96-w16a32.onnx",
