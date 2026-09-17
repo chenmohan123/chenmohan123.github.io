@@ -80,7 +80,9 @@ Tiny FP16/W8A32 的本轮可行性评估已完成：固定64图、716标注，�
 
 下一阶段是独立的 `web-sdk-PP-TinyPose`，首先验证增强版 256×192 FP32，并实现单人图片/人体框输入、17 个 COCO 关键点、桌面 WASM/WebGPU 和独立 Demo。具体边界及验收见 [TinyPose 设计](../specs/2026-09-16-pp-tinypose-web-sdk-design.md)。
 
-2026-09-17 本地实现进展：增强版 256×192 FP32 为 5,685,847 字节；`0.1.0-alpha.0` 独立 SDK、中文/英文 Demo、28项核心单测、四执行组合各32个 RGBA+人体框的公开 SDK 验收已通过，另含 Blob、取消恢复和390px布局检查。本地证据位于新 SDK 的 `reports/2026-09-16-feasibility/`。下一里程碑为 ModelScope/Hugging Face 固定分发、公开仓库治理与正式发布验收；完成前不加入门户稳定目录，不宣称已上线。
+2026-09-17：TinyPose 0.1.0 已完成 ModelScope/Hugging Face 固定提交分发及桌面双源 × WASM/WebGPU × 主线程/Worker 八组合验收，证据位于[独立 SDK 发布验收](https://github.com/chenmohan123/web-sdk-PP-TinyPose/blob/5033f05818157d086dcfe2523082a9d939b4ac04/reports/2026-09-17-release/README.md)。门户第五个 SDK 登记与“人体姿态”分类已准备，保留单人/外部人体框、17 点 score 非可见性概率、仅 FP32 及桌面验证边界。此进度不代表 npm 或 HTTPS Demo 已发布；控制代理须核验其实际可用状态后才能合并、部署门户登记，若认证阻塞则保留草稿。
+
+2026-09-17 早期本地实现进展（历史记录）：增强版 256×192 FP32 为 5,685,847 字节；`0.1.0-alpha.0` 独立 SDK、中文/英文 Demo、28项核心单测、四执行组合各32个 RGBA+人体框的公开 SDK 验收已通过，另含 Blob、取消恢复和390px布局检查。本地证据位于新 SDK 的 `reports/2026-09-16-feasibility/`。当时的下一里程碑为 ModelScope/Hugging Face 固定分发、公开仓库治理与正式发布验收；完成前不加入门户稳定目录，不宣称已上线。
 
 这延续最初按任务拆分 SDK 的设计；原规划没有固定分割、姿态和跟踪的先后顺序。本次不把关键点加入 Detection，不把自动多人推理放入门户，不提前启动通用 Workflow 编辑器。检测框字段兼容只是组合入口之一，实际调度、取消、资源所有权和释放仍需独立验证。当前桌面证据不扩大为手机或 NPU 兼容承诺。
 

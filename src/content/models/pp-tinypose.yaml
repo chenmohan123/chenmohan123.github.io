@@ -1,0 +1,43 @@
+id: pp-tinypose
+name: PP-TinyPose
+brand: baidu
+task: pose-estimation
+status: available
+summary: 在浏览器本地估计单人人体姿态，支持单人图片或调用者提供的人体框，输出原图坐标的 17 个 COCO 关键点。增强版 256×192 FP32 支持 CPU/WASM、GPU/WebGPU 和主线程/Worker。
+repository: https://github.com/chenmohan123/web-sdk-PP-TinyPose
+license: Apache-2.0
+package:
+  name: web-sdk-pp-tinypose
+  version: 0.1.0
+demo:
+  url: https://chenmohan123.github.io/web-sdk-PP-TinyPose/
+  localProcessing: true
+runtime:
+  backends:
+    - { name: wasm, status: stable }
+    - { name: webgpu, status: stable }
+  capabilities: [worker, checksum, model-cache, scoped-cache-clear, cache-estimate, image, multi-source, fp32]
+  verifiedEnvironments:
+    - browser: Chromium 153.0.8010.12
+      os: Windows 11 10.0.26200
+      device: Intel Core i5-10400F / WASM，ModelScope/Hugging Face × 主线程/Worker
+      testedAt: 2026-09-17
+    - browser: Chromium 153.0.8010.12
+      os: Windows 11 10.0.26200
+      device: NVIDIA Blackwell / WebGPU，ModelScope/Hugging Face × 主线程/Worker
+      testedAt: 2026-09-17
+io:
+  input: [Blob, RGBA, region（调用者提供的人体框）]
+  output: [17 个 COCO 关键点（原图坐标与 score）, crop, image, runtime, model, timings]
+assets:
+  - id: tinypose-256x192-fp32
+    precision: fp32
+    bytes: 5685847
+    url: https://www.modelscope.cn/models/chenmohan/web-sdk-pp-tinypose/resolve/68e7b987b5daf36080fb16ed90bf67b64d722b20/tinypose-256x192/0.1.0/tinypose-256x192-fp32.onnx
+    sha256: 7614d17acbe957200a8505e11a4fb8445103f9e44a7087115d8a1ea85f88b1b9
+limitations:
+  - 首版处理单人图片或调用者提供的人体框，没有内置人体检测器、自动多人检测、相机、视频或跟踪能力；score 为热力图响应，不是可见性概率。
+  - 默认 ModelScope，另可选择 Hugging Face；两个来源使用固定提交并提供相同 SHA-256 的模型，显式来源或后端失败不会静默切换。
+  - 2026-09-17 在上述 Windows 桌面环境完成双源 × WASM/WebGPU × 主线程/Worker 八组合真实图片推理，运行时为 ONNX Runtime Web 1.27.0；证据见 SDK reports/2026-09-17-release/distribution-browser.json 和 reports/release-acceptance.json。
+  - 手机、其他浏览器、微信 web-view、WebNN/NPU 和全量 COCO 关键点 AP 尚未验证；390px 视口检查不代表实体手机验证。首版仅提供 FP32。
+  - SDK 与模型遵循 Apache-2.0，模型再分发须保留 LICENSE、NOTICE 和 PaddleDetection 上游归属；npm 包不包含 ONNX 权重。

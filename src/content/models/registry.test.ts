@@ -1,9 +1,35 @@
 import { describe, expect, it } from "vitest";
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import { parse } from "yaml";
 import { modelSchema } from "../../lib/registry/schema";
 
 describe("model registry", () => {
+  it("将 TinyPose 作为第五个 SDK 登记并保留模型身份与桌面验证边界", () => {
+    const models = readdirSync("src/content/models")
+      .filter((file) => file.endsWith(".yaml"))
+      .map((file) => modelSchema.parse(parse(readFileSync(`src/content/models/${file}`, "utf8"))));
+    expect(models).toHaveLength(5);
+    const model = models.find((entry) => entry.id === "pp-tinypose");
+    expect(model).toBeDefined();
+    expect(model?.task).toBe("pose-estimation");
+    expect(model?.package).toEqual({ name: "web-sdk-pp-tinypose", version: "0.1.0" });
+    expect(model?.runtime.backends).toEqual([
+      { name: "wasm", status: "stable" },
+      { name: "webgpu", status: "stable" },
+    ]);
+    expect(model?.assets).toEqual([{
+      id: "tinypose-256x192-fp32",
+      precision: "fp32",
+      bytes: 5685847,
+      url: "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-tinypose/resolve/68e7b987b5daf36080fb16ed90bf67b64d722b20/tinypose-256x192/0.1.0/tinypose-256x192-fp32.onnx",
+      sha256: "7614d17acbe957200a8505e11a4fb8445103f9e44a7087115d8a1ea85f88b1b9",
+    }]);
+    expect(model?.runtime.verifiedEnvironments).toHaveLength(2);
+    expect(model?.runtime.verifiedEnvironments.every((environment) => environment.testedAt === "2026-09-17")).toBe(true);
+    expect(model?.io.input).toEqual(["Blob", "RGBA", "region（调用者提供的人体框）"]);
+    expect(model?.io.output).toContain("17 个 COCO 关键点（原图坐标与 score）");
+  });
+
   it("accepts the PP-DocLayoutV3 catalog record", () => {
     const value = parse(
       readFileSync("src/content/models/pp-doclayoutv3.yaml", "utf8"),
