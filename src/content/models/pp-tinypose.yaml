@@ -3,12 +3,12 @@ name: PP-TinyPose
 brand: baidu
 task: pose-estimation
 status: available
-summary: 在浏览器本地估计单人人体姿态，提供 256×192 与 128×96 两种输入规格；支持单人图片或调用者提供的人体框，输出原图坐标的 17 个 COCO 关键点，并支持 CPU/WASM、GPU/WebGPU 和主线程/Worker。
+summary: 在浏览器本地估计单人人体姿态，提供 256×192 与 128×96 两种输入规格和17个COCO关键点；SDK处理单帧或调用者人体框，独立Demo支持图片、本地视频与摄像头，提供CPU/WASM、GPU/WebGPU和主线程/Worker。
 repository: https://github.com/chenmohan123/web-sdk-PP-TinyPose
 license: Apache-2.0
 package:
   name: web-sdk-pp-tinypose
-  version: 0.2.0
+  version: 0.3.0
 demo:
   url: https://chenmohan123.github.io/web-sdk-PP-TinyPose/
   localProcessing: true
@@ -21,11 +21,11 @@ runtime:
     - browser: Chromium 153.0.8010.12
       os: Windows 11 10.0.26200
       device: Intel Core i5-10400F / WASM，ModelScope/Hugging Face × 主线程/Worker
-      testedAt: 2026-09-17
+      testedAt: 2026-09-18
     - browser: Chromium 153.0.8010.12
       os: Windows 11 10.0.26200
       device: NVIDIA Blackwell / WebGPU，ModelScope/Hugging Face × 主线程/Worker
-      testedAt: 2026-09-17
+      testedAt: 2026-09-18
 io:
   input: [Blob, RGBA, region（调用者提供的人体框）]
   output: [17 个 COCO 关键点（原图坐标与 score）, crop, image, runtime, model, timings]
@@ -46,10 +46,11 @@ assets:
     url: https://www.modelscope.cn/models/chenmohan/web-sdk-pp-tinypose/resolve/97c04100baef646f1b9c4d83295d8e2f14b4324d/tinypose-128x96/0.2.0/w16a32/tinypose-128x96-w16a32.onnx
     sha256: 8671c7b424d85d4f017b6410602de6095b1fbb9fffca38ad5489039dd2a0cfea
 limitations:
-  - 当前处理单人图片或调用者提供的人体框，没有内置人体检测器、自动多人检测、相机、视频或跟踪能力；score 为热力图响应，不是可见性概率。
+  - SDK继续接收单帧Blob/RGBA或调用者人体框；视频解码、摄像头权限和帧调度属于独立Demo。固定人体框不跟踪运动，没有内置人体检测器、自动多人、跟踪或动作识别；score 为热力图响应，不是可见性概率。
   - 默认 ModelScope，另可选择 Hugging Face；两个来源使用固定提交并提供相同 SHA-256 的模型，显式来源或后端失败不会静默切换。
-  - 2026-09-17 三模型 × 双源 × WASM/WebGPU × 主线程/Worker 的最终 24 组合已通过真实图片推理，并核验已发布 npm、Pages 与 GitHub Release 的 0.2.0；证据见 SDK reports/2026-09-17-variants/online-browser.json 与同目录 release/ 回执。
+  - 2026-09-18 三模型 × 双源 × WASM/WebGPU × 主线程/Worker 的24组合通过真实图片推理；连续帧12组合共385帧。已核验npm、Pages与GitHub Release的0.3.0，证据见SDK reports/2026-09-17-media/及release/回执。
+  - 视频支持播放/暂停、单帧、暂停定位和固定选框；摄像头仅由用户开启、不采集音频，停止或隐藏页面释放资源。线上默认配置的视频及Chromium fake-device摄像头通过双语/390px验收；模拟摄像头不代表物理设备兼容。
   - W16A32 仅用于 128×96，以 FP16 权重存储并转回 FP32 计算，不是普通 FP16 推理；普通 FP16 与 256×192 W16A32 未通过质量门槛，未发布。
   - 2026-09-17 固定 64 图/110 人 GT 框子集平均 OKS 仅用于同批次比较，不是全量 COCO AP；不能据此宣称压缩模型或 GPU 普遍更快。
-  - 手机、其他浏览器、微信 web-view 和 WebNN/NPU 尚未验证；390px 视口检查不代表实体手机验证。
+  - 物理摄像头、手机、其他浏览器、微信 web-view 和 WebNN/NPU 尚未验证；390px 视口检查不代表实体手机验证，变化人物图片测试素材不证明真实动作质量。
   - SDK 与模型遵循 Apache-2.0，模型再分发须保留 LICENSE、NOTICE 和 PaddleDetection 上游归属；npm 包不包含 ONNX 权重。
