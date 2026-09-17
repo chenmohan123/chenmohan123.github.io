@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 
 for (const width of [1280, 390]) {
-  test(`TinyPose 0.2.0 在 ${width}px 展示三项资产、发布边界和独立 SDK 链接`, async ({ page }) => {
+  test(`TinyPose 0.3.0 在 ${width}px 展示三项资产、媒体边界和独立 SDK 链接`, async ({ page }) => {
     await page.setViewportSize({ width, height: 844 });
     await page.goto("/");
     await expect(page.locator('astro-island[component-url*="ModelDirectory"]')).not.toHaveAttribute("ssr", "");
@@ -15,7 +15,7 @@ for (const width of [1280, 390]) {
     await page.getByRole("link", { name: "PP-TinyPose", exact: true }).click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText("PP-TinyPose");
     await expect(page.getByText("baidu · 人体姿态", { exact: true })).toBeVisible();
-    await expect(page.getByText("web-sdk-pp-tinypose@0.2.0", { exact: true })).toBeVisible();
+    await expect(page.getByText("web-sdk-pp-tinypose@0.3.0", { exact: true })).toBeVisible();
     await expect(page.getByText(/256×192.*128×96/)).toBeVisible();
     await expect(page.getByRole("listitem").filter({ hasText: "tinypose-256x192-fp32" })).toContainText("5.42 MiB");
     await expect(page.getByRole("listitem").filter({ has: page.getByText("tinypose-enhance-128x96", { exact: true }) })).toContainText("5.42 MiB");
@@ -23,12 +23,14 @@ for (const width of [1280, 390]) {
     await expect(page.getByRole("link", { name: "GitHub 仓库", exact: true })).toHaveAttribute("href", "https://github.com/chenmohan123/web-sdk-PP-TinyPose");
     await expect(page.getByRole("link", { name: "npm 包", exact: true })).toHaveAttribute("href", "https://www.npmjs.com/package/web-sdk-pp-tinypose");
     await expect(page.getByRole("link", { name: "打开在线 Demo", exact: true })).toHaveAttribute("href", "https://chenmohan123.github.io/web-sdk-PP-TinyPose/");
-    await expect(page.getByRole("link", { name: "规格与精度对比 →", exact: true })).toHaveAttribute("href", "https://github.com/chenmohan123/web-sdk-PP-TinyPose/blob/v0.2.0/README.md");
+    await expect(page.getByRole("link", { name: "规格与精度对比 →", exact: true })).toHaveAttribute("href", "https://github.com/chenmohan123/web-sdk-PP-TinyPose/blob/v0.3.0/README.md");
     await expect(page.getByText(/score 为热力图响应，不是可见性概率/)).toBeVisible();
     await expect(page.getByText(/默认 ModelScope.*Hugging Face/)).toBeVisible();
     await expect(page.getByText(/W16A32.*FP16 权重.*FP32 计算/)).toBeVisible();
     await expect(page.getByText(/普通 FP16.*256×192 W16A32.*未发布/)).toBeVisible();
-    await expect(page.getByText(/24 组合.*0\.2\.0/)).toBeVisible();
+    await expect(page.getByText(/24组合.*0\.3\.0/)).toBeVisible();
+    await expect(page.getByText(/视频解码、摄像头权限和帧调度属于独立Demo/)).toBeVisible();
+    await expect(page.getByText(/模拟摄像头不代表物理设备兼容/)).toBeVisible();
     await expect(page.getByText(/GT 框子集平均 OKS.*不是全量 COCO AP/)).toBeVisible();
     await expect(page.getByText(/手机.*尚未验证/)).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);

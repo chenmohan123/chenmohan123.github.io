@@ -4,7 +4,7 @@ import { parse } from "yaml";
 import { modelSchema } from "../../lib/registry/schema";
 
 describe("model registry", () => {
-  it("登记 TinyPose 0.2.0 的三项稳定资产并保留桌面验证边界", () => {
+  it("登记 TinyPose 0.3.0 并保留单帧SDK与媒体Demo边界", () => {
     const models = readdirSync("src/content/models")
       .filter((file) => file.endsWith(".yaml"))
       .map((file) => modelSchema.parse(parse(readFileSync(`src/content/models/${file}`, "utf8"))));
@@ -12,7 +12,7 @@ describe("model registry", () => {
     const model = models.find((entry) => entry.id === "pp-tinypose");
     expect(model).toBeDefined();
     expect(model?.task).toBe("pose-estimation");
-    expect(model?.package).toEqual({ name: "web-sdk-pp-tinypose", version: "0.2.0" });
+    expect(model?.package).toEqual({ name: "web-sdk-pp-tinypose", version: "0.3.0" });
     expect(model?.runtime.backends).toEqual([
       { name: "wasm", status: "stable" },
       { name: "webgpu", status: "stable" },
@@ -42,7 +42,9 @@ describe("model registry", () => {
       },
     ]);
     expect(model?.runtime.verifiedEnvironments).toHaveLength(2);
-    expect(model?.runtime.verifiedEnvironments.every((environment) => environment.testedAt === "2026-09-17")).toBe(true);
+    expect(model?.runtime.verifiedEnvironments.every((environment) => environment.testedAt === "2026-09-18")).toBe(true);
+    expect(model?.limitations.join(" ")).toContain("视频解码、摄像头权限和帧调度属于独立Demo");
+    expect(model?.limitations.join(" ")).toContain("模拟摄像头不代表物理设备兼容");
     expect(model?.io.input).toEqual(["Blob", "RGBA", "region（调用者提供的人体框）"]);
     expect(model?.io.output).toContain("17 个 COCO 关键点（原图坐标与 score）");
   });
