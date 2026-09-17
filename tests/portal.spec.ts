@@ -1,5 +1,38 @@
 import { test, expect } from "@playwright/test";
 
+for (const width of [1280, 390]) {
+  test(`TinyPose 在 ${width}px 支持首页筛选、人体姿态分类和独立 SDK 链接`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 844 });
+    await page.goto("/");
+    await expect(page.locator('astro-island[component-url*="ModelDirectory"]')).not.toHaveAttribute("ssr", "");
+    await expect(page.getByText("5 个条目", { exact: true })).toBeVisible();
+    await page.getByRole("combobox", { name: "任务", exact: true }).selectOption({ label: "人体姿态" });
+    await expect(page.getByText("1 个条目", { exact: true })).toBeVisible();
+    await expect(page.getByRole("link", { name: "PP-DocLayoutV3", exact: true })).toHaveCount(0);
+    await page.getByRole("searchbox").fill("web-sdk-pp-tinypose");
+    await expect(page.getByRole("link", { name: "PP-TinyPose", exact: true })).toBeVisible();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await page.getByRole("link", { name: "PP-TinyPose", exact: true }).click();
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("PP-TinyPose");
+    await expect(page.getByText("baidu · 人体姿态", { exact: true })).toBeVisible();
+    await expect(page.getByText("web-sdk-pp-tinypose@0.1.0", { exact: true })).toBeVisible();
+    await expect(page.getByText("5.42 MiB", { exact: false })).toBeVisible();
+    await expect(page.getByRole("link", { name: "GitHub 仓库", exact: true })).toHaveAttribute("href", "https://github.com/chenmohan123/web-sdk-PP-TinyPose");
+    await expect(page.getByRole("link", { name: "npm 包", exact: true })).toHaveAttribute("href", "https://www.npmjs.com/package/web-sdk-pp-tinypose");
+    await expect(page.getByRole("link", { name: "打开在线 Demo", exact: true })).toHaveAttribute("href", "https://chenmohan123.github.io/web-sdk-PP-TinyPose/");
+    await expect(page.getByText(/score 为热力图响应，不是可见性概率/)).toBeVisible();
+    await expect(page.getByText(/默认 ModelScope.*Hugging Face/)).toBeVisible();
+    await expect(page.getByText(/手机.*尚未验证/)).toBeVisible();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await page.goto("/tasks/pose-estimation/");
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("人体姿态");
+    await expect(page).toHaveTitle("人体姿态 模型 · Web Model SDK");
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await page.getByRole("link", { name: "PP-TinyPose", exact: true }).click();
+    await expect(page).toHaveURL(/\/models\/pp-tinypose\//);
+  });
+}
+
 test("homepage exposes the model SDK directory and Models navigation", async ({
   page,
 }) => {
