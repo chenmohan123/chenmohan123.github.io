@@ -4,7 +4,7 @@ import { parse } from "yaml";
 import { modelSchema } from "../../lib/registry/schema";
 
 describe("model registry", () => {
-  it("将 TinyPose 作为第五个 SDK 登记并保留模型身份与桌面验证边界", () => {
+  it("登记 TinyPose 0.2.0 的三项稳定资产并保留桌面验证边界", () => {
     const models = readdirSync("src/content/models")
       .filter((file) => file.endsWith(".yaml"))
       .map((file) => modelSchema.parse(parse(readFileSync(`src/content/models/${file}`, "utf8"))));
@@ -12,18 +12,35 @@ describe("model registry", () => {
     const model = models.find((entry) => entry.id === "pp-tinypose");
     expect(model).toBeDefined();
     expect(model?.task).toBe("pose-estimation");
-    expect(model?.package).toEqual({ name: "web-sdk-pp-tinypose", version: "0.1.0" });
+    expect(model?.package).toEqual({ name: "web-sdk-pp-tinypose", version: "0.2.0" });
     expect(model?.runtime.backends).toEqual([
       { name: "wasm", status: "stable" },
       { name: "webgpu", status: "stable" },
     ]);
-    expect(model?.assets).toEqual([{
-      id: "tinypose-256x192-fp32",
-      precision: "fp32",
-      bytes: 5685847,
-      url: "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-tinypose/resolve/68e7b987b5daf36080fb16ed90bf67b64d722b20/tinypose-256x192/0.1.0/tinypose-256x192-fp32.onnx",
-      sha256: "7614d17acbe957200a8505e11a4fb8445103f9e44a7087115d8a1ea85f88b1b9",
-    }]);
+    expect(model?.runtime.capabilities).toEqual(expect.arrayContaining(["w16a32", "input-size"]));
+    expect(model?.assets).toEqual([
+      {
+        id: "tinypose-256x192-fp32",
+        precision: "fp32",
+        bytes: 5685847,
+        url: "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-tinypose/resolve/68e7b987b5daf36080fb16ed90bf67b64d722b20/tinypose-256x192/0.1.0/tinypose-256x192-fp32.onnx",
+        sha256: "7614d17acbe957200a8505e11a4fb8445103f9e44a7087115d8a1ea85f88b1b9",
+      },
+      {
+        id: "tinypose-enhance-128x96",
+        precision: "fp32",
+        bytes: 5685846,
+        url: "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-tinypose/resolve/97c04100baef646f1b9c4d83295d8e2f14b4324d/tinypose-128x96/0.2.0/fp32/tinypose-128x96-fp32.onnx",
+        sha256: "a0e2edd5272f48243a9cbd571151eda966f1bfa865a954f39e1e344aa5a14cf8",
+      },
+      {
+        id: "tinypose-enhance-128x96-w16a32",
+        precision: "w16a32",
+        bytes: 3150847,
+        url: "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-tinypose/resolve/97c04100baef646f1b9c4d83295d8e2f14b4324d/tinypose-128x96/0.2.0/w16a32/tinypose-128x96-w16a32.onnx",
+        sha256: "8671c7b424d85d4f017b6410602de6095b1fbb9fffca38ad5489039dd2a0cfea",
+      },
+    ]);
     expect(model?.runtime.verifiedEnvironments).toHaveLength(2);
     expect(model?.runtime.verifiedEnvironments.every((environment) => environment.testedAt === "2026-09-17")).toBe(true);
     expect(model?.io.input).toEqual(["Blob", "RGBA", "region（调用者提供的人体框）"]);
