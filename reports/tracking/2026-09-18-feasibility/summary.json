@@ -1,0 +1,1774 @@
+{
+  "verified_at": "2026-09-18T16:18:14.318187+00:00",
+  "environment": {
+    "python": "3.11.15 (main, Jul 18 2026, 17:06:27) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 165 Stepping 3, GenuineIntel",
+    "packages": {
+      "contourpy": "1.3.2",
+      "cycler": "0.12.1",
+      "Cython": "3.3.0",
+      "cython_bbox": "0.1.5",
+      "filelock": "3.32.3",
+      "filterpy": "1.4.5",
+      "fonttools": "4.65.0",
+      "fsspec": "2026.7.0",
+      "Jinja2": "3.1.6",
+      "kiwisolver": "1.5.1",
+      "lap": "0.5.12",
+      "MarkupSafe": "3.0.3",
+      "matplotlib": "3.10.9",
+      "mpmath": "1.3.0",
+      "networkx": "3.6.1",
+      "numpy": "1.23.5",
+      "opencv-python": "4.10.0.84",
+      "packaging": "26.3",
+      "pillow": "12.3.0",
+      "pip": "24.0",
+      "pyparsing": "3.3.2",
+      "python-dateutil": "2.9.0.post0",
+      "scipy": "1.10.1",
+      "setuptools": "79.0.1",
+      "six": "1.17.0",
+      "sympy": "1.13.1",
+      "torch": "2.5.1+cpu",
+      "typing_extensions": "4.16.0"
+    },
+    "timing": "perf_counter_ns；只计update，排除导入、数组转换、评分、下载；首个update未预热"
+  },
+  "config": {
+    "fps": 30,
+    "retention_updates": 5,
+    "high_score": 0.5,
+    "low_score": 0.1,
+    "new_byte_score": 0.6,
+    "byte_match_cost": 0.8,
+    "oc_iou": 0.3,
+    "oc_min_hits": 1,
+    "oc_delta_t": 3,
+    "oc_inertia": 0.2,
+    "evaluation_iou": 0.5,
+    "max_padding": 100
+  },
+  "instance_diagnostics": [
+    {
+      "algorithm": "byte",
+      "first_before_second_instance": {
+        "tracked": [
+          1,
+          2
+        ],
+        "lost": [],
+        "removed": []
+      },
+      "first_after": {
+        "tracked": [
+          1,
+          2,
+          4
+        ],
+        "lost": [],
+        "removed": []
+      },
+      "counter_before": 2,
+      "counter_after_second": 3,
+      "first_after_add": {
+        "tracked": [
+          1,
+          2,
+          4
+        ],
+        "lost": [],
+        "removed": []
+      },
+      "first_add_outputs": [
+        {
+          "id": "1",
+          "raw_id": 1,
+          "class_id": null,
+          "box": [
+            10.0,
+            20.0,
+            40.0,
+            80.0
+          ],
+          "last_score": 0.9
+        },
+        {
+          "id": "2",
+          "raw_id": 2,
+          "class_id": null,
+          "box": [
+            110.0,
+            20.0,
+            140.0,
+            80.0
+          ],
+          "last_score": 0.9
+        }
+      ],
+      "first_outputs": [
+        {
+          "id": "1",
+          "raw_id": 1,
+          "class_id": null,
+          "box": [
+            10.0,
+            20.0,
+            40.0,
+            80.0
+          ],
+          "last_score": 0.9
+        },
+        {
+          "id": "2",
+          "raw_id": 2,
+          "class_id": null,
+          "box": [
+            110.0,
+            20.0,
+            140.0,
+            80.0
+          ],
+          "last_score": 0.9
+        },
+        {
+          "id": "4",
+          "raw_id": 4,
+          "class_id": null,
+          "box": [
+            310.0,
+            20.0,
+            340.0,
+            80.0
+          ],
+          "last_score": 0.9
+        }
+      ],
+      "duplicate_output_ids": false,
+      "note": "同进程A已有两轨，构建并更新B后A新增轨；未对并发实例重置全局变量"
+    },
+    {
+      "algorithm": "oc",
+      "first_before_second_instance": {
+        "retained": [
+          {
+            "id": 1,
+            "age": 0
+          },
+          {
+            "id": 2,
+            "age": 0
+          }
+        ]
+      },
+      "first_after": {
+        "retained": [
+          {
+            "id": 1,
+            "age": 0
+          },
+          {
+            "id": 2,
+            "age": 0
+          },
+          {
+            "id": 2,
+            "age": 0
+          }
+        ]
+      },
+      "counter_before": 2,
+      "counter_after_second": 1,
+      "first_after_add": {
+        "retained": [
+          {
+            "id": 1,
+            "age": 0
+          },
+          {
+            "id": 2,
+            "age": 0
+          },
+          {
+            "id": 2,
+            "age": 0
+          }
+        ]
+      },
+      "first_add_outputs": [
+        {
+          "id": "2",
+          "raw_id": 2,
+          "class_id": null,
+          "box": [
+            110.0,
+            20.0,
+            140.0,
+            80.0
+          ]
+        },
+        {
+          "id": "1",
+          "raw_id": 1,
+          "class_id": null,
+          "box": [
+            10.0,
+            20.0,
+            40.0,
+            80.0
+          ]
+        }
+      ],
+      "first_outputs": [
+        {
+          "id": "2",
+          "raw_id": 2,
+          "class_id": null,
+          "box": [
+            310.0,
+            20.0,
+            340.0,
+            80.0
+          ]
+        },
+        {
+          "id": "2",
+          "raw_id": 2,
+          "class_id": null,
+          "box": [
+            110.0,
+            20.0,
+            140.0,
+            80.0
+          ]
+        },
+        {
+          "id": "1",
+          "raw_id": 1,
+          "class_id": null,
+          "box": [
+            10.0,
+            20.0,
+            40.0,
+            80.0
+          ]
+        }
+      ],
+      "duplicate_output_ids": true,
+      "note": "同进程A已有两轨，构建并更新B后A新增轨；未对并发实例重置全局变量"
+    },
+    {
+      "algorithm": "oc_byte",
+      "first_before_second_instance": {
+        "retained": [
+          {
+            "id": 1,
+            "age": 0
+          },
+          {
+            "id": 2,
+            "age": 0
+          }
+        ]
+      },
+      "first_after": {
+        "retained": [
+          {
+            "id": 1,
+            "age": 0
+          },
+          {
+            "id": 2,
+            "age": 0
+          },
+          {
+            "id": 2,
+            "age": 0
+          }
+        ]
+      },
+      "counter_before": 2,
+      "counter_after_second": 1,
+      "first_after_add": {
+        "retained": [
+          {
+            "id": 1,
+            "age": 0
+          },
+          {
+            "id": 2,
+            "age": 0
+          },
+          {
+            "id": 2,
+            "age": 0
+          }
+        ]
+      },
+      "first_add_outputs": [
+        {
+          "id": "2",
+          "raw_id": 2,
+          "class_id": null,
+          "box": [
+            110.0,
+            20.0,
+            140.0,
+            80.0
+          ]
+        },
+        {
+          "id": "1",
+          "raw_id": 1,
+          "class_id": null,
+          "box": [
+            10.0,
+            20.0,
+            40.0,
+            80.0
+          ]
+        }
+      ],
+      "first_outputs": [
+        {
+          "id": "2",
+          "raw_id": 2,
+          "class_id": null,
+          "box": [
+            310.0,
+            20.0,
+            340.0,
+            80.0
+          ]
+        },
+        {
+          "id": "2",
+          "raw_id": 2,
+          "class_id": null,
+          "box": [
+            110.0,
+            20.0,
+            140.0,
+            80.0
+          ]
+        },
+        {
+          "id": "1",
+          "raw_id": 1,
+          "class_id": null,
+          "box": [
+            10.0,
+            20.0,
+            40.0,
+            80.0
+          ]
+        }
+      ],
+      "duplicate_output_ids": true,
+      "note": "同进程A已有两轨，构建并更新B后A新增轨；未对并发实例重置全局变量"
+    },
+    {
+      "algorithm": "paddle_byte",
+      "first_before_second_instance": {
+        "tracked": [
+          "0:1",
+          "0:2"
+        ],
+        "lost": [],
+        "removed": []
+      },
+      "first_after": {
+        "tracked": [
+          "0:1",
+          "0:2",
+          "0:3"
+        ],
+        "lost": [],
+        "removed": []
+      },
+      "counter_before": {
+        "0": 2,
+        "1": 0
+      },
+      "counter_after_second": {
+        "0": 1,
+        "1": 0
+      },
+      "first_after_add": {
+        "tracked": [
+          "0:1",
+          "0:2"
+        ],
+        "lost": [],
+        "removed": []
+      },
+      "first_add_outputs": [
+        {
+          "id": "0:1",
+          "raw_id": 1,
+          "class_id": 0,
+          "box": [
+            10.0,
+            20.0,
+            40.0,
+            80.0
+          ],
+          "last_score": 0.9
+        },
+        {
+          "id": "0:2",
+          "raw_id": 2,
+          "class_id": 0,
+          "box": [
+            110.0,
+            20.0,
+            140.0,
+            80.0
+          ],
+          "last_score": 0.9
+        }
+      ],
+      "first_outputs": [
+        {
+          "id": "0:1",
+          "raw_id": 1,
+          "class_id": 0,
+          "box": [
+            10.0,
+            20.0,
+            40.0,
+            80.0
+          ],
+          "last_score": 0.9
+        },
+        {
+          "id": "0:2",
+          "raw_id": 2,
+          "class_id": 0,
+          "box": [
+            110.0,
+            20.0,
+            140.0,
+            80.0
+          ],
+          "last_score": 0.9
+        }
+      ],
+      "duplicate_output_ids": false,
+      "note": "同进程A已有两轨，构建并更新B后A新增轨；未对并发实例重置全局变量"
+    },
+    {
+      "algorithm": "paddle_oc",
+      "first_before_second_instance": {
+        "retained": [
+          {
+            "id": 1,
+            "age": 0
+          },
+          {
+            "id": 2,
+            "age": 0
+          }
+        ]
+      },
+      "first_after": {
+        "retained": [
+          {
+            "id": 1,
+            "age": 0
+          },
+          {
+            "id": 2,
+            "age": 0
+          },
+          {
+            "id": 2,
+            "age": 0
+          }
+        ]
+      },
+      "counter_before": 2,
+      "counter_after_second": 1,
+      "first_after_add": {
+        "retained": [
+          {
+            "id": 1,
+            "age": 0
+          },
+          {
+            "id": 2,
+            "age": 0
+          },
+          {
+            "id": 2,
+            "age": 0
+          }
+        ]
+      },
+      "first_add_outputs": [
+        {
+          "id": "2",
+          "raw_id": 2,
+          "class_id": null,
+          "box": [
+            110.0,
+            20.0,
+            140.0,
+            80.0
+          ]
+        },
+        {
+          "id": "1",
+          "raw_id": 1,
+          "class_id": null,
+          "box": [
+            10.0,
+            20.0,
+            40.0,
+            80.0
+          ]
+        }
+      ],
+      "first_outputs": [
+        {
+          "id": "2",
+          "raw_id": 2,
+          "class_id": null,
+          "box": [
+            310.0,
+            20.0,
+            340.0,
+            80.0
+          ]
+        },
+        {
+          "id": "2",
+          "raw_id": 2,
+          "class_id": null,
+          "box": [
+            110.0,
+            20.0,
+            140.0,
+            80.0
+          ]
+        },
+        {
+          "id": "1",
+          "raw_id": 1,
+          "class_id": null,
+          "box": [
+            10.0,
+            20.0,
+            40.0,
+            80.0
+          ]
+        }
+      ],
+      "duplicate_output_ids": true,
+      "note": "同进程A已有两轨，构建并更新B后A新增轨；未对并发实例重置全局变量"
+    }
+  ],
+  "results": [
+    {
+      "algorithm": "byte",
+      "scenario": "translation",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 12,
+        "update_ms": {
+          "total": 4.487800000000001,
+          "median": 0.34299999999999997,
+          "p95": 0.5387449999999999,
+          "max": 0.651
+        }
+      }
+    },
+    {
+      "algorithm": "byte",
+      "scenario": "low_score",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 10,
+        "update_ms": {
+          "total": 2.9135000000000004,
+          "median": 0.30215000000000003,
+          "p95": 0.31967,
+          "max": 0.3203
+        }
+      }
+    },
+    {
+      "algorithm": "byte",
+      "scenario": "filtered_low_score",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 3,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 10,
+        "update_ms": {
+          "total": 2.4913999999999996,
+          "median": 0.3014,
+          "p95": 0.32831,
+          "max": 0.3293
+        }
+      }
+    },
+    {
+      "algorithm": "byte",
+      "scenario": "short_occlusion",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 3,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 12,
+        "update_ms": {
+          "total": 3.1845,
+          "median": 0.30079999999999996,
+          "p95": 0.3614599999999999,
+          "max": 0.4169
+        }
+      }
+    },
+    {
+      "algorithm": "byte",
+      "scenario": "long_loss",
+      "mode": "native",
+      "summary": {
+        "id_changes": 1,
+        "unmatched_detection_frames": 1,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 10,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 19,
+        "update_ms": {
+          "total": 3.571700000000001,
+          "median": 0.1469,
+          "p95": 0.31594,
+          "max": 0.3235
+        }
+      }
+    },
+    {
+      "algorithm": "byte",
+      "scenario": "crossing",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 1,
+        "calls": 21,
+        "update_ms": {
+          "total": 10.322,
+          "median": 0.4561,
+          "p95": 0.6483,
+          "max": 1.1235
+        }
+      }
+    },
+    {
+      "algorithm": "byte",
+      "scenario": "ambiguous_bounce",
+      "mode": "native",
+      "summary": {
+        "id_changes": 2,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 1,
+        "calls": 21,
+        "update_ms": {
+          "total": 11.9249,
+          "median": 0.5503,
+          "p95": 0.855,
+          "max": 0.9652
+        }
+      }
+    },
+    {
+      "algorithm": "byte",
+      "scenario": "multi_class",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 1,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 10,
+        "update_ms": {
+          "total": 3.4748,
+          "median": 0.3363,
+          "p95": 0.4296649999999999,
+          "max": 0.4532
+        }
+      }
+    },
+    {
+      "algorithm": "byte",
+      "scenario": "multi_class",
+      "mode": "class_isolated",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 1,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 20,
+        "update_ms": {
+          "total": 4.184200000000001,
+          "median": 0.16854999999999998,
+          "p95": 0.41899,
+          "max": 0.4207
+        }
+      }
+    },
+    {
+      "algorithm": "byte",
+      "scenario": "sparse_gap",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 6,
+        "update_ms": {
+          "total": 1.6755,
+          "median": 0.2988,
+          "p95": 0.310925,
+          "max": 0.311
+        }
+      }
+    },
+    {
+      "algorithm": "byte",
+      "scenario": "sparse_gap",
+      "mode": "pad_empty",
+      "summary": {
+        "id_changes": 1,
+        "unmatched_detection_frames": 1,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 23,
+        "update_ms": {
+          "total": 2.8983,
+          "median": 0.1324,
+          "p95": 0.30238,
+          "max": 0.307
+        }
+      }
+    },
+    {
+      "algorithm": "byte",
+      "scenario": "score_boundary",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 4,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 8,
+        "update_ms": {
+          "total": 2.0398,
+          "median": 0.1602,
+          "p95": 0.48089999999999994,
+          "max": 0.5075
+        }
+      }
+    },
+    {
+      "algorithm": "oc",
+      "scenario": "translation",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 12,
+        "update_ms": {
+          "total": 6.0289,
+          "median": 0.4952,
+          "p95": 0.630725,
+          "max": 0.6552
+        }
+      }
+    },
+    {
+      "algorithm": "oc",
+      "scenario": "low_score",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 3,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 10,
+        "update_ms": {
+          "total": 4.2718,
+          "median": 0.4692,
+          "p95": 0.7046799999999996,
+          "max": 0.853
+        }
+      }
+    },
+    {
+      "algorithm": "oc",
+      "scenario": "filtered_low_score",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 3,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 10,
+        "update_ms": {
+          "total": 4.629300000000001,
+          "median": 0.4507,
+          "p95": 0.8167699999999997,
+          "max": 0.9713
+        }
+      }
+    },
+    {
+      "algorithm": "oc",
+      "scenario": "short_occlusion",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 3,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 12,
+        "update_ms": {
+          "total": 5.1777999999999995,
+          "median": 0.4633,
+          "p95": 0.6748399999999997,
+          "max": 0.8713
+        }
+      }
+    },
+    {
+      "algorithm": "oc",
+      "scenario": "long_loss",
+      "mode": "native",
+      "summary": {
+        "id_changes": 1,
+        "unmatched_detection_frames": 1,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 10,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 19,
+        "update_ms": {
+          "total": 5.4295,
+          "median": 0.2374,
+          "p95": 0.48083000000000004,
+          "max": 0.4829
+        }
+      }
+    },
+    {
+      "algorithm": "oc",
+      "scenario": "crossing",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 1,
+        "calls": 21,
+        "update_ms": {
+          "total": 15.093899999999998,
+          "median": 0.6955,
+          "p95": 1.0122,
+          "max": 1.0528
+        }
+      }
+    },
+    {
+      "algorithm": "oc",
+      "scenario": "ambiguous_bounce",
+      "mode": "native",
+      "summary": {
+        "id_changes": 2,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 1,
+        "calls": 21,
+        "update_ms": {
+          "total": 14.5866,
+          "median": 0.6869,
+          "p95": 0.8473,
+          "max": 0.8861
+        }
+      }
+    },
+    {
+      "algorithm": "oc",
+      "scenario": "multi_class",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 1,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 10,
+        "update_ms": {
+          "total": 5.5634,
+          "median": 0.5156000000000001,
+          "p95": 0.8476499999999999,
+          "max": 0.8778
+        }
+      }
+    },
+    {
+      "algorithm": "oc",
+      "scenario": "multi_class",
+      "mode": "class_isolated",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 1,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 20,
+        "update_ms": {
+          "total": 5.9915,
+          "median": 0.25965,
+          "p95": 0.498445,
+          "max": 0.5639
+        }
+      }
+    },
+    {
+      "algorithm": "oc",
+      "scenario": "sparse_gap",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 6,
+        "update_ms": {
+          "total": 2.4926,
+          "median": 0.4597,
+          "p95": 0.4809,
+          "max": 0.4863
+        }
+      }
+    },
+    {
+      "algorithm": "oc",
+      "scenario": "sparse_gap",
+      "mode": "pad_empty",
+      "summary": {
+        "id_changes": 1,
+        "unmatched_detection_frames": 1,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 23,
+        "update_ms": {
+          "total": 5.503,
+          "median": 0.1741,
+          "p95": 0.5925199999999999,
+          "max": 0.974
+        }
+      }
+    },
+    {
+      "algorithm": "oc",
+      "scenario": "score_boundary",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 4,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 8,
+        "update_ms": {
+          "total": 2.8861000000000003,
+          "median": 0.26915,
+          "p95": 0.58939,
+          "max": 0.6057
+        }
+      }
+    },
+    {
+      "algorithm": "oc_byte",
+      "scenario": "translation",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 12,
+        "update_ms": {
+          "total": 5.382800000000001,
+          "median": 0.45755,
+          "p95": 0.528875,
+          "max": 0.5704
+        }
+      }
+    },
+    {
+      "algorithm": "oc_byte",
+      "scenario": "low_score",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 10,
+        "update_ms": {
+          "total": 4.8177,
+          "median": 0.4666,
+          "p95": 0.6632099999999999,
+          "max": 0.72
+        }
+      }
+    },
+    {
+      "algorithm": "oc_byte",
+      "scenario": "filtered_low_score",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 3,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 10,
+        "update_ms": {
+          "total": 4.1251,
+          "median": 0.45965,
+          "p95": 0.6741549999999996,
+          "max": 0.8155
+        }
+      }
+    },
+    {
+      "algorithm": "oc_byte",
+      "scenario": "short_occlusion",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 3,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 12,
+        "update_ms": {
+          "total": 5.2136,
+          "median": 0.45765,
+          "p95": 0.6987349999999999,
+          "max": 0.8309
+        }
+      }
+    },
+    {
+      "algorithm": "oc_byte",
+      "scenario": "long_loss",
+      "mode": "native",
+      "summary": {
+        "id_changes": 1,
+        "unmatched_detection_frames": 1,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 10,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 19,
+        "update_ms": {
+          "total": 5.834499999999999,
+          "median": 0.268,
+          "p95": 0.5211599999999998,
+          "max": 0.5964
+        }
+      }
+    },
+    {
+      "algorithm": "oc_byte",
+      "scenario": "crossing",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 1,
+        "calls": 21,
+        "update_ms": {
+          "total": 13.3927,
+          "median": 0.6499,
+          "p95": 0.692,
+          "max": 0.7699
+        }
+      }
+    },
+    {
+      "algorithm": "oc_byte",
+      "scenario": "ambiguous_bounce",
+      "mode": "native",
+      "summary": {
+        "id_changes": 2,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 1,
+        "calls": 21,
+        "update_ms": {
+          "total": 13.5347,
+          "median": 0.636,
+          "p95": 0.7372,
+          "max": 0.9252
+        }
+      }
+    },
+    {
+      "algorithm": "oc_byte",
+      "scenario": "multi_class",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 1,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 10,
+        "update_ms": {
+          "total": 4.5052,
+          "median": 0.4473,
+          "p95": 0.5914699999999998,
+          "max": 0.6875
+        }
+      }
+    },
+    {
+      "algorithm": "oc_byte",
+      "scenario": "multi_class",
+      "mode": "class_isolated",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 1,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 20,
+        "update_ms": {
+          "total": 5.7274,
+          "median": 0.2387,
+          "p95": 0.479275,
+          "max": 0.4845
+        }
+      }
+    },
+    {
+      "algorithm": "oc_byte",
+      "scenario": "sparse_gap",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 6,
+        "update_ms": {
+          "total": 3.0235,
+          "median": 0.5224,
+          "p95": 0.6972499999999999,
+          "max": 0.7229
+        }
+      }
+    },
+    {
+      "algorithm": "oc_byte",
+      "scenario": "sparse_gap",
+      "mode": "pad_empty",
+      "summary": {
+        "id_changes": 1,
+        "unmatched_detection_frames": 1,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 23,
+        "update_ms": {
+          "total": 5.2189000000000005,
+          "median": 0.212,
+          "p95": 0.53249,
+          "max": 0.5517
+        }
+      }
+    },
+    {
+      "algorithm": "oc_byte",
+      "scenario": "score_boundary",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 2,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 8,
+        "update_ms": {
+          "total": 3.2218,
+          "median": 0.48915,
+          "p95": 0.517545,
+          "max": 0.525
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_byte",
+      "scenario": "translation",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 12,
+        "update_ms": {
+          "total": 6.873099999999999,
+          "median": 0.5447500000000001,
+          "p95": 0.7423599999999999,
+          "max": 0.7934
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_byte",
+      "scenario": "low_score",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 10,
+        "update_ms": {
+          "total": 5.9704,
+          "median": 0.49860000000000004,
+          "p95": 1.1809149999999988,
+          "max": 1.6513
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_byte",
+      "scenario": "filtered_low_score",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 3,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 10,
+        "update_ms": {
+          "total": 6.467299999999999,
+          "median": 0.62085,
+          "p95": 0.9422299999999999,
+          "max": 0.9731
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_byte",
+      "scenario": "short_occlusion",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 3,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 12,
+        "update_ms": {
+          "total": 7.4582,
+          "median": 0.6075999999999999,
+          "p95": 0.942715,
+          "max": 0.975
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_byte",
+      "scenario": "long_loss",
+      "mode": "native",
+      "summary": {
+        "id_changes": 1,
+        "unmatched_detection_frames": 1,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 10,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 19,
+        "update_ms": {
+          "total": 7.0534,
+          "median": 0.3141,
+          "p95": 0.6111099999999997,
+          "max": 0.7219
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_byte",
+      "scenario": "crossing",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 1,
+        "calls": 21,
+        "update_ms": {
+          "total": 16.648500000000002,
+          "median": 0.774,
+          "p95": 1.0788,
+          "max": 1.0928
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_byte",
+      "scenario": "ambiguous_bounce",
+      "mode": "native",
+      "summary": {
+        "id_changes": 2,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 1,
+        "calls": 21,
+        "update_ms": {
+          "total": 16.4362,
+          "median": 0.7343,
+          "p95": 1.049,
+          "max": 1.1256
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_byte",
+      "scenario": "multi_class",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 1,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 10,
+        "update_ms": {
+          "total": 4.9496,
+          "median": 0.50495,
+          "p95": 0.6328149999999999,
+          "max": 0.6739
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_byte",
+      "scenario": "multi_class",
+      "mode": "class_isolated",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 1,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 20,
+        "update_ms": {
+          "total": 5.9334,
+          "median": 0.22999999999999998,
+          "p95": 0.49919500000000006,
+          "max": 0.5067
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_byte",
+      "scenario": "sparse_gap",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 6,
+        "update_ms": {
+          "total": 2.5217,
+          "median": 0.44975,
+          "p95": 0.47665,
+          "max": 0.4796
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_byte",
+      "scenario": "sparse_gap",
+      "mode": "pad_empty",
+      "summary": {
+        "id_changes": 1,
+        "unmatched_detection_frames": 1,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 23,
+        "update_ms": {
+          "total": 4.9558,
+          "median": 0.2038,
+          "p95": 0.46660999999999997,
+          "max": 0.4908
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_byte",
+      "scenario": "score_boundary",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 4,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 8,
+        "update_ms": {
+          "total": 2.6634,
+          "median": 0.2815,
+          "p95": 0.498895,
+          "max": 0.5242
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_oc",
+      "scenario": "translation",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 12,
+        "update_ms": {
+          "total": 4.180000000000001,
+          "median": 0.34025,
+          "p95": 0.452215,
+          "max": 0.4647
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_oc",
+      "scenario": "low_score",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 10,
+        "update_ms": {
+          "total": 3.3604000000000003,
+          "median": 0.33330000000000004,
+          "p95": 0.41564999999999996,
+          "max": 0.417
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_oc",
+      "scenario": "filtered_low_score",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 3,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 10,
+        "update_ms": {
+          "total": 3.2444999999999995,
+          "median": 0.3649,
+          "p95": 0.4849499999999998,
+          "max": 0.5583
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_oc",
+      "scenario": "short_occlusion",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 3,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 12,
+        "update_ms": {
+          "total": 3.3596999999999997,
+          "median": 0.3061,
+          "p95": 0.34063,
+          "max": 0.3458
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_oc",
+      "scenario": "long_loss",
+      "mode": "native",
+      "summary": {
+        "id_changes": 1,
+        "unmatched_detection_frames": 1,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 10,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 19,
+        "update_ms": {
+          "total": 4.082299999999999,
+          "median": 0.1691,
+          "p95": 0.3739399999999998,
+          "max": 0.4598
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_oc",
+      "scenario": "crossing",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 1,
+        "calls": 21,
+        "update_ms": {
+          "total": 10.370000000000001,
+          "median": 0.4873,
+          "p95": 0.557,
+          "max": 0.6877
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_oc",
+      "scenario": "ambiguous_bounce",
+      "mode": "native",
+      "summary": {
+        "id_changes": 2,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 1,
+        "calls": 21,
+        "update_ms": {
+          "total": 10.3486,
+          "median": 0.4739,
+          "p95": 0.6334,
+          "max": 0.6944
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_oc",
+      "scenario": "multi_class",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 1,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 10,
+        "update_ms": {
+          "total": 3.0194000000000005,
+          "median": 0.3124,
+          "p95": 0.332795,
+          "max": 0.3359
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_oc",
+      "scenario": "multi_class",
+      "mode": "class_isolated",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 1,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 20,
+        "update_ms": {
+          "total": 4.3245,
+          "median": 0.19855,
+          "p95": 0.33403000000000005,
+          "max": 0.3897
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_oc",
+      "scenario": "sparse_gap",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 6,
+        "update_ms": {
+          "total": 1.7628,
+          "median": 0.308,
+          "p95": 0.325225,
+          "max": 0.3264
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_oc",
+      "scenario": "sparse_gap",
+      "mode": "pad_empty",
+      "summary": {
+        "id_changes": 1,
+        "unmatched_detection_frames": 1,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 23,
+        "update_ms": {
+          "total": 3.4477,
+          "median": 0.1534,
+          "p95": 0.34435,
+          "max": 0.3464
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_oc",
+      "scenario": "score_boundary",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 2,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 8,
+        "update_ms": {
+          "total": 2.4865000000000004,
+          "median": 0.32430000000000003,
+          "p95": 0.4649249999999999,
+          "max": 0.491
+        }
+      }
+    }
+  ]
+}

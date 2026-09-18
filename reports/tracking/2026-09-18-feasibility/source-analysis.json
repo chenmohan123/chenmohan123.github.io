@@ -1,0 +1,169 @@
+{
+  "byte_deep_kalman_comparison": {
+    "byte_lines": 270,
+    "deep_lines": 229,
+    "identical_ordered_lines": 217,
+    "method": "difflib.SequenceMatcher，autojunk=False，含空行与注释"
+  },
+  "source_indicators": {
+    "byte_root_mit": true,
+    "oc_root_mit": true,
+    "sort_root_gpl3": true,
+    "deep_root_gpl3": true,
+    "oc_adopted_from_sort": true,
+    "paddle_kalman_links_deep_sort": true,
+    "paddle_oc_links_ocsort": true
+  },
+  "dependencies": {
+    "numpy": {
+      "version": "1.23.5",
+      "license_metadata_start": "BSD",
+      "license_expression": null,
+      "installed_license_files": [
+        {
+          "path": "numpy-1.23.5.dist-info/LICENSE.txt",
+          "bytes": 48809,
+          "sha256": "be0e909d681906de027743b19451a9be95c7605bc5e9f87f029825fa7efe4fcd",
+          "opening": "Copyright (c) 2005-2022, NumPy Developers.\r\nAll rights reserved.\r\n\r\nRedistribution and use in source and binary forms, with or without\r\nmodification, are permitted provided that th",
+          "mentions_faster_rcnn": false,
+          "mentions_mit": true,
+          "mentions_caffe": false
+        },
+        {
+          "path": "numpy-1.23.5.dist-info/LICENSES_bundled.txt",
+          "bytes": 656,
+          "sha256": "516199d1fd58293601de1ad51ccdba987b81b864c9c119f9d0d313332227bcf6",
+          "opening": "The NumPy repository and source distributions bundle several libraries that are\r\ncompatibly licensed.  We list these here.\r\n\r\nName: lapack-lite\r\nFiles: numpy/linalg/lapack_lite/*\r\n",
+          "mentions_faster_rcnn": false,
+          "mentions_mit": true,
+          "mentions_caffe": false
+        }
+      ],
+      "classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ]
+    },
+    "scipy": {
+      "version": "1.10.1",
+      "license_metadata_start": "Copyright (c) 2001-2002 Enthought, Inc. 2003-2022, SciPy Developers.\nAll rights reserved.\n\nRedistribution and use in source and binary forms, with or without\nmodification, are permitted provided that the following conditions\nare met:\n\n1. Re",
+      "license_expression": null,
+      "installed_license_files": [
+        {
+          "path": "scipy-1.10.1.dist-info/LICENSE.txt",
+          "bytes": 46652,
+          "sha256": "489ea4e0885f08db69d7f1b2453dbc5887034dcd4b1decd3fa33c08be02982de",
+          "opening": "Copyright (c) 2001-2002 Enthought, Inc. 2003-2022, SciPy Developers.\r\nAll rights reserved.\r\n\r\nRedistribution and use in source and binary forms, with or without\r\nmodification, are ",
+          "mentions_faster_rcnn": false,
+          "mentions_mit": true,
+          "mentions_caffe": false
+        }
+      ],
+      "classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ]
+    },
+    "lap": {
+      "version": "0.5.12",
+      "license_metadata_start": "BSD-2-Clause",
+      "license_expression": null,
+      "installed_license_files": [
+        {
+          "path": "lap-0.5.12.dist-info/LICENSE",
+          "bytes": 1306,
+          "sha256": "814688cc52a3e740e5404e43364dcf1ba03a0506c2ad6a2198c36855d59e55d6",
+          "opening": "Copyright (c) 2012-2024, Tomas Kazmar\r\nAll rights reserved.\r\n\r\nRedistribution and use in source and binary forms, with or without modification, are permitted provided that the foll",
+          "mentions_faster_rcnn": false,
+          "mentions_mit": true,
+          "mentions_caffe": false
+        }
+      ],
+      "classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ]
+    },
+    "cython_bbox": {
+      "version": "0.1.5",
+      "license_metadata_start": "未声明",
+      "license_expression": null,
+      "installed_license_files": [
+        {
+          "path": "cython_bbox-0.1.5.dist-info/licenses/LICENSE",
+          "bytes": 4814,
+          "sha256": "ca29ad79473f40531db6cbbebbd144911d79d5420af8de66d2268daa13aeae4e",
+          "opening": "Faster R-CNN\n\nThe MIT License (MIT)\n\nCopyright (c) 2015 Microsoft Corporation\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and ass",
+          "mentions_faster_rcnn": true,
+          "mentions_mit": true,
+          "mentions_caffe": true
+        }
+      ],
+      "classifiers": []
+    },
+    "filterpy": {
+      "version": "1.4.5",
+      "license_metadata_start": "MIT",
+      "license_expression": null,
+      "installed_license_files": [
+        {
+          "path": "filterpy-1.4.5.dist-info/licenses/LICENSE",
+          "bytes": 1084,
+          "sha256": "8ffce1097f1b1c0fba42e4449ef49aa05cb7b45566dd0989407839dba07af99c",
+          "opening": "The MIT License (MIT)\n\nCopyright (c) 2015 Roger R. Labbe Jr\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentat",
+          "mentions_faster_rcnn": false,
+          "mentions_mit": true,
+          "mentions_caffe": false
+        }
+      ],
+      "classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ]
+    },
+    "torch": {
+      "version": "2.5.1+cpu",
+      "license_metadata_start": "BSD-3-Clause",
+      "license_expression": null,
+      "installed_license_files": [
+        {
+          "path": "torch-2.5.1+cpu.dist-info/LICENSE",
+          "bytes": 523467,
+          "sha256": "f226b225fdff2e19dee06ffac7fff8b5c92f4e1a5914421526d0d4b2fbcef9b2",
+          "opening": "From PyTorch:\r\n\r\nCopyright (c) 2016-     Facebook, Inc            (Adam Paszke)\r\nCopyright (c) 2014-     Facebook, Inc            (Soumith Chintala)\r\nCopyright (c) 2011-2014 Idiap ",
+          "mentions_faster_rcnn": false,
+          "mentions_mit": true,
+          "mentions_caffe": true
+        }
+      ],
+      "classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ]
+    },
+    "opencv-python": {
+      "version": "4.10.0.84",
+      "license_metadata_start": "Apache 2.0",
+      "license_expression": null,
+      "installed_license_files": [
+        {
+          "path": "opencv_python-4.10.0.84.dist-info/LICENSE-3RD-PARTY.txt",
+          "bytes": 155450,
+          "sha256": "0b33c5be17819d10ecad11360c6f2bd5a7df7c0f80a3314a81e28070d93818e2",
+          "opening": "OpenCV library is redistributed within opencv-python package.\r\nThis license applies to OpenCV binary in the directory cv2/.\r\n\r\n\r\n                                 Apache License\r\n  ",
+          "mentions_faster_rcnn": false,
+          "mentions_mit": true,
+          "mentions_caffe": false
+        },
+        {
+          "path": "opencv_python-4.10.0.84.dist-info/LICENSE.txt",
+          "bytes": 1090,
+          "sha256": "edef0fac1eb08d29d34563f724742e078da2513e196133a12c6ad9ff01e26107",
+          "opening": "MIT License\r\n\r\nCopyright (c) Olli-Pekka Heinisuo\r\n\r\nPermission is hereby granted, free of charge, to any person obtaining a copy\r\nof this software and associated documentation file",
+          "mentions_faster_rcnn": false,
+          "mentions_mit": true,
+          "mentions_caffe": false
+        }
+      ],
+      "classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ]
+    }
+  },
+  "limitation": "只核对固定文件和已安装包元数据，未完成全部传递依赖/贡献历史法律审查；本轮不再分发上游源码。"
+}
