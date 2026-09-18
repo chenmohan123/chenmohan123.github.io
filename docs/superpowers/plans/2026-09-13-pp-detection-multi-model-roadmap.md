@@ -10,6 +10,22 @@
 
 **依据：** `docs/superpowers/specs/2026-08-27-paddle-detection-web-sdk-design.md`；`standards/v1/README.md`；已发布 `web-sdk-pp-detection@0.4.0` 及其双语发布说明。
 
+## 当前推进决策（2026-09-18）
+
+用户确认优先建设各种独立 SDK，门户负责登记、分类、比较和跳转；Workflow / Playground、Detection → TinyPose 自动找人和跨 SDK 视频编排暂缓。该顺序沿用最初按任务契约划分 SDK 的设计，同任务下的模型和精度变体仍属于同一 SDK。
+
+- **2D Detection：稳定维护。** 已发布14个规格、39个稳定变体；本阶段不继续扩充2D模型。
+- **TinyPose：0.3.0 已发布。** 三个稳定变体，单帧/人体框 API，独立 Demo 支持图片、本地视频和摄像头。物理摄像头、手机及 NPU 的验证边界保持不变。
+- **PP-Segmentation：0.1.0 已发布。** PP-YOLOE_seg_s 640 FP32，单帧 Blob/RGBA、原图框和独立二值 ROI 掩码。64图四模式严格质量验收通过，最小掩码IoU为0.9987084870848708；双源八组合、npm、GitHub Release和HTTPS Demo均已核验。原始官方裁边口径失败记录保留，最终采用原图整数尺寸独立参考。[固定发布记录](https://github.com/chenmohan123/web-sdk-PP-Segmentation/tree/89b350d30305ecbc275780e455d1c115a250570f/reports/2026-09-18-release-readiness)包含许可、双源、质量和交付回执。Trusted Publishing已配置，实际OIDC发布待下一次新版本验证。门户登记为第六个SDK。
+
+### 下一阶段：旋转框独立 SDK 可行性
+
+用户已确认先评估 **PP-YOLOE-R 与 FCOSR 的 FP32**，再依据实际结果确定首发候选。评估内容为固定官方配置/权重与许可来源、ONNX导出和算子、角度与顶点顺序、旋转IoU/NMS，以及桌面WASM/WebGPU的数值和性能；没有执行证据的候选不标为兼容或稳定。旋转框任务保持独立，不加入现有轴对齐Detection API。
+
+本轮先形成评估结论，不提前创建或发布旋转框SDK。分割FP16/量化和媒体能力、HRNet等姿态扩展、ByteTrack/OC-SORT跟踪作为后续候选。继续桌面优先、ModelScope默认并保留Hugging Face，以及独立Demo统一风格的要求。
+
+后文日期更早的“下一阶段”保留为历史实施记录，当前优先级以本节为准。
+
 ## 与最初规划的关系
 
 - 不改变原规划的分层：PP-Detection 是单 SDK，门户只登记和比较，跨 SDK 组合只有在输入输出契约和真实用例都成立后才建立 Workflow。

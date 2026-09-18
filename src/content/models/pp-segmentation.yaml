@@ -1,0 +1,46 @@
+id: pp-segmentation
+name: PP-Segmentation
+brand: baidu
+task: instance-segmentation
+status: available
+summary: 在浏览器本地运行 PP-YOLOE_seg_s 640 FP32 图片实例分割，返回 COCO 80 类对象的类别、分数、原图边界框和独立二值掩码，支持 CPU/WASM、GPU/WebGPU 与主线程/Worker。
+repository: https://github.com/chenmohan123/web-sdk-PP-Segmentation
+license: Apache-2.0
+package:
+  name: web-sdk-pp-segmentation
+  version: 0.1.0
+demo:
+  url: https://chenmohan123.github.io/web-sdk-PP-Segmentation/
+  localProcessing: true
+runtime:
+  backends:
+    - { name: wasm, status: stable }
+    - { name: webgpu, status: stable }
+  capabilities: [worker, checksum, model-cache, scoped-cache-clear, cache-estimate, image, multi-source, fp32, instance-mask]
+  verifiedEnvironments:
+    - browser: Chromium 153.0.8010.12
+      os: Windows 11 10.0.26200
+      device: Intel Core i5-10400F / WASM，ModelScope/Hugging Face × 主线程/Worker，ORT Web 1.27.0
+      testedAt: 2026-09-18
+    - browser: Chromium 153.0.8010.12
+      os: Windows 11 10.0.26200
+      device: NVIDIA GeForce RTX 5060 Ti / WebGPU，驱动 32.0.16.1692，ModelScope/Hugging Face × 主线程/Worker，ORT Web 1.27.0
+      testedAt: 2026-09-18
+io:
+  input: [Blob, RGBA]
+  output: [类别与分数, 原图边界框, 独立二值 ROI 掩码, image, runtime, model, timings]
+assets:
+  - id: ppyoloe-seg-s-640-fp32
+    precision: fp32
+    bytes: 36265193
+    url: https://www.modelscope.cn/models/chenmohan/web-sdk-pp-segmentation/resolve/7dff857118c4d223b1bdf031d42121f7db2e09b8/ppyoloe-seg-s-640/0.1.0/ppyoloe-seg-s-640-fp32.onnx
+    sha256: d418de8890fa13ae213aefeff4216bda2dcf961678494cd4baf55d9942a77334
+limitations:
+  - 当前 SDK 与 Demo 仅支持单帧图片，不包含视频、摄像头、跟踪或门户组合；实例序号不是跟踪 ID。
+  - 掩码为独立可重叠的紧致二值 ROI，保留二次插值后的全部前景，可能超出检测框；绘制应使用 mask.x/y。
+  - 默认 ModelScope，另可选择 Hugging Face；双源固定提交、字节数与 SHA-256 已验证。显式来源或后端失败不会静默切换，npm 包不内置 ONNX。
+  - 2026-09-18 双源 × WASM/WebGPU × 主线程/Worker 八组合已通过真实浏览器交付验收，npm 0.1.0、GitHub Release 与 HTTPS Demo 已发布并回读；固定证据见 https://github.com/chenmohan123/web-sdk-PP-Segmentation/tree/89b350d30305ecbc275780e455d1c115a250570f/reports/2026-09-18-release-readiness 。
+  - 固定64图子集的四执行模式各匹配423个高分实例，最小掩码IoU为0.998708；最大mask AP下降约0.078个百分点。该结果不是全量COCO精度；原官方裁边口径失败记录保留于SDK，最终依据原图整数尺寸独立参考验收。
+  - 当前仅提供FP32。掩码后处理在CPU执行，GPU推理耗时不等于端到端帧率；图片输入上限16,777,216像素，返回掩码累计上限64MiB不代表峰值内存。
+  - 验证限于记录中的 Windows/Chromium 桌面环境；手机、NPU、Safari、Firefox 和微信 web-view 尚未验证。
+  - SDK、官方权重及ONNX转换物采用Apache-2.0，保留PaddleDetection归因；未找到独立点名权重的许可文本，采用依据见SDK的NOTICE与许可决定，Hub镜像由本项目维护。

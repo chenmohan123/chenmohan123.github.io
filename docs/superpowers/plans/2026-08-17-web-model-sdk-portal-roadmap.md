@@ -8,6 +8,14 @@ This roadmap keeps the portal registry-first and preserves the boundary between
 the portal and independent SDK repositories. It is ordered by dependency and
 readiness, not by the number of models mentioned in the catalog.
 
+## 当前优先级（2026-09-18 用户确认）
+
+后续优先建设独立 SDK，门户负责登记、分类、比较及仓库、npm、Demo 跳转。Workflow / Playground 和 Detection → TinyPose 等组合执行暂缓；这一顺序延续最初的任务边界。
+
+TinyPose 0.3.0 与 PP-Segmentation 0.1.0 已正式发布。分割以 PP-YOLOE_seg_s 640 FP32 提供单帧图片、原图框与二值 ROI 掩码，已完成原图整数尺寸参考的质量验收、双源、npm、Release 和 HTTPS Demo 回读；见[固定发布证据](https://github.com/chenmohan123/web-sdk-PP-Segmentation/tree/89b350d30305ecbc275780e455d1c115a250570f/reports/2026-09-18-release-readiness)。门户登记第六个 SDK，并保留桌面验证边界。
+
+下一项是 PP-YOLOE-R、FCOSR FP32 的旋转框独立 SDK 可行性评估。先确认来源、导出、旋转框后处理与桌面 CPU/GPU 的实际结果，再确定首发候选；详见[PaddleDetection 独立 SDK 路线](2026-09-13-pp-detection-multi-model-roadmap.md#当前推进决策2026-09-18)。分割精度变体和媒体扩展留待后续。
+
 ## Current Baseline
 
 Completed:
@@ -147,6 +155,4 @@ APIs remain separate Labs work and are not prerequisites for the MVP.
 
 ## Next Concrete Task
 
-The next implementation task is Phase 1: add `CONTRIBUTING.md`, the SDK metadata
-template, and the first registry CI validators. Do not start Workflow code as
-part of that task.
+当前任务是补齐已发布 PP-Segmentation 的门户登记，并推进旋转框独立 SDK 的 FP32 可行性评估。上方各 Phase 为历史总体路线；Workflow 实施仍暂缓，不因新增目录项而启动。

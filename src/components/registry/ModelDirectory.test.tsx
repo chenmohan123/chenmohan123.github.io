@@ -9,9 +9,19 @@ const models = [
   { ...common, id: 'layout', name: 'PP-DocLayoutV3', task: 'document-layout', summary: 'Document layout analysis in the browser.' },
   { ...common, id: 'ocr', name: 'PP-OCRv6', task: 'ocr', status: 'research', summary: 'OCR model roadmap entry for the browser.' },
   { ...common, id: 'pp-tinypose', name: 'PP-TinyPose', task: 'pose-estimation', summary: '在浏览器本地估计单人人体姿态并输出 17 个 COCO 关键点。' },
+  { ...common, id: 'pp-segmentation', name: 'PP-Segmentation', task: 'instance-segmentation', summary: '在浏览器本地完成图片实例分割，返回独立的对象掩码。' },
 ] as unknown as ModelData[];
 
 describe('ModelDirectory', () => {
+  it('实例分割分类只展示分割模型并提供独立 SDK 详情入口', () => {
+    render(<ModelDirectory models={models} />);
+    fireEvent.change(screen.getByRole('combobox', { name: '任务' }), { target: { value: 'instance-segmentation' } });
+    expect(screen.getByText('1 个条目')).toBeVisible();
+    expect(screen.getByText('baidu · 实例分割')).toBeVisible();
+    expect(screen.getByRole('link', { name: 'PP-Segmentation' })).toHaveAttribute('href', '/models/pp-segmentation/');
+    expect(screen.queryByText('PP-TinyPose')).not.toBeInTheDocument();
+  });
+
   it('人体姿态分类只展示 TinyPose 并提供详情入口', () => {
     render(<ModelDirectory models={models} />);
     expect(screen.getByRole('option', { name: '人体姿态' })).toHaveValue('pose-estimation');

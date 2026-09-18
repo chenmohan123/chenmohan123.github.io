@@ -1,0 +1,31 @@
+{
+  "verifiedAt": "2026-09-18T08:32:21.804Z",
+  "status": "passed",
+  "sdkCommit": "89b350d30305ecbc275780e455d1c115a250570f",
+  "package": {
+    "name": "web-sdk-pp-segmentation",
+    "version": "0.1.0"
+  },
+  "modelCount": 6,
+  "assetCount": 52,
+  "metadataMatchesSdkManifest": true,
+  "defaultSource": "modelscope",
+  "modelSha256": "d418de8890fa13ae213aefeff4216bda2dcf961678494cd4baf55d9942a77334",
+  "npm": {
+    "url": "https://registry.npmjs.org/web-sdk-pp-segmentation/0.1.0",
+    "integrity": "sha512-C6YAOrDcVqXhDV3tvoPeLh0X1Vl7JsBIoim5sgIzFeOVL5/GHc56Id7uR5wr4knvEOY+O9gHw/7qCiC3VyoMTQ==",
+    "matchesPublishedReceipt": true
+  },
+  "demo": {
+    "url": "https://chenmohan123.github.io/web-sdk-PP-Segmentation/",
+    "status": 200
+  },
+  "release": {
+    "url": "https://github.com/chenmohan123/web-sdk-PP-Segmentation/releases/tag/v0.1.0",
+    "commit": "dfbc72056e8c8cf748a7697778f5d14a921b5302",
+    "isDraft": false,
+    "isPrerelease": false,
+    "verificationMethod": "gh release view 与 Git tag API 回读"
+  },
+  "boundary": "本轮核对门户登记与已发布版本；数值和模型下载验收引用固定 SDK 证据，没有重新运行推理。"
+}
