@@ -12,20 +12,24 @@
     "sha256": "decf29343d63d43b0e8a5b45b27b86a22e5d2f68390a248934f17d0890aa6c34"
   },
   "run.py": {
-    "bytes": 12304,
-    "sha256": "c997bc6125f6259781351b0c78bb466b9ba073411cada5ebe02df720e032d8d2"
+    "bytes": 13894,
+    "sha256": "1ae19b5ca63a5f43580c0b665c9a1f2764a7885ae665905c4e0200ea8aefda19"
   },
   "verify.py": {
-    "bytes": 4380,
-    "sha256": "c58e6b95a8170528d7c089bd3b9aa60c0d5afc9420981e2ac922eae6d7d740aa"
+    "bytes": 4597,
+    "sha256": "860cb6adb162aa2fd496d0d8857b6ed30299d262a53bbe0d4c8bcff3974fdf6c"
+  },
+  "verify_calls.py": {
+    "bytes": 6679,
+    "sha256": "77519d0d362c6b7994f03d7b3e61a3e952db1b2b183e9b1b464b876655996e67"
   },
   "analyze_sources.py": {
     "bytes": 3246,
     "sha256": "a428228ca51290618361f6dff36a092c9ea069c7de83e279c30a7ceb90f8398e"
   },
   "seal_evidence.py": {
-    "bytes": 691,
-    "sha256": "8c8ba11e670f3f2e9cc0c0723a5a84494149ddfb485e2868e031a5a47adcf0d1"
+    "bytes": 710,
+    "sha256": "72efa6174fc675c39608950499b3077e6cf4d172ce055d149c8446d6a86abbd8"
   },
   "sources.lock.json": {
     "bytes": 9120,
@@ -40,12 +44,12 @@
     "sha256": "714aea989ae3d4d4e88288cc74f3db893186353935774db72ebd8897e2ee2ebc"
   },
   "results.json.gz": {
-    "bytes": 19637,
-    "sha256": "97b9a8b97cf7a22d67f1ca63f32e776f3357036428a0626e38cf2e4b8698aff0"
+    "bytes": 46029,
+    "sha256": "087b981922a4e54a0abe82cd6cb534af516cf22cd585696b837b588af62dfddb"
   },
   "summary.json": {
-    "bytes": 43528,
-    "sha256": "4aec33c8df4b8dc07b0d395a41ff88b5c0e55843ae9ac24de3ef543359b978db"
+    "bytes": 50833,
+    "sha256": "8a4bff9982ee9ce05eaee9aaf9f7e9bc15b1c57bb04a2087db5086e646924a66"
   },
   "source-analysis.json": {
     "bytes": 7410,

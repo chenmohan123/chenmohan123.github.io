@@ -1,5 +1,6 @@
 """运行未修改的参考核心；适配仅限输入布局、输出记录和显式补空/分组。"""
 import argparse
+import copy
 import gzip
 import importlib
 import importlib.metadata
@@ -62,15 +63,22 @@ def create(name):
                delta_t=3, inertia=0.2, use_byte=name in ['oc_byte', 'paddle_oc'])
 
 
-def update(name, tracker, detections):
+def input_array(name, detections):
     if name.startswith('paddle'):
         values = [[d['class_id'], d['score'], *d['box']] for d in detections]
-        array = np.asarray(values, dtype=np.float64).reshape(-1, 6)
+        return np.asarray(values, dtype=np.float64).reshape(-1, 6)
+    values = [[*d['box'], d['score']] for d in detections]
+    return np.asarray(values, dtype=np.float64).reshape(-1, 5)
+
+
+def update(name, tracker, detections, call_context=None, call_records=None):
+    array = input_array(name, detections)
+    # 在调用前快照实际数组；上游即便原地修改输入也不会覆盖证据。
+    actual_input = dict(shape=list(array.shape), dtype=str(array.dtype), values=array.tolist())
+    if name.startswith('paddle'):
         start = time.perf_counter_ns()
         output = tracker.update(array)
     else:
-        values = [[*d['box'], d['score']] for d in detections]
-        array = np.asarray(values, dtype=np.float64).reshape(-1, 5)
         start = time.perf_counter_ns()
         output = tracker.update(array, (640, 640), (640, 640))
     duration = (time.perf_counter_ns() - start) / 1e6
@@ -81,6 +89,9 @@ def update(name, tracker, detections):
                 for cls, tracks in groups for t in tracks]
     else:
         rows = [dict(id=str(int(row[-1])), raw_id=int(row[-1]), class_id=None, box=row[:4].tolist()) for row in output]
+    if call_records is not None:
+        call_records.append(dict(**call_context, input=actual_input, outputs=copy.deepcopy(rows),
+                                 state=state(name, tracker), update_ms=duration))
     return rows, duration
 
 
@@ -139,20 +150,29 @@ def summarize(scene, frames):
 def run_scene(name, scene, mode='native'):
     classes = sorted({d['class_id'] for f in scene['frames'] for d in f['detections']}) if mode == 'class_isolated' else [None]
     frames = [dict(frame_index=f['frame_index'], timestamp_ms=f['timestamp_ms'], outputs=[], update_ms=[], states=[], padded_updates=0) for f in scene['frames']]
+    call_records = []
     for cls in classes:
         reset_globals()
         tracker = create(name)
         previous = -1
+        group_call_index = 0
+        def record_update(index, source_index, padding, detections):
+            nonlocal group_call_index
+            group_call_index += 1
+            context = dict(call_index=len(call_records) + 1, group_call_index=group_call_index,
+                           frame_index=index, source_frame_index=source_index,
+                           is_padding=padding, class_group=cls)
+            return update(name, tracker, detections, context, call_records)
         for source, result in zip(scene['frames'], frames):
             padding = source['frame_index'] - previous - 1 if mode == 'pad_empty' else 0
             if padding > CONFIG['max_padding']:
                 raise ValueError('补空超过实验上限，应由产品契约决定过期/reset策略')
-            for _ in range(padding):
-                _, duration = update(name, tracker, [])
+            for index in range(previous + 1, previous + 1 + padding):
+                _, duration = record_update(index, source['frame_index'], True, [])
                 result['update_ms'].append(duration)
             result['padded_updates'] += padding
             detections = [d for d in source['detections'] if cls is None or d['class_id'] == cls]
-            outputs, duration = update(name, tracker, detections)
+            outputs, duration = record_update(source['frame_index'], source['frame_index'], False, detections)
             if cls is not None:
                 for output in outputs:
                     output.update(id=f'c{cls}:{output["id"]}', class_id=cls)
@@ -160,7 +180,13 @@ def run_scene(name, scene, mode='native'):
             result['update_ms'].append(duration)
             result['states'].append(dict(class_id=cls, state=state(name, tracker)))
             previous = source['frame_index']
-    return dict(algorithm=name, scenario=scene['name'], mode=mode, frames=frames, summary=summarize(scene, frames))
+    summary = summarize(scene, frames)
+    padding_records = [record for record in call_records if record['is_padding']]
+    summary['padding'] = dict(calls=len(padding_records),
+                              empty_input_calls=sum(not record['input']['values'] for record in padding_records),
+                              output_count=sum(len(record['outputs']) for record in padding_records))
+    return dict(algorithm=name, scenario=scene['name'], mode=mode, frames=frames,
+                call_records=call_records, summary=summary)
 
 
 def diagnose(name):

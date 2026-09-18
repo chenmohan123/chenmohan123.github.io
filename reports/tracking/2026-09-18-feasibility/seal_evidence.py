@@ -3,7 +3,7 @@ import hashlib
 import json
 from prepare_sources import HERE
 
-FILES = ['.gitattributes', 'prepare_sources.py', 'generate_inputs.py', 'run.py', 'verify.py', 'analyze_sources.py',
+FILES = ['.gitattributes', 'prepare_sources.py', 'generate_inputs.py', 'run.py', 'verify.py', 'verify_calls.py', 'analyze_sources.py',
          'seal_evidence.py', 'sources.lock.json', 'requirements.lock.txt', 'inputs.json',
          'results.json.gz', 'summary.json', 'source-analysis.json']
 

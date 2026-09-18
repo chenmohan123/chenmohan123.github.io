@@ -10,6 +10,7 @@ from pathlib import Path
 import numpy as np
 from generate_inputs import generate
 from analyze_sources import analyze
+from verify_calls import verify_call_records
 from prepare_sources import HERE, ROOT, prepare
 
 
@@ -57,6 +58,7 @@ def main():
                                   for r in evidence['results']], '摘要与完整证据不一致'
     assert len(evidence['results']) == 60
     assert len(evidence['instance_diagnostics']) == 5
+    coverage = verify_call_records(evidence, inputs)
     for line in (HERE / 'requirements.lock.txt').read_text(encoding='utf-8').splitlines():
         if not line or line.startswith('#'):
             continue
@@ -78,8 +80,10 @@ def main():
     if args.rerun:
         target = ROOT / '.tmp/tracking-rerun.json'
         subprocess.run([sys.executable, str(HERE / 'run.py'), '--out', str(target)], check=True)
-        compare(canonical(evidence), canonical(json.loads(target.read_text(encoding='utf-8'))))
-    print('校验通过：60组场景、5组实例诊断、确定性输入、固定源码与依赖；重跑=' + str(args.rerun))
+        rerun = json.loads(target.read_text(encoding='utf-8'))
+        assert verify_call_records(rerun, inputs) == coverage
+        compare(canonical(evidence), canonical(rerun))
+    print('校验通过：60组场景、5组实例诊断、860次调用（含85次补空）、确定性输入、固定源码与依赖；重跑=' + str(args.rerun))
 
 
 if __name__ == '__main__':
