@@ -1,0 +1,32 @@
+{
+  "verifiedAt": "2026-09-18",
+  "status": "passed",
+  "sdkCommit": "b54ae15ca124fd111cac6e683409fdbb88a14e13",
+  "package": {
+    "name": "web-sdk-pp-rotated-detection",
+    "version": "0.1.0",
+    "metadataUrl": "https://registry.npmjs.org/web-sdk-pp-rotated-detection/0.1.0",
+    "publishedReceipt": "https://github.com/chenmohan123/web-sdk-PP-RotatedDetection/blob/b54ae15ca124fd111cac6e683409fdbb88a14e13/reports/2026-09-18-release/npm-published.json"
+  },
+  "model": {
+    "id": "ppyoloe-r-s-1024-fp32",
+    "bytes": 33161415,
+    "sha256": "de2f4c94061bda4bfaa0773ed5bc3aabdc59cf5b2f72301d15ae500b8f971089",
+    "defaultSource": "modelscope",
+    "url": "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-rotated-detection/resolve/20632e3f350c664c2f88ea56b68bca0fe8a03349/ppyoloe-r-s-1024/0.1.0/ppyoloe-r-s-1024-fp32.onnx"
+  },
+  "release": {
+    "url": "https://github.com/chenmohan123/web-sdk-PP-RotatedDetection/releases/tag/v0.1.0",
+    "receipt": "https://github.com/chenmohan123/web-sdk-PP-RotatedDetection/blob/b54ae15ca124fd111cac6e683409fdbb88a14e13/reports/2026-09-18-release/release-published.json"
+  },
+  "demo": {
+    "url": "https://chenmohan123.github.io/web-sdk-PP-RotatedDetection/",
+    "receipt": "https://github.com/chenmohan123/web-sdk-PP-RotatedDetection/blob/b54ae15ca124fd111cac6e683409fdbb88a14e13/reports/2026-09-18-release/demo-online.json"
+  },
+  "license": {
+    "declared": "Apache-2.0",
+    "evidence": "https://github.com/chenmohan123/web-sdk-PP-RotatedDetection/blob/b54ae15ca124fd111cac6e683409fdbb88a14e13/reports/2026-09-18-release/license/sources.lock.json",
+    "boundary": "官方代码与转换权重按 Apache-2.0 采用并保留归因；未发现独立点名权重的许可文本。"
+  },
+  "boundary": "门户引用固定发布回执，不重新运行模型推理；兼容声明限于2026-09-18记录的Windows/Chromium桌面环境。"
+}
