@@ -6,7 +6,7 @@ export const modelSchema = z.object({
   id: z.string().regex(/^[a-z0-9-]+$/),
   name: z.string().min(1),
   brand: z.string().regex(/^[a-z0-9-]+$/),
-  task: z.enum(['ocr', 'document-layout', 'detection', 'pose-estimation', 'instance-segmentation', 'asr', 'tts', 'image-correction', 'vision-language']),
+  task: z.enum(['ocr', 'document-layout', 'detection', 'rotated-detection', 'pose-estimation', 'instance-segmentation', 'asr', 'tts', 'image-correction', 'vision-language']),
   status: z.enum(['available', 'beta', 'in-development', 'research', 'not-applicable']),
   summary: z.string().min(20),
   repository: z.string().url(),

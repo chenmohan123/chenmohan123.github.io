@@ -8,7 +8,7 @@ describe("model registry", () => {
     const models = readdirSync("src/content/models")
       .filter((file) => file.endsWith(".yaml"))
       .map((file) => modelSchema.parse(parse(readFileSync(`src/content/models/${file}`, "utf8"))));
-    expect(models).toHaveLength(6);
+    expect(models).toHaveLength(7);
     const model = models.find((entry) => entry.id === "pp-tinypose");
     expect(model).toBeDefined();
     expect(model?.task).toBe("pose-estimation");
@@ -47,6 +47,28 @@ describe("model registry", () => {
     expect(model?.limitations.join(" ")).toContain("模拟摄像头不代表物理设备兼容");
     expect(model?.io.input).toEqual(["Blob", "RGBA", "region（调用者提供的人体框）"]);
     expect(model?.io.output).toContain("17 个 COCO 关键点（原图坐标与 score）");
+  });
+
+  it("登记 PP-RotatedDetection 0.1.0 并保留单图桌面边界", () => {
+    const value = parse(readFileSync("src/content/models/pp-rotated-detection.yaml", "utf8"));
+    const model = modelSchema.parse(value);
+    expect(model.task).toBe("rotated-detection");
+    expect(model.package).toEqual({ name: "web-sdk-pp-rotated-detection", version: "0.1.0" });
+    expect(model.runtime.backends).toEqual([
+      { name: "wasm", status: "stable" },
+      { name: "webgpu", status: "stable" },
+    ]);
+    expect(model.runtime.verifiedEnvironments).toHaveLength(2);
+    expect(model.io.output).toContain("DOTA 15 类类别与分数");
+    expect(model.assets).toEqual([{
+      id: "ppyoloe-r-s-1024-fp32",
+      precision: "fp32",
+      bytes: 33161415,
+      url: "https://www.modelscope.cn/models/chenmohan/web-sdk-pp-rotated-detection/resolve/20632e3f350c664c2f88ea56b68bca0fe8a03349/ppyoloe-r-s-1024/0.1.0/ppyoloe-r-s-1024-fp32.onnx",
+      sha256: "de2f4c94061bda4bfaa0773ed5bc3aabdc59cf5b2f72301d15ae500b8f971089",
+    }]);
+    expect(model.limitations.join(" ")).toMatch(/单张图片.*大图切片.*视频.*摄像头.*跟踪/);
+    expect(model.limitations.join(" ")).toMatch(/手机.*NPU.*尚未验证/);
   });
 
   it("accepts the PP-DocLayoutV3 catalog record", () => {

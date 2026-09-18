@@ -1,0 +1,191 @@
+[
+  {
+    "folder": "byte",
+    "repository": "ifzhang/ByteTrack",
+    "revision": "d1bf0191adff59bc8fcfeaa0b33d3d1642552a99",
+    "path": "LICENSE",
+    "url": "https://raw.githubusercontent.com/ifzhang/ByteTrack/d1bf0191adff59bc8fcfeaa0b33d3d1642552a99/LICENSE",
+    "sha256": "e9d83751678cbaba6dfba902ea39215c423d93425e58f8450d6001f7261696f9",
+    "bytes": 1067
+  },
+  {
+    "folder": "byte",
+    "repository": "ifzhang/ByteTrack",
+    "revision": "d1bf0191adff59bc8fcfeaa0b33d3d1642552a99",
+    "path": "yolox/tracker/byte_tracker.py",
+    "url": "https://raw.githubusercontent.com/ifzhang/ByteTrack/d1bf0191adff59bc8fcfeaa0b33d3d1642552a99/yolox/tracker/byte_tracker.py",
+    "sha256": "7cecdcdd7998103969a4ba1772f4c9fb5560fd5eef05ca03e0d2df28346ca50b",
+    "bytes": 11940
+  },
+  {
+    "folder": "byte",
+    "repository": "ifzhang/ByteTrack",
+    "revision": "d1bf0191adff59bc8fcfeaa0b33d3d1642552a99",
+    "path": "yolox/tracker/basetrack.py",
+    "url": "https://raw.githubusercontent.com/ifzhang/ByteTrack/d1bf0191adff59bc8fcfeaa0b33d3d1642552a99/yolox/tracker/basetrack.py",
+    "sha256": "c938afcf7c516bba4a77155c2499fcae6f926df7a2faa6f73a4be1b073f9bb2d",
+    "bytes": 951
+  },
+  {
+    "folder": "byte",
+    "repository": "ifzhang/ByteTrack",
+    "revision": "d1bf0191adff59bc8fcfeaa0b33d3d1642552a99",
+    "path": "yolox/tracker/kalman_filter.py",
+    "url": "https://raw.githubusercontent.com/ifzhang/ByteTrack/d1bf0191adff59bc8fcfeaa0b33d3d1642552a99/yolox/tracker/kalman_filter.py",
+    "sha256": "9842d0dd9957c97e312d42e5789441add55082066d87cc051ac768143a46eb39",
+    "bytes": 9547
+  },
+  {
+    "folder": "byte",
+    "repository": "ifzhang/ByteTrack",
+    "revision": "d1bf0191adff59bc8fcfeaa0b33d3d1642552a99",
+    "path": "yolox/tracker/matching.py",
+    "url": "https://raw.githubusercontent.com/ifzhang/ByteTrack/d1bf0191adff59bc8fcfeaa0b33d3d1642552a99/yolox/tracker/matching.py",
+    "sha256": "2f54bf0c183f577087391901562ae2bcd3c01633a3e077bd5d4168fafbd899a6",
+    "bytes": 6200
+  },
+  {
+    "folder": "oc",
+    "repository": "noahcao/OC_SORT",
+    "revision": "8462e7e729a93ccd3bd995c0a79a890336cb3a0b",
+    "path": "LICENSE",
+    "url": "https://raw.githubusercontent.com/noahcao/OC_SORT/8462e7e729a93ccd3bd995c0a79a890336cb3a0b/LICENSE",
+    "sha256": "e9d83751678cbaba6dfba902ea39215c423d93425e58f8450d6001f7261696f9",
+    "bytes": 1067
+  },
+  {
+    "folder": "oc",
+    "repository": "noahcao/OC_SORT",
+    "revision": "8462e7e729a93ccd3bd995c0a79a890336cb3a0b",
+    "path": "trackers/ocsort_tracker/ocsort.py",
+    "url": "https://raw.githubusercontent.com/noahcao/OC_SORT/8462e7e729a93ccd3bd995c0a79a890336cb3a0b/trackers/ocsort_tracker/ocsort.py",
+    "sha256": "122cc1c27d3321eac0debdf3ba782b76d189e1ac878256b8291ffeb4314fa979",
+    "bytes": 17824
+  },
+  {
+    "folder": "oc",
+    "repository": "noahcao/OC_SORT",
+    "revision": "8462e7e729a93ccd3bd995c0a79a890336cb3a0b",
+    "path": "trackers/ocsort_tracker/association.py",
+    "url": "https://raw.githubusercontent.com/noahcao/OC_SORT/8462e7e729a93ccd3bd995c0a79a890336cb3a0b/trackers/ocsort_tracker/association.py",
+    "sha256": "c009a78eaa1c35c1d61217506255051ba882a7b99f9505cdec64da474ff0fbd7",
+    "bytes": 13384
+  },
+  {
+    "folder": "oc",
+    "repository": "noahcao/OC_SORT",
+    "revision": "8462e7e729a93ccd3bd995c0a79a890336cb3a0b",
+    "path": "trackers/ocsort_tracker/kalmanfilter.py",
+    "url": "https://raw.githubusercontent.com/noahcao/OC_SORT/8462e7e729a93ccd3bd995c0a79a890336cb3a0b/trackers/ocsort_tracker/kalmanfilter.py",
+    "sha256": "165a2d5243f2b874e37d3a3ae8112402f5c53ddfb6eb6e2cddda3311c3a2cded",
+    "bytes": 60075
+  },
+  {
+    "folder": "paddle",
+    "repository": "PaddlePaddle/PaddleDetection",
+    "revision": "b25522a0f4bde8c80603f3ba5e3472059972e3b5",
+    "path": "LICENSE",
+    "url": "https://raw.githubusercontent.com/PaddlePaddle/PaddleDetection/b25522a0f4bde8c80603f3ba5e3472059972e3b5/LICENSE",
+    "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "bytes": 11357
+  },
+  {
+    "folder": "paddle",
+    "repository": "PaddlePaddle/PaddleDetection",
+    "revision": "b25522a0f4bde8c80603f3ba5e3472059972e3b5",
+    "path": "deploy/pptracking/python/mot/tracker/jde_tracker.py",
+    "url": "https://raw.githubusercontent.com/PaddlePaddle/PaddleDetection/b25522a0f4bde8c80603f3ba5e3472059972e3b5/deploy/pptracking/python/mot/tracker/jde_tracker.py",
+    "sha256": "0adaa9094e38383fa14393bc9615b78657c103297c22f4fa57e1f455940cdfea",
+    "bytes": 16254
+  },
+  {
+    "folder": "paddle",
+    "repository": "PaddlePaddle/PaddleDetection",
+    "revision": "b25522a0f4bde8c80603f3ba5e3472059972e3b5",
+    "path": "deploy/pptracking/python/mot/tracker/base_jde_tracker.py",
+    "url": "https://raw.githubusercontent.com/PaddlePaddle/PaddleDetection/b25522a0f4bde8c80603f3ba5e3472059972e3b5/deploy/pptracking/python/mot/tracker/base_jde_tracker.py",
+    "sha256": "e06943de6c03f79d41640166f0e41f7fc11b566e90764c2b5c46022be298d802",
+    "bytes": 9380
+  },
+  {
+    "folder": "paddle",
+    "repository": "PaddlePaddle/PaddleDetection",
+    "revision": "b25522a0f4bde8c80603f3ba5e3472059972e3b5",
+    "path": "deploy/pptracking/python/mot/tracker/ocsort_tracker.py",
+    "url": "https://raw.githubusercontent.com/PaddlePaddle/PaddleDetection/b25522a0f4bde8c80603f3ba5e3472059972e3b5/deploy/pptracking/python/mot/tracker/ocsort_tracker.py",
+    "sha256": "72eb0bc2c53424bb5604aa0ed2aa285bd08819dfa70f519ca2ce249703ee0cf6",
+    "bytes": 14710
+  },
+  {
+    "folder": "paddle",
+    "repository": "PaddlePaddle/PaddleDetection",
+    "revision": "b25522a0f4bde8c80603f3ba5e3472059972e3b5",
+    "path": "deploy/pptracking/python/mot/motion/kalman_filter.py",
+    "url": "https://raw.githubusercontent.com/PaddlePaddle/PaddleDetection/b25522a0f4bde8c80603f3ba5e3472059972e3b5/deploy/pptracking/python/mot/motion/kalman_filter.py",
+    "sha256": "9619a5765d1f40e3167fd7b72912354ed802490b1b332988b687dc75f21644ed",
+    "bytes": 12142
+  },
+  {
+    "folder": "paddle",
+    "repository": "PaddlePaddle/PaddleDetection",
+    "revision": "b25522a0f4bde8c80603f3ba5e3472059972e3b5",
+    "path": "deploy/pptracking/python/mot/motion/ocsort_kalman_filter.py",
+    "url": "https://raw.githubusercontent.com/PaddlePaddle/PaddleDetection/b25522a0f4bde8c80603f3ba5e3472059972e3b5/deploy/pptracking/python/mot/motion/ocsort_kalman_filter.py",
+    "sha256": "0658be565adbb13f6adcdeeaabb13034f25bbc250647db64046cafebbcb4f38c",
+    "bytes": 2670
+  },
+  {
+    "folder": "paddle",
+    "repository": "PaddlePaddle/PaddleDetection",
+    "revision": "b25522a0f4bde8c80603f3ba5e3472059972e3b5",
+    "path": "deploy/pptracking/python/mot/matching/jde_matching.py",
+    "url": "https://raw.githubusercontent.com/PaddlePaddle/PaddleDetection/b25522a0f4bde8c80603f3ba5e3472059972e3b5/deploy/pptracking/python/mot/matching/jde_matching.py",
+    "sha256": "6a393d2b08fa9aceadc05ce01e5ea74f154183e7404c0b718bde5e815b089825",
+    "bytes": 5747
+  },
+  {
+    "folder": "paddle",
+    "repository": "PaddlePaddle/PaddleDetection",
+    "revision": "b25522a0f4bde8c80603f3ba5e3472059972e3b5",
+    "path": "deploy/pptracking/python/mot/matching/ocsort_matching.py",
+    "url": "https://raw.githubusercontent.com/PaddlePaddle/PaddleDetection/b25522a0f4bde8c80603f3ba5e3472059972e3b5/deploy/pptracking/python/mot/matching/ocsort_matching.py",
+    "sha256": "bbf21663ca257a6556157327bebaa0f9fc99fab7df447686ec1b6e6435481c52",
+    "bytes": 6207
+  },
+  {
+    "folder": "sort",
+    "repository": "abewley/sort",
+    "revision": "2236dff5019565958b84df7d871d41cc1db58ac7",
+    "path": "LICENSE",
+    "url": "https://raw.githubusercontent.com/abewley/sort/2236dff5019565958b84df7d871d41cc1db58ac7/LICENSE",
+    "sha256": "589ed823e9a84c56feb95ac58e7cf384626b9cbf4fda2a907bc36e103de1bad2",
+    "bytes": 35141
+  },
+  {
+    "folder": "sort",
+    "repository": "abewley/sort",
+    "revision": "2236dff5019565958b84df7d871d41cc1db58ac7",
+    "path": "sort.py",
+    "url": "https://raw.githubusercontent.com/abewley/sort/2236dff5019565958b84df7d871d41cc1db58ac7/sort.py",
+    "sha256": "f5b10481ff9055b70f9e3f5d0126d5269ee91b16764a267a01f78ec3a2b931de",
+    "bytes": 11739
+  },
+  {
+    "folder": "deep",
+    "repository": "nwojke/deep_sort",
+    "revision": "f08cf1dc470eeb1cd2add1cbf077d95ac6c48aab",
+    "path": "LICENSE",
+    "url": "https://raw.githubusercontent.com/nwojke/deep_sort/f08cf1dc470eeb1cd2add1cbf077d95ac6c48aab/LICENSE",
+    "sha256": "589ed823e9a84c56feb95ac58e7cf384626b9cbf4fda2a907bc36e103de1bad2",
+    "bytes": 35141
+  },
+  {
+    "folder": "deep",
+    "repository": "nwojke/deep_sort",
+    "revision": "f08cf1dc470eeb1cd2add1cbf077d95ac6c48aab",
+    "path": "deep_sort/kalman_filter.py",
+    "url": "https://raw.githubusercontent.com/nwojke/deep_sort/f08cf1dc470eeb1cd2add1cbf077d95ac6c48aab/deep_sort/kalman_filter.py",
+    "sha256": "fa93e8ca7c8f70977ca7a0fe0b559365ccf1a73e3e6e8900ce634cf87b5d2dc0",
+    "bytes": 7787
+  }
+]

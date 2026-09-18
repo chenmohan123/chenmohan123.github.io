@@ -10,13 +10,15 @@
 
 **依据：** `docs/superpowers/specs/2026-08-27-paddle-detection-web-sdk-design.md`；`standards/v1/README.md`；已发布 `web-sdk-pp-detection@0.4.0` 及其双语发布说明。
 
-## 当前推进决策（2026-09-18）
+## 当前推进决策（2026-09-19）
 
 用户确认优先建设各种独立 SDK，门户负责登记、分类、比较和跳转；Workflow / Playground、Detection → TinyPose 自动找人和跨 SDK 视频编排暂缓。该顺序沿用最初按任务契约划分 SDK 的设计，同任务下的模型和精度变体仍属于同一 SDK。
 
 - **2D Detection：稳定维护。** 已发布14个规格、39个稳定变体；本阶段不继续扩充2D模型。
 - **TinyPose：0.3.0 已发布。** 三个稳定变体，单帧/人体框 API，独立 Demo 支持图片、本地视频和摄像头。物理摄像头、手机及 NPU 的验证边界保持不变。
 - **PP-Segmentation：0.1.0 已发布。** PP-YOLOE_seg_s 640 FP32，单帧 Blob/RGBA、原图框和独立二值 ROI 掩码。64图四模式严格质量验收通过，最小掩码IoU为0.9987084870848708；双源八组合、npm、GitHub Release和HTTPS Demo均已核验。原始官方裁边口径失败记录保留，最终采用原图整数尺寸独立参考。[固定发布记录](https://github.com/chenmohan123/web-sdk-PP-Segmentation/tree/89b350d30305ecbc275780e455d1c115a250570f/reports/2026-09-18-release-readiness)包含许可、双源、质量和交付回执。Trusted Publishing已配置，实际OIDC发布待下一次新版本验证。门户登记为第六个SDK。
+- **PP-RotatedDetection：0.1.0 已发布。** PP-YOLOE-R-s 1024 FP32，单帧 Blob/RGBA、DOTA 15 类和原图四点框。双源 × WASM/WebGPU × 主线程/Worker、npm、GitHub Release 与 HTTPS Demo 均已核验；[固定发布记录](https://github.com/chenmohan123/web-sdk-PP-RotatedDetection/tree/b54ae15ca124fd111cac6e683409fdbb88a14e13/reports/2026-09-18-release)保留模型身份、数值和交付回执。门户登记为第七个 SDK；大图切片、媒体、手机与 NPU 不在当前验证范围。
+- **多目标跟踪：固定参考可行性评估完成，生产前置待办。** [60组合成实跑证据](../../../reports/tracking/2026-09-18-feasibility/README.md)覆盖官方 ByteTrack、OC-SORT 及 Paddle 两类跟踪实现；首发候选为 ByteTrack 算法机制。低分关联、短遮挡恢复已复现，同时保留掉头交叉身份交换、跨类 ID 复用、全局计数碰撞/去重及时间间隔边界。根 MIT/Apache 与基础来源 GPL 的追溯差异尚需处置；先完成来源/许可、无权重算法标准扩展与独立 API 设计，再进入 TS 和真实序列/桌面浏览器验证。本轮未建立 SDK、发布 npm 或上游代码，合成结果不是 MOT 基准，Workflow 继续暂缓。
 
 ### 已完成：旋转框独立 SDK 可行性
 
@@ -26,11 +28,11 @@
 - [x] 推荐 **PP-YOLOE-R-s 单尺度 FP32** 为首发候选：ONNX 33.16 MB，本机 GPU 热推理中位数 31.8 ms。FCOSR-M 为 126.89 MB、125.2 ms，保留后续候选。耗时仅为首图 `session.run` 三次中位数，不含图片解码、预处理和旋转 NMS，不代表端到端或其他设备性能。
 - [x] 本轮止于可行性选型，未创建 SDK、发布 ONNX 或扩大稳定清单。任务为 DOTA 遥感 15 类，不能作为 COCO 通用检测替代；当前五输入不是全量 DOTA mAP 验收。浏览器复用 Python 输入张量，尚未验证产品图片预处理。
 
-### 建议下一阶段：旋转框独立 SDK 图片首版
+### 已完成：旋转框独立 SDK 图片首版
 
-以 PP-YOLOE-R-s 单尺度 FP32 建立独立 SDK，定义四点坐标、弧度、原图还原及标准错误；实现 Blob/RGBA、显式 CPU/GPU、Worker、取消/释放、缓存与完整性校验。独立 Demo 沿用统一风格，先完成桌面图片流程、真实图集质量与生命周期验证，再补齐 ModelScope/Hugging Face 固定分发和正式发布。浏览器预处理、极端长宽比、平分排序与大图切片边界需按报告另行验证；未经验证的能力不进入首版承诺。
+PP-YOLOE-R-s 单尺度 FP32 已建立独立 SDK，完成四点坐标、原图还原、Blob/RGBA、浏览器预处理、显式 CPU/GPU、Worker、取消/释放、缓存、完整性校验、双源分发与正式发布。极端长宽比、平分排序与大图切片边界仍需另行验证；未经验证的能力不进入当前承诺。
 
-旋转框任务保持独立，不加入现有轴对齐 Detection API。分割 FP16/量化和媒体能力、HRNet 等姿态扩展、ByteTrack/OC-SORT 跟踪作为后续候选。继续桌面优先、ModelScope 默认并保留 Hugging Face，以及独立 Demo 统一风格的要求；手机复核按后续发布范围安排，不阻塞桌面首版。
+旋转框任务保持独立，不加入现有轴对齐 Detection API。分割 FP16/量化和媒体能力、HRNet 等姿态扩展保留后续；跟踪依据上述证据进入来源/许可、无权重标准与独立实现设计阶段，真实视频和浏览器尚未验证。继续桌面优先、模型 SDK 的 ModelScope 默认并保留 Hugging Face，以及独立 Demo 统一风格的要求；无权重算法不得伪造模型资产/缓存或 GPU 支持。手机复核按后续发布范围安排，Workflow 仍暂缓。
 
 后文日期更早的“下一阶段”保留为历史实施记录，当前优先级以本节为准。
 

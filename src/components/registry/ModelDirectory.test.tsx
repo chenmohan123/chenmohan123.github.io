@@ -10,9 +10,20 @@ const models = [
   { ...common, id: 'ocr', name: 'PP-OCRv6', task: 'ocr', status: 'research', summary: 'OCR model roadmap entry for the browser.' },
   { ...common, id: 'pp-tinypose', name: 'PP-TinyPose', task: 'pose-estimation', summary: '在浏览器本地估计单人人体姿态并输出 17 个 COCO 关键点。' },
   { ...common, id: 'pp-segmentation', name: 'PP-Segmentation', task: 'instance-segmentation', summary: '在浏览器本地完成图片实例分割，返回独立的对象掩码。' },
+  { ...common, id: 'pp-rotated-detection', name: 'PP-RotatedDetection', task: 'rotated-detection', summary: '在浏览器本地完成单帧遥感旋转框检测并返回原图四点框。' },
 ] as unknown as ModelData[];
 
 describe('ModelDirectory', () => {
+  it('旋转框检测分类只展示独立 SDK 并提供详情入口', () => {
+    render(<ModelDirectory models={models} />);
+    expect(screen.getByRole('option', { name: '旋转框检测' })).toHaveValue('rotated-detection');
+    fireEvent.change(screen.getByRole('combobox', { name: '任务' }), { target: { value: 'rotated-detection' } });
+    expect(screen.getByText('1 个条目')).toBeVisible();
+    expect(screen.getByText('baidu · 旋转框检测')).toBeVisible();
+    expect(screen.getByRole('link', { name: 'PP-RotatedDetection' })).toHaveAttribute('href', '/models/pp-rotated-detection/');
+    expect(screen.queryByText('PP-Segmentation')).not.toBeInTheDocument();
+  });
+
   it('实例分割分类只展示分割模型并提供独立 SDK 详情入口', () => {
     render(<ModelDirectory models={models} />);
     fireEvent.change(screen.getByRole('combobox', { name: '任务' }), { target: { value: 'instance-segmentation' } });

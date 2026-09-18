@@ -1,0 +1,2074 @@
+{
+  "verified_at": "2026-09-18T17:15:07.507523+00:00",
+  "environment": {
+    "python": "3.11.15 (main, Jul 18 2026, 17:06:27) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 165 Stepping 3, GenuineIntel",
+    "packages": {
+      "contourpy": "1.3.2",
+      "cycler": "0.12.1",
+      "Cython": "3.3.0",
+      "cython_bbox": "0.1.5",
+      "filelock": "3.32.3",
+      "filterpy": "1.4.5",
+      "fonttools": "4.65.0",
+      "fsspec": "2026.7.0",
+      "Jinja2": "3.1.6",
+      "kiwisolver": "1.5.1",
+      "lap": "0.5.12",
+      "MarkupSafe": "3.0.3",
+      "matplotlib": "3.10.9",
+      "mpmath": "1.3.0",
+      "networkx": "3.6.1",
+      "numpy": "1.23.5",
+      "opencv-python": "4.10.0.84",
+      "packaging": "26.3",
+      "pillow": "12.3.0",
+      "pip": "24.0",
+      "pyparsing": "3.3.2",
+      "python-dateutil": "2.9.0.post0",
+      "scipy": "1.10.1",
+      "setuptools": "79.0.1",
+      "six": "1.17.0",
+      "sympy": "1.13.1",
+      "torch": "2.5.1+cpu",
+      "typing_extensions": "4.16.0"
+    },
+    "timing": "perf_counter_ns；只计update，排除导入、数组转换、评分、下载；首个update未预热"
+  },
+  "config": {
+    "fps": 30,
+    "retention_updates": 5,
+    "high_score": 0.5,
+    "low_score": 0.1,
+    "new_byte_score": 0.6,
+    "byte_match_cost": 0.8,
+    "oc_iou": 0.3,
+    "oc_min_hits": 1,
+    "oc_delta_t": 3,
+    "oc_inertia": 0.2,
+    "evaluation_iou": 0.5,
+    "max_padding": 100
+  },
+  "instance_diagnostics": [
+    {
+      "algorithm": "byte",
+      "first_before_second_instance": {
+        "tracked": [
+          1,
+          2
+        ],
+        "lost": [],
+        "removed": []
+      },
+      "first_after": {
+        "tracked": [
+          1,
+          2,
+          4
+        ],
+        "lost": [],
+        "removed": []
+      },
+      "counter_before": 2,
+      "counter_after_second": 3,
+      "first_after_add": {
+        "tracked": [
+          1,
+          2,
+          4
+        ],
+        "lost": [],
+        "removed": []
+      },
+      "first_add_outputs": [
+        {
+          "id": "1",
+          "raw_id": 1,
+          "class_id": null,
+          "box": [
+            10.0,
+            20.0,
+            40.0,
+            80.0
+          ],
+          "last_score": 0.9
+        },
+        {
+          "id": "2",
+          "raw_id": 2,
+          "class_id": null,
+          "box": [
+            110.0,
+            20.0,
+            140.0,
+            80.0
+          ],
+          "last_score": 0.9
+        }
+      ],
+      "first_outputs": [
+        {
+          "id": "1",
+          "raw_id": 1,
+          "class_id": null,
+          "box": [
+            10.0,
+            20.0,
+            40.0,
+            80.0
+          ],
+          "last_score": 0.9
+        },
+        {
+          "id": "2",
+          "raw_id": 2,
+          "class_id": null,
+          "box": [
+            110.0,
+            20.0,
+            140.0,
+            80.0
+          ],
+          "last_score": 0.9
+        },
+        {
+          "id": "4",
+          "raw_id": 4,
+          "class_id": null,
+          "box": [
+            310.0,
+            20.0,
+            340.0,
+            80.0
+          ],
+          "last_score": 0.9
+        }
+      ],
+      "duplicate_output_ids": false,
+      "note": "同进程A已有两轨，构建并更新B后A新增轨；未对并发实例重置全局变量"
+    },
+    {
+      "algorithm": "oc",
+      "first_before_second_instance": {
+        "retained": [
+          {
+            "id": 1,
+            "age": 0
+          },
+          {
+            "id": 2,
+            "age": 0
+          }
+        ]
+      },
+      "first_after": {
+        "retained": [
+          {
+            "id": 1,
+            "age": 0
+          },
+          {
+            "id": 2,
+            "age": 0
+          },
+          {
+            "id": 2,
+            "age": 0
+          }
+        ]
+      },
+      "counter_before": 2,
+      "counter_after_second": 1,
+      "first_after_add": {
+        "retained": [
+          {
+            "id": 1,
+            "age": 0
+          },
+          {
+            "id": 2,
+            "age": 0
+          },
+          {
+            "id": 2,
+            "age": 0
+          }
+        ]
+      },
+      "first_add_outputs": [
+        {
+          "id": "2",
+          "raw_id": 2,
+          "class_id": null,
+          "box": [
+            110.0,
+            20.0,
+            140.0,
+            80.0
+          ]
+        },
+        {
+          "id": "1",
+          "raw_id": 1,
+          "class_id": null,
+          "box": [
+            10.0,
+            20.0,
+            40.0,
+            80.0
+          ]
+        }
+      ],
+      "first_outputs": [
+        {
+          "id": "2",
+          "raw_id": 2,
+          "class_id": null,
+          "box": [
+            310.0,
+            20.0,
+            340.0,
+            80.0
+          ]
+        },
+        {
+          "id": "2",
+          "raw_id": 2,
+          "class_id": null,
+          "box": [
+            110.0,
+            20.0,
+            140.0,
+            80.0
+          ]
+        },
+        {
+          "id": "1",
+          "raw_id": 1,
+          "class_id": null,
+          "box": [
+            10.0,
+            20.0,
+            40.0,
+            80.0
+          ]
+        }
+      ],
+      "duplicate_output_ids": true,
+      "note": "同进程A已有两轨，构建并更新B后A新增轨；未对并发实例重置全局变量"
+    },
+    {
+      "algorithm": "oc_byte",
+      "first_before_second_instance": {
+        "retained": [
+          {
+            "id": 1,
+            "age": 0
+          },
+          {
+            "id": 2,
+            "age": 0
+          }
+        ]
+      },
+      "first_after": {
+        "retained": [
+          {
+            "id": 1,
+            "age": 0
+          },
+          {
+            "id": 2,
+            "age": 0
+          },
+          {
+            "id": 2,
+            "age": 0
+          }
+        ]
+      },
+      "counter_before": 2,
+      "counter_after_second": 1,
+      "first_after_add": {
+        "retained": [
+          {
+            "id": 1,
+            "age": 0
+          },
+          {
+            "id": 2,
+            "age": 0
+          },
+          {
+            "id": 2,
+            "age": 0
+          }
+        ]
+      },
+      "first_add_outputs": [
+        {
+          "id": "2",
+          "raw_id": 2,
+          "class_id": null,
+          "box": [
+            110.0,
+            20.0,
+            140.0,
+            80.0
+          ]
+        },
+        {
+          "id": "1",
+          "raw_id": 1,
+          "class_id": null,
+          "box": [
+            10.0,
+            20.0,
+            40.0,
+            80.0
+          ]
+        }
+      ],
+      "first_outputs": [
+        {
+          "id": "2",
+          "raw_id": 2,
+          "class_id": null,
+          "box": [
+            310.0,
+            20.0,
+            340.0,
+            80.0
+          ]
+        },
+        {
+          "id": "2",
+          "raw_id": 2,
+          "class_id": null,
+          "box": [
+            110.0,
+            20.0,
+            140.0,
+            80.0
+          ]
+        },
+        {
+          "id": "1",
+          "raw_id": 1,
+          "class_id": null,
+          "box": [
+            10.0,
+            20.0,
+            40.0,
+            80.0
+          ]
+        }
+      ],
+      "duplicate_output_ids": true,
+      "note": "同进程A已有两轨，构建并更新B后A新增轨；未对并发实例重置全局变量"
+    },
+    {
+      "algorithm": "paddle_byte",
+      "first_before_second_instance": {
+        "tracked": [
+          "0:1",
+          "0:2"
+        ],
+        "lost": [],
+        "removed": []
+      },
+      "first_after": {
+        "tracked": [
+          "0:1",
+          "0:2",
+          "0:3"
+        ],
+        "lost": [],
+        "removed": []
+      },
+      "counter_before": {
+        "0": 2,
+        "1": 0
+      },
+      "counter_after_second": {
+        "0": 1,
+        "1": 0
+      },
+      "first_after_add": {
+        "tracked": [
+          "0:1",
+          "0:2"
+        ],
+        "lost": [],
+        "removed": []
+      },
+      "first_add_outputs": [
+        {
+          "id": "0:1",
+          "raw_id": 1,
+          "class_id": 0,
+          "box": [
+            10.0,
+            20.0,
+            40.0,
+            80.0
+          ],
+          "last_score": 0.9
+        },
+        {
+          "id": "0:2",
+          "raw_id": 2,
+          "class_id": 0,
+          "box": [
+            110.0,
+            20.0,
+            140.0,
+            80.0
+          ],
+          "last_score": 0.9
+        }
+      ],
+      "first_outputs": [
+        {
+          "id": "0:1",
+          "raw_id": 1,
+          "class_id": 0,
+          "box": [
+            10.0,
+            20.0,
+            40.0,
+            80.0
+          ],
+          "last_score": 0.9
+        },
+        {
+          "id": "0:2",
+          "raw_id": 2,
+          "class_id": 0,
+          "box": [
+            110.0,
+            20.0,
+            140.0,
+            80.0
+          ],
+          "last_score": 0.9
+        }
+      ],
+      "duplicate_output_ids": false,
+      "note": "同进程A已有两轨，构建并更新B后A新增轨；未对并发实例重置全局变量"
+    },
+    {
+      "algorithm": "paddle_oc",
+      "first_before_second_instance": {
+        "retained": [
+          {
+            "id": 1,
+            "age": 0
+          },
+          {
+            "id": 2,
+            "age": 0
+          }
+        ]
+      },
+      "first_after": {
+        "retained": [
+          {
+            "id": 1,
+            "age": 0
+          },
+          {
+            "id": 2,
+            "age": 0
+          },
+          {
+            "id": 2,
+            "age": 0
+          }
+        ]
+      },
+      "counter_before": 2,
+      "counter_after_second": 1,
+      "first_after_add": {
+        "retained": [
+          {
+            "id": 1,
+            "age": 0
+          },
+          {
+            "id": 2,
+            "age": 0
+          },
+          {
+            "id": 2,
+            "age": 0
+          }
+        ]
+      },
+      "first_add_outputs": [
+        {
+          "id": "2",
+          "raw_id": 2,
+          "class_id": null,
+          "box": [
+            110.0,
+            20.0,
+            140.0,
+            80.0
+          ]
+        },
+        {
+          "id": "1",
+          "raw_id": 1,
+          "class_id": null,
+          "box": [
+            10.0,
+            20.0,
+            40.0,
+            80.0
+          ]
+        }
+      ],
+      "first_outputs": [
+        {
+          "id": "2",
+          "raw_id": 2,
+          "class_id": null,
+          "box": [
+            310.0,
+            20.0,
+            340.0,
+            80.0
+          ]
+        },
+        {
+          "id": "2",
+          "raw_id": 2,
+          "class_id": null,
+          "box": [
+            110.0,
+            20.0,
+            140.0,
+            80.0
+          ]
+        },
+        {
+          "id": "1",
+          "raw_id": 1,
+          "class_id": null,
+          "box": [
+            10.0,
+            20.0,
+            40.0,
+            80.0
+          ]
+        }
+      ],
+      "duplicate_output_ids": true,
+      "note": "同进程A已有两轨，构建并更新B后A新增轨；未对并发实例重置全局变量"
+    }
+  ],
+  "results": [
+    {
+      "algorithm": "byte",
+      "scenario": "translation",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 12,
+        "update_ms": {
+          "total": 4.551800000000001,
+          "median": 0.34935,
+          "p95": 0.5438499999999998,
+          "max": 0.6907
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "byte",
+      "scenario": "low_score",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 10,
+        "update_ms": {
+          "total": 3.1899,
+          "median": 0.32265,
+          "p95": 0.37773999999999996,
+          "max": 0.3862
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "byte",
+      "scenario": "filtered_low_score",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 3,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 10,
+        "update_ms": {
+          "total": 2.7595,
+          "median": 0.315,
+          "p95": 0.37429499999999993,
+          "max": 0.3954
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "byte",
+      "scenario": "short_occlusion",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 3,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 12,
+        "update_ms": {
+          "total": 3.2624,
+          "median": 0.3123,
+          "p95": 0.342685,
+          "max": 0.3588
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "byte",
+      "scenario": "long_loss",
+      "mode": "native",
+      "summary": {
+        "id_changes": 1,
+        "unmatched_detection_frames": 1,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 10,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 19,
+        "update_ms": {
+          "total": 3.7115000000000005,
+          "median": 0.1627,
+          "p95": 0.32522999999999996,
+          "max": 0.3336
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "byte",
+      "scenario": "crossing",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 1,
+        "calls": 21,
+        "update_ms": {
+          "total": 9.0319,
+          "median": 0.4041,
+          "p95": 0.5268,
+          "max": 0.7591
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "byte",
+      "scenario": "ambiguous_bounce",
+      "mode": "native",
+      "summary": {
+        "id_changes": 2,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 1,
+        "calls": 21,
+        "update_ms": {
+          "total": 9.872199999999996,
+          "median": 0.4148,
+          "p95": 0.6392,
+          "max": 1.3179
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "byte",
+      "scenario": "multi_class",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 1,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 10,
+        "update_ms": {
+          "total": 3.5346999999999995,
+          "median": 0.34095,
+          "p95": 0.474645,
+          "max": 0.4854
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "byte",
+      "scenario": "multi_class",
+      "mode": "class_isolated",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 1,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 20,
+        "update_ms": {
+          "total": 4.4793,
+          "median": 0.1756,
+          "p95": 0.41168000000000016,
+          "max": 0.6279
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "byte",
+      "scenario": "sparse_gap",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 6,
+        "update_ms": {
+          "total": 1.7691,
+          "median": 0.31479999999999997,
+          "p95": 0.33195,
+          "max": 0.333
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "byte",
+      "scenario": "sparse_gap",
+      "mode": "pad_empty",
+      "summary": {
+        "id_changes": 1,
+        "unmatched_detection_frames": 1,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 23,
+        "update_ms": {
+          "total": 3.393299999999999,
+          "median": 0.1556,
+          "p95": 0.3659099999999999,
+          "max": 0.3919
+        },
+        "padding": {
+          "calls": 17,
+          "empty_input_calls": 17,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "byte",
+      "scenario": "score_boundary",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 4,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 8,
+        "update_ms": {
+          "total": 1.904,
+          "median": 0.189,
+          "p95": 0.35056,
+          "max": 0.3514
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "oc",
+      "scenario": "translation",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 12,
+        "update_ms": {
+          "total": 6.7791,
+          "median": 0.5443,
+          "p95": 0.759375,
+          "max": 0.7657
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "oc",
+      "scenario": "low_score",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 3,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 10,
+        "update_ms": {
+          "total": 4.914599999999999,
+          "median": 0.52755,
+          "p95": 0.8520899999999993,
+          "max": 1.0833
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "oc",
+      "scenario": "filtered_low_score",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 3,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 10,
+        "update_ms": {
+          "total": 5.2022,
+          "median": 0.5468,
+          "p95": 0.8669299999999999,
+          "max": 0.9086
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "oc",
+      "scenario": "short_occlusion",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 3,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 12,
+        "update_ms": {
+          "total": 8.459,
+          "median": 0.5883499999999999,
+          "p95": 1.2677299999999998,
+          "max": 1.4434
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "oc",
+      "scenario": "long_loss",
+      "mode": "native",
+      "summary": {
+        "id_changes": 1,
+        "unmatched_detection_frames": 1,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 10,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 19,
+        "update_ms": {
+          "total": 6.569199999999999,
+          "median": 0.2935,
+          "p95": 0.6344,
+          "max": 0.6578
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "oc",
+      "scenario": "crossing",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 1,
+        "calls": 21,
+        "update_ms": {
+          "total": 14.711500000000001,
+          "median": 0.6814,
+          "p95": 0.8758,
+          "max": 0.9456
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "oc",
+      "scenario": "ambiguous_bounce",
+      "mode": "native",
+      "summary": {
+        "id_changes": 2,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 1,
+        "calls": 21,
+        "update_ms": {
+          "total": 15.183499999999999,
+          "median": 0.665,
+          "p95": 1.183,
+          "max": 1.4123
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "oc",
+      "scenario": "multi_class",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 1,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 10,
+        "update_ms": {
+          "total": 7.780500000000001,
+          "median": 0.8249,
+          "p95": 1.0030099999999997,
+          "max": 1.1264
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "oc",
+      "scenario": "multi_class",
+      "mode": "class_isolated",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 1,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 20,
+        "update_ms": {
+          "total": 9.2361,
+          "median": 0.4365,
+          "p95": 0.9813750000000003,
+          "max": 1.4312
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "oc",
+      "scenario": "sparse_gap",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 6,
+        "update_ms": {
+          "total": 2.5917000000000003,
+          "median": 0.4716,
+          "p95": 0.49722500000000003,
+          "max": 0.5016
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "oc",
+      "scenario": "sparse_gap",
+      "mode": "pad_empty",
+      "summary": {
+        "id_changes": 1,
+        "unmatched_detection_frames": 1,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 23,
+        "update_ms": {
+          "total": 6.775900000000001,
+          "median": 0.1966,
+          "p95": 0.7367299999999997,
+          "max": 0.8376
+        },
+        "padding": {
+          "calls": 17,
+          "empty_input_calls": 17,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "oc",
+      "scenario": "score_boundary",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 4,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 8,
+        "update_ms": {
+          "total": 4.235,
+          "median": 0.49565000000000003,
+          "p95": 0.739845,
+          "max": 0.769
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "oc_byte",
+      "scenario": "translation",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 12,
+        "update_ms": {
+          "total": 7.4733,
+          "median": 0.5788500000000001,
+          "p95": 0.8216399999999999,
+          "max": 0.8531
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "oc_byte",
+      "scenario": "low_score",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 10,
+        "update_ms": {
+          "total": 6.0376,
+          "median": 0.56535,
+          "p95": 0.840345,
+          "max": 0.861
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "oc_byte",
+      "scenario": "filtered_low_score",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 3,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 10,
+        "update_ms": {
+          "total": 6.4677,
+          "median": 0.5409999999999999,
+          "p95": 1.1096199999999996,
+          "max": 1.2709
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "oc_byte",
+      "scenario": "short_occlusion",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 3,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 12,
+        "update_ms": {
+          "total": 6.0341,
+          "median": 0.4817,
+          "p95": 0.8325199999999999,
+          "max": 0.8653
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "oc_byte",
+      "scenario": "long_loss",
+      "mode": "native",
+      "summary": {
+        "id_changes": 1,
+        "unmatched_detection_frames": 1,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 10,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 19,
+        "update_ms": {
+          "total": 7.374899999999999,
+          "median": 0.2908,
+          "p95": 0.8077099999999997,
+          "max": 0.9203
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "oc_byte",
+      "scenario": "crossing",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 1,
+        "calls": 21,
+        "update_ms": {
+          "total": 16.0867,
+          "median": 0.7642,
+          "p95": 0.9692,
+          "max": 1.0681
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "oc_byte",
+      "scenario": "ambiguous_bounce",
+      "mode": "native",
+      "summary": {
+        "id_changes": 2,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 1,
+        "calls": 21,
+        "update_ms": {
+          "total": 18.589600000000004,
+          "median": 0.7574,
+          "p95": 1.6942,
+          "max": 2.0045
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "oc_byte",
+      "scenario": "multi_class",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 1,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 10,
+        "update_ms": {
+          "total": 5.1812000000000005,
+          "median": 0.5206,
+          "p95": 0.7001749999999998,
+          "max": 0.7823
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "oc_byte",
+      "scenario": "multi_class",
+      "mode": "class_isolated",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 1,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 20,
+        "update_ms": {
+          "total": 7.980400000000001,
+          "median": 0.3167,
+          "p95": 0.8082400000000001,
+          "max": 0.9477
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "oc_byte",
+      "scenario": "sparse_gap",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 6,
+        "update_ms": {
+          "total": 5.1362000000000005,
+          "median": 0.56585,
+          "p95": 1.8806000000000003,
+          "max": 2.2722
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "oc_byte",
+      "scenario": "sparse_gap",
+      "mode": "pad_empty",
+      "summary": {
+        "id_changes": 1,
+        "unmatched_detection_frames": 1,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 23,
+        "update_ms": {
+          "total": 5.0718000000000005,
+          "median": 0.184,
+          "p95": 0.52367,
+          "max": 0.5486
+        },
+        "padding": {
+          "calls": 17,
+          "empty_input_calls": 17,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "oc_byte",
+      "scenario": "score_boundary",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 2,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 8,
+        "update_ms": {
+          "total": 4.0347,
+          "median": 0.54315,
+          "p95": 0.759725,
+          "max": 0.7851
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_byte",
+      "scenario": "translation",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 12,
+        "update_ms": {
+          "total": 6.706099999999999,
+          "median": 0.5186,
+          "p95": 0.7445749999999998,
+          "max": 0.9258
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_byte",
+      "scenario": "low_score",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 10,
+        "update_ms": {
+          "total": 4.898,
+          "median": 0.51215,
+          "p95": 0.5625899999999999,
+          "max": 0.5778
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_byte",
+      "scenario": "filtered_low_score",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 3,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 10,
+        "update_ms": {
+          "total": 3.866,
+          "median": 0.47345,
+          "p95": 0.510045,
+          "max": 0.5163
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_byte",
+      "scenario": "short_occlusion",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 3,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 12,
+        "update_ms": {
+          "total": 4.781199999999999,
+          "median": 0.46645000000000003,
+          "p95": 0.506715,
+          "max": 0.5093
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_byte",
+      "scenario": "long_loss",
+      "mode": "native",
+      "summary": {
+        "id_changes": 1,
+        "unmatched_detection_frames": 1,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 10,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 19,
+        "update_ms": {
+          "total": 6.488600000000002,
+          "median": 0.2489,
+          "p95": 0.6160299999999997,
+          "max": 0.7297
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_byte",
+      "scenario": "crossing",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 1,
+        "calls": 21,
+        "update_ms": {
+          "total": 15.179700000000002,
+          "median": 0.6972,
+          "p95": 0.9447,
+          "max": 0.9465
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_byte",
+      "scenario": "ambiguous_bounce",
+      "mode": "native",
+      "summary": {
+        "id_changes": 2,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 1,
+        "calls": 21,
+        "update_ms": {
+          "total": 16.2067,
+          "median": 0.7391,
+          "p95": 1.0138,
+          "max": 1.1477
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_byte",
+      "scenario": "multi_class",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 1,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 10,
+        "update_ms": {
+          "total": 5.0384,
+          "median": 0.5299,
+          "p95": 0.609935,
+          "max": 0.6215
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_byte",
+      "scenario": "multi_class",
+      "mode": "class_isolated",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 1,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 20,
+        "update_ms": {
+          "total": 6.330399999999999,
+          "median": 0.2773,
+          "p95": 0.51985,
+          "max": 0.6405
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_byte",
+      "scenario": "sparse_gap",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 6,
+        "update_ms": {
+          "total": 2.9043,
+          "median": 0.5043,
+          "p95": 0.630875,
+          "max": 0.6624
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_byte",
+      "scenario": "sparse_gap",
+      "mode": "pad_empty",
+      "summary": {
+        "id_changes": 1,
+        "unmatched_detection_frames": 1,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 23,
+        "update_ms": {
+          "total": 5.5462,
+          "median": 0.2122,
+          "p95": 0.6194099999999998,
+          "max": 0.7824
+        },
+        "padding": {
+          "calls": 17,
+          "empty_input_calls": 17,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_byte",
+      "scenario": "score_boundary",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 4,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 8,
+        "update_ms": {
+          "total": 3.3044,
+          "median": 0.32835000000000003,
+          "p95": 0.652195,
+          "max": 0.6698
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_oc",
+      "scenario": "translation",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 12,
+        "update_ms": {
+          "total": 5.5494,
+          "median": 0.48205,
+          "p95": 0.55889,
+          "max": 0.5612
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_oc",
+      "scenario": "low_score",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 10,
+        "update_ms": {
+          "total": 6.5528,
+          "median": 0.6044,
+          "p95": 1.258734999999999,
+          "max": 1.7131
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_oc",
+      "scenario": "filtered_low_score",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 3,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 10,
+        "update_ms": {
+          "total": 4.2508,
+          "median": 0.41225,
+          "p95": 0.7162249999999994,
+          "max": 0.9473
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_oc",
+      "scenario": "short_occlusion",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 3,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 12,
+        "update_ms": {
+          "total": 5.1057,
+          "median": 0.49305,
+          "p95": 0.580155,
+          "max": 0.5944
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_oc",
+      "scenario": "long_loss",
+      "mode": "native",
+      "summary": {
+        "id_changes": 1,
+        "unmatched_detection_frames": 1,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 10,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 19,
+        "update_ms": {
+          "total": 5.9188,
+          "median": 0.2745,
+          "p95": 0.5028899999999998,
+          "max": 0.5622
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_oc",
+      "scenario": "crossing",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 1,
+        "calls": 21,
+        "update_ms": {
+          "total": 14.752299999999998,
+          "median": 0.597,
+          "p95": 1.1266,
+          "max": 1.771
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_oc",
+      "scenario": "ambiguous_bounce",
+      "mode": "native",
+      "summary": {
+        "id_changes": 2,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 1,
+        "calls": 21,
+        "update_ms": {
+          "total": 10.7564,
+          "median": 0.4809,
+          "p95": 0.6374,
+          "max": 0.8408
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_oc",
+      "scenario": "multi_class",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 1,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 10,
+        "update_ms": {
+          "total": 3.7443000000000004,
+          "median": 0.36405,
+          "p95": 0.46335499999999985,
+          "max": 0.5174
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_oc",
+      "scenario": "multi_class",
+      "mode": "class_isolated",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 1,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 20,
+        "update_ms": {
+          "total": 4.5756,
+          "median": 0.20685,
+          "p95": 0.40225500000000003,
+          "max": 0.4204
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_oc",
+      "scenario": "sparse_gap",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 0,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 6,
+        "update_ms": {
+          "total": 1.8964999999999999,
+          "median": 0.33699999999999997,
+          "p95": 0.3627,
+          "max": 0.3695
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_oc",
+      "scenario": "sparse_gap",
+      "mode": "pad_empty",
+      "summary": {
+        "id_changes": 1,
+        "unmatched_detection_frames": 1,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 23,
+        "update_ms": {
+          "total": 3.880399999999999,
+          "median": 0.1772,
+          "p95": 0.34473999999999994,
+          "max": 0.3888
+        },
+        "padding": {
+          "calls": 17,
+          "empty_input_calls": 17,
+          "output_count": 0
+        }
+      }
+    },
+    {
+      "algorithm": "paddle_oc",
+      "scenario": "score_boundary",
+      "mode": "native",
+      "summary": {
+        "id_changes": 0,
+        "unmatched_detection_frames": 2,
+        "cross_class_reuse": 0,
+        "empty_input_frames": 0,
+        "outputs_on_empty_input": 0,
+        "excluded_ambiguous_frames": 0,
+        "calls": 8,
+        "update_ms": {
+          "total": 2.4481,
+          "median": 0.3249,
+          "p95": 0.428835,
+          "max": 0.4358
+        },
+        "padding": {
+          "calls": 0,
+          "empty_input_calls": 0,
+          "output_count": 0
+        }
+      }
+    }
+  ]
+}

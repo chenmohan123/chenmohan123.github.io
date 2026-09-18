@@ -1,0 +1,21 @@
+{
+  "verifiedAt": "2026-09-18T15:55:42.1394380Z",
+  "npm": {
+    "name": "web-sdk-pp-rotated-detection",
+    "url": "https://registry.npmjs.org/web-sdk-pp-rotated-detection/0.1.0",
+    "integrity": "sha512-Ag9KH21GpGnPbp470TSXxN1PUR9O9PUuyBRQHUX3o8ZGwKOnmREHPBMpsBALcF4LocpBhhVd7q200I3/GiIjhA==",
+    "version": "0.1.0"
+  },
+  "demo": {
+    "url": "https://chenmohan123.github.io/web-sdk-PP-RotatedDetection/",
+    "title": "PP-RotatedDetection · 旋转框检测",
+    "statusCode": 200
+  },
+  "release": {
+    "prerelease": false,
+    "url": "https://github.com/chenmohan123/web-sdk-PP-RotatedDetection/releases/tag/v0.1.0",
+    "draft": false,
+    "publishedAt": "2026-09-18T14:05:11Z",
+    "tagName": "v0.1.0"
+  }
+}
