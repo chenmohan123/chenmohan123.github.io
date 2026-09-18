@@ -1,0 +1,288 @@
+{
+  "status": "passed",
+  "verifiedAt": "2026-09-18T08:34:10.283204+00:00",
+  "candidate": "ppyoloe_r_crn_s_3x_dota",
+  "model": {
+    "file": "ppyoloe_r_crn_s_3x_dota/model.onnx",
+    "bytes": 33161415,
+    "sha256": "de2f4c94061bda4bfaa0773ed5bc3aabdc59cf5b2f72301d15ae500b8f971089"
+  },
+  "thresholds": {
+    "score": 0.1,
+    "nmsPolygonIoU": 0.1,
+    "perClassTopK": 2000,
+    "comparison": {
+      "minimumPolygonIoU": 0.995,
+      "maximumScoreError": 0.001,
+      "maximumCornerErrorPx": 0.1
+    }
+  },
+  "reference": "固定上游Paddle原始头与官方_box2corners；上游onnx_infer.py Shapely旋转NMS",
+  "cases": [
+    {
+      "id": "P0072",
+      "paddleMs": 1477.0766000001458,
+      "ortMs": 317.58819999959087,
+      "raw": [
+        {
+          "maxAbsoluteError": 2.3245811462402344e-06,
+          "meanAbsoluteError": 2.924873676590778e-08,
+          "shape": [
+            1,
+            15,
+            21504
+          ]
+        },
+        {
+          "maxAbsoluteError": 0.00534820556640625,
+          "meanAbsoluteError": 0.00016775898984633386,
+          "shape": [
+            1,
+            21504,
+            5
+          ]
+        }
+      ],
+      "maximumCandidatesPerClass": 27,
+      "detections": {
+        "count": 8,
+        "minimumPolygonIoU": 0.9999909831709359,
+        "maximumScoreError": 1.4901161193847656e-06,
+        "maximumCornerErrorPx": 0.00274658203125,
+        "passed": true
+      },
+      "fullPaddlePostprocess": {
+        "status": "executed",
+        "comparisonWithOfficialOnnxNms": {
+          "count": 8,
+          "minimumPolygonIoU": 1.0,
+          "maximumScoreError": 0.0,
+          "maximumCornerErrorPx": 0.0,
+          "passed": true
+        }
+      },
+      "artifacts": [
+        {
+          "file": "ppyoloe_r_crn_s_3x_dota\\reference\\P0072.npz",
+          "sha256": "4af2c9e687e44bbab29004915477945ab86303346cfdae30f11dd04b5110682f"
+        },
+        {
+          "file": "ppyoloe_r_crn_s_3x_dota\\reference\\P0072.json",
+          "sha256": "248e67a914631810bdbb8ea16bdb4bc94b19b4a6b600aed2dfa2923afaa8abaa"
+        }
+      ]
+    },
+    {
+      "id": "P0861",
+      "paddleMs": 1391.137799997523,
+      "ortMs": 298.4716999999364,
+      "raw": [
+        {
+          "maxAbsoluteError": 9.834766387939453e-07,
+          "meanAbsoluteError": 2.3497040757547438e-08,
+          "shape": [
+            1,
+            15,
+            21504
+          ]
+        },
+        {
+          "maxAbsoluteError": 0.00118255615234375,
+          "meanAbsoluteError": 2.2738433472113684e-05,
+          "shape": [
+            1,
+            21504,
+            5
+          ]
+        }
+      ],
+      "maximumCandidatesPerClass": 1211,
+      "detections": {
+        "count": 136,
+        "minimumPolygonIoU": 0.9999898612926136,
+        "maximumScoreError": 3.5762786865234375e-07,
+        "maximumCornerErrorPx": 0.00018310546875,
+        "passed": true
+      },
+      "fullPaddlePostprocess": {
+        "status": "executed",
+        "comparisonWithOfficialOnnxNms": {
+          "count": 136,
+          "minimumPolygonIoU": 1.0,
+          "maximumScoreError": 0.0,
+          "maximumCornerErrorPx": 0.0,
+          "passed": true
+        }
+      },
+      "artifacts": [
+        {
+          "file": "ppyoloe_r_crn_s_3x_dota\\reference\\P0861.npz",
+          "sha256": "362c26f354597cd7e3742014e7d6cd6bcaecd514179ba41e7ea6fdb77d1c8d1b"
+        },
+        {
+          "file": "ppyoloe_r_crn_s_3x_dota\\reference\\P0861.json",
+          "sha256": "56815e03d5d231456ab75a874453a396e5686f0e5a46a97d6e0581fab547649b"
+        }
+      ]
+    },
+    {
+      "id": "P0072-rot90",
+      "paddleMs": 1415.4376000005868,
+      "ortMs": 301.95009999442846,
+      "raw": [
+        {
+          "maxAbsoluteError": 2.8386712074279785e-06,
+          "meanAbsoluteError": 2.8922837458367212e-08,
+          "shape": [
+            1,
+            15,
+            21504
+          ]
+        },
+        {
+          "maxAbsoluteError": 0.006591796875,
+          "meanAbsoluteError": 0.00016428265371359885,
+          "shape": [
+            1,
+            21504,
+            5
+          ]
+        }
+      ],
+      "maximumCandidatesPerClass": 35,
+      "detections": {
+        "count": 13,
+        "minimumPolygonIoU": 0.9999853566238451,
+        "maximumScoreError": 2.8386712074279785e-06,
+        "maximumCornerErrorPx": 0.0003662109375,
+        "passed": true
+      },
+      "fullPaddlePostprocess": {
+        "status": "executed",
+        "comparisonWithOfficialOnnxNms": {
+          "count": 13,
+          "minimumPolygonIoU": 1.0,
+          "maximumScoreError": 0.0,
+          "maximumCornerErrorPx": 0.0,
+          "passed": true
+        }
+      },
+      "artifacts": [
+        {
+          "file": "ppyoloe_r_crn_s_3x_dota\\reference\\P0072-rot90.npz",
+          "sha256": "cfdeba358ee52525e7af7c5986a1c8972d34958080fbee4c3e6c7a4a4948a6dd"
+        },
+        {
+          "file": "ppyoloe_r_crn_s_3x_dota\\reference\\P0072-rot90.json",
+          "sha256": "2555c9cb7d061e1e563e4f57533dc533833baaa0f5aa7375553c8bb9dfd29d93"
+        }
+      ]
+    },
+    {
+      "id": "P0861-crop",
+      "paddleMs": 1414.5101999965846,
+      "ortMs": 290.72339999402175,
+      "raw": [
+        {
+          "maxAbsoluteError": 4.655122756958008e-05,
+          "meanAbsoluteError": 2.9614409413625253e-07,
+          "shape": [
+            1,
+            15,
+            21504
+          ]
+        },
+        {
+          "maxAbsoluteError": 0.087249755859375,
+          "meanAbsoluteError": 0.0021297531202435493,
+          "shape": [
+            1,
+            21504,
+            5
+          ]
+        }
+      ],
+      "maximumCandidatesPerClass": 1008,
+      "detections": {
+        "count": 129,
+        "minimumPolygonIoU": 0.9995514463668902,
+        "maximumScoreError": 2.8789043426513672e-05,
+        "maximumCornerErrorPx": 0.0135498046875,
+        "passed": true
+      },
+      "fullPaddlePostprocess": {
+        "status": "executed",
+        "comparisonWithOfficialOnnxNms": {
+          "count": 129,
+          "minimumPolygonIoU": 1.0,
+          "maximumScoreError": 0.0,
+          "maximumCornerErrorPx": 0.0,
+          "passed": true
+        }
+      },
+      "artifacts": [
+        {
+          "file": "ppyoloe_r_crn_s_3x_dota\\reference\\P0861-crop.npz",
+          "sha256": "6e1e9467cea0e2f3e6db92901e79c4e6a8a54e2c3d93b42306fcfc92cc698a08"
+        },
+        {
+          "file": "ppyoloe_r_crn_s_3x_dota\\reference\\P0861-crop.json",
+          "sha256": "2a0250115ec84d5d5285d4a024310c3ecadb672732c110a0516a1f83c3bace5e"
+        }
+      ]
+    },
+    {
+      "id": "blank",
+      "paddleMs": 1380.9329000068828,
+      "ortMs": 295.75800000020536,
+      "raw": [
+        {
+          "maxAbsoluteError": 7.460825145244598e-06,
+          "meanAbsoluteError": 2.8166218157821277e-07,
+          "shape": [
+            1,
+            15,
+            21504
+          ]
+        },
+        {
+          "maxAbsoluteError": 0.0819091796875,
+          "meanAbsoluteError": 0.0018697191262617707,
+          "shape": [
+            1,
+            21504,
+            5
+          ]
+        }
+      ],
+      "maximumCandidatesPerClass": 0,
+      "detections": {
+        "count": 0,
+        "minimumPolygonIoU": 1.0,
+        "maximumScoreError": 0.0,
+        "maximumCornerErrorPx": 0.0,
+        "passed": true
+      },
+      "fullPaddlePostprocess": {
+        "status": "executed",
+        "comparisonWithOfficialOnnxNms": {
+          "count": 0,
+          "minimumPolygonIoU": 1.0,
+          "maximumScoreError": 0.0,
+          "maximumCornerErrorPx": 0.0,
+          "passed": true
+        }
+      },
+      "artifacts": [
+        {
+          "file": "ppyoloe_r_crn_s_3x_dota\\reference\\blank.npz",
+          "sha256": "468e320e6bfdde367e05698334898013e793f85a69f261bba18e7e2ff64e7e14"
+        },
+        {
+          "file": "ppyoloe_r_crn_s_3x_dota\\reference\\blank.json",
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        }
+      ]
+    }
+  ]
+}

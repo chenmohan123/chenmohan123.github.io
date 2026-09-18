@@ -1,0 +1,78 @@
+{
+  "status": "passed",
+  "verifiedAt": "2026-09-18T08:59:38.631581+00:00",
+  "sourceSnapshots": 21,
+  "modelsChecked": 2,
+  "browserComparisons": 20,
+  "rawArtifactsVerified": 92,
+  "localMarkdownLinksChecked": 19,
+  "scripts": [
+    {
+      "file": "reproduction/browser.mjs",
+      "sha256": "1144e5627c46fcb4412d2f3282e093915f3c1f24095f6803a61e9ae77dec692a"
+    },
+    {
+      "file": "reproduction/compare_browser.py",
+      "sha256": "8f35a1a296af9252114fc378a45db4c4ab0959cee4fbb4dbeb0a40ee648937c0"
+    },
+    {
+      "file": "reproduction/export_candidate.py",
+      "sha256": "d92861b4f32573c9bacc069872ef39c2dea8ec5173b55d8c92d97f1ba8aa4556"
+    },
+    {
+      "file": "reproduction/postprocess.mjs",
+      "sha256": "4193a2f0d2da632700c6fc04f0a570a16ceb829793fbe600da43890f7f6e8c8e"
+    },
+    {
+      "file": "reproduction/prepare.py",
+      "sha256": "350b87b6be055fc8701466c90d4aad012b213408a65e07b25ceb443f8f42c2ba"
+    },
+    {
+      "file": "reproduction/prepare_geometry.py",
+      "sha256": "e13e752c40ceea082ab4e0ca4da9c653e9630c1b7e2c6642331ee57bab7e398f"
+    },
+    {
+      "file": "reproduction/reference.py",
+      "sha256": "f0ac22813bf898e9430ac0c86d5b778e403f250ac821b01c9caf83654e007a6a"
+    },
+    {
+      "file": "reproduction/verify_evidence.py",
+      "sha256": "254535ddd7dc1cd8796d336eb614d82c9842f77de1ee14e8c7250b932d74fe58"
+    }
+  ],
+  "summary": [
+    {
+      "model": "ppyoloe_r_crn_s_3x_dota",
+      "backend": "wasm",
+      "warmInferenceMedianMs": 2178.8000000044703,
+      "minimumPolygonIoU": 0.999354716600993,
+      "maximumCornerErrorPx": 0.010721736167170093,
+      "maximumScoreError": 2.574920654296875e-05
+    },
+    {
+      "model": "ppyoloe_r_crn_s_3x_dota",
+      "backend": "webgpu",
+      "warmInferenceMedianMs": 31.799999997019768,
+      "minimumPolygonIoU": 0.9995252460429032,
+      "maximumCornerErrorPx": 0.014153041708141245,
+      "maximumScoreError": 3.0525028705596924e-05
+    },
+    {
+      "model": "fcosr_x50_3x_dota",
+      "backend": "wasm",
+      "warmInferenceMedianMs": 17919.60000000149,
+      "minimumPolygonIoU": 0.9999195146324655,
+      "maximumCornerErrorPx": 0.0023955751536277603,
+      "maximumScoreError": 2.47955322265625e-05
+    },
+    {
+      "model": "fcosr_x50_3x_dota",
+      "backend": "webgpu",
+      "warmInferenceMedianMs": 125.19999999552965,
+      "minimumPolygonIoU": 0.9999885793492088,
+      "maximumCornerErrorPx": 0.0002914677962735368,
+      "maximumScoreError": 1.2516975402832031e-06
+    }
+  ],
+  "scope": "本机实验文件摘要与脚本语法复核；模型、图片、原始张量、截图不进入Git。报告摘要不能替代原始数组重新计算。"
+}

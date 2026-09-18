@@ -1,0 +1,18 @@
+[Paddle2ONNX] Start to parse PaddlePaddle model...
+[Paddle2ONNX] Model file path: F:\git\00_chenmohan\github\chenmohan123.github.io\.tmp\rotated-feasibility\fcosr_x50_3x_dota\exported\model.pdmodel
+[Paddle2ONNX] Parameters file path: F:\git\00_chenmohan\github\chenmohan123.github.io\.tmp\rotated-feasibility\fcosr_x50_3x_dota\exported\model.pdiparams
+[Paddle2ONNX] Start to parsing Paddle model...
+[Paddle2ONNX] [range: range_0.tmp_0] Requires the minimal opset version of 11.
+[Paddle2ONNX] [range: range_1.tmp_0] Requires the minimal opset version of 11.
+[Paddle2ONNX] [range: range_2.tmp_0] Requires the minimal opset version of 11.
+[Paddle2ONNX] [range: range_3.tmp_0] Requires the minimal opset version of 11.
+[Paddle2ONNX] [range: range_4.tmp_0] Requires the minimal opset version of 11.
+[Paddle2ONNX] [range: range_5.tmp_0] Requires the minimal opset version of 11.
+[Paddle2ONNX] [range: range_6.tmp_0] Requires the minimal opset version of 11.
+[Paddle2ONNX] [range: range_7.tmp_0] Requires the minimal opset version of 11.
+[Paddle2ONNX] [range: range_8.tmp_0] Requires the minimal opset version of 11.
+[Paddle2ONNX] [range: range_9.tmp_0] Requires the minimal opset version of 11.
+[Paddle2ONNX] Use opset_version = 17 for ONNX export.
+[Paddle2ONNX] PaddlePaddle model is exported as ONNX format now.
+WARNING: OMP_NUM_THREADS set to 4, not 1. The computation speed will not be optimized if you use data parallel. It will fail if this PaddlePaddle binary is compiled with OpenBlas since OpenBlas does not support multi-threads.
+PLEASE USE OMP_NUM_THREADS WISELY.

@@ -1,0 +1,197 @@
+{
+  "verifiedAt": "2026-09-18T08:25:43.487654+00:00",
+  "upstreamRevision": "b25522a0f4bde8c80603f3ba5e3472059972e3b5",
+  "archiveSha256": "d22c0e8777d749cb967cc71671d1357e1656c76db16f76578a4edb1454d027f6",
+  "archiveUrl": "https://github.com/PaddlePaddle/PaddleDetection/archive/b25522a0f4bde8c80603f3ba5e3472059972e3b5.zip",
+  "extractedFilesVerified": 2114,
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "snapshot": "upstream/LICENSE.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/LICENSE"
+    },
+    {
+      "path": "configs/datasets/dota.yml",
+      "bytes": 571,
+      "sha256": "e155b5b7d07b4ce69a087ebb6349049b8fd2c6b50491444abadcfa16c0931e11",
+      "snapshot": "upstream/configs/datasets/dota.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/datasets/dota.yml"
+    },
+    {
+      "path": "configs/rotate/README.md",
+      "bytes": 7716,
+      "sha256": "234841b4c97a8cd5d1ba9eac321187f4de8eec5bb5142e7534f4605ec395e56d",
+      "snapshot": "upstream/configs/rotate/README.md.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/rotate/README.md"
+    },
+    {
+      "path": "configs/rotate/fcosr/README.md",
+      "bytes": 4197,
+      "sha256": "f1c5d5bb01e6d227dd90f9be60778bb694b06e1d4c55ddf14a762e847f6ecc36",
+      "snapshot": "upstream/configs/rotate/fcosr/README.md.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/rotate/fcosr/README.md"
+    },
+    {
+      "path": "configs/rotate/fcosr/_base_/fcosr_reader.yml",
+      "bytes": 1466,
+      "sha256": "e7158d48bf8b0ce8ee898f30f74fe09a390dcc8ccf4f520e7b4541818d7272e2",
+      "snapshot": "upstream/configs/rotate/fcosr/_base_/fcosr_reader.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/rotate/fcosr/_base_/fcosr_reader.yml"
+    },
+    {
+      "path": "configs/rotate/fcosr/_base_/fcosr_x50.yml",
+      "bytes": 891,
+      "sha256": "33bf0b7c839165625eb1918bb54cdb9713843621528b03ffa74b0663c6feda9c",
+      "snapshot": "upstream/configs/rotate/fcosr/_base_/fcosr_x50.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/rotate/fcosr/_base_/fcosr_x50.yml"
+    },
+    {
+      "path": "configs/rotate/fcosr/_base_/optimizer_3x.yml",
+      "bytes": 329,
+      "sha256": "fa48a3e481fa923abda7b47af1d6cc4a29069ec51b99ea02b2bdb8fbccb3db7c",
+      "snapshot": "upstream/configs/rotate/fcosr/_base_/optimizer_3x.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/rotate/fcosr/_base_/optimizer_3x.yml"
+    },
+    {
+      "path": "configs/rotate/fcosr/fcosr_x50_3x_dota.yml",
+      "bytes": 194,
+      "sha256": "ffaa3d8ed32ca56379e04a55c0cf095538f8f116b829daf9608ebd0230555768",
+      "snapshot": "upstream/configs/rotate/fcosr/fcosr_x50_3x_dota.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/rotate/fcosr/fcosr_x50_3x_dota.yml"
+    },
+    {
+      "path": "configs/rotate/ppyoloe_r/README.md",
+      "bytes": 11299,
+      "sha256": "c29689bc7df28888127712a1ce1d4b6c8411a975cdee157a8e100f5a0fabf00d",
+      "snapshot": "upstream/configs/rotate/ppyoloe_r/README.md.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/rotate/ppyoloe_r/README.md"
+    },
+    {
+      "path": "configs/rotate/ppyoloe_r/_base_/optimizer_3x.yml",
+      "bytes": 298,
+      "sha256": "4cc0d77bd707c4df647f7a96e5d0a76fec7ef0a6a35a222541929acace73ff2a",
+      "snapshot": "upstream/configs/rotate/ppyoloe_r/_base_/optimizer_3x.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/rotate/ppyoloe_r/_base_/optimizer_3x.yml"
+    },
+    {
+      "path": "configs/rotate/ppyoloe_r/_base_/ppyoloe_r_crn.yml",
+      "bytes": 959,
+      "sha256": "a8aad1f5038cb05bcf735de82e95df0ca70b71c553ed3047c813986c4ce927be",
+      "snapshot": "upstream/configs/rotate/ppyoloe_r/_base_/ppyoloe_r_crn.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/rotate/ppyoloe_r/_base_/ppyoloe_r_crn.yml"
+    },
+    {
+      "path": "configs/rotate/ppyoloe_r/_base_/ppyoloe_r_reader.yml",
+      "bytes": 1466,
+      "sha256": "16e516c9a78cb633db5f070ea96c435fa38769386d04251a12eef40e97d7fdfe",
+      "snapshot": "upstream/configs/rotate/ppyoloe_r/_base_/ppyoloe_r_reader.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/rotate/ppyoloe_r/_base_/ppyoloe_r_reader.yml"
+    },
+    {
+      "path": "configs/rotate/ppyoloe_r/ppyoloe_r_crn_s_3x_dota.yml",
+      "bytes": 375,
+      "sha256": "d3606ce7326b8c47daaa342bfe6c17bfab376275e2f1f30c24b6f21a6cddd6e2",
+      "snapshot": "upstream/configs/rotate/ppyoloe_r/ppyoloe_r_crn_s_3x_dota.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/rotate/ppyoloe_r/ppyoloe_r_crn_s_3x_dota.yml"
+    },
+    {
+      "path": "configs/rotate/tools/onnx_infer.py",
+      "bytes": 9823,
+      "sha256": "059f34a31a24b6187d4279a14b1a82b5c7ef9656f74d5cdf610c6fc5aa764b0a",
+      "snapshot": "upstream/configs/rotate/tools/onnx_infer.py.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/rotate/tools/onnx_infer.py"
+    },
+    {
+      "path": "configs/runtime.yml",
+      "bytes": 513,
+      "sha256": "c1223b0c56fda9af34904e8f406cfea6e6e58179349ac66937ef248e9d2af76e",
+      "snapshot": "upstream/configs/runtime.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/runtime.yml"
+    },
+    {
+      "path": "ppdet/modeling/architectures/yolo.py",
+      "bytes": 5811,
+      "sha256": "b0d725dd31712096caf701550085f396b912c6ac798d0cde74cfd5b748e34c8d",
+      "snapshot": "upstream/ppdet/modeling/architectures/yolo.py.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/ppdet/modeling/architectures/yolo.py"
+    },
+    {
+      "path": "ppdet/modeling/heads/fcosr_head.py",
+      "bytes": 14813,
+      "sha256": "d31d93196b231f7015f39e6b89958a7b3572c3df0595d44ed779e89448b7589f",
+      "snapshot": "upstream/ppdet/modeling/heads/fcosr_head.py.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/ppdet/modeling/heads/fcosr_head.py"
+    },
+    {
+      "path": "ppdet/modeling/heads/ppyoloe_r_head.py",
+      "bytes": 17899,
+      "sha256": "b855d053e4d41406dbaef3cfcc1db09fc5ba3ce1fd066773cbb6aaeb1a223aae",
+      "snapshot": "upstream/ppdet/modeling/heads/ppyoloe_r_head.py.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/ppdet/modeling/heads/ppyoloe_r_head.py"
+    },
+    {
+      "path": "ppdet/modeling/layers.py",
+      "bytes": 51381,
+      "sha256": "85f22c20dbc33a7c666ced3985b7049a446b3349152c0825ab8e353f1a6751c1",
+      "snapshot": "upstream/ppdet/modeling/layers.py.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/ppdet/modeling/layers.py"
+    },
+    {
+      "path": "ppdet/modeling/ops.py",
+      "bytes": 47810,
+      "sha256": "9b3193d91d617a6c9e6ef49896dc8612cbcbb67c146d0a76ce16bf2b64dac86f",
+      "snapshot": "upstream/ppdet/modeling/ops.py.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/ppdet/modeling/ops.py"
+    },
+    {
+      "path": "ppdet/modeling/rbox_utils.py",
+      "bytes": 9492,
+      "sha256": "66cee0629421326cd2f0ed03d25555b4a00a22a28a9408956620c59fde88a921",
+      "snapshot": "upstream/ppdet/modeling/rbox_utils.py.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/ppdet/modeling/rbox_utils.py"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "ppyoloe_r_crn_s_3x_dota",
+      "config": "configs/rotate/ppyoloe_r/ppyoloe_r_crn_s_3x_dota.yml",
+      "url": "https://paddledet.bj.bcebos.com/models/ppyoloe_r_crn_s_3x_dota.pdparams",
+      "status": 200,
+      "bytes": 33111074,
+      "etag": "\"-4a0fc2130220082f8d19c0be9cca9601\"",
+      "lastModified": "Thu, 13 Oct 2022 07:10:16 GMT",
+      "sha256": "d9c4483c53a79bc8e8265f01beb044e060bb4bb017830befb046d2d504ec99a5",
+      "availableConfigurations": [
+        "ppyoloe_r_crn_l_3x_dota.yml",
+        "ppyoloe_r_crn_l_3x_dota_ms.yml",
+        "ppyoloe_r_crn_m_3x_dota.yml",
+        "ppyoloe_r_crn_m_3x_dota_ms.yml",
+        "ppyoloe_r_crn_s_3x_dota.yml",
+        "ppyoloe_r_crn_s_3x_dota_ms.yml",
+        "ppyoloe_r_crn_x_3x_dota.yml",
+        "ppyoloe_r_crn_x_3x_dota_ms.yml"
+      ]
+    },
+    {
+      "id": "fcosr_x50_3x_dota",
+      "config": "configs/rotate/fcosr/fcosr_x50_3x_dota.yml",
+      "url": "https://paddledet.bj.bcebos.com/models/fcosr_x50_3x_dota.pdparams",
+      "status": 200,
+      "bytes": 126775230,
+      "etag": "\"-9f6e1d4864679449d79d06941fd73b14\"",
+      "lastModified": "Fri, 26 Aug 2022 03:52:52 GMT",
+      "sha256": "c6a05d83f726034c1b3f5be74d444d9d91db133d7dcabb87a1c662d2771f49cd",
+      "availableConfigurations": [
+        "fcosr_x50_3x_dota.yml"
+      ]
+    }
+  ],
+  "license": {
+    "sourceRepository": "Apache-2.0",
+    "weightLinkedByOfficialReadme": true,
+    "separateWeightLicenseFoundInReviewedFiles": false,
+    "scope": "以固定上游Apache-2.0项目声明和官方权重表为采用依据；独立权重文本缺失是解释边界，不增加额外授权门槛。"
+  }
+}

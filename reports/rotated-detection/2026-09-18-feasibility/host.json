@@ -1,0 +1,28 @@
+{
+  "capturedAt": "2026-09-18T08:41:24.1011707Z",
+  "method": "PowerShell Get-CimInstance，仅读取GPU名称和驱动",
+  "physicalGpu": [
+    {
+      "Name": "OrayIddDriver Device",
+      "DriverVersion": "17.50.19.949"
+    },
+    {
+      "Name": "Todesk Virtual Display Adapter",
+      "DriverVersion": "16.44.2.509"
+    },
+    {
+      "Name": "GameViewer Virtual Display Adapter",
+      "DriverVersion": "15.6.5.199"
+    },
+    {
+      "Name": "Todesk Virtual Display Adapter",
+      "DriverVersion": "16.44.2.509"
+    },
+    {
+      "Name": "NVIDIA GeForce RTX 5060 Ti",
+      "DriverVersion": "32.0.16.1692"
+    }
+  ],
+  "node": "v24.16.0",
+  "scope": "实际浏览器适配器与WebGPU kernel证据见browser-execution.json"
+}
