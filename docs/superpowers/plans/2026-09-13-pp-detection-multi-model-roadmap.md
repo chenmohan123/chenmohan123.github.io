@@ -10,6 +10,33 @@
 
 **依据：** `docs/superpowers/specs/2026-08-27-paddle-detection-web-sdk-design.md`；`standards/v1/README.md`；已发布 `web-sdk-pp-detection@0.4.0` 及其双语发布说明。
 
+## 当前推进决策（2026-09-18）
+
+用户确认后续优先推进各种独立 SDK，暂不实施门户整合流程。门户负责已发布 SDK 的登记、分类、比较和跳转；Detection → TinyPose 自动找人/多人姿态、通用 Workflow / Playground 及跨 SDK 视频编排暂缓。
+
+2D Detection 继续稳定维护。TinyPose 已完成 0.3.0：三个稳定模型、单帧 Blob/RGBA/人体框 API，以及图片、本地视频和摄像头的独立 Demo；正式 npm、Release、Pages 和门户均已核验。固定 [0.3.0 发布证据](https://github.com/chenmohan123/web-sdk-PP-TinyPose/tree/70fe7e5a2377be64cd86efc8b306f03121b6f5c9/reports/2026-09-17-media)记录桌面图片24组合、连续帧12组合385帧与模拟摄像头范围，不扩大为物理摄像头、手机或 NPU 兼容。
+
+用户已确认优先推进独立实例分割 SDK。候选评估后，**PP-YOLOE_seg_s 640 FP32** 已完成独立图片版的本地 alpha 实现和桌面扩大评估；下表中的其他方向继续保留为后续候选，未承诺兼容或直接发布：
+
+| 方向 | 独立能力与候选 | 评估边界 |
+| --- | --- | --- |
+| 实例分割（当前） | 独立 PP-Segmentation 本地 alpha：PP-YOLOE_seg_s；Mask-RT-DETR-S 保留后续质量候选 | FP32 36.27 MB；64图×CPU/GPU×主线程/Worker完成；AP下降约0.078点，1/423高分实例因官方裁边未达严格IoU门槛，尚未稳定或发布 |
+| 姿态能力扩展 | HRNet、Lite-HRNet、HigherHRNet | 前两者核对单人人体框与关键点契约；HigherHRNet 单独评估整图多人关键点分组，不自动并入当前 TinyPose API |
+| 旋转框检测 | PP-YOLOE-R、FCOSR | 独立定义旋转框坐标、角度及后处理契约 |
+| 多目标跟踪 | ByteTrack、OC-SORT 等 | 可独立设计接收外部检测结果的跟踪 SDK，明确跨帧状态与轨迹生命周期；模型/算法来源分别核验 |
+
+仓库继续按任务契约划分，同一兼容任务可以容纳多个已验证模型，FP32/FP16/量化属于模型变体。新任务先形成独立设计和验收门槛；不把“各种独立 SDK”解释为全部模型一次性移植承诺。具体配置仍需核实官方权重、再分发许可和浏览器可行性。桌面优先、默认 ModelScope 并提供 Hugging Face、独立 Demo 统一风格的既有要求继续适用。
+
+### 实例分割可行性与下一里程碑
+
+[2026-09-18 固定评估报告](../../../reports/segmentation/2026-09-18-feasibility/README.md)归档官方来源、33份源码/配置/许可快照、FP32转换、Python官方对照、浏览器原始执行与掩码比较及复现脚本。只有 PP-YOLOE_seg_s 做了实际转换和推理；其余四个配置本轮仅作来源与静态筛选，不能写成转换失败。
+
+该模型在本机单线程 WASM 热推理中位数为1283.7ms，WebGPU为31.2ms；实例非空时实验JavaScript后处理另需113.5～771.0ms。此轮复用Python预处理输入，仅为main模式，未验证浏览器解码缩放、Worker、SDK生命周期或GT mask AP。GPU网络推理速度不代表端到端帧率。
+
+独立 `web-sdk-PP-Segmentation` 图片版已在本地建立：单帧 Blob/RGBA 输入，返回类别、分数、原图框和紧致 ROI 掩码；具有框架无关 runtime、主线程/Worker、与 Detection 一致的 Demo、缓存和取消释放语义。42项单元测试、真实 Demo 和 64 图四组合执行已有证据。原图边缘与官方 `int` 尺寸截断存在一例严格差异，完整原图 mask IoU 为 0.978824，共同区域为 1；不放宽门槛或隐藏失败，保持 alpha。下一里程碑是完成尺寸语义决策、权重许可及双源不可变分发，再准备正式发布。详见[本地 SDK 阶段记录](../../../reports/segmentation/2026-09-18-image-sdk/README.md)。
+
+该决定与最初的任务分层一致，仅将独立能力建设排在组合流程之前。后文日期更早的“下一阶段”与实施步骤保留为历史记录，当前优先级以本节为准。
+
 ## 与最初规划的关系
 
 - 不改变原规划的分层：PP-Detection 是单 SDK，门户只登记和比较，跨 SDK 组合只有在输入输出契约和真实用例都成立后才建立 Workflow。
@@ -74,7 +101,7 @@ Tiny FP16/W8A32 的本轮可行性评估已完成：固定64图、716标注，�
 
 新精度批次绑定本轮FP32对照（CPU/GPU热推理48.50/30.61ms），FP16为53.00/37.13ms；体积优势不等于加速。旧38行选型数值保留，新增FP16第39行；本轮FP32对照作为批次说明，不重复计数。模型来源仅ModelScope/Hugging Face，默认值及SDK/npm 0.4.0不变。双源8组合分发验证和恢复记录见SDK发布报告，最终来源与门户验收见[本轮记录](../../../reports/sdk-standard/2026-09-16-tiny-precision/README.md)。
 
-### 下一阶段：PP-TinyPose（2026-09-16 用户确认）
+### 已完成阶段及历史进展：PP-TinyPose（2026-09-16 用户确认）
 
 2D 检测以当前 14 个规格、39 个稳定变体阶段性收口，进入稳定维护。继续修复实际问题和维护现有发布；只有真实场景收益、明确模型改进或可复现转换改进出现时才重新开启扩模评测。未接入的模型不因此被判定为无价值，当前稳定目录也不宣称覆盖全库最优模型。Tiny/XS 的 W8A32 保留原 labs 结论。
 

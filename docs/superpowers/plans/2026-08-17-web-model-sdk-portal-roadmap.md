@@ -8,6 +8,16 @@ This roadmap keeps the portal registry-first and preserves the boundary between
 the portal and independent SDK repositories. It is ordered by dependency and
 readiness, not by the number of models mentioned in the catalog.
 
+## 当前优先级（2026-09-18 用户确认）
+
+后续优先建设和完善各种独立 SDK，门户继续负责登记、分类、比较及独立仓库、npm、Demo 的跳转。Workflow / Playground 整合流程暂缓，Detection → TinyPose 自动人体检测与姿态组合也不进入当前实施范围。
+
+这调整的是实施顺序，沿用最初按任务契约拆分 SDK 的边界；不是要求把每个模型架构或精度变体拆成一个 npm 包。每项新能力先完成独立模型可行性、runtime、Demo、文档和发布验证，再登记门户。
+
+用户确认后，2026-09-18 已从实例分割 FP32 候选评估推进到独立 `web-sdk-PP-Segmentation` 图片版的本地实现。首发候选为 **PP-YOLOE_seg_s 640 FP32**，框架无关 SDK、主线程/Worker、独立 Demo 和桌面 64 图四组合评估均已有结果。仍为未发布 alpha：AP 下降约 0.078 个百分点通过，但官方尺寸截断使 1/423 高置信度实例未满足严格掩码一致性门槛，保留失败记录，不登记门户稳定目录。见[本地 SDK 阶段记录](../../../reports/segmentation/2026-09-18-image-sdk/README.md)、[原始可行性报告](../../../reports/segmentation/2026-09-18-feasibility/README.md)及 [PaddleDetection 独立 SDK 路线](2026-09-13-pp-detection-multi-model-roadmap.md#当前推进决策2026-09-18)。
+
+下文阶段保留原始路线和历史基线。Phase 6 是延期方向，满足技术入口条件不自动启动实施；恢复时再明确用户用例、优先级和独立设计。
+
 ## Current Baseline
 
 Completed:
@@ -120,6 +130,8 @@ single-model Demo.
 
 ## Phase 6: Workflow / Playground
 
+**当前状态（2026-09-18）：暂缓。** 当前优先级为独立 SDK，尚未批准开始组合执行面；保留下列技术入口条件供后续重新规划。
+
 **Goal:** Compose multiple independent SDKs only when composition is justified.
 
 Entry gates:
@@ -147,6 +159,4 @@ APIs remain separate Labs work and are not prerequisites for the MVP.
 
 ## Next Concrete Task
 
-The next implementation task is Phase 1: add `CONTRIBUTING.md`, the SDK metadata
-template, and the first registry CI validators. Do not start Workflow code as
-part of that task.
+独立实例分割 SDK 的本地图片版已经实现。下一项是明确官方尺寸截断与完整原图掩码的验收语义，再处理权重许可、双源固定分发和正式发布；当前不改变严格门槛，也不裁掉 SDK 保留的原图边缘。门户只随已发布 SDK 更新登记，Workflow 继续暂缓。原 Phase 1 的贡献文档、元数据模板和首轮校验器属于历史实施入口，不再作为当前下一任务。

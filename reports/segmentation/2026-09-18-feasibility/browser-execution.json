@@ -1,0 +1,647 @@
+{
+  "status": "executed",
+  "verifiedAt": "2026-09-18T02:28:53.407Z",
+  "model": {
+    "file": "ppyoloe-seg-s-640-fp32.onnx",
+    "bytes": 36265193,
+    "sha256": "d418de8890fa13ae213aefeff4216bda2dcf961678494cd4baf55d9942a77334"
+  },
+  "environment": {
+    "browser": "153.0.8010.12",
+    "os": "10.0.26200",
+    "cpu": "Intel(R) Core(TM) i5-10400F CPU @ 2.90GHz",
+    "ort": "1.27.0"
+  },
+  "cases": [
+    {
+      "id": "000000010977",
+      "width": 500,
+      "height": 375,
+      "imageSha256": "fba520c270003f70a09bdbb9ab8ca856a4a6cde110c64f05879e96b755ca7af6",
+      "inputSha256": "2bddf32f58d38fd4054ce7bfc16a5db0b4d520caad3ce71e75e50f462fd604e6"
+    },
+    {
+      "id": "000000026690",
+      "width": 427,
+      "height": 640,
+      "imageSha256": "a59b160b83fba25fb745b42efbab6d99202b4984dbbc1cdbe8d00201b561f8f4",
+      "inputSha256": "4d72fa0d702ffa0f5433d611ece3e52b79c0b200d4232e9dd59ee605cb33d7eb"
+    },
+    {
+      "id": "000000027186",
+      "width": 640,
+      "height": 428,
+      "imageSha256": "2e60a537145c388aba560db6312aecd5fddf5bce7a8f75adfd06492bdcd34e2e",
+      "inputSha256": "b6e212ac6d74e676d6b97f3922ac80ff85476cf0979b4f29e192fe0ab5e93e7d"
+    },
+    {
+      "id": "000000027932",
+      "width": 288,
+      "height": 307,
+      "imageSha256": "9ab6d8c5a124427d77add9827dc6ad58ce94efb003c34e5e20699acd82f43731",
+      "inputSha256": "e9effd04dce7c5312024d0c5b9b39b590f0a23470ff2f846e588d876c5cc6a8a"
+    },
+    {
+      "id": "000000060823",
+      "width": 640,
+      "height": 480,
+      "imageSha256": "14c5d41fd1b2673c7d2697ead475b106d65dd9ae3ff6d089cf7b35a99e76fc26",
+      "inputSha256": "db074f16aeff0f0331e60ae0f2f1356fbe460082a700182e0d430614bf6b01eb"
+    },
+    {
+      "id": "000000105264",
+      "width": 640,
+      "height": 427,
+      "imageSha256": "b50b07e5e896fcbca93bc91392a327bb7800ae9322b7331f577f41889fa01cf8",
+      "inputSha256": "0f6f96fd87ada63e0f3ad513664e61df0d2e067d7a2c0318e6cdb51f7ab62fb3"
+    },
+    {
+      "id": "blank",
+      "width": 640,
+      "height": 480,
+      "imageSha256": null,
+      "inputSha256": "f824c1a8a1128713f17dd8d1190d70e6012b509606d986e7a6c81e40b628df2b"
+    }
+  ],
+  "backends": [
+    {
+      "backend": "wasm",
+      "gpu": null,
+      "sessionMs": 1070.1000000014901,
+      "inputs": [
+        "image"
+      ],
+      "outputs": [
+        "save_infer_model/scale_0.tmp_0",
+        "save_infer_model/scale_1.tmp_0",
+        "save_infer_model/scale_2.tmp_0",
+        "save_infer_model/scale_3.tmp_0"
+      ],
+      "results": [
+        {
+          "id": "000000010977",
+          "inferenceMs": 1448.7999999970198,
+          "postprocessMs": 161.29999999701977,
+          "instances": 4,
+          "shapes": [
+            [
+              1,
+              8400,
+              4
+            ],
+            [
+              1,
+              80,
+              8400
+            ],
+            [
+              1,
+              32,
+              8400
+            ],
+            [
+              1,
+              32,
+              160,
+              160
+            ]
+          ],
+          "maskAreas": [
+            4035,
+            616,
+            252,
+            1571
+          ]
+        },
+        {
+          "id": "000000026690",
+          "inferenceMs": 1280.3999999985099,
+          "postprocessMs": 408.70000000298023,
+          "instances": 10,
+          "shapes": [
+            [
+              1,
+              8400,
+              4
+            ],
+            [
+              1,
+              80,
+              8400
+            ],
+            [
+              1,
+              32,
+              8400
+            ],
+            [
+              1,
+              32,
+              160,
+              160
+            ]
+          ],
+          "maskAreas": [
+            11634,
+            6173,
+            1884,
+            3000,
+            957,
+            899,
+            1695,
+            2117,
+            2524,
+            1503
+          ]
+        },
+        {
+          "id": "000000027186",
+          "inferenceMs": 1304.2999999970198,
+          "postprocessMs": 113.5,
+          "instances": 3,
+          "shapes": [
+            [
+              1,
+              8400,
+              4
+            ],
+            [
+              1,
+              80,
+              8400
+            ],
+            [
+              1,
+              32,
+              8400
+            ],
+            [
+              1,
+              32,
+              160,
+              160
+            ]
+          ],
+          "maskAreas": [
+            64300,
+            106008,
+            346
+          ]
+        },
+        {
+          "id": "000000027932",
+          "inferenceMs": 1282.1000000014901,
+          "postprocessMs": 1.6999999955296516,
+          "instances": 0,
+          "shapes": [
+            [
+              1,
+              8400,
+              4
+            ],
+            [
+              1,
+              80,
+              8400
+            ],
+            [
+              1,
+              32,
+              8400
+            ],
+            [
+              1,
+              32,
+              160,
+              160
+            ]
+          ],
+          "maskAreas": []
+        },
+        {
+          "id": "000000060823",
+          "inferenceMs": 1290.8999999985099,
+          "postprocessMs": 709.6000000014901,
+          "instances": 17,
+          "shapes": [
+            [
+              1,
+              8400,
+              4
+            ],
+            [
+              1,
+              80,
+              8400
+            ],
+            [
+              1,
+              32,
+              8400
+            ],
+            [
+              1,
+              32,
+              160,
+              160
+            ]
+          ],
+          "maskAreas": [
+            8505,
+            18085,
+            1200,
+            1394,
+            968,
+            1215,
+            1192,
+            270,
+            486,
+            376,
+            1798,
+            1056,
+            1026,
+            1060,
+            1235,
+            175,
+            1384
+          ]
+        },
+        {
+          "id": "000000105264",
+          "inferenceMs": 1283.8000000044703,
+          "postprocessMs": 408.8999999985099,
+          "instances": 10,
+          "shapes": [
+            [
+              1,
+              8400,
+              4
+            ],
+            [
+              1,
+              80,
+              8400
+            ],
+            [
+              1,
+              32,
+              8400
+            ],
+            [
+              1,
+              32,
+              160,
+              160
+            ]
+          ],
+          "maskAreas": [
+            984,
+            36288,
+            2346,
+            2019,
+            1068,
+            869,
+            5844,
+            779,
+            1000,
+            916
+          ]
+        },
+        {
+          "id": "blank",
+          "inferenceMs": 1293.6000000014901,
+          "postprocessMs": 1.6000000014901161,
+          "instances": 0,
+          "shapes": [
+            [
+              1,
+              8400,
+              4
+            ],
+            [
+              1,
+              80,
+              8400
+            ],
+            [
+              1,
+              32,
+              8400
+            ],
+            [
+              1,
+              32,
+              160,
+              160
+            ]
+          ],
+          "maskAreas": []
+        }
+      ],
+      "warm": {
+        "image": "000000010977",
+        "runsMs": [
+          1332.8999999985099,
+          1280,
+          1283.7000000029802
+        ],
+        "medianMs": 1283.7000000029802
+      },
+      "pageErrors": [],
+      "sessionReleased": true
+    },
+    {
+      "backend": "webgpu",
+      "gpu": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "device": "",
+        "description": "",
+        "fallback": false
+      },
+      "sessionMs": 1161.5999999940395,
+      "inputs": [
+        "image"
+      ],
+      "outputs": [
+        "save_infer_model/scale_0.tmp_0",
+        "save_infer_model/scale_1.tmp_0",
+        "save_infer_model/scale_2.tmp_0",
+        "save_infer_model/scale_3.tmp_0"
+      ],
+      "results": [
+        {
+          "id": "000000010977",
+          "inferenceMs": 2142.89999999851,
+          "postprocessMs": 158.10000000149012,
+          "instances": 4,
+          "shapes": [
+            [
+              1,
+              8400,
+              4
+            ],
+            [
+              1,
+              80,
+              8400
+            ],
+            [
+              1,
+              32,
+              8400
+            ],
+            [
+              1,
+              32,
+              160,
+              160
+            ]
+          ],
+          "maskAreas": [
+            4035,
+            616,
+            252,
+            1571
+          ]
+        },
+        {
+          "id": "000000026690",
+          "inferenceMs": 34.399999998509884,
+          "postprocessMs": 431.69999999552965,
+          "instances": 10,
+          "shapes": [
+            [
+              1,
+              8400,
+              4
+            ],
+            [
+              1,
+              80,
+              8400
+            ],
+            [
+              1,
+              32,
+              8400
+            ],
+            [
+              1,
+              32,
+              160,
+              160
+            ]
+          ],
+          "maskAreas": [
+            11634,
+            6173,
+            1884,
+            3000,
+            957,
+            899,
+            1695,
+            2117,
+            2524,
+            1503
+          ]
+        },
+        {
+          "id": "000000027186",
+          "inferenceMs": 31,
+          "postprocessMs": 146.5,
+          "instances": 3,
+          "shapes": [
+            [
+              1,
+              8400,
+              4
+            ],
+            [
+              1,
+              80,
+              8400
+            ],
+            [
+              1,
+              32,
+              8400
+            ],
+            [
+              1,
+              32,
+              160,
+              160
+            ]
+          ],
+          "maskAreas": [
+            64300,
+            106008,
+            346
+          ]
+        },
+        {
+          "id": "000000027932",
+          "inferenceMs": 33.70000000298023,
+          "postprocessMs": 1.8999999985098839,
+          "instances": 0,
+          "shapes": [
+            [
+              1,
+              8400,
+              4
+            ],
+            [
+              1,
+              80,
+              8400
+            ],
+            [
+              1,
+              32,
+              8400
+            ],
+            [
+              1,
+              32,
+              160,
+              160
+            ]
+          ],
+          "maskAreas": []
+        },
+        {
+          "id": "000000060823",
+          "inferenceMs": 32.899999998509884,
+          "postprocessMs": 771,
+          "instances": 17,
+          "shapes": [
+            [
+              1,
+              8400,
+              4
+            ],
+            [
+              1,
+              80,
+              8400
+            ],
+            [
+              1,
+              32,
+              8400
+            ],
+            [
+              1,
+              32,
+              160,
+              160
+            ]
+          ],
+          "maskAreas": [
+            8505,
+            18085,
+            1200,
+            1394,
+            968,
+            1215,
+            1192,
+            270,
+            486,
+            376,
+            1798,
+            1056,
+            1026,
+            1060,
+            1235,
+            175,
+            1384
+          ]
+        },
+        {
+          "id": "000000105264",
+          "inferenceMs": 30.600000001490116,
+          "postprocessMs": 385.5,
+          "instances": 10,
+          "shapes": [
+            [
+              1,
+              8400,
+              4
+            ],
+            [
+              1,
+              80,
+              8400
+            ],
+            [
+              1,
+              32,
+              8400
+            ],
+            [
+              1,
+              32,
+              160,
+              160
+            ]
+          ],
+          "maskAreas": [
+            984,
+            36288,
+            2346,
+            2019,
+            1068,
+            869,
+            5844,
+            779,
+            1000,
+            916
+          ]
+        },
+        {
+          "id": "blank",
+          "inferenceMs": 31.100000001490116,
+          "postprocessMs": 1.7000000029802322,
+          "instances": 0,
+          "shapes": [
+            [
+              1,
+              8400,
+              4
+            ],
+            [
+              1,
+              80,
+              8400
+            ],
+            [
+              1,
+              32,
+              8400
+            ],
+            [
+              1,
+              32,
+              160,
+              160
+            ]
+          ],
+          "maskAreas": []
+        }
+      ],
+      "warm": {
+        "image": "000000010977",
+        "runsMs": [
+          31.200000002980232,
+          30.5,
+          36.29999999701977
+        ],
+        "medianMs": 31.200000002980232
+      },
+      "pageErrors": [],
+      "sessionReleased": true
+    }
+  ],
+  "scope": "裸ORT可行性实验，main执行；同输入与独立JavaScript后处理。未验证SDK/Worker/生命周期/浏览器预处理/实机移动端。"
+}

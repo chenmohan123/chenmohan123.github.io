@@ -1,0 +1,293 @@
+{
+  "verifiedAt": "2026-09-18T02:19:28.791917+00:00",
+  "upstreamRevision": "b25522a0f4bde8c80603f3ba5e3472059972e3b5",
+  "archiveSha256": "d22c0e8777d749cb967cc71671d1357e1656c76db16f76578a4edb1454d027f6",
+  "archiveUrl": "https://github.com/PaddlePaddle/PaddleDetection/archive/b25522a0f4bde8c80603f3ba5e3472059972e3b5.zip",
+  "extractedFilesVerified": 2114,
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "snapshot": "upstream/LICENSE.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "bytes": 12,
+      "sha256": "a1fe4b37313e4efe368fe4aa658b7ba99b2f027e3eb8b12beb7a8f19667fe8c6",
+      "snapshot": "upstream/README.md.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/README.md"
+    },
+    {
+      "path": "configs/datasets/coco_instance.yml",
+      "bytes": 576,
+      "sha256": "0c16fae9a3caea9298908653bd23b3a25f436dd53c31aecd70c24b6e847f6b56",
+      "snapshot": "upstream/configs/datasets/coco_instance.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/datasets/coco_instance.yml"
+    },
+    {
+      "path": "configs/mask_rcnn/README.md",
+      "bytes": 4567,
+      "sha256": "15a300c537453b9a33a0a6db673359b37952e7a7f466d1aad88a9a9cc3555887",
+      "snapshot": "upstream/configs/mask_rcnn/README.md.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/mask_rcnn/README.md"
+    },
+    {
+      "path": "configs/mask_rcnn/_base_/mask_fpn_reader.yml",
+      "bytes": 1153,
+      "sha256": "4292cdd3a9eae653b0530866408a231a277e3ee0285eefcadfed974fc86b3a9f",
+      "snapshot": "upstream/configs/mask_rcnn/_base_/mask_fpn_reader.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/mask_rcnn/_base_/mask_fpn_reader.yml"
+    },
+    {
+      "path": "configs/mask_rcnn/_base_/mask_rcnn_r50_fpn.yml",
+      "bytes": 1690,
+      "sha256": "e7d0f9214b6fef8fcc5b497b6f53b328ff09c3888663b284b28d496734fbf073",
+      "snapshot": "upstream/configs/mask_rcnn/_base_/mask_rcnn_r50_fpn.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/mask_rcnn/_base_/mask_rcnn_r50_fpn.yml"
+    },
+    {
+      "path": "configs/mask_rcnn/_base_/optimizer_1x.yml",
+      "bytes": 288,
+      "sha256": "01ccae0c8e52eccf61fec7f0ace74e1b81675d181ad51fa83528e32c29c05688",
+      "snapshot": "upstream/configs/mask_rcnn/_base_/optimizer_1x.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/mask_rcnn/_base_/optimizer_1x.yml"
+    },
+    {
+      "path": "configs/mask_rcnn/mask_rcnn_r50_fpn_1x_coco.yml",
+      "bytes": 216,
+      "sha256": "457c353c0ec42c375e2f25c7fe6b6ac5ca7c9cf1303196ac025bbfe91bd3796e",
+      "snapshot": "upstream/configs/mask_rcnn/mask_rcnn_r50_fpn_1x_coco.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/mask_rcnn/mask_rcnn_r50_fpn_1x_coco.yml"
+    },
+    {
+      "path": "configs/mask_rtdetr/README.md",
+      "bytes": 11774,
+      "sha256": "bc31c0b6e1f2f75130537f82e8349886c5f601ae9ac0958e67320603aba1a526",
+      "snapshot": "upstream/configs/mask_rtdetr/README.md.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/mask_rtdetr/README.md"
+    },
+    {
+      "path": "configs/mask_rtdetr/_base_/mask_rtdetr_r50vd.yml",
+      "bytes": 1610,
+      "sha256": "e353a8b1174c26e9e943ec8a0a59cb941215fe708b1dd23ab6be2b1e6d105f37",
+      "snapshot": "upstream/configs/mask_rtdetr/_base_/mask_rtdetr_r50vd.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/mask_rtdetr/_base_/mask_rtdetr_r50vd.yml"
+    },
+    {
+      "path": "configs/mask_rtdetr/_base_/mask_rtdetr_reader.yml",
+      "bytes": 1270,
+      "sha256": "aa4d8a56678441fe1bb4e31f0deb2985aba1c537fb1cdc88278a47ab8bb66dad",
+      "snapshot": "upstream/configs/mask_rtdetr/_base_/mask_rtdetr_reader.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/mask_rtdetr/_base_/mask_rtdetr_reader.yml"
+    },
+    {
+      "path": "configs/mask_rtdetr/_base_/optimizer_6x.yml",
+      "bytes": 312,
+      "sha256": "6af9e61d89ec42891850a6d3db87c89383c6b6e9424024ac47b68dfab7c3defa",
+      "snapshot": "upstream/configs/mask_rtdetr/_base_/optimizer_6x.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/mask_rtdetr/_base_/optimizer_6x.yml"
+    },
+    {
+      "path": "configs/mask_rtdetr/mask_rtdetr_hgnetv2_s_6x_coco.yml",
+      "bytes": 925,
+      "sha256": "fecf97a00f1de72f671472f21f2a7c713144eab8e5900f7983f7d7abc9e585fd",
+      "snapshot": "upstream/configs/mask_rtdetr/mask_rtdetr_hgnetv2_s_6x_coco.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/mask_rtdetr/mask_rtdetr_hgnetv2_s_6x_coco.yml"
+    },
+    {
+      "path": "configs/ppyoloe_seg/README.md",
+      "bytes": 1110,
+      "sha256": "293c1d7d6464eb05c396b38908af43593c46cbd644c80522c4f40898033323d2",
+      "snapshot": "upstream/configs/ppyoloe_seg/README.md.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/ppyoloe_seg/README.md"
+    },
+    {
+      "path": "configs/ppyoloe_seg/_base_/optimizer_80e.yml",
+      "bytes": 281,
+      "sha256": "588b1081f243566518565ae4fe5f36aecfb243a2089bbaf0c76c270d9aa59a6d",
+      "snapshot": "upstream/configs/ppyoloe_seg/_base_/optimizer_80e.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/ppyoloe_seg/_base_/optimizer_80e.yml"
+    },
+    {
+      "path": "configs/ppyoloe_seg/_base_/ppyoloe_plus_crn_seg.yml",
+      "bytes": 973,
+      "sha256": "73bf195e27a0f1bb5243a8c111732973873ed52c1edd1825fdbf2146a7c53cf8",
+      "snapshot": "upstream/configs/ppyoloe_seg/_base_/ppyoloe_plus_crn_seg.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/ppyoloe_seg/_base_/ppyoloe_plus_crn_seg.yml"
+    },
+    {
+      "path": "configs/ppyoloe_seg/_base_/ppyoloe_plus_seg_reader.yml",
+      "bytes": 1186,
+      "sha256": "1e6fef00a14e6ea1d899eb7210abe283ca7259cb484f6112d02bbedbd436587f",
+      "snapshot": "upstream/configs/ppyoloe_seg/_base_/ppyoloe_plus_seg_reader.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/ppyoloe_seg/_base_/ppyoloe_plus_seg_reader.yml"
+    },
+    {
+      "path": "configs/ppyoloe_seg/ppyoloe_seg_s_80e_coco.yml",
+      "bytes": 409,
+      "sha256": "eccde862c3d47aa4c8affb5fdf63a38a62498fda8d7354219fd8d0d49de64ba3",
+      "snapshot": "upstream/configs/ppyoloe_seg/ppyoloe_seg_s_80e_coco.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/ppyoloe_seg/ppyoloe_seg_s_80e_coco.yml"
+    },
+    {
+      "path": "configs/runtime.yml",
+      "bytes": 513,
+      "sha256": "c1223b0c56fda9af34904e8f406cfea6e6e58179349ac66937ef248e9d2af76e",
+      "snapshot": "upstream/configs/runtime.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/runtime.yml"
+    },
+    {
+      "path": "configs/solov2/README.md",
+      "bytes": 3620,
+      "sha256": "14a8ad51ba5c1457ad936a34f481d186dc35c3b66ca082544268502bdaf875a4",
+      "snapshot": "upstream/configs/solov2/README.md.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/solov2/README.md"
+    },
+    {
+      "path": "configs/solov2/_base_/optimizer_1x.yml",
+      "bytes": 285,
+      "sha256": "931b32be72f0593119eaa2ac8d3a4b40da85693b8335620628a37ccca95b2f78",
+      "snapshot": "upstream/configs/solov2/_base_/optimizer_1x.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/solov2/_base_/optimizer_1x.yml"
+    },
+    {
+      "path": "configs/solov2/_base_/solov2_light_reader.yml",
+      "bytes": 1382,
+      "sha256": "fa79c7453ae8bd25516fa13e848bae11803dd38ba0e665aead4124466994fba3",
+      "snapshot": "upstream/configs/solov2/_base_/solov2_light_reader.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/solov2/_base_/solov2_light_reader.yml"
+    },
+    {
+      "path": "configs/solov2/_base_/solov2_r50_fpn.yml",
+      "bytes": 720,
+      "sha256": "3d11dbe8e1b2d0667996e6e29a9c7c2a8841497c5c3236f7759533858425b793",
+      "snapshot": "upstream/configs/solov2/_base_/solov2_r50_fpn.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/solov2/_base_/solov2_r50_fpn.yml"
+    },
+    {
+      "path": "configs/solov2/_base_/solov2_reader.yml",
+      "bytes": 1234,
+      "sha256": "b08af517e8c663303e6efe9aef1fb295d2e5e1acf80585b7e4692a4514aa6e33",
+      "snapshot": "upstream/configs/solov2/_base_/solov2_reader.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/solov2/_base_/solov2_reader.yml"
+    },
+    {
+      "path": "configs/solov2/solov2_r50_enhance_coco.yml",
+      "bytes": 1045,
+      "sha256": "b5781e828a4947f3994e1189ce5a401a9fb8143fb44f34b1d89b1c7a4cfaae68",
+      "snapshot": "upstream/configs/solov2/solov2_r50_enhance_coco.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/solov2/solov2_r50_enhance_coco.yml"
+    },
+    {
+      "path": "configs/solov2/solov2_r50_fpn_1x_coco.yml",
+      "bytes": 208,
+      "sha256": "649e351b8bfb5f93af0a9d612cd5c688e330b8f19c2ee625c2f9db76f8d862da",
+      "snapshot": "upstream/configs/solov2/solov2_r50_fpn_1x_coco.yml.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/solov2/solov2_r50_fpn_1x_coco.yml"
+    },
+    {
+      "path": "deploy/EXPORT_ONNX_MODEL.md",
+      "bytes": 4792,
+      "sha256": "c77261eaca4f6b9f8ae622c1fb44f036939ef5abb243e254fae3c562e594413d",
+      "snapshot": "upstream/deploy/EXPORT_ONNX_MODEL.md.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/deploy/EXPORT_ONNX_MODEL.md"
+    },
+    {
+      "path": "ppdet/modeling/architectures/ppyoloe.py",
+      "bytes": 9094,
+      "sha256": "74c8557ffa8f163e4164f7f2262eb5cb9c7ee293b17502e9d5cc9e56b38c12c5",
+      "snapshot": "upstream/ppdet/modeling/architectures/ppyoloe.py.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/ppdet/modeling/architectures/ppyoloe.py"
+    },
+    {
+      "path": "ppdet/modeling/heads/ppyoloe_ins_head.py",
+      "bytes": 34982,
+      "sha256": "cf0287f8a946d54e7bcb16808c7f3e9dafe5f365105f715525e3d5a8521d44b9",
+      "snapshot": "upstream/ppdet/modeling/heads/ppyoloe_ins_head.py.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/ppdet/modeling/heads/ppyoloe_ins_head.py"
+    },
+    {
+      "path": "ppdet/modeling/heads/solov2_head.py",
+      "bytes": 23417,
+      "sha256": "c661bdb92cec8cc90d262bb6ef6ae52a59f1f7f60b3440936bc5e4f9c2dc8d03",
+      "snapshot": "upstream/ppdet/modeling/heads/solov2_head.py.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/ppdet/modeling/heads/solov2_head.py"
+    },
+    {
+      "path": "ppdet/modeling/layers.py",
+      "bytes": 51381,
+      "sha256": "85f22c20dbc33a7c666ced3985b7049a446b3349152c0825ab8e353f1a6751c1",
+      "snapshot": "upstream/ppdet/modeling/layers.py.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/ppdet/modeling/layers.py"
+    },
+    {
+      "path": "ppdet/modeling/post_process.py",
+      "bytes": 40559,
+      "sha256": "cefaf611604fd9426c03c802c9be1d057237abf9c74ace16b6493933a455e328",
+      "snapshot": "upstream/ppdet/modeling/post_process.py.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/ppdet/modeling/post_process.py"
+    },
+    {
+      "path": "ppdet/modeling/transformers/mask_rtdetr_transformer.py",
+      "bytes": 43411,
+      "sha256": "072b82d10f9f083b1b87be9c3af182800de70b7d05f7e6b41fa4305966953717",
+      "snapshot": "upstream/ppdet/modeling/transformers/mask_rtdetr_transformer.py.gz",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/ppdet/modeling/transformers/mask_rtdetr_transformer.py"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "ppyoloe_seg_s_80e_coco",
+      "url": "https://paddledet.bj.bcebos.com/models/ppyoloe_seg_s_80e_coco.pdparams",
+      "status": 200,
+      "bytes": 36122452,
+      "etag": "\"-7143702661c4b49c011b30467ce76946\"",
+      "lastModified": "Wed, 29 May 2024 05:31:26 GMT"
+    },
+    {
+      "id": "solov2_r50_fpn_1x_coco",
+      "url": "https://paddledet.bj.bcebos.com/models/solov2_r50_fpn_1x_coco.pdparams",
+      "status": 200,
+      "bytes": 290747998,
+      "etag": "\"c37efef6af41c48297c0877391514639\"",
+      "lastModified": "Sat, 20 Feb 2021 08:00:49 GMT"
+    },
+    {
+      "id": "solov2_r50_enhance_coco",
+      "url": "https://paddledet.bj.bcebos.com/models/solov2_r50_enhance_coco.pdparams",
+      "status": 200,
+      "bytes": 137768299,
+      "etag": "\"-915fc4757fa62dba591479c01adfdd41\"",
+      "lastModified": "Tue, 24 Aug 2021 12:22:45 GMT"
+    },
+    {
+      "id": "mask_rcnn_r50_fpn_1x_coco",
+      "url": "https://paddledet.bj.bcebos.com/models/mask_rcnn_r50_fpn_1x_coco.pdparams",
+      "status": 200,
+      "bytes": 268296036,
+      "etag": "\"-2f846dd405ee019d18d03e8dbb6af295\"",
+      "lastModified": "Thu, 25 Mar 2021 10:49:06 GMT"
+    },
+    {
+      "id": "mask_rtdetr_hgnetv2_s_6x_coco",
+      "url": "https://paddledet.bj.bcebos.com/models/mask_rtdetr_hgnetv2_s_6x_coco.pdparams",
+      "status": 200,
+      "bytes": 58728806,
+      "etag": "\"110e973d6d533cdf48f3d848f8372791\"",
+      "lastModified": "Wed, 11 Sep 2024 08:50:22 GMT"
+    }
+  ],
+  "weight": {
+    "url": "https://paddledet.bj.bcebos.com/models/ppyoloe_seg_s_80e_coco.pdparams",
+    "bytes": 36122452,
+    "sha256": "ee507d8f9e5fad6290ee54ee6704b9b1f2ab26a109cc668e1a966f90fe174cef"
+  },
+  "license": {
+    "sourceRepository": "Apache-2.0",
+    "weightLinkedByOfficialReadme": true,
+    "separateWeightLicenseFoundInReviewedFiles": false,
+    "scope": "本轮仅本地评估；发布前保留上游许可和转换归因，核验双源模型卡与再分发信息。"
+  }
+}
