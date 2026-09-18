@@ -1,0 +1,926 @@
+{
+  "status": "executed",
+  "verifiedAt": "2026-09-18T08:45:39.717Z",
+  "environment": {
+    "browser": "153.0.8010.12",
+    "os": "10.0.26200",
+    "cpu": "Intel(R) Core(TM) i5-10400F CPU @ 2.90GHz",
+    "node": "v24.16.0",
+    "ort": "1.27.0"
+  },
+  "backends": [
+    {
+      "model": "ppyoloe_r_crn_s_3x_dota",
+      "backend": "wasm",
+      "verifiedAt": "2026-09-18T08:45:39.885Z",
+      "status": "executed",
+      "results": [
+        {
+          "id": "P0072",
+          "inferenceMs": 2220.1999999955297,
+          "postprocessMs": 9,
+          "detections": 8,
+          "shapes": [
+            [
+              1,
+              15,
+              21504
+            ],
+            [
+              1,
+              21504,
+              5
+            ]
+          ],
+          "gpuExecution": {
+            "commandSubmissions": 0,
+            "computeDispatches": 0
+          }
+        },
+        {
+          "id": "P0861",
+          "inferenceMs": 2144.60000000149,
+          "postprocessMs": 203.79999999701977,
+          "detections": 136,
+          "shapes": [
+            [
+              1,
+              15,
+              21504
+            ],
+            [
+              1,
+              21504,
+              5
+            ]
+          ],
+          "gpuExecution": {
+            "commandSubmissions": 0,
+            "computeDispatches": 0
+          }
+        },
+        {
+          "id": "P0072-rot90",
+          "inferenceMs": 2115.4000000059605,
+          "postprocessMs": 2.399999998509884,
+          "detections": 13,
+          "shapes": [
+            [
+              1,
+              15,
+              21504
+            ],
+            [
+              1,
+              21504,
+              5
+            ]
+          ],
+          "gpuExecution": {
+            "commandSubmissions": 0,
+            "computeDispatches": 0
+          }
+        },
+        {
+          "id": "P0861-crop",
+          "inferenceMs": 2186.10000000149,
+          "postprocessMs": 154,
+          "detections": 129,
+          "shapes": [
+            [
+              1,
+              15,
+              21504
+            ],
+            [
+              1,
+              21504,
+              5
+            ]
+          ],
+          "gpuExecution": {
+            "commandSubmissions": 0,
+            "computeDispatches": 0
+          }
+        },
+        {
+          "id": "blank",
+          "inferenceMs": 2312.2000000029802,
+          "postprocessMs": 0.29999999701976776,
+          "detections": 0,
+          "shapes": [
+            [
+              1,
+              15,
+              21504
+            ],
+            [
+              1,
+              21504,
+              5
+            ]
+          ],
+          "gpuExecution": {
+            "commandSubmissions": 0,
+            "computeDispatches": 0
+          }
+        }
+      ],
+      "requestedBackend": "wasm",
+      "gpu": null,
+      "sessionMs": 1023.8999999985099,
+      "inputs": [
+        "image"
+      ],
+      "outputs": [
+        "save_infer_model/scale_0.tmp_0",
+        "save_infer_model/scale_1.tmp_0"
+      ],
+      "geometry": [
+        {
+          "id": "identical",
+          "cornerError": 0,
+          "expectedIoU": 1,
+          "actualIoU": 1
+        },
+        {
+          "id": "disjoint",
+          "cornerError": 0,
+          "expectedIoU": 0,
+          "actualIoU": 0
+        },
+        {
+          "id": "touching",
+          "cornerError": 0,
+          "expectedIoU": 0,
+          "actualIoU": 0
+        },
+        {
+          "id": "perpendicular",
+          "cornerError": 0,
+          "expectedIoU": 0.14285714285714285,
+          "actualIoU": 0.14285714285714285
+        },
+        {
+          "id": "rotated",
+          "cornerError": 0,
+          "expectedIoU": 0.21473723385459292,
+          "actualIoU": 0.2147372338545933
+        },
+        {
+          "id": "negative-angle",
+          "cornerError": 0,
+          "expectedIoU": 0.21473723385459292,
+          "actualIoU": 0.21473723385459334
+        },
+        {
+          "id": "half-turn",
+          "cornerError": 0,
+          "expectedIoU": 1,
+          "actualIoU": 1
+        },
+        {
+          "id": "near-zero",
+          "cornerError": 0,
+          "expectedIoU": 0.9999999787500005,
+          "actualIoU": 0.9999999787499996
+        },
+        {
+          "id": "degenerate",
+          "cornerError": 0,
+          "expectedIoU": 0,
+          "actualIoU": 0
+        }
+      ],
+      "nmsChecks": {
+        "classSeparation": true,
+        "overlapSuppression": true,
+        "scoreBoundary": true,
+        "topK": true
+      },
+      "screenshot": {
+        "file": "ppyoloe_r_crn_s_3x_dota\\preview-wasm.png",
+        "sha256": "9eeda7ccc3bbd751fcee37374e6bec4c405c3a117e1d9c4fe219306305de550e"
+      },
+      "canvas": {
+        "width": 1024,
+        "height": 1024,
+        "distinctColors": 90654
+      },
+      "warm": {
+        "image": "P0072",
+        "runsMs": [
+          2231.39999999851,
+          2178.8000000044703,
+          2129.89999999851
+        ],
+        "medianMs": 2178.8000000044703
+      },
+      "profiling": {
+        "kernelEvents": 0,
+        "kernelTypes": [],
+        "file": "ppyoloe_r_crn_s_3x_dota\\profile-wasm.json",
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "gpuExecution": {
+        "commandSubmissions": 0,
+        "computeDispatches": 0,
+        "file": "ppyoloe_r_crn_s_3x_dota\\gpu-trace-wasm.json",
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "sessionReleased": true,
+      "pageErrors": [],
+      "consoleWarnings": []
+    },
+    {
+      "model": "ppyoloe_r_crn_s_3x_dota",
+      "backend": "webgpu",
+      "verifiedAt": "2026-09-18T08:46:01.385Z",
+      "status": "executed",
+      "results": [
+        {
+          "id": "P0072",
+          "inferenceMs": 1183.1999999955297,
+          "postprocessMs": 26.80000000447035,
+          "detections": 8,
+          "shapes": [
+            [
+              1,
+              15,
+              21504
+            ],
+            [
+              1,
+              21504,
+              5
+            ]
+          ],
+          "gpuExecution": {
+            "commandSubmissions": 21,
+            "computeDispatches": 296
+          }
+        },
+        {
+          "id": "P0861",
+          "inferenceMs": 42.79999999701977,
+          "postprocessMs": 223.09999999403954,
+          "detections": 136,
+          "shapes": [
+            [
+              1,
+              15,
+              21504
+            ],
+            [
+              1,
+              21504,
+              5
+            ]
+          ],
+          "gpuExecution": {
+            "commandSubmissions": 21,
+            "computeDispatches": 296
+          }
+        },
+        {
+          "id": "P0072-rot90",
+          "inferenceMs": 39.29999999701977,
+          "postprocessMs": 3.399999998509884,
+          "detections": 13,
+          "shapes": [
+            [
+              1,
+              15,
+              21504
+            ],
+            [
+              1,
+              21504,
+              5
+            ]
+          ],
+          "gpuExecution": {
+            "commandSubmissions": 21,
+            "computeDispatches": 296
+          }
+        },
+        {
+          "id": "P0861-crop",
+          "inferenceMs": 35.5,
+          "postprocessMs": 146,
+          "detections": 129,
+          "shapes": [
+            [
+              1,
+              15,
+              21504
+            ],
+            [
+              1,
+              21504,
+              5
+            ]
+          ],
+          "gpuExecution": {
+            "commandSubmissions": 21,
+            "computeDispatches": 296
+          }
+        },
+        {
+          "id": "blank",
+          "inferenceMs": 39.399999998509884,
+          "postprocessMs": 0.4000000059604645,
+          "detections": 0,
+          "shapes": [
+            [
+              1,
+              15,
+              21504
+            ],
+            [
+              1,
+              21504,
+              5
+            ]
+          ],
+          "gpuExecution": {
+            "commandSubmissions": 21,
+            "computeDispatches": 296
+          }
+        }
+      ],
+      "requestedBackend": "webgpu",
+      "gpu": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "device": "",
+        "description": "",
+        "fallback": false,
+        "timestampQuery": true
+      },
+      "sessionMs": 1226.5,
+      "inputs": [
+        "image"
+      ],
+      "outputs": [
+        "save_infer_model/scale_0.tmp_0",
+        "save_infer_model/scale_1.tmp_0"
+      ],
+      "geometry": [
+        {
+          "id": "identical",
+          "cornerError": 0,
+          "expectedIoU": 1,
+          "actualIoU": 1
+        },
+        {
+          "id": "disjoint",
+          "cornerError": 0,
+          "expectedIoU": 0,
+          "actualIoU": 0
+        },
+        {
+          "id": "touching",
+          "cornerError": 0,
+          "expectedIoU": 0,
+          "actualIoU": 0
+        },
+        {
+          "id": "perpendicular",
+          "cornerError": 0,
+          "expectedIoU": 0.14285714285714285,
+          "actualIoU": 0.14285714285714285
+        },
+        {
+          "id": "rotated",
+          "cornerError": 0,
+          "expectedIoU": 0.21473723385459292,
+          "actualIoU": 0.2147372338545933
+        },
+        {
+          "id": "negative-angle",
+          "cornerError": 0,
+          "expectedIoU": 0.21473723385459292,
+          "actualIoU": 0.21473723385459334
+        },
+        {
+          "id": "half-turn",
+          "cornerError": 0,
+          "expectedIoU": 1,
+          "actualIoU": 1
+        },
+        {
+          "id": "near-zero",
+          "cornerError": 0,
+          "expectedIoU": 0.9999999787500005,
+          "actualIoU": 0.9999999787499996
+        },
+        {
+          "id": "degenerate",
+          "cornerError": 0,
+          "expectedIoU": 0,
+          "actualIoU": 0
+        }
+      ],
+      "nmsChecks": {
+        "classSeparation": true,
+        "overlapSuppression": true,
+        "scoreBoundary": true,
+        "topK": true
+      },
+      "screenshot": {
+        "file": "ppyoloe_r_crn_s_3x_dota\\preview-webgpu.png",
+        "sha256": "10e7037c3126d22e30c1353454631fd5f17f6bf56e4842139a674a0ee7e63f83"
+      },
+      "canvas": {
+        "width": 1024,
+        "height": 1024,
+        "distinctColors": 90644
+      },
+      "warm": {
+        "image": "P0072",
+        "runsMs": [
+          31.80000000447035,
+          31.799999997019768,
+          31.5
+        ],
+        "medianMs": 31.799999997019768
+      },
+      "profiling": {
+        "kernelEvents": 0,
+        "kernelTypes": [],
+        "file": "ppyoloe_r_crn_s_3x_dota\\profile-webgpu.json",
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "gpuExecution": {
+        "commandSubmissions": 497,
+        "computeDispatches": 2474,
+        "file": "ppyoloe_r_crn_s_3x_dota\\gpu-trace-webgpu.json",
+        "sha256": "78e114d96ab6e07032964e16635b404d1569fdbdb28541f65c90e61b95305258"
+      },
+      "sessionReleased": true,
+      "pageErrors": [],
+      "consoleWarnings": [
+        "The powerPreference option is currently ignored when calling requestAdapter() on Windows. See https://crbug.com/369219127",
+        "The powerPreference option is currently ignored when calling requestAdapter() on Windows. See https://crbug.com/369219127"
+      ]
+    },
+    {
+      "model": "fcosr_x50_3x_dota",
+      "backend": "wasm",
+      "verifiedAt": "2026-09-18T08:46:07.294Z",
+      "status": "executed",
+      "results": [
+        {
+          "id": "P0072",
+          "inferenceMs": 17948.60000000149,
+          "postprocessMs": 16.80000000447035,
+          "detections": 5,
+          "shapes": [
+            [
+              1,
+              15,
+              21824
+            ],
+            [
+              1,
+              21824,
+              5
+            ]
+          ],
+          "gpuExecution": {
+            "commandSubmissions": 0,
+            "computeDispatches": 0
+          }
+        },
+        {
+          "id": "P0861",
+          "inferenceMs": 17703.10000000149,
+          "postprocessMs": 219.10000000149012,
+          "detections": 136,
+          "shapes": [
+            [
+              1,
+              15,
+              21824
+            ],
+            [
+              1,
+              21824,
+              5
+            ]
+          ],
+          "gpuExecution": {
+            "commandSubmissions": 0,
+            "computeDispatches": 0
+          }
+        },
+        {
+          "id": "P0072-rot90",
+          "inferenceMs": 17639.60000000149,
+          "postprocessMs": 5.5,
+          "detections": 4,
+          "shapes": [
+            [
+              1,
+              15,
+              21824
+            ],
+            [
+              1,
+              21824,
+              5
+            ]
+          ],
+          "gpuExecution": {
+            "commandSubmissions": 0,
+            "computeDispatches": 0
+          }
+        },
+        {
+          "id": "P0861-crop",
+          "inferenceMs": 17380.39999999851,
+          "postprocessMs": 164.70000000298023,
+          "detections": 129,
+          "shapes": [
+            [
+              1,
+              15,
+              21824
+            ],
+            [
+              1,
+              21824,
+              5
+            ]
+          ],
+          "gpuExecution": {
+            "commandSubmissions": 0,
+            "computeDispatches": 0
+          }
+        },
+        {
+          "id": "blank",
+          "inferenceMs": 17497.70000000298,
+          "postprocessMs": 0.3999999985098839,
+          "detections": 0,
+          "shapes": [
+            [
+              1,
+              15,
+              21824
+            ],
+            [
+              1,
+              21824,
+              5
+            ]
+          ],
+          "gpuExecution": {
+            "commandSubmissions": 0,
+            "computeDispatches": 0
+          }
+        }
+      ],
+      "requestedBackend": "wasm",
+      "gpu": null,
+      "sessionMs": 1260.9000000059605,
+      "inputs": [
+        "image"
+      ],
+      "outputs": [
+        "save_infer_model/scale_0.tmp_0",
+        "save_infer_model/scale_1.tmp_0"
+      ],
+      "geometry": [
+        {
+          "id": "identical",
+          "cornerError": 0,
+          "expectedIoU": 1,
+          "actualIoU": 1
+        },
+        {
+          "id": "disjoint",
+          "cornerError": 0,
+          "expectedIoU": 0,
+          "actualIoU": 0
+        },
+        {
+          "id": "touching",
+          "cornerError": 0,
+          "expectedIoU": 0,
+          "actualIoU": 0
+        },
+        {
+          "id": "perpendicular",
+          "cornerError": 0,
+          "expectedIoU": 0.14285714285714285,
+          "actualIoU": 0.14285714285714285
+        },
+        {
+          "id": "rotated",
+          "cornerError": 0,
+          "expectedIoU": 0.21473723385459292,
+          "actualIoU": 0.2147372338545933
+        },
+        {
+          "id": "negative-angle",
+          "cornerError": 0,
+          "expectedIoU": 0.21473723385459292,
+          "actualIoU": 0.21473723385459334
+        },
+        {
+          "id": "half-turn",
+          "cornerError": 0,
+          "expectedIoU": 1,
+          "actualIoU": 1
+        },
+        {
+          "id": "near-zero",
+          "cornerError": 0,
+          "expectedIoU": 0.9999999787500005,
+          "actualIoU": 0.9999999787499996
+        },
+        {
+          "id": "degenerate",
+          "cornerError": 0,
+          "expectedIoU": 0,
+          "actualIoU": 0
+        }
+      ],
+      "nmsChecks": {
+        "classSeparation": true,
+        "overlapSuppression": true,
+        "scoreBoundary": true,
+        "topK": true
+      },
+      "screenshot": {
+        "file": "fcosr_x50_3x_dota\\preview-wasm.png",
+        "sha256": "32dec624f444f3429a4d4325e33c6d6e09343e3d1bbd093942388c5ad48b7a11"
+      },
+      "canvas": {
+        "width": 1024,
+        "height": 1024,
+        "distinctColors": 90868
+      },
+      "warm": {
+        "image": "P0072",
+        "runsMs": [
+          17902.69999999553,
+          17935.39999999851,
+          17919.60000000149
+        ],
+        "medianMs": 17919.60000000149
+      },
+      "profiling": {
+        "kernelEvents": 0,
+        "kernelTypes": [],
+        "file": "fcosr_x50_3x_dota\\profile-wasm.json",
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "gpuExecution": {
+        "commandSubmissions": 0,
+        "computeDispatches": 0,
+        "file": "fcosr_x50_3x_dota\\gpu-trace-wasm.json",
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "sessionReleased": true,
+      "pageErrors": [],
+      "consoleWarnings": []
+    },
+    {
+      "model": "fcosr_x50_3x_dota",
+      "backend": "webgpu",
+      "verifiedAt": "2026-09-18T08:48:34.015Z",
+      "status": "executed",
+      "results": [
+        {
+          "id": "P0072",
+          "inferenceMs": 1022.8000000044703,
+          "postprocessMs": 18.30000000447035,
+          "detections": 5,
+          "shapes": [
+            [
+              1,
+              15,
+              21824
+            ],
+            [
+              1,
+              21824,
+              5
+            ]
+          ],
+          "gpuExecution": {
+            "commandSubmissions": 36,
+            "computeDispatches": 530
+          }
+        },
+        {
+          "id": "P0861",
+          "inferenceMs": 127.70000000298023,
+          "postprocessMs": 223.30000000447035,
+          "detections": 136,
+          "shapes": [
+            [
+              1,
+              15,
+              21824
+            ],
+            [
+              1,
+              21824,
+              5
+            ]
+          ],
+          "gpuExecution": {
+            "commandSubmissions": 36,
+            "computeDispatches": 530
+          }
+        },
+        {
+          "id": "P0072-rot90",
+          "inferenceMs": 124.39999999850988,
+          "postprocessMs": 5.5,
+          "detections": 4,
+          "shapes": [
+            [
+              1,
+              15,
+              21824
+            ],
+            [
+              1,
+              21824,
+              5
+            ]
+          ],
+          "gpuExecution": {
+            "commandSubmissions": 36,
+            "computeDispatches": 530
+          }
+        },
+        {
+          "id": "P0861-crop",
+          "inferenceMs": 127.59999999403954,
+          "postprocessMs": 151.39999999850988,
+          "detections": 129,
+          "shapes": [
+            [
+              1,
+              15,
+              21824
+            ],
+            [
+              1,
+              21824,
+              5
+            ]
+          ],
+          "gpuExecution": {
+            "commandSubmissions": 36,
+            "computeDispatches": 530
+          }
+        },
+        {
+          "id": "blank",
+          "inferenceMs": 121.39999999850988,
+          "postprocessMs": 0.6000000014901161,
+          "detections": 0,
+          "shapes": [
+            [
+              1,
+              15,
+              21824
+            ],
+            [
+              1,
+              21824,
+              5
+            ]
+          ],
+          "gpuExecution": {
+            "commandSubmissions": 36,
+            "computeDispatches": 530
+          }
+        }
+      ],
+      "requestedBackend": "webgpu",
+      "gpu": {
+        "vendor": "nvidia",
+        "architecture": "blackwell",
+        "device": "",
+        "description": "",
+        "fallback": false,
+        "timestampQuery": true
+      },
+      "sessionMs": 1674,
+      "inputs": [
+        "image"
+      ],
+      "outputs": [
+        "save_infer_model/scale_0.tmp_0",
+        "save_infer_model/scale_1.tmp_0"
+      ],
+      "geometry": [
+        {
+          "id": "identical",
+          "cornerError": 0,
+          "expectedIoU": 1,
+          "actualIoU": 1
+        },
+        {
+          "id": "disjoint",
+          "cornerError": 0,
+          "expectedIoU": 0,
+          "actualIoU": 0
+        },
+        {
+          "id": "touching",
+          "cornerError": 0,
+          "expectedIoU": 0,
+          "actualIoU": 0
+        },
+        {
+          "id": "perpendicular",
+          "cornerError": 0,
+          "expectedIoU": 0.14285714285714285,
+          "actualIoU": 0.14285714285714285
+        },
+        {
+          "id": "rotated",
+          "cornerError": 0,
+          "expectedIoU": 0.21473723385459292,
+          "actualIoU": 0.2147372338545933
+        },
+        {
+          "id": "negative-angle",
+          "cornerError": 0,
+          "expectedIoU": 0.21473723385459292,
+          "actualIoU": 0.21473723385459334
+        },
+        {
+          "id": "half-turn",
+          "cornerError": 0,
+          "expectedIoU": 1,
+          "actualIoU": 1
+        },
+        {
+          "id": "near-zero",
+          "cornerError": 0,
+          "expectedIoU": 0.9999999787500005,
+          "actualIoU": 0.9999999787499996
+        },
+        {
+          "id": "degenerate",
+          "cornerError": 0,
+          "expectedIoU": 0,
+          "actualIoU": 0
+        }
+      ],
+      "nmsChecks": {
+        "classSeparation": true,
+        "overlapSuppression": true,
+        "scoreBoundary": true,
+        "topK": true
+      },
+      "screenshot": {
+        "file": "fcosr_x50_3x_dota\\preview-webgpu.png",
+        "sha256": "ae48a7fe5a10f63fe43a4dbfa406c7950ee5b8d0688fcb7de3cea544238123aa"
+      },
+      "canvas": {
+        "width": 1024,
+        "height": 1024,
+        "distinctColors": 90881
+      },
+      "warm": {
+        "image": "P0072",
+        "runsMs": [
+          125.19999999552965,
+          122.39999999850988,
+          126
+        ],
+        "medianMs": 125.19999999552965
+      },
+      "profiling": {
+        "kernelEvents": 0,
+        "kernelTypes": [],
+        "file": "fcosr_x50_3x_dota\\profile-webgpu.json",
+        "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "gpuExecution": {
+        "commandSubmissions": 672,
+        "computeDispatches": 4361,
+        "file": "fcosr_x50_3x_dota\\gpu-trace-webgpu.json",
+        "sha256": "14f71eda4f8d45141868daa59b71d7ad9eca106cc3a7f340552e748286761db9"
+      },
+      "sessionReleased": true,
+      "pageErrors": [],
+      "consoleWarnings": [
+        "The powerPreference option is currently ignored when calling requestAdapter() on Windows. See https://crbug.com/369219127",
+        "The powerPreference option is currently ignored when calling requestAdapter() on Windows. See https://crbug.com/369219127"
+      ]
+    }
+  ],
+  "scope": "桌面Chromium、main线程、固定FP32张量输入；未覆盖SDK接口、浏览器预处理、Worker、移动设备、模型远程分发。WebGPU profiling回调没有返回数据，另记录原生GPU命令提交/计算dispatch证明实际GPU执行；不声称每个图节点都在GPU。耗时仅供本轮观察。"
+}

@@ -1,0 +1,288 @@
+{
+  "status": "passed",
+  "verifiedAt": "2026-09-18T08:35:57.100240+00:00",
+  "candidate": "fcosr_x50_3x_dota",
+  "model": {
+    "file": "fcosr_x50_3x_dota/model.onnx",
+    "bytes": 126887047,
+    "sha256": "e7d8d352800115c6cfb70716bb26800e445859a723089ad06b595c8532b0da63"
+  },
+  "thresholds": {
+    "score": 0.1,
+    "nmsPolygonIoU": 0.1,
+    "perClassTopK": 2000,
+    "comparison": {
+      "minimumPolygonIoU": 0.995,
+      "maximumScoreError": 0.001,
+      "maximumCornerErrorPx": 0.1
+    }
+  },
+  "reference": "固定上游Paddle原始头与官方_box2corners；上游onnx_infer.py Shapely旋转NMS",
+  "cases": [
+    {
+      "id": "P0072",
+      "paddleMs": 4931.786399996781,
+      "ortMs": 2112.294299993664,
+      "raw": [
+        {
+          "maxAbsoluteError": 1.0728836059570312e-06,
+          "meanAbsoluteError": 2.4193790082449596e-08,
+          "shape": [
+            1,
+            15,
+            21824
+          ]
+        },
+        {
+          "maxAbsoluteError": 0.00034332275390625,
+          "meanAbsoluteError": 3.869577631121501e-05,
+          "shape": [
+            1,
+            21824,
+            5
+          ]
+        }
+      ],
+      "maximumCandidatesPerClass": 133,
+      "detections": {
+        "count": 5,
+        "minimumPolygonIoU": 0.9999956369523685,
+        "maximumScoreError": 1.0132789611816406e-06,
+        "maximumCornerErrorPx": 0.00018310546875,
+        "passed": true
+      },
+      "fullPaddlePostprocess": {
+        "status": "executed",
+        "comparisonWithOfficialOnnxNms": {
+          "count": 5,
+          "minimumPolygonIoU": 1.0,
+          "maximumScoreError": 0.0,
+          "maximumCornerErrorPx": 0.0,
+          "passed": true
+        }
+      },
+      "artifacts": [
+        {
+          "file": "fcosr_x50_3x_dota\\reference\\P0072.npz",
+          "sha256": "a4958227e8de5e8d7e9184bec49dc774b65dab0a688c05774ed4b25b59ce00ee"
+        },
+        {
+          "file": "fcosr_x50_3x_dota\\reference\\P0072.json",
+          "sha256": "a59080ab4a97ab8dfd4005b19b50dfa0745ea213a55af505a2039469b6e7c271"
+        }
+      ]
+    },
+    {
+      "id": "P0861",
+      "paddleMs": 4703.0081000048085,
+      "ortMs": 1966.9371000054525,
+      "raw": [
+        {
+          "maxAbsoluteError": 1.3113021850585938e-06,
+          "meanAbsoluteError": 2.695595568980025e-08,
+          "shape": [
+            1,
+            15,
+            21824
+          ]
+        },
+        {
+          "maxAbsoluteError": 0.00042724609375,
+          "meanAbsoluteError": 4.165849895798601e-05,
+          "shape": [
+            1,
+            21824,
+            5
+          ]
+        }
+      ],
+      "maximumCandidatesPerClass": 1260,
+      "detections": {
+        "count": 136,
+        "minimumPolygonIoU": 0.9999880635268088,
+        "maximumScoreError": 1.1920928955078125e-06,
+        "maximumCornerErrorPx": 0.0001220703125,
+        "passed": true
+      },
+      "fullPaddlePostprocess": {
+        "status": "executed",
+        "comparisonWithOfficialOnnxNms": {
+          "count": 136,
+          "minimumPolygonIoU": 1.0,
+          "maximumScoreError": 0.0,
+          "maximumCornerErrorPx": 0.0,
+          "passed": true
+        }
+      },
+      "artifacts": [
+        {
+          "file": "fcosr_x50_3x_dota\\reference\\P0861.npz",
+          "sha256": "d1a7739261515c8f55deab6bf6f80d559d83b82a86d8cae8bff9a27dda36b039"
+        },
+        {
+          "file": "fcosr_x50_3x_dota\\reference\\P0861.json",
+          "sha256": "469f88249d099ed8d4fb37ad8a6eb82f13d064fb81d48b759925b99073967e28"
+        }
+      ]
+    },
+    {
+      "id": "P0072-rot90",
+      "paddleMs": 4742.170700003044,
+      "ortMs": 1793.0865999951493,
+      "raw": [
+        {
+          "maxAbsoluteError": 5.364418029785156e-07,
+          "meanAbsoluteError": 2.423251466154852e-08,
+          "shape": [
+            1,
+            15,
+            21824
+          ]
+        },
+        {
+          "maxAbsoluteError": 0.00045013427734375,
+          "meanAbsoluteError": 3.891002052114345e-05,
+          "shape": [
+            1,
+            21824,
+            5
+          ]
+        }
+      ],
+      "maximumCandidatesPerClass": 134,
+      "detections": {
+        "count": 4,
+        "minimumPolygonIoU": 0.999996728487576,
+        "maximumScoreError": 3.5762786865234375e-07,
+        "maximumCornerErrorPx": 0.0001220703125,
+        "passed": true
+      },
+      "fullPaddlePostprocess": {
+        "status": "executed",
+        "comparisonWithOfficialOnnxNms": {
+          "count": 4,
+          "minimumPolygonIoU": 1.0,
+          "maximumScoreError": 0.0,
+          "maximumCornerErrorPx": 0.0,
+          "passed": true
+        }
+      },
+      "artifacts": [
+        {
+          "file": "fcosr_x50_3x_dota\\reference\\P0072-rot90.npz",
+          "sha256": "5d4281827473808abdf8fe2045462ac211576f08e6bc9f1de5cf971e7a2d7fb3"
+        },
+        {
+          "file": "fcosr_x50_3x_dota\\reference\\P0072-rot90.json",
+          "sha256": "39e0a574eb80d116b1ed287794489159aa056353cea6dd124e565b83d779f3ce"
+        }
+      ]
+    },
+    {
+      "id": "P0861-crop",
+      "paddleMs": 4693.417000002228,
+      "ortMs": 1843.6347000024398,
+      "raw": [
+        {
+          "maxAbsoluteError": 1.817941665649414e-06,
+          "meanAbsoluteError": 2.829840006768336e-08,
+          "shape": [
+            1,
+            15,
+            21824
+          ]
+        },
+        {
+          "maxAbsoluteError": 0.00042724609375,
+          "meanAbsoluteError": 2.8147605917183682e-05,
+          "shape": [
+            1,
+            21824,
+            5
+          ]
+        }
+      ],
+      "maximumCandidatesPerClass": 1057,
+      "detections": {
+        "count": 129,
+        "minimumPolygonIoU": 0.9999895095772167,
+        "maximumScoreError": 1.6093254089355469e-06,
+        "maximumCornerErrorPx": 0.0001220703125,
+        "passed": true
+      },
+      "fullPaddlePostprocess": {
+        "status": "executed",
+        "comparisonWithOfficialOnnxNms": {
+          "count": 129,
+          "minimumPolygonIoU": 1.0,
+          "maximumScoreError": 0.0,
+          "maximumCornerErrorPx": 0.0,
+          "passed": true
+        }
+      },
+      "artifacts": [
+        {
+          "file": "fcosr_x50_3x_dota\\reference\\P0861-crop.npz",
+          "sha256": "2e66d9a44c929da5cb883a1e00c40726cee025e6dd04d9252d2b337be1e67804"
+        },
+        {
+          "file": "fcosr_x50_3x_dota\\reference\\P0861-crop.json",
+          "sha256": "9f059aa43348f5dce3ba5b0b4e5a27c890e1946ac65ec0b1734044961edf5f3e"
+        }
+      ]
+    },
+    {
+      "id": "blank",
+      "paddleMs": 4745.340000001306,
+      "ortMs": 1827.8705000047921,
+      "raw": [
+        {
+          "maxAbsoluteError": 5.699694156646729e-07,
+          "meanAbsoluteError": 3.7470496039304635e-08,
+          "shape": [
+            1,
+            15,
+            21824
+          ]
+        },
+        {
+          "maxAbsoluteError": 0.002685546875,
+          "meanAbsoluteError": 0.00027169488021172583,
+          "shape": [
+            1,
+            21824,
+            5
+          ]
+        }
+      ],
+      "maximumCandidatesPerClass": 0,
+      "detections": {
+        "count": 0,
+        "minimumPolygonIoU": 1.0,
+        "maximumScoreError": 0.0,
+        "maximumCornerErrorPx": 0.0,
+        "passed": true
+      },
+      "fullPaddlePostprocess": {
+        "status": "executed",
+        "comparisonWithOfficialOnnxNms": {
+          "count": 0,
+          "minimumPolygonIoU": 1.0,
+          "maximumScoreError": 0.0,
+          "maximumCornerErrorPx": 0.0,
+          "passed": true
+        }
+      },
+      "artifacts": [
+        {
+          "file": "fcosr_x50_3x_dota\\reference\\blank.npz",
+          "sha256": "db3bf30d84e1676013df433ef1323f968226285f229274802d35897292ce4cc9"
+        },
+        {
+          "file": "fcosr_x50_3x_dota\\reference\\blank.json",
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        }
+      ]
+    }
+  ]
+}

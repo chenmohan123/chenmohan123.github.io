@@ -20,4 +20,6 @@
 
 ## 后续路线
 
-当前规划更新为：2D稳定维护，TinyPose及分割首版已交付，下一步评估PP-YOLOE-R/FCOSR FP32的旋转框任务。该项仅为可行性评估，不提前登记为可用SDK；分割精度变体和媒体扩展保留后续处理。
+[PR #42](https://github.com/chenmohan123/chenmohan123.github.io/pull/42) 已合并，提交 `9a468247f8596d5a1e1a57f8bcc50f11a6d8ae1e` 的CI与Pages部署均成功。[线上回执](published.json)记录首页、分割详情和分类页与实际部署CI产物逐字节一致，1280px/390px线上筛选、搜索、路由与链接通过。Windows本地构建的Astro岛标识与Linux部署产物不同，回执保留首次直接字节比较失败及改用实际部署产物的验证过程。
+
+登记时的规划为：2D稳定维护，TinyPose及分割首版已交付，下一步评估PP-YOLOE-R/FCOSR FP32的旋转框任务。同日已完成[旋转框可行性评估](../../rotated-detection/2026-09-18-feasibility/README.md)，推荐PP-YOLOE-R-s为首发候选，尚未登记为可用SDK；分割精度变体和媒体扩展保留后续处理。

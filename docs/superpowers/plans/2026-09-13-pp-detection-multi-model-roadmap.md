@@ -18,11 +18,19 @@
 - **TinyPose：0.3.0 已发布。** 三个稳定变体，单帧/人体框 API，独立 Demo 支持图片、本地视频和摄像头。物理摄像头、手机及 NPU 的验证边界保持不变。
 - **PP-Segmentation：0.1.0 已发布。** PP-YOLOE_seg_s 640 FP32，单帧 Blob/RGBA、原图框和独立二值 ROI 掩码。64图四模式严格质量验收通过，最小掩码IoU为0.9987084870848708；双源八组合、npm、GitHub Release和HTTPS Demo均已核验。原始官方裁边口径失败记录保留，最终采用原图整数尺寸独立参考。[固定发布记录](https://github.com/chenmohan123/web-sdk-PP-Segmentation/tree/89b350d30305ecbc275780e455d1c115a250570f/reports/2026-09-18-release-readiness)包含许可、双源、质量和交付回执。Trusted Publishing已配置，实际OIDC发布待下一次新版本验证。门户登记为第六个SDK。
 
-### 下一阶段：旋转框独立 SDK 可行性
+### 已完成：旋转框独立 SDK 可行性
 
-用户已确认先评估 **PP-YOLOE-R 与 FCOSR 的 FP32**，再依据实际结果确定首发候选。评估内容为固定官方配置/权重与许可来源、ONNX导出和算子、角度与顶点顺序、旋转IoU/NMS，以及桌面WASM/WebGPU的数值和性能；没有执行证据的候选不标为兼容或稳定。旋转框任务保持独立，不加入现有轴对齐Detection API。
+用户确认的 **PP-YOLOE-R 与 FCOSR FP32** 评估已完成。固定上游 `b25522a0f4bde8c80603f3ba5e3472059972e3b5`，实际转换 `ppyoloe_r_crn_s_3x_dota` 与 `fcosr_x50_3x_dota`；两模型均以固定 `1x3x1024x1024`、opset 17 输出分数与五参数旋转框。来源、许可采用依据、角度与四点顺序、旋转 IoU/NMS、独立 Paddle/Shapely 参考和桌面执行证据见[完整评估报告](../../../reports/rotated-detection/2026-09-18-feasibility/README.md)。
 
-本轮先形成评估结论，不提前创建或发布旋转框SDK。分割FP16/量化和媒体能力、HRNet等姿态扩展、ByteTrack/OC-SORT跟踪作为后续候选。继续桌面优先、ModelScope默认并保留Hugging Face，以及独立Demo统一风格的要求。
+- [x] 两模型乘 WASM/WebGPU 乘五输入共 20 组对照通过，无额外或遗漏实例；最差旋转 IoU 为 0.9993547，空白图无框，实际 GPU 指令证据已记录。
+- [x] 推荐 **PP-YOLOE-R-s 单尺度 FP32** 为首发候选：ONNX 33.16 MB，本机 GPU 热推理中位数 31.8 ms。FCOSR-M 为 126.89 MB、125.2 ms，保留后续候选。耗时仅为首图 `session.run` 三次中位数，不含图片解码、预处理和旋转 NMS，不代表端到端或其他设备性能。
+- [x] 本轮止于可行性选型，未创建 SDK、发布 ONNX 或扩大稳定清单。任务为 DOTA 遥感 15 类，不能作为 COCO 通用检测替代；当前五输入不是全量 DOTA mAP 验收。浏览器复用 Python 输入张量，尚未验证产品图片预处理。
+
+### 建议下一阶段：旋转框独立 SDK 图片首版
+
+以 PP-YOLOE-R-s 单尺度 FP32 建立独立 SDK，定义四点坐标、弧度、原图还原及标准错误；实现 Blob/RGBA、显式 CPU/GPU、Worker、取消/释放、缓存与完整性校验。独立 Demo 沿用统一风格，先完成桌面图片流程、真实图集质量与生命周期验证，再补齐 ModelScope/Hugging Face 固定分发和正式发布。浏览器预处理、极端长宽比、平分排序与大图切片边界需按报告另行验证；未经验证的能力不进入首版承诺。
+
+旋转框任务保持独立，不加入现有轴对齐 Detection API。分割 FP16/量化和媒体能力、HRNet 等姿态扩展、ByteTrack/OC-SORT 跟踪作为后续候选。继续桌面优先、ModelScope 默认并保留 Hugging Face，以及独立 Demo 统一风格的要求；手机复核按后续发布范围安排，不阻塞桌面首版。
 
 后文日期更早的“下一阶段”保留为历史实施记录，当前优先级以本节为准。
 

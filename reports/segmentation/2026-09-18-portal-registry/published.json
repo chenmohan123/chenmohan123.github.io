@@ -1,0 +1,54 @@
+{
+  "verifiedAt": "2026-09-18T08:47:26.656Z",
+  "status": "passed",
+  "pullRequest": "https://github.com/chenmohan123/chenmohan123.github.io/pull/42",
+  "commit": "9a468247f8596d5a1e1a57f8bcc50f11a6d8ae1e",
+  "ci": {
+    "runId": 35325682822,
+    "conclusion": "success"
+  },
+  "pagesDeployment": {
+    "runId": 35325682912,
+    "conclusion": "success",
+    "artifact": "github-pages"
+  },
+  "pages": [
+    {
+      "url": "https://chenmohan123.github.io/",
+      "status": 200,
+      "sha256": "161d54f82a34bc29e21ba174619ab5fc25608438469e9c5069f263e65c4ed60a",
+      "matchesDeployedArtifact": true
+    },
+    {
+      "url": "https://chenmohan123.github.io/models/pp-segmentation/",
+      "status": 200,
+      "sha256": "7b78f4f35662a35d5222b47b70fe978749d6bcf1d8eac09cf2d7bdcb57a85dd9",
+      "matchesDeployedArtifact": true
+    },
+    {
+      "url": "https://chenmohan123.github.io/tasks/instance-segmentation/",
+      "status": 200,
+      "sha256": "a0f0b38a186bb832890a2355d44d902e94b04049254403876ea7d5ab98cfc572",
+      "matchesDeployedArtifact": true
+    }
+  ],
+  "browser": {
+    "viewports": [
+      1280,
+      390
+    ],
+    "passedTests": 2,
+    "command": "pnpm exec playwright test --config .tmp/playwright-live.config.ts -g 实例分割",
+    "checks": [
+      "目录六项",
+      "实例分割筛选",
+      "npm包名搜索",
+      "详情资产与版本",
+      "独立GitHub/npm/Demo链接",
+      "分类路由",
+      "页面无横向溢出"
+    ]
+  },
+  "diagnostic": "首次尝试比较本地Windows构建与线上首页，Astro岛uid不同导致字节检查失败；随后下载当前成功部署的CI产物进行逐字节回读对照，三个页面均一致。",
+  "boundary": "验证门户目录与路由；不重复分割模型推理，不新增设备兼容声明。"
+}

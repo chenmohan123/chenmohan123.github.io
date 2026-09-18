@@ -1,0 +1,1297 @@
+{
+  "status": "passed",
+  "verifiedAt": "2026-09-18T08:50:52.670684+00:00",
+  "thresholds": {
+    "minimumPolygonIoU": 0.995,
+    "maximumScoreError": 0.001,
+    "maximumCornerErrorPx": 0.1,
+    "sameCountAndClass": true,
+    "allFinite": true,
+    "blankMustBeEmpty": true
+  },
+  "rows": [
+    {
+      "model": "ppyoloe_r_crn_s_3x_dota",
+      "backend": "wasm",
+      "id": "P0072",
+      "raw": [
+        {
+          "tensor": "scores",
+          "shape": [
+            1,
+            15,
+            21504
+          ],
+          "paddleMaximumAbsoluteError": 2.384185791015625e-06,
+          "ortMaximumAbsoluteError": 2.0563602447509766e-06,
+          "paddleMeanAbsoluteError": 3.185058616850256e-08
+        },
+        {
+          "tensor": "rboxes",
+          "shape": [
+            1,
+            21504,
+            5
+          ],
+          "paddleMaximumAbsoluteError": 0.0038604736328125,
+          "ortMaximumAbsoluteError": 0.003692626953125,
+          "paddleMeanAbsoluteError": 0.00012272002641111612
+        }
+      ],
+      "officialPaddle": {
+        "referenceCount": 8,
+        "browserCount": 8,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 0.9999929725362444,
+        "maximumScoreError": 1.2516975402832031e-06,
+        "maximumCornerErrorPx": 0.0017255746764703872,
+        "passed": true
+      },
+      "pythonOrt": {
+        "referenceCount": 8,
+        "browserCount": 8,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 0.9999929725362444,
+        "maximumScoreError": 1.8775463104248047e-06,
+        "maximumCornerErrorPx": 0.0011156148403870247,
+        "passed": true
+      }
+    },
+    {
+      "model": "ppyoloe_r_crn_s_3x_dota",
+      "backend": "wasm",
+      "id": "P0861",
+      "raw": [
+        {
+          "tensor": "scores",
+          "shape": [
+            1,
+            15,
+            21504
+          ],
+          "paddleMaximumAbsoluteError": 1.1622905731201172e-06,
+          "ortMaximumAbsoluteError": 1.4901161193847656e-06,
+          "paddleMeanAbsoluteError": 3.01100939736898e-08
+        },
+        {
+          "tensor": "rboxes",
+          "shape": [
+            1,
+            21504,
+            5
+          ],
+          "paddleMaximumAbsoluteError": 0.0031585693359375,
+          "ortMaximumAbsoluteError": 0.00197601318359375,
+          "paddleMeanAbsoluteError": 3.295850910944864e-05
+        }
+      ],
+      "officialPaddle": {
+        "referenceCount": 136,
+        "browserCount": 136,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 0.9999892946543223,
+        "maximumScoreError": 4.917383193969727e-07,
+        "maximumCornerErrorPx": 0.00012597651101486917,
+        "passed": true
+      },
+      "pythonOrt": {
+        "referenceCount": 136,
+        "browserCount": 136,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 0.9999892946543223,
+        "maximumScoreError": 4.76837158203125e-07,
+        "maximumCornerErrorPx": 0.00015856842537687044,
+        "passed": true
+      }
+    },
+    {
+      "model": "ppyoloe_r_crn_s_3x_dota",
+      "backend": "wasm",
+      "id": "P0072-rot90",
+      "raw": [
+        {
+          "tensor": "scores",
+          "shape": [
+            1,
+            15,
+            21504
+          ],
+          "paddleMaximumAbsoluteError": 2.6151537895202637e-06,
+          "ortMaximumAbsoluteError": 5.453824996948242e-06,
+          "paddleMeanAbsoluteError": 3.392155534243102e-08
+        },
+        {
+          "tensor": "rboxes",
+          "shape": [
+            1,
+            21504,
+            5
+          ],
+          "paddleMaximumAbsoluteError": 0.008270263671875,
+          "ortMaximumAbsoluteError": 0.0096435546875,
+          "paddleMeanAbsoluteError": 0.00014676895807497203
+        }
+      ],
+      "officialPaddle": {
+        "referenceCount": 13,
+        "browserCount": 13,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 0.9999837509463319,
+        "maximumScoreError": 2.6151537895202637e-06,
+        "maximumCornerErrorPx": 0.0005833746588450595,
+        "passed": true
+      },
+      "pythonOrt": {
+        "referenceCount": 13,
+        "browserCount": 13,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 0.9999884908311186,
+        "maximumScoreError": 5.453824996948242e-06,
+        "maximumCornerErrorPx": 0.0007054449713450595,
+        "passed": true
+      }
+    },
+    {
+      "model": "ppyoloe_r_crn_s_3x_dota",
+      "backend": "wasm",
+      "id": "P0861-crop",
+      "raw": [
+        {
+          "tensor": "scores",
+          "shape": [
+            1,
+            15,
+            21504
+          ],
+          "paddleMaximumAbsoluteError": 7.134675979614258e-05,
+          "ortMaximumAbsoluteError": 2.47955322265625e-05,
+          "paddleMeanAbsoluteError": 2.3712073016213253e-07
+        },
+        {
+          "tensor": "rboxes",
+          "shape": [
+            1,
+            21504,
+            5
+          ],
+          "paddleMaximumAbsoluteError": 0.0736083984375,
+          "ortMaximumAbsoluteError": 0.0234832763671875,
+          "paddleMeanAbsoluteError": 0.00172057980671525
+        }
+      ],
+      "officialPaddle": {
+        "referenceCount": 129,
+        "browserCount": 129,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 0.999354716600993,
+        "maximumScoreError": 2.574920654296875e-05,
+        "maximumCornerErrorPx": 0.010721736167170093,
+        "passed": true
+      },
+      "pythonOrt": {
+        "referenceCount": 129,
+        "browserCount": 129,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 0.9998031315127869,
+        "maximumScoreError": 9.98377799987793e-06,
+        "maximumCornerErrorPx": 0.004315799587629954,
+        "passed": true
+      }
+    },
+    {
+      "model": "ppyoloe_r_crn_s_3x_dota",
+      "backend": "wasm",
+      "id": "blank",
+      "raw": [
+        {
+          "tensor": "scores",
+          "shape": [
+            1,
+            15,
+            21504
+          ],
+          "paddleMaximumAbsoluteError": 3.7439167499542236e-07,
+          "ortMaximumAbsoluteError": 7.420778274536133e-06,
+          "paddleMeanAbsoluteError": 3.25356488417583e-08
+        },
+        {
+          "tensor": "rboxes",
+          "shape": [
+            1,
+            21504,
+            5
+          ],
+          "paddleMaximumAbsoluteError": 0.00665283203125,
+          "ortMaximumAbsoluteError": 0.08856201171875,
+          "paddleMeanAbsoluteError": 0.00010403712803963572
+        }
+      ],
+      "officialPaddle": {
+        "referenceCount": 0,
+        "browserCount": 0,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 1.0,
+        "maximumScoreError": 0.0,
+        "maximumCornerErrorPx": 0.0,
+        "passed": true
+      },
+      "pythonOrt": {
+        "referenceCount": 0,
+        "browserCount": 0,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 1.0,
+        "maximumScoreError": 0.0,
+        "maximumCornerErrorPx": 0.0,
+        "passed": true
+      }
+    },
+    {
+      "model": "ppyoloe_r_crn_s_3x_dota",
+      "backend": "webgpu",
+      "id": "P0072",
+      "raw": [
+        {
+          "tensor": "scores",
+          "shape": [
+            1,
+            15,
+            21504
+          ],
+          "paddleMaximumAbsoluteError": 1.5795230865478516e-06,
+          "ortMaximumAbsoluteError": 1.1026859283447266e-06,
+          "paddleMeanAbsoluteError": 1.8219324715573748e-08
+        },
+        {
+          "tensor": "rboxes",
+          "shape": [
+            1,
+            21504,
+            5
+          ],
+          "paddleMaximumAbsoluteError": 0.0068206787109375,
+          "ortMaximumAbsoluteError": 0.0035400390625,
+          "paddleMeanAbsoluteError": 0.00020029743609484285
+        }
+      ],
+      "officialPaddle": {
+        "referenceCount": 8,
+        "browserCount": 8,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 0.99999001630354,
+        "maximumScoreError": 1.5795230865478516e-06,
+        "maximumCornerErrorPx": 0.0028378959085557653,
+        "passed": true
+      },
+      "pythonOrt": {
+        "referenceCount": 8,
+        "browserCount": 8,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 0.999990876571738,
+        "maximumScoreError": 6.407499313354492e-07,
+        "maximumCornerErrorPx": 0.0004954718401108948,
+        "passed": true
+      }
+    },
+    {
+      "model": "ppyoloe_r_crn_s_3x_dota",
+      "backend": "webgpu",
+      "id": "P0861",
+      "raw": [
+        {
+          "tensor": "scores",
+          "shape": [
+            1,
+            15,
+            21504
+          ],
+          "paddleMaximumAbsoluteError": 9.5367431640625e-07,
+          "ortMaximumAbsoluteError": 9.5367431640625e-07,
+          "paddleMeanAbsoluteError": 6.929396612065375e-09
+        },
+        {
+          "tensor": "rboxes",
+          "shape": [
+            1,
+            21504,
+            5
+          ],
+          "paddleMaximumAbsoluteError": 0.0023193359375,
+          "ortMaximumAbsoluteError": 0.0016937255859375,
+          "paddleMeanAbsoluteError": 2.8221977117937058e-05
+        }
+      ],
+      "officialPaddle": {
+        "referenceCount": 136,
+        "browserCount": 136,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 0.9999903846581197,
+        "maximumScoreError": 6.556510925292969e-07,
+        "maximumCornerErrorPx": 0.0003980614744136801,
+        "passed": true
+      },
+      "pythonOrt": {
+        "referenceCount": 136,
+        "browserCount": 136,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 0.9999905158966094,
+        "maximumScoreError": 4.76837158203125e-07,
+        "maximumCornerErrorPx": 0.0003395469727820455,
+        "passed": true
+      }
+    },
+    {
+      "model": "ppyoloe_r_crn_s_3x_dota",
+      "backend": "webgpu",
+      "id": "P0072-rot90",
+      "raw": [
+        {
+          "tensor": "scores",
+          "shape": [
+            1,
+            15,
+            21504
+          ],
+          "paddleMaximumAbsoluteError": 2.823770046234131e-06,
+          "ortMaximumAbsoluteError": 8.344650268554688e-07,
+          "paddleMeanAbsoluteError": 1.675010530277632e-08
+        },
+        {
+          "tensor": "rboxes",
+          "shape": [
+            1,
+            21504,
+            5
+          ],
+          "paddleMaximumAbsoluteError": 0.008941650390625,
+          "ortMaximumAbsoluteError": 0.002838134765625,
+          "paddleMeanAbsoluteError": 0.00019423193589318544
+        }
+      ],
+      "officialPaddle": {
+        "referenceCount": 13,
+        "browserCount": 13,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 0.9999840883814362,
+        "maximumScoreError": 2.823770046234131e-06,
+        "maximumCornerErrorPx": 0.0005171929772131989,
+        "passed": true
+      },
+      "pythonOrt": {
+        "referenceCount": 13,
+        "browserCount": 13,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 0.9999899865996487,
+        "maximumScoreError": 6.854534149169922e-07,
+        "maximumCornerErrorPx": 0.00045068779834878114,
+        "passed": true
+      }
+    },
+    {
+      "model": "ppyoloe_r_crn_s_3x_dota",
+      "backend": "webgpu",
+      "id": "P0861-crop",
+      "raw": [
+        {
+          "tensor": "scores",
+          "shape": [
+            1,
+            15,
+            21504
+          ],
+          "paddleMaximumAbsoluteError": 4.941225051879883e-05,
+          "ortMaximumAbsoluteError": 2.86102294921875e-06,
+          "paddleMeanAbsoluteError": 3.037121416582522e-07
+        },
+        {
+          "tensor": "rboxes",
+          "shape": [
+            1,
+            21504,
+            5
+          ],
+          "paddleMaximumAbsoluteError": 0.092010498046875,
+          "ortMaximumAbsoluteError": 0.005126953125,
+          "paddleMeanAbsoluteError": 0.0022081241477280855
+        }
+      ],
+      "officialPaddle": {
+        "referenceCount": 129,
+        "browserCount": 129,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 0.9995252460429032,
+        "maximumScoreError": 3.0525028705596924e-05,
+        "maximumCornerErrorPx": 0.014153041708141245,
+        "passed": true
+      },
+      "pythonOrt": {
+        "referenceCount": 129,
+        "browserCount": 129,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 0.9999737812162328,
+        "maximumScoreError": 2.078711986541748e-06,
+        "maximumCornerErrorPx": 0.0006272392345181288,
+        "passed": true
+      }
+    },
+    {
+      "model": "ppyoloe_r_crn_s_3x_dota",
+      "backend": "webgpu",
+      "id": "blank",
+      "raw": [
+        {
+          "tensor": "scores",
+          "shape": [
+            1,
+            15,
+            21504
+          ],
+          "paddleMaximumAbsoluteError": 8.361414074897766e-06,
+          "ortMaximumAbsoluteError": 2.6496127247810364e-06,
+          "paddleMeanAbsoluteError": 3.6106260381529864e-07
+        },
+        {
+          "tensor": "rboxes",
+          "shape": [
+            1,
+            21504,
+            5
+          ],
+          "paddleMaximumAbsoluteError": 0.110870361328125,
+          "ortMaximumAbsoluteError": 0.028961181640625,
+          "paddleMeanAbsoluteError": 0.0024033482186496258
+        }
+      ],
+      "officialPaddle": {
+        "referenceCount": 0,
+        "browserCount": 0,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 1.0,
+        "maximumScoreError": 0.0,
+        "maximumCornerErrorPx": 0.0,
+        "passed": true
+      },
+      "pythonOrt": {
+        "referenceCount": 0,
+        "browserCount": 0,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 1.0,
+        "maximumScoreError": 0.0,
+        "maximumCornerErrorPx": 0.0,
+        "passed": true
+      }
+    },
+    {
+      "model": "fcosr_x50_3x_dota",
+      "backend": "wasm",
+      "id": "P0072",
+      "raw": [
+        {
+          "tensor": "scores",
+          "shape": [
+            1,
+            15,
+            21824
+          ],
+          "paddleMaximumAbsoluteError": 2.47955322265625e-05,
+          "ortMaximumAbsoluteError": 2.384185791015625e-05,
+          "paddleMeanAbsoluteError": 6.008391295608817e-08
+        },
+        {
+          "tensor": "rboxes",
+          "shape": [
+            1,
+            21824,
+            5
+          ],
+          "paddleMaximumAbsoluteError": 0.00847625732421875,
+          "ortMaximumAbsoluteError": 0.00827789306640625,
+          "paddleMeanAbsoluteError": 0.0007635558722540736
+        }
+      ],
+      "officialPaddle": {
+        "referenceCount": 5,
+        "browserCount": 5,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 0.9999435335290252,
+        "maximumScoreError": 2.47955322265625e-05,
+        "maximumCornerErrorPx": 0.0007197060185717419,
+        "passed": true
+      },
+      "pythonOrt": {
+        "referenceCount": 5,
+        "browserCount": 5,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 0.9999465686393972,
+        "maximumScoreError": 2.384185791015625e-05,
+        "maximumCornerErrorPx": 0.0006586708623217419,
+        "passed": true
+      }
+    },
+    {
+      "model": "fcosr_x50_3x_dota",
+      "backend": "wasm",
+      "id": "P0861",
+      "raw": [
+        {
+          "tensor": "scores",
+          "shape": [
+            1,
+            15,
+            21824
+          ],
+          "paddleMaximumAbsoluteError": 1.8358230590820312e-05,
+          "ortMaximumAbsoluteError": 1.7344951629638672e-05,
+          "paddleMeanAbsoluteError": 9.933015121532662e-08
+        },
+        {
+          "tensor": "rboxes",
+          "shape": [
+            1,
+            21824,
+            5
+          ],
+          "paddleMaximumAbsoluteError": 0.0078887939453125,
+          "ortMaximumAbsoluteError": 0.00750732421875,
+          "paddleMeanAbsoluteError": 0.0008019162341952324
+        }
+      ],
+      "officialPaddle": {
+        "referenceCount": 136,
+        "browserCount": 136,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 0.9999304566661484,
+        "maximumScoreError": 1.609325408935547e-05,
+        "maximumCornerErrorPx": 0.001911269812012506,
+        "passed": true
+      },
+      "pythonOrt": {
+        "referenceCount": 136,
+        "browserCount": 136,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 0.9999340419535269,
+        "maximumScoreError": 1.531839370727539e-05,
+        "maximumCornerErrorPx": 0.001850234655762506,
+        "passed": true
+      }
+    },
+    {
+      "model": "fcosr_x50_3x_dota",
+      "backend": "wasm",
+      "id": "P0072-rot90",
+      "raw": [
+        {
+          "tensor": "scores",
+          "shape": [
+            1,
+            15,
+            21824
+          ],
+          "paddleMaximumAbsoluteError": 2.1576881408691406e-05,
+          "ortMaximumAbsoluteError": 2.1219253540039062e-05,
+          "paddleMeanAbsoluteError": 5.7919091744906837e-08
+        },
+        {
+          "tensor": "rboxes",
+          "shape": [
+            1,
+            21824,
+            5
+          ],
+          "paddleMaximumAbsoluteError": 0.0086517333984375,
+          "ortMaximumAbsoluteError": 0.00827789306640625,
+          "paddleMeanAbsoluteError": 0.0007176621002145112
+        }
+      ],
+      "officialPaddle": {
+        "referenceCount": 4,
+        "browserCount": 4,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 0.9999430738488687,
+        "maximumScoreError": 2.1576881408691406e-05,
+        "maximumCornerErrorPx": 0.0007529524872325055,
+        "passed": true
+      },
+      "pythonOrt": {
+        "referenceCount": 4,
+        "browserCount": 4,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 0.9999458611329789,
+        "maximumScoreError": 2.1219253540039062e-05,
+        "maximumCornerErrorPx": 0.0007224349091075055,
+        "passed": true
+      }
+    },
+    {
+      "model": "fcosr_x50_3x_dota",
+      "backend": "wasm",
+      "id": "P0861-crop",
+      "raw": [
+        {
+          "tensor": "scores",
+          "shape": [
+            1,
+            15,
+            21824
+          ],
+          "paddleMaximumAbsoluteError": 2.2351741790771484e-05,
+          "ortMaximumAbsoluteError": 2.294778823852539e-05,
+          "paddleMeanAbsoluteError": 1.0674342831862305e-07
+        },
+        {
+          "tensor": "rboxes",
+          "shape": [
+            1,
+            21824,
+            5
+          ],
+          "paddleMaximumAbsoluteError": 0.00611114501953125,
+          "ortMaximumAbsoluteError": 0.00586700439453125,
+          "paddleMeanAbsoluteError": 0.0007636157097294927
+        }
+      ],
+      "officialPaddle": {
+        "referenceCount": 129,
+        "browserCount": 129,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 0.9999195146324655,
+        "maximumScoreError": 2.008676528930664e-05,
+        "maximumCornerErrorPx": 0.0023955751536277603,
+        "passed": true
+      },
+      "pythonOrt": {
+        "referenceCount": 129,
+        "browserCount": 129,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 0.9999221732698363,
+        "maximumScoreError": 2.1517276763916016e-05,
+        "maximumCornerErrorPx": 0.0022735048411277603,
+        "passed": true
+      }
+    },
+    {
+      "model": "fcosr_x50_3x_dota",
+      "backend": "wasm",
+      "id": "blank",
+      "raw": [
+        {
+          "tensor": "scores",
+          "shape": [
+            1,
+            15,
+            21824
+          ],
+          "paddleMaximumAbsoluteError": 7.599592208862305e-06,
+          "ortMaximumAbsoluteError": 7.68899917602539e-06,
+          "paddleMeanAbsoluteError": 1.846879627009912e-07
+        },
+        {
+          "tensor": "rboxes",
+          "shape": [
+            1,
+            21824,
+            5
+          ],
+          "paddleMaximumAbsoluteError": 0.03569793701171875,
+          "ortMaximumAbsoluteError": 0.037265777587890625,
+          "paddleMeanAbsoluteError": 0.006089366041123867
+        }
+      ],
+      "officialPaddle": {
+        "referenceCount": 0,
+        "browserCount": 0,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 1.0,
+        "maximumScoreError": 0.0,
+        "maximumCornerErrorPx": 0.0,
+        "passed": true
+      },
+      "pythonOrt": {
+        "referenceCount": 0,
+        "browserCount": 0,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 1.0,
+        "maximumScoreError": 0.0,
+        "maximumCornerErrorPx": 0.0,
+        "passed": true
+      }
+    },
+    {
+      "model": "fcosr_x50_3x_dota",
+      "backend": "webgpu",
+      "id": "P0072",
+      "raw": [
+        {
+          "tensor": "scores",
+          "shape": [
+            1,
+            15,
+            21824
+          ],
+          "paddleMaximumAbsoluteError": 1.1324882507324219e-06,
+          "ortMaximumAbsoluteError": 1.2516975402832031e-06,
+          "paddleMeanAbsoluteError": 1.2896160805908607e-09
+        },
+        {
+          "tensor": "rboxes",
+          "shape": [
+            1,
+            21824,
+            5
+          ],
+          "paddleMaximumAbsoluteError": 0.0009765625,
+          "ortMaximumAbsoluteError": 0.0008544921875,
+          "paddleMeanAbsoluteError": 1.6128118659253232e-05
+        }
+      ],
+      "officialPaddle": {
+        "referenceCount": 5,
+        "browserCount": 5,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 0.9999974788373095,
+        "maximumScoreError": 4.76837158203125e-07,
+        "maximumCornerErrorPx": 0.0002914677962735368,
+        "passed": true
+      },
+      "pythonOrt": {
+        "referenceCount": 5,
+        "browserCount": 5,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 0.9999970884602621,
+        "maximumScoreError": 1.0728836059570312e-06,
+        "maximumCornerErrorPx": 0.0001999150618985368,
+        "passed": true
+      }
+    },
+    {
+      "model": "fcosr_x50_3x_dota",
+      "backend": "webgpu",
+      "id": "P0861",
+      "raw": [
+        {
+          "tensor": "scores",
+          "shape": [
+            1,
+            15,
+            21824
+          ],
+          "paddleMaximumAbsoluteError": 1.3113021850585938e-06,
+          "ortMaximumAbsoluteError": 2.1457672119140625e-06,
+          "paddleMeanAbsoluteError": 2.8089697234889854e-09
+        },
+        {
+          "tensor": "rboxes",
+          "shape": [
+            1,
+            21824,
+            5
+          ],
+          "paddleMaximumAbsoluteError": 0.0010986328125,
+          "ortMaximumAbsoluteError": 0.00103759765625,
+          "paddleMeanAbsoluteError": 1.8552218534750864e-05
+        }
+      ],
+      "officialPaddle": {
+        "referenceCount": 136,
+        "browserCount": 136,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 0.9999949570383567,
+        "maximumScoreError": 1.2516975402832031e-06,
+        "maximumCornerErrorPx": 0.00014466142545188632,
+        "passed": true
+      },
+      "pythonOrt": {
+        "referenceCount": 136,
+        "browserCount": 136,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 0.9999879686034756,
+        "maximumScoreError": 1.9669532775878906e-06,
+        "maximumCornerErrorPx": 0.00014466142533819948,
+        "passed": true
+      }
+    },
+    {
+      "model": "fcosr_x50_3x_dota",
+      "backend": "webgpu",
+      "id": "P0072-rot90",
+      "raw": [
+        {
+          "tensor": "scores",
+          "shape": [
+            1,
+            15,
+            21824
+          ],
+          "paddleMaximumAbsoluteError": 1.6689300537109375e-06,
+          "ortMaximumAbsoluteError": 1.8477439880371094e-06,
+          "paddleMeanAbsoluteError": 1.3266581166959668e-09
+        },
+        {
+          "tensor": "rboxes",
+          "shape": [
+            1,
+            21824,
+            5
+          ],
+          "paddleMaximumAbsoluteError": 0.0008544921875,
+          "ortMaximumAbsoluteError": 0.00079345703125,
+          "paddleMeanAbsoluteError": 1.6227035303018056e-05
+        }
+      ],
+      "officialPaddle": {
+        "referenceCount": 4,
+        "browserCount": 4,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 0.9999980801478054,
+        "maximumScoreError": 3.5762786865234375e-07,
+        "maximumCornerErrorPx": 0.00016588662674621446,
+        "passed": true
+      },
+      "pythonOrt": {
+        "referenceCount": 4,
+        "browserCount": 4,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 0.9999966445685518,
+        "maximumScoreError": 4.172325134277344e-07,
+        "maximumCornerErrorPx": 0.00019401444353661645,
+        "passed": true
+      }
+    },
+    {
+      "model": "fcosr_x50_3x_dota",
+      "backend": "webgpu",
+      "id": "P0861-crop",
+      "raw": [
+        {
+          "tensor": "scores",
+          "shape": [
+            1,
+            15,
+            21824
+          ],
+          "paddleMaximumAbsoluteError": 1.3113021850585938e-06,
+          "ortMaximumAbsoluteError": 2.4437904357910156e-06,
+          "paddleMeanAbsoluteError": 2.4806352527662057e-09
+        },
+        {
+          "tensor": "rboxes",
+          "shape": [
+            1,
+            21824,
+            5
+          ],
+          "paddleMaximumAbsoluteError": 0.00091552734375,
+          "ortMaximumAbsoluteError": 0.00091552734375,
+          "paddleMeanAbsoluteError": 1.8067014025291428e-05
+        }
+      ],
+      "officialPaddle": {
+        "referenceCount": 129,
+        "browserCount": 129,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 0.9999885793492088,
+        "maximumScoreError": 1.2516975402832031e-06,
+        "maximumCornerErrorPx": 0.00012720235781671363,
+        "passed": true
+      },
+      "pythonOrt": {
+        "referenceCount": 129,
+        "browserCount": 129,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 0.9999873930971149,
+        "maximumScoreError": 2.205371856689453e-06,
+        "maximumCornerErrorPx": 0.0002006310448905424,
+        "passed": true
+      }
+    },
+    {
+      "model": "fcosr_x50_3x_dota",
+      "backend": "webgpu",
+      "id": "blank",
+      "raw": [
+        {
+          "tensor": "scores",
+          "shape": [
+            1,
+            15,
+            21824
+          ],
+          "paddleMaximumAbsoluteError": 2.1420419216156006e-07,
+          "ortMaximumAbsoluteError": 4.861503839492798e-07,
+          "paddleMeanAbsoluteError": 3.9636778303986375e-09
+        },
+        {
+          "tensor": "rboxes",
+          "shape": [
+            1,
+            21824,
+            5
+          ],
+          "paddleMaximumAbsoluteError": 0.0006256103515625,
+          "ortMaximumAbsoluteError": 0.0028228759765625,
+          "paddleMeanAbsoluteError": 6.315869541140273e-05
+        }
+      ],
+      "officialPaddle": {
+        "referenceCount": 0,
+        "browserCount": 0,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 1.0,
+        "maximumScoreError": 0.0,
+        "maximumCornerErrorPx": 0.0,
+        "passed": true
+      },
+      "pythonOrt": {
+        "referenceCount": 0,
+        "browserCount": 0,
+        "missingClasses": [],
+        "extraIndices": [],
+        "minimumPolygonIoU": 1.0,
+        "maximumScoreError": 0.0,
+        "maximumCornerErrorPx": 0.0,
+        "passed": true
+      }
+    }
+  ],
+  "localArtifacts": [
+    {
+      "file": "ppyoloe_r_crn_s_3x_dota/browser-output/wasm/P0072/detections.json",
+      "bytes": 2568,
+      "sha256": "066485a159c424060b220abaad35e932433452b29ddd962b1c6e502f578deb0d"
+    },
+    {
+      "file": "ppyoloe_r_crn_s_3x_dota/browser-output/wasm/P0072/raw0.f32",
+      "bytes": 1290240,
+      "sha256": "7547ca09fea88eb8ed51c370d7fd22689cb5eb3f38498f4080d3bff322478447"
+    },
+    {
+      "file": "ppyoloe_r_crn_s_3x_dota/browser-output/wasm/P0072/raw1.f32",
+      "bytes": 430080,
+      "sha256": "bf72c1d4bbeaff89a69e3d0ff5978dcb1bc0c3eb5ad3dab85ee4f7cf8b18faef"
+    },
+    {
+      "file": "ppyoloe_r_crn_s_3x_dota/browser-output/wasm/P0861/detections.json",
+      "bytes": 43732,
+      "sha256": "7ca9cec599d42b27ec717eac51e9d7851380ef7892e7f9aa5c2f4363fb634a53"
+    },
+    {
+      "file": "ppyoloe_r_crn_s_3x_dota/browser-output/wasm/P0861/raw0.f32",
+      "bytes": 1290240,
+      "sha256": "32186cd62d5ae544aee2a2e1fe0a4e94f1d01fb61e8237778d9f76c25ce97706"
+    },
+    {
+      "file": "ppyoloe_r_crn_s_3x_dota/browser-output/wasm/P0861/raw1.f32",
+      "bytes": 430080,
+      "sha256": "d5eb425851b2a1d3cde1b92fe7da3fee18ea3a2aa148423b90b30102840cafd5"
+    },
+    {
+      "file": "ppyoloe_r_crn_s_3x_dota/browser-output/wasm/P0072-rot90/detections.json",
+      "bytes": 4164,
+      "sha256": "3b7efd71788d00aad9444a945d312058337d8fc8463f9f0e51de396f01c80d13"
+    },
+    {
+      "file": "ppyoloe_r_crn_s_3x_dota/browser-output/wasm/P0072-rot90/raw0.f32",
+      "bytes": 1290240,
+      "sha256": "72db4157e0c08c8515b76bcb17aa149e6b41ab8f56fad6247ea81a2a4029bfb3"
+    },
+    {
+      "file": "ppyoloe_r_crn_s_3x_dota/browser-output/wasm/P0072-rot90/raw1.f32",
+      "bytes": 430080,
+      "sha256": "a3cbd2d41505a228d92dd394545c105c50e2cbae20b1bfee03f2455f5439779b"
+    },
+    {
+      "file": "ppyoloe_r_crn_s_3x_dota/browser-output/wasm/P0861-crop/detections.json",
+      "bytes": 41451,
+      "sha256": "b83d0a9f6027d97041a48e0c3b957e6ebc1d1f0699424976d6b04208f5e354eb"
+    },
+    {
+      "file": "ppyoloe_r_crn_s_3x_dota/browser-output/wasm/P0861-crop/raw0.f32",
+      "bytes": 1290240,
+      "sha256": "dc256b871d9ae5f1f1075db54d354c2d7ce8153818b374b374957c775ef62857"
+    },
+    {
+      "file": "ppyoloe_r_crn_s_3x_dota/browser-output/wasm/P0861-crop/raw1.f32",
+      "bytes": 430080,
+      "sha256": "35d10de6f6c7ce8b0acb756aca8a4eab6319b92ae126f13e7ab951e545c71557"
+    },
+    {
+      "file": "ppyoloe_r_crn_s_3x_dota/browser-output/wasm/blank/detections.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "file": "ppyoloe_r_crn_s_3x_dota/browser-output/wasm/blank/raw0.f32",
+      "bytes": 1290240,
+      "sha256": "cf6d02c1acbefa8a9d31c211fb58654dd11f39433cfd7f403ad9d98f01fefaab"
+    },
+    {
+      "file": "ppyoloe_r_crn_s_3x_dota/browser-output/wasm/blank/raw1.f32",
+      "bytes": 430080,
+      "sha256": "08d8d72d6ac88fee12f0b6d534229efb5dcbe8c94ec2387d03a63c3dd24c9ce1"
+    },
+    {
+      "file": "ppyoloe_r_crn_s_3x_dota/browser-output/webgpu/P0072/detections.json",
+      "bytes": 2561,
+      "sha256": "7b10c312d1a5d98e8f74f4968e26c8f176c039ed926af073231f8fb979485288"
+    },
+    {
+      "file": "ppyoloe_r_crn_s_3x_dota/browser-output/webgpu/P0072/raw0.f32",
+      "bytes": 1290240,
+      "sha256": "c42da8beef1fd57080370b0269d31bc1953cc04afaea494be811c81ccf477991"
+    },
+    {
+      "file": "ppyoloe_r_crn_s_3x_dota/browser-output/webgpu/P0072/raw1.f32",
+      "bytes": 430080,
+      "sha256": "eec5532caea68d75352a982b2100c14fc2023597a6a34d32e9013cc284065295"
+    },
+    {
+      "file": "ppyoloe_r_crn_s_3x_dota/browser-output/webgpu/P0861/detections.json",
+      "bytes": 43724,
+      "sha256": "afe9442d806c7912ad877c9f1c2425cca9d7b7d63d5edcb30a3d89562f1a45e1"
+    },
+    {
+      "file": "ppyoloe_r_crn_s_3x_dota/browser-output/webgpu/P0861/raw0.f32",
+      "bytes": 1290240,
+      "sha256": "fab81906561cefc9c1c17b41bf7db45ab1dffea374a4a5e62de6fb9031032765"
+    },
+    {
+      "file": "ppyoloe_r_crn_s_3x_dota/browser-output/webgpu/P0861/raw1.f32",
+      "bytes": 430080,
+      "sha256": "8708473b3dafd3029c533da401c9b24b97eee401260e736fe5e045724dfbfe83"
+    },
+    {
+      "file": "ppyoloe_r_crn_s_3x_dota/browser-output/webgpu/P0072-rot90/detections.json",
+      "bytes": 4164,
+      "sha256": "c38fdbc252e4235255f49f29c0fc6f543409dd862856dc30fc0247703576ac64"
+    },
+    {
+      "file": "ppyoloe_r_crn_s_3x_dota/browser-output/webgpu/P0072-rot90/raw0.f32",
+      "bytes": 1290240,
+      "sha256": "a9956707f77b52747f8190911d73886093a16fa6ef917735feb605d92a0d36ea"
+    },
+    {
+      "file": "ppyoloe_r_crn_s_3x_dota/browser-output/webgpu/P0072-rot90/raw1.f32",
+      "bytes": 430080,
+      "sha256": "47d57b1424afab95e1164f8820c8a5e5a4d527d246cb788ec62471ea8e4ba715"
+    },
+    {
+      "file": "ppyoloe_r_crn_s_3x_dota/browser-output/webgpu/P0861-crop/detections.json",
+      "bytes": 41492,
+      "sha256": "013baa68e45ae377d8352628ad0a55a49980961dca624976550ff40e4b2d9198"
+    },
+    {
+      "file": "ppyoloe_r_crn_s_3x_dota/browser-output/webgpu/P0861-crop/raw0.f32",
+      "bytes": 1290240,
+      "sha256": "d7576c478dc7db4a396ec046006a9ef212c891c40ed4f5831bb4ca87775d163a"
+    },
+    {
+      "file": "ppyoloe_r_crn_s_3x_dota/browser-output/webgpu/P0861-crop/raw1.f32",
+      "bytes": 430080,
+      "sha256": "e1fe7276207af739b2a9deac71c618c5da50e7cec256c35dab1467fa7e6b5513"
+    },
+    {
+      "file": "ppyoloe_r_crn_s_3x_dota/browser-output/webgpu/blank/detections.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "file": "ppyoloe_r_crn_s_3x_dota/browser-output/webgpu/blank/raw0.f32",
+      "bytes": 1290240,
+      "sha256": "4898bf996c6f72d1443d808e19761457bc8037c19336727ec317671617569ab2"
+    },
+    {
+      "file": "ppyoloe_r_crn_s_3x_dota/browser-output/webgpu/blank/raw1.f32",
+      "bytes": 430080,
+      "sha256": "a1278b344b7241ef637b0c08e25c928807517a8a85a4e6c5e450bb4d84609bc8"
+    },
+    {
+      "file": "fcosr_x50_3x_dota/browser-output/wasm/P0072/detections.json",
+      "bytes": 1623,
+      "sha256": "062ae344a9bc83b0d0bc43e84d92c1b549526082899a77af998f3e4148432098"
+    },
+    {
+      "file": "fcosr_x50_3x_dota/browser-output/wasm/P0072/raw0.f32",
+      "bytes": 1309440,
+      "sha256": "e2cafa5b87a6f9339b7cab1218305c5f844f371e05755da30305c3c09499c1f4"
+    },
+    {
+      "file": "fcosr_x50_3x_dota/browser-output/wasm/P0072/raw1.f32",
+      "bytes": 436480,
+      "sha256": "f4124bfbfa5532c332f92c3c80a17607afaf88eb29aa34f704d4d16bb3d4d4fc"
+    },
+    {
+      "file": "fcosr_x50_3x_dota/browser-output/wasm/P0861/detections.json",
+      "bytes": 43750,
+      "sha256": "d519a019b8fdb977ca8cf3d94f7b12630ed23d8b8914543a34f2ecd388f72f37"
+    },
+    {
+      "file": "fcosr_x50_3x_dota/browser-output/wasm/P0861/raw0.f32",
+      "bytes": 1309440,
+      "sha256": "469a75cda03b3e11764e0490acbf19e7ef02f222acddb41e39f3fb00a7281cd5"
+    },
+    {
+      "file": "fcosr_x50_3x_dota/browser-output/wasm/P0861/raw1.f32",
+      "bytes": 436480,
+      "sha256": "3150bc349db397b5fe06b308bd3ab9357465378a3bbcc6a106f6d4c912eab967"
+    },
+    {
+      "file": "fcosr_x50_3x_dota/browser-output/wasm/P0072-rot90/detections.json",
+      "bytes": 1297,
+      "sha256": "ee3342550e5c0b049d59759e3432167307c12578e353f1eea355c59a41241414"
+    },
+    {
+      "file": "fcosr_x50_3x_dota/browser-output/wasm/P0072-rot90/raw0.f32",
+      "bytes": 1309440,
+      "sha256": "e6b29801b0c7ce51babe6ff2110a0477c5e379f0b3ca73e5bc496bd523541d3c"
+    },
+    {
+      "file": "fcosr_x50_3x_dota/browser-output/wasm/P0072-rot90/raw1.f32",
+      "bytes": 436480,
+      "sha256": "522026dc1632cb7a3a22b58ffc19d1b60c81571a31f8a876204b96a08c4a7ed2"
+    },
+    {
+      "file": "fcosr_x50_3x_dota/browser-output/wasm/P0861-crop/detections.json",
+      "bytes": 41500,
+      "sha256": "491d2b8ca51ac42ea999019a838162b4f54c29167711f2de6e4d3ccff597789a"
+    },
+    {
+      "file": "fcosr_x50_3x_dota/browser-output/wasm/P0861-crop/raw0.f32",
+      "bytes": 1309440,
+      "sha256": "9ecc346a401fb7fa98e15c4a64817f5adfa5112f24b94fb685244272f7d729d4"
+    },
+    {
+      "file": "fcosr_x50_3x_dota/browser-output/wasm/P0861-crop/raw1.f32",
+      "bytes": 436480,
+      "sha256": "65563f261c3b0b8125c1e6162d5d42683cc427d1baf97d45b3c67141c437e5f7"
+    },
+    {
+      "file": "fcosr_x50_3x_dota/browser-output/wasm/blank/detections.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "file": "fcosr_x50_3x_dota/browser-output/wasm/blank/raw0.f32",
+      "bytes": 1309440,
+      "sha256": "4fcd9e970b3e2a27292e4dee862fe461535dde8ad40931b0930a50b6042b11a8"
+    },
+    {
+      "file": "fcosr_x50_3x_dota/browser-output/wasm/blank/raw1.f32",
+      "bytes": 436480,
+      "sha256": "b19786f81c3aa2c1c78cf85bb565dc4db10c013dac918d7d8c90ee6dfe591462"
+    },
+    {
+      "file": "fcosr_x50_3x_dota/browser-output/webgpu/P0072/detections.json",
+      "bytes": 1624,
+      "sha256": "382114f7ea2ca5cd13555b27f2b9fbda2ceff9dd903edb085440af8505d3e85a"
+    },
+    {
+      "file": "fcosr_x50_3x_dota/browser-output/webgpu/P0072/raw0.f32",
+      "bytes": 1309440,
+      "sha256": "f8012232dbe395ad60285e504c9867428b97ed3da5ac0de8ebcdd68cf9b3821e"
+    },
+    {
+      "file": "fcosr_x50_3x_dota/browser-output/webgpu/P0072/raw1.f32",
+      "bytes": 436480,
+      "sha256": "1ff1fa1f59dd9197ed03567882fa936d400b5e5deea66df499c10a8249e5329d"
+    },
+    {
+      "file": "fcosr_x50_3x_dota/browser-output/webgpu/P0861/detections.json",
+      "bytes": 43722,
+      "sha256": "919e75cf2a014c33ebbd0ca5e85d1150943eb1a6642a59f9e0b8b631fb495ac3"
+    },
+    {
+      "file": "fcosr_x50_3x_dota/browser-output/webgpu/P0861/raw0.f32",
+      "bytes": 1309440,
+      "sha256": "2cce832c32ebac40c46f85743dcf8f7ea4203129cf2dbae0da28e726b2c5383c"
+    },
+    {
+      "file": "fcosr_x50_3x_dota/browser-output/webgpu/P0861/raw1.f32",
+      "bytes": 436480,
+      "sha256": "17ae54e2eef27c9b6391592bddb3a42b8d0df8db34cd88a4e5d17a2a442133cc"
+    },
+    {
+      "file": "fcosr_x50_3x_dota/browser-output/webgpu/P0072-rot90/detections.json",
+      "bytes": 1294,
+      "sha256": "f628d7864f138556e253758808f02b446bf5f779d79f79af9b16d50e4178bca8"
+    },
+    {
+      "file": "fcosr_x50_3x_dota/browser-output/webgpu/P0072-rot90/raw0.f32",
+      "bytes": 1309440,
+      "sha256": "d2dfcb62b6c01b0f57613568d68ac5e23896ec5bc1c614821a35a7465171dfea"
+    },
+    {
+      "file": "fcosr_x50_3x_dota/browser-output/webgpu/P0072-rot90/raw1.f32",
+      "bytes": 436480,
+      "sha256": "c7f6b5d3de88d93586851653ae26f29a344dd6d32a87914f5242e8c9958a5fd8"
+    },
+    {
+      "file": "fcosr_x50_3x_dota/browser-output/webgpu/P0861-crop/detections.json",
+      "bytes": 41563,
+      "sha256": "9115df31d55f26bc96601784df36c42939927a74aff8fd1c57e0787e8aa4ae19"
+    },
+    {
+      "file": "fcosr_x50_3x_dota/browser-output/webgpu/P0861-crop/raw0.f32",
+      "bytes": 1309440,
+      "sha256": "8cfbe5936ccc5718e918fe5ce57f6d797ad490990096d6f97de4be15e9188d17"
+    },
+    {
+      "file": "fcosr_x50_3x_dota/browser-output/webgpu/P0861-crop/raw1.f32",
+      "bytes": 436480,
+      "sha256": "0b1584d0ac8cf0d83833b9ebddcd5fc62c6b7adcf4cfe972a3a3ca2874699ff6"
+    },
+    {
+      "file": "fcosr_x50_3x_dota/browser-output/webgpu/blank/detections.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "file": "fcosr_x50_3x_dota/browser-output/webgpu/blank/raw0.f32",
+      "bytes": 1309440,
+      "sha256": "5b4aaa190f2da0c6cb18ab343ad654794d5b06fd603ab65a061a8cad985882b2"
+    },
+    {
+      "file": "fcosr_x50_3x_dota/browser-output/webgpu/blank/raw1.f32",
+      "bytes": 436480,
+      "sha256": "943b101386b1cf2fecd7595763d91fdd1a7fdf46d762e14a4f4f20bb9a3c3c70"
+    }
+  ],
+  "scope": "全部20次浏览器输入结果与官方Paddle逐实例对照；不代表数据集GT精度、全模型库或其他设备兼容。"
+}

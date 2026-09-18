@@ -1,0 +1,101 @@
+{
+  "sources": [
+    {
+      "file": "P0072__1.0__0___0.png",
+      "bytes": 1680618,
+      "sha256": "8ec9093d3b3ea72d578453b06497e35c4f7e62e0f0d8443d80f4c44af44d6c77",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/demo/P0072__1.0__0___0.png",
+      "origin": "上游仓库DOTA推理示例；图像许可需与Apache源码许可分别核验，未作产品素材再分发。"
+    },
+    {
+      "file": "P0861__1.0__1154___824.png",
+      "bytes": 1256871,
+      "sha256": "a58b94a1bc149eae55ed852c742d839b6f5902d81a053cb72868c91254adea32",
+      "url": "https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/demo/P0861__1.0__1154___824.png",
+      "origin": "上游仓库DOTA推理示例；图像许可需与Apache源码许可分别核验，未作产品素材再分发。"
+    }
+  ],
+  "cases": [
+    {
+      "id": "P0072",
+      "width": 948,
+      "height": 934,
+      "transform": "上游原图",
+      "scaleFactor": [
+        1.0801687240600586,
+        1.0801687240600586
+      ],
+      "resizedShape": [
+        1009,
+        1024
+      ],
+      "inputSha256": "2af1e2a58d511e65fb5d693cab37bc11f86b9c903df9692068abce1e4fe575f8",
+      "imageSha256": "8ec9093d3b3ea72d578453b06497e35c4f7e62e0f0d8443d80f4c44af44d6c77"
+    },
+    {
+      "id": "P0861",
+      "width": 1024,
+      "height": 1024,
+      "transform": "上游原图",
+      "scaleFactor": [
+        1.0,
+        1.0
+      ],
+      "resizedShape": [
+        1024,
+        1024
+      ],
+      "inputSha256": "41f6599298bd8077c4d61ed52c77ec1507187b31ec88bc3863994e01302c4916",
+      "imageSha256": "a58b94a1bc149eae55ed852c742d839b6f5902d81a053cb72868c91254adea32"
+    },
+    {
+      "id": "P0072-rot90",
+      "width": 934,
+      "height": 948,
+      "transform": "P0072顺时针旋转90度",
+      "scaleFactor": [
+        1.0801687240600586,
+        1.0801687240600586
+      ],
+      "resizedShape": [
+        1024,
+        1009
+      ],
+      "inputSha256": "a90e5d78f6e1d76c6c72a1cb6f483f26bfb3588ab6bcdc1f1ee9ea4098c1cd64",
+      "imageSha256": "bdf3f0963773e13947717900ba7330c3f88c185951580ed127629bbe3f495bf6"
+    },
+    {
+      "id": "P0861-crop",
+      "width": 768,
+      "height": 1024,
+      "transform": "P0861左侧768像素裁剪，测试非方形输入与补零",
+      "scaleFactor": [
+        1.0,
+        1.0
+      ],
+      "resizedShape": [
+        1024,
+        768
+      ],
+      "inputSha256": "f675e23e77c6a8ba1b54d5de8e1e0c6263721877fc530e35508a668f5c15b506",
+      "imageSha256": "31c99cf70426dad85181e08839e3989ed44a4b36a29bbec4ad37ff4dc829d582"
+    },
+    {
+      "id": "blank",
+      "width": 1024,
+      "height": 1024,
+      "transform": "纯黑负例",
+      "scaleFactor": [
+        1.0,
+        1.0
+      ],
+      "resizedShape": [
+        1024,
+        1024
+      ],
+      "inputSha256": "5cda5b497b8191eedf612a4faf02f912545f2742a77f1e06c9b3a1d45ec6508b",
+      "imageSha256": "0533c09d9b7b24ad1c636cffff184d4bc66b08686fe6314881d43b17136476b2"
+    }
+  ],
+  "scope": "2张上游示例及2个确定性变换、1张空白图；无GT/mAP测量，不推断全量DOTA精度。"
+}

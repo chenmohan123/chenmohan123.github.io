@@ -14,7 +14,7 @@ readiness, not by the number of models mentioned in the catalog.
 
 TinyPose 0.3.0 与 PP-Segmentation 0.1.0 已正式发布。分割以 PP-YOLOE_seg_s 640 FP32 提供单帧图片、原图框与二值 ROI 掩码，已完成原图整数尺寸参考的质量验收、双源、npm、Release 和 HTTPS Demo 回读；见[固定发布证据](https://github.com/chenmohan123/web-sdk-PP-Segmentation/tree/89b350d30305ecbc275780e455d1c115a250570f/reports/2026-09-18-release-readiness)。门户登记第六个 SDK，并保留桌面验证边界。
 
-下一项是 PP-YOLOE-R、FCOSR FP32 的旋转框独立 SDK 可行性评估。先确认来源、导出、旋转框后处理与桌面 CPU/GPU 的实际结果，再确定首发候选；详见[PaddleDetection 独立 SDK 路线](2026-09-13-pp-detection-multi-model-roadmap.md#当前推进决策2026-09-18)。分割精度变体和媒体扩展留待后续。
+PP-YOLOE-R-s 与 FCOSR-M 的 FP32 可行性评估已完成，两模型的固定 ONNX 转换及桌面 WASM/WebGPU 共 20 组数值对照通过。推荐体积 33.16 MB 的 PP-YOLOE-R-s 单尺度 FP32 为首发候选，FCOSR-M 保留后续候选；见[评估证据](../../../reports/rotated-detection/2026-09-18-feasibility/README.md)与[PaddleDetection 独立 SDK 路线](2026-09-13-pp-detection-multi-model-roadmap.md#当前推进决策2026-09-18)。本轮仅完成选型，尚未创建或发布旋转框 SDK；分割精度变体和媒体扩展留待后续。
 
 ## Current Baseline
 
@@ -155,4 +155,4 @@ APIs remain separate Labs work and are not prerequisites for the MVP.
 
 ## Next Concrete Task
 
-当前任务是补齐已发布 PP-Segmentation 的门户登记，并推进旋转框独立 SDK 的 FP32 可行性评估。上方各 Phase 为历史总体路线；Workflow 实施仍暂缓，不因新增目录项而启动。
+PP-Segmentation 门户登记已上线，旋转框 FP32 可行性评估已归档。建议下一阶段建设独立旋转框 SDK 的图片首版：PP-YOLOE-R-s、DOTA 15 类、四点框、显式 CPU/GPU、Worker 和统一风格 Demo，补齐浏览器预处理、公共 API、双源分发与产品验收后再发布。上方各 Phase 为历史总体路线；Workflow 实施仍暂缓，不因新增目录项而启动。
