@@ -18,7 +18,7 @@
 - **TinyPose：0.3.0 已发布。** 三个稳定变体，单帧/人体框 API，独立 Demo 支持图片、本地视频和摄像头。物理摄像头、手机及 NPU 的验证边界保持不变。
 - **PP-Segmentation：0.1.0 已发布。** PP-YOLOE_seg_s 640 FP32，单帧 Blob/RGBA、原图框和独立二值 ROI 掩码。64图四模式严格质量验收通过，最小掩码IoU为0.9987084870848708；双源八组合、npm、GitHub Release和HTTPS Demo均已核验。原始官方裁边口径失败记录保留，最终采用原图整数尺寸独立参考。[固定发布记录](https://github.com/chenmohan123/web-sdk-PP-Segmentation/tree/89b350d30305ecbc275780e455d1c115a250570f/reports/2026-09-18-release-readiness)包含许可、双源、质量和交付回执。Trusted Publishing已配置，实际OIDC发布待下一次新版本验证。门户登记为第六个SDK。
 - **PP-RotatedDetection：0.1.0 已发布。** PP-YOLOE-R-s 1024 FP32，单帧 Blob/RGBA、DOTA 15 类和原图四点框。双源 × WASM/WebGPU × 主线程/Worker、npm、GitHub Release 与 HTTPS Demo 均已核验；[固定发布记录](https://github.com/chenmohan123/web-sdk-PP-RotatedDetection/tree/b54ae15ca124fd111cac6e683409fdbb88a14e13/reports/2026-09-18-release)保留模型身份、数值和交付回执。门户登记为第七个 SDK；大图切片、媒体、手机与 NPU 不在当前验证范围。
-- **多目标跟踪：0.1.0 已发布，门户第八条已上线。** npm、GitHub Release、HTTPS Demo 与远程治理已完成核验；SDK 采用纯算法标准 1.2.0、ByteTrack 高低分思想的独立数学实现、CPU/main、有状态 API、双语 Demo 及 Vanilla/React 示例，代码 Apache-2.0，不复制或分发旧参考实现。[前期评估](../../../reports/tracking/2026-09-18-feasibility/README.md)和[原本地验收](../../../reports/tracking/2026-09-19-foundation/README.md)保持历史原貌。固定 MOT17 七段 FRCNN 训练序列 5316 帧：默认 IDF1 48.2922%、IDSW 1101、MOTA 44.4010%、FP 4169、FN 57166；低分消融 IDF1 48.3465%、IDSW 1066，说明低分关联不是普遍精度提升。这不是测试集、官方 ByteTrack 排名或视频端到端速度。门户目录、CPU/跟踪筛选、详情和独立链接已通过 1440px 与 390px 桌面 Chromium 生产验收，见[固定交付证据](../../../reports/tracking/2026-09-19-release/README.md)。移动设备及其他后端仍未验证，Workflow 继续暂缓。
+- **多目标跟踪：0.1.0 已发布，门户第八条已上线；0.2.0-alpha.0 仅为本地候选。** npm、GitHub Release、HTTPS Demo 与远程治理已完成核验的仍是 0.1.0 ByteTrack 基线；SDK 采用纯算法标准 1.2.0、CPU/main、有状态 API、双语 Demo 及 Vanilla/React 示例，代码 Apache-2.0，不复制或分发旧参考实现。第一批本地候选新增 OC-SORT，Demo 仅提供已实现的 ByteTrack/OC-SORT 选择、有效参数和实际算法导出；它尚未发布到 npm 或 HTTPS Demo，门户生产 registry、目录和详情不提前显示 OC-SORT 为已上线能力。[前期评估](../../../reports/tracking/2026-09-18-feasibility/README.md)和[原本地验收](../../../reports/tracking/2026-09-19-foundation/README.md)保持历史原貌。固定 MOT17 七段 FRCNN 训练序列 5316 帧的 ByteTrack 0.1.0 默认 IDF1 48.2922%、IDSW 1101、MOTA 44.4010%、FP 4169、FN 57166；低分消融 IDF1 48.3465%、IDSW 1066，说明低分关联不是普遍精度提升。这不是测试集、官方 ByteTrack 排名或视频端到端速度。门户目录、CPU/跟踪筛选、详情和独立链接的 1440px 与 390px 桌面 Chromium 生产验收仍见[固定交付证据](../../../reports/tracking/2026-09-19-release/README.md)。移动设备及其他后端仍未验证，Workflow 继续暂缓。
 
 ### 已完成：旋转框独立 SDK 可行性
 
@@ -32,7 +32,7 @@
 
 PP-YOLOE-R-s 单尺度 FP32 已建立独立 SDK，完成四点坐标、原图还原、Blob/RGBA、浏览器预处理、显式 CPU/GPU、Worker、取消/释放、缓存、完整性校验、双源分发与正式发布。极端长宽比、平分排序与大图切片边界仍需另行验证；未经验证的能力不进入当前承诺。
 
-旋转框任务保持独立，不加入现有轴对齐 Detection API。分割 FP16/量化和媒体能力、HRNet 等姿态扩展保留后续；跟踪已完成独立实现及固定 MOT17 训练序列评测，现为待远程核验的首次发布候选，精度与身份连续性限制按报告保留。继续桌面优先、模型 SDK 的 ModelScope 默认并保留 Hugging Face，以及独立 Demo 统一风格的要求；无权重算法不得伪造模型资产/缓存或 GPU 支持。390px 桌面视口不等同手机验证，Workflow 仍暂缓。
+旋转框任务保持独立，不加入现有轴对齐 Detection API。分割 FP16/量化和媒体能力、HRNet 等姿态扩展保留后续；跟踪的 ByteTrack 0.1.0 已完成独立发布及固定 MOT17 训练序列评测，OC-SORT 为待同输入评测和发布判断的本地 0.2.0-alpha.0 候选，精度与身份连续性限制按各自报告保留。继续桌面优先、模型 SDK 的 ModelScope 默认并保留 Hugging Face，以及独立 Demo 统一风格的要求；无权重算法不得伪造模型资产/缓存或 GPU 支持。390px 桌面视口不等同手机验证，Workflow 仍暂缓。
 
 后文日期更早的“下一阶段”保留为历史实施记录，当前优先级以本节为准。
 

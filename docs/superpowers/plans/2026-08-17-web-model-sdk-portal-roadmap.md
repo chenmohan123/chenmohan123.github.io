@@ -14,7 +14,7 @@ readiness, not by the number of models mentioned in the catalog.
 
 TinyPose 0.3.0、PP-Segmentation 0.1.0 与 PP-RotatedDetection 0.1.0 已正式发布。分割以 PP-YOLOE_seg_s 640 FP32 提供单帧图片、原图框与二值 ROI 掩码；旋转框以 PP-YOLOE-R-s 1024 FP32 提供 DOTA 15 类和原图四点框。两者均完成双源、npm、Release 和 HTTPS Demo 回读；旋转框固定发布证据见[独立 SDK 回执](https://github.com/chenmohan123/web-sdk-PP-RotatedDetection/tree/b54ae15ca124fd111cac6e683409fdbb88a14e13/reports/2026-09-18-release)。门户已登记第七个 SDK，并保留各自桌面验证边界。
 
-旋转框首版已按可行性结论发布，当前不扩展切片、媒体、手机或 NPU 承诺。独立 `web-sdk-pp-tracking@0.1.0` 已完成 npm、GitHub Release、HTTPS Demo 和远程治理核验：采用纯算法标准 1.2.0、ByteTrack 高低分思想的数学独立实现、Apache-2.0、实例状态与 CPU/main API，双语 Demo 及 Vanilla/React 示例保持原边界。[前期参考评估](../../../reports/tracking/2026-09-18-feasibility/README.md)中的许可疑点保留为历史，本产品不复制或分发旧参考代码；[原本地验收和七 SDK 标准回归](../../../reports/tracking/2026-09-19-foundation/README.md)也不改写。2026-09-19 固定 MOT17 七段 FRCNN 训练序列 5316 帧已评测，默认 IDF1 48.2922%、IDSW 1101、MOTA 44.4010%，消融 IDF1 48.3465%、IDSW 1066；低分续接减少漏检但增加误检和切 ID，不是测试集排行榜或官方复现。门户第八个算法条目、CPU 分类和无权重详情已上线，生产目录、筛选、详情和独立链接通过 1440px 与 390px 桌面 Chromium 验收，见[固定交付证据](../../../reports/tracking/2026-09-19-release/README.md)。手机与跨设备兼容仍未声明。分割精度变体与媒体扩展保留后续，Workflow 继续暂缓。
+旋转框首版已按可行性结论发布，当前不扩展切片、媒体、手机或 NPU 承诺。独立 `web-sdk-pp-tracking@0.1.0` 已完成 npm、GitHub Release、HTTPS Demo 和远程治理核验：采用纯算法标准 1.2.0、ByteTrack 高低分思想的数学独立实现、Apache-2.0、实例状态与 CPU/main API，双语 Demo 及 Vanilla/React 示例保持原边界。第一批多算法工作已形成仅本地的 `0.2.0-alpha.0` 候选，新增 OC-SORT 与两策略 Demo；线上 npm、HTTPS Demo 和门户第八条仍是 0.1.0，不将候选或未来五种路线登记为已实现。[前期参考评估](../../../reports/tracking/2026-09-18-feasibility/README.md)中的许可疑点保留为历史，本产品不复制或分发旧参考代码；[原本地验收和七 SDK 标准回归](../../../reports/tracking/2026-09-19-foundation/README.md)也不改写。2026-09-19 固定 MOT17 七段 FRCNN 训练序列 5316 帧已评测，默认 IDF1 48.2922%、IDSW 1101、MOTA 44.4010%，消融 IDF1 48.3465%、IDSW 1066；这些是 ByteTrack 0.1.0 历史证据，低分续接减少漏检但增加误检和切 ID，不是测试集排行榜或官方复现。门户第八个算法条目、CPU 分类和无权重详情已上线，生产目录、筛选、详情和独立链接通过 1440px 与 390px 桌面 Chromium 验收，见[固定交付证据](../../../reports/tracking/2026-09-19-release/README.md)。手机与跨设备兼容仍未声明。分割精度变体与媒体扩展保留后续，Workflow 继续暂缓。
 
 ## Current Baseline
 
@@ -155,4 +155,4 @@ APIs remain separate Labs work and are not prerequisites for the MVP.
 
 ## Next Concrete Task
 
-PP-Segmentation、PP-RotatedDetection 与 PP-Tracking 门户登记均已上线。PP-Tracking 0.1.0 的 npm、GitHub Release、HTTPS Demo、远程治理及门户第八条生产回读已完成，固定 MOT17 训练序列评测及真实身份连续性限制保持不变；[生产交付证据](../../../reports/tracking/2026-09-19-release/README.md)覆盖目录、CPU/跟踪筛选、详情与独立链接。390px 仅为桌面布局证据。上方各 Phase 保留为历史总体路线；Workflow 实施仍暂缓。
+PP-Segmentation、PP-RotatedDetection 与 PP-Tracking 门户登记均已上线。PP-Tracking 0.1.0 的 npm、GitHub Release、HTTPS Demo、远程治理及门户第八条生产回读已完成，固定 MOT17 训练序列评测及真实身份连续性限制保持不变；第一批 OC-SORT `0.2.0-alpha.0` 只完成本地候选、两算法 Demo 和包验证，待同输入评测与独立发布判断，不能修改生产 registry 或对外链接。[生产交付证据](../../../reports/tracking/2026-09-19-release/README.md)覆盖 0.1.0 目录、CPU/跟踪筛选、详情与独立链接。390px 仅为桌面布局证据。上方各 Phase 保留为历史总体路线；Workflow 实施仍暂缓。
