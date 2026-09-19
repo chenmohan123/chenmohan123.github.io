@@ -24,6 +24,9 @@
  * @property {boolean} demoLanguageToggle
  * @property {boolean} cacheClear
  * @property {boolean} timingMarkers
+ * @property {boolean} algorithmTimingMarkers
+ * @property {boolean} demoStateReset
+ * @property {boolean} algorithmInformation
  * @property {boolean} modelInformation
  * @property {boolean} runtimeInformation
  * @property {boolean} performanceTimings

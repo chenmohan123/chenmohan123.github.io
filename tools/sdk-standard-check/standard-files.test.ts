@@ -34,12 +34,12 @@ describe("v1 standard source", () => {
     for (const file of requiredFiles) expect(existsSync(file), file).toBe(true);
   });
 
-  it("declares v1.1 rules while accepting v1.0 manifests", () => {
+  it("声明 v1.2 规则并兼容旧模型清单", () => {
     const rules = YAML.parse(readFileSync("standards/v1/rules.yaml", "utf8"));
     const schema = JSON.parse(readFileSync("standards/v1/sdk-manifest.schema.json", "utf8"));
-    expect(rules.standardVersion).toBe("1.1.0");
+    expect(rules.standardVersion).toBe("1.2.0");
     expect(schema.$id).toContain("web-model-sdk-standard/v1");
-    expect(schema.properties.schemaVersion.enum).toEqual(["1.0.0", "1.1.0"]);
+    expect(schema.properties.schemaVersion.enum).toEqual(["1.0.0", "1.1.0", "1.2.0"]);
   });
 
   it("defines GitHub Rulesets and Pages as remotely verified governance rules", () => {

@@ -3,16 +3,19 @@
 - [ ] Chinese README is the default and links to equivalent English README/docs.
 - [ ] npm package name/version, GitHub repository, and live Demo links work.
 - [ ] `pnpm verify` (or documented equivalent) passes.
-- [ ] CI workflow runs tests, typecheck, lint, build, and model/checksum validation.
+- [ ] CI workflow runs tests, typecheck, lint, build, and applicable manifest validation.
 - [ ] The active default-branch Ruleset requires pull requests, current CI checks, resolved conversations, and blocks deletion and force pushes.
 - [ ] The active release-tag Ruleset prevents matching published tags from being updated or deleted.
 - [ ] Ruleset bypass actors are absent or have a documented least-privilege reason.
 - [ ] GitHub About description, Homepage/Demo URL, and topics are configured.
 - [ ] Changelog contains the release entry.
-- [ ] GitHub Release uses an existing immutable tag and states model source, license, assets, backends, and limitations.
-- [ ] Model assets use versioned immutable URLs and SHA-256 checksums.
+- [ ] GitHub Release uses an existing immutable tag and states source, license, backends, limitations, and model assets when applicable.
+- [ ] （仅模型）Model assets use versioned immutable URLs and SHA-256 checksums.
 - [ ] Compatibility entries include browser, OS, device, backend, runtime, and test date.
 - [ ] The live Demo is deployed over HTTPS from protected source by a reproducible workflow with a commit-linked deployment record.
 - [ ] If GitHub Pages is used, Source is GitHub Actions and the deployment uses the `github-pages` environment, scoped Pages permissions, HTTPS, and concurrency control.
 - [ ] GitHub API governance evidence records the repository, Ruleset/environment identifiers, observed values, and verification time without credentials.
 - [ ] `pnpm sdk:check -- --repo . --format table` has no required failures.
+- [ ] （仅算法）使用 1.2.0 algorithm 清单，来源与许可已核对，不含 model/cache。
+- [ ] （仅算法）双语文档与发布说明记录输入输出、状态生命周期、复位、实现差异及 cold/warm 性能。
+- [ ] 不适用规则以 skip 保留证据和理由，不能把本地通过称为远程发布成功。

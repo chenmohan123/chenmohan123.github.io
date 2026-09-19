@@ -29,7 +29,9 @@ const detectors = {
   demoChineseDefault: (evidence) => evidence.demoChineseDefault,
   demoLanguageToggle: (evidence) => evidence.demoLanguageToggle,
   demoCacheClear: (evidence) => evidence.cacheClear,
-  demoTimingMarkers: (evidence) => evidence.timingMarkers,
+  demoTimingMarkers: (evidence, manifest) => manifest?.kind === "algorithm" ? evidence.algorithmTimingMarkers : evidence.timingMarkers,
+  demoStateReset: (evidence) => evidence.demoStateReset,
+  algorithmInformation: (evidence, manifest) => Boolean(manifest?.algorithm) && evidence.algorithmInformation,
   modelInformation: (evidence, manifest) => Boolean(manifest?.model?.assets?.length) && evidence.modelInformation,
   runtimeInformation: (evidence, manifest) => Boolean(manifest?.runtime?.actualBackendReported) && evidence.runtimeInformation,
   performanceTimings: (evidence, manifest) => Boolean(manifest?.performance?.timings?.length) && evidence.performanceTimings,
@@ -53,6 +55,13 @@ const detectors = {
 export async function evaluateRules(evidence, manifest, standardRoot = defaultStandardRoot, loadedRuleSet) {
   const rules = (loadedRuleSet ?? await loadRuleSet(standardRoot)).rules;
   return rules.map((rule) => {
+    // 仅经完整校验的清单可决定类型豁免；无清单的旧仓库沿用模型检查。
+    const kind = manifest ? (manifest.kind ?? "model") : evidence.manifestDeclared ? null : "model";
+    if (kind && rule.appliesTo && !rule.appliesTo.includes(kind)) {
+      return result(rule.id, rule.level, "skip", rule.message, rule.remediation,
+        manifest ? evidence.evidenceByKey["manifestPresent"]?.[0] : undefined,
+        `当前类型为 ${kind}，本规则仅适用于 ${rule.appliesTo.join("、")}；${manifest ? "清单已通过完整校验" : "未声明清单，沿用旧版模型检查，不豁免模型规则"}。`);
+    }
     if (["github-api", "remote-api"].includes(rule.verification)) {
       return result(
         rule.id,
