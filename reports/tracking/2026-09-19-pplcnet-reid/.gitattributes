@@ -1,0 +1,2 @@
+# 原始验证日志保留工具输出的换行和空格。
+*.log -text -whitespace

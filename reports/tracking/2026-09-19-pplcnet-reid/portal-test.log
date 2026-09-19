@@ -1,0 +1,31 @@
+$ vitest run
+
+ RUN  v3.2.7 C:/Users/chenm/.codex/worktrees/segmentation-portal/chenmohan123.github.io
+
+ ✓ tools/detection-comparison/tiny-precision.test.ts (3 tests) 31ms
+ ✓ tools/detection-comparison/build.test.ts (5 tests) 34ms
+ ✓ tools/detection-comparison/catalog.test.ts (2 tests) 59ms
+ ✓ src/lib/registry/schema.test.ts (4 tests) 128ms
+ ✓ src/content/models/registry.test.ts (6 tests) 215ms
+ ✓ tools/sdk-standard-check/standard-files.test.ts (7 tests) 455ms
+   ✓ v1 standard source > 接受包含变体、精度和多来源的模型清单  353ms
+ ✓ tools/sdk-standard-check/checker.test.ts (13 tests) 819ms
+   ✓ SDK repository discovery > accepts both v1.0 manifests and the v1.1 manifest template  472ms
+ ✓ src/components/registry/ModelDirectory.test.tsx (6 tests) 1028ms
+   ✓ ModelDirectory > CPU 过滤显示独立算法及无需模型权重  503ms
+ ✓ src/components/model/DetectionComparison.test.tsx (2 tests) 1862ms
+   ✓ Detection 模型选型 > 筛选稳定精度并保留批次，不把XS实验量化列入稳定表  1172ms
+   ✓ Detection 模型选型 > 切换后端同时更新AP与耗时，明确不同汇总规则  688ms
+ ✓ tools/sdk-standard-check/algorithm.test.ts (25 tests) 1595ms
+   ✓ 纯算法 SDK 契约 > 合法算法无模型与缓存也通过，模型专属规则有跳过理由和证据  507ms
+ ✓ tools/sdk-standard-check/manifest-validation.test.ts (22 tests) 1947ms
+   ✓ 清单完整 schema 校验 > 扫描使用所选标准的 schema，标准损坏时不归咎于仓库  538ms
+   ✓ 清单完整 schema 校验 > YAML 中错误的资产数组返回 CONFIG-001 和 CLI 退出码 1  624ms
+   ✓ 清单完整 schema 校验 > 多个仓库中的损坏清单不会阻止后续仓库扫描  592ms
+ ✓ src/lib/registry/query.test.ts (4 tests) 20ms
+
+ Test Files  12 passed (12)
+      Tests  99 passed (99)
+   Start at  23:20:57
+   Duration  31.17s (transform 1.03s, setup 71.00s, collect 5.07s, tests 8.19s, environment 225.74s, prepare 4.26s)
+
