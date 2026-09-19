@@ -1,6 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import { filterModels, groupCounts } from './query';
 import type { ModelData } from './types';
+import { readFileSync } from 'node:fs';
+import { parse } from 'yaml';
+import { modelSchema } from './schema';
 
 const common = {
   brand: 'baidu', status: 'available', repository: 'https://example.com', license: 'Apache-2.0',
@@ -18,6 +21,10 @@ const models = [
 ] as unknown as ModelData[];
 
 describe('filterModels', () => {
+  it('按 CPU 和算法家族过滤跟踪 SDK', () => {
+    const tracking = modelSchema.parse(parse(readFileSync('src/content/models/pp-tracking.yaml', 'utf8')));
+    expect(filterModels([...models, tracking], { query: 'ByteTrack', task: 'multi-object-tracking', status: 'all', backend: 'cpu', brand: 'self-developed' }).map(item => item.id)).toEqual(['pp-tracking']);
+  });
   it('combines text, task, status, and backend filters', () => {
     expect(filterModels(models, { query: 'layout', task: 'document-layout', status: 'available', backend: 'webgpu', brand: 'all' }).map((model) => model.id)).toEqual(['layout']);
   });

@@ -1,11 +1,38 @@
 import { test, expect } from "@playwright/test";
 
 for (const width of [1280, 390]) {
+  test(`纯算法在 ${width}px 支持 CPU 分类和完整详情`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 844 });
+    await page.goto('/');
+    await expect(page.locator('astro-island[component-url*="ModelDirectory"]')).not.toHaveAttribute('ssr', '');
+    await page.getByRole('combobox', { name: '后端', exact: true }).selectOption('cpu');
+    await page.getByRole('combobox', { name: '任务', exact: true }).selectOption('multi-object-tracking');
+    await expect(page.getByText('1 个条目', { exact: true })).toBeVisible();
+    await expect(page.getByText('纯算法 · 无需模型权重')).toBeVisible();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await page.screenshot({ path: `test-results/tracking-directory-${width}.png`, fullPage: true });
+    await page.getByRole('link', { name: 'PP-Tracking', exact: true }).click();
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('PP-Tracking');
+    await expect(page.getByText('CPU / JavaScript', { exact: true })).toBeVisible();
+    await expect(page.getByRole('heading', { name: '模型资源', exact: true })).toHaveCount(0);
+    await expect(page.getByText('无需模型权重', { exact: true })).toBeVisible();
+    await expect(page.getByText(/不是百度或 ByteTrack 官方移植/)).toBeVisible();
+    await expect(page.getByText(/有状态；实例生命周期/)).toBeVisible();
+    await expect(page.getByText(/默认 IDF1 48.2922%/)).toBeVisible();
+    await expect(page.getByRole('link', { name: 'GitHub 仓库', exact: true })).toHaveAttribute('href', 'https://github.com/chenmohan123/web-sdk-PP-Tracking');
+    await expect(page.getByRole('link', { name: 'npm 包', exact: true })).toHaveAttribute('href', 'https://www.npmjs.com/package/web-sdk-pp-tracking');
+    await expect(page.getByRole('link', { name: '打开在线 Demo', exact: true })).toHaveAttribute('href', 'https://chenmohan123.github.io/web-sdk-PP-Tracking/');
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await page.screenshot({ path: `test-results/tracking-detail-${width}.png`, fullPage: true });
+    await page.goto('/tasks/multi-object-tracking/');
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('多目标跟踪');
+    await expect(page.getByRole('link', { name: 'PP-Tracking' })).toHaveAttribute('href', '/models/pp-tracking/');
+  });
   test(`旋转框检测在 ${width}px 可筛选、搜索并打开完整发布详情`, async ({ page }) => {
     await page.setViewportSize({ width, height: 844 });
     await page.goto('/');
     await expect(page.locator('astro-island[component-url*="ModelDirectory"]')).not.toHaveAttribute('ssr', '');
-    await expect(page.getByText('7 个条目', { exact: true })).toBeVisible();
+    await expect(page.getByText('8 个条目', { exact: true })).toBeVisible();
     await page.getByRole('combobox', { name: '任务', exact: true }).selectOption({ label: '旋转框检测' });
     await page.getByRole('searchbox').fill('web-sdk-pp-rotated-detection');
     await expect(page.getByText('1 个条目', { exact: true })).toBeVisible();
@@ -33,7 +60,7 @@ for (const width of [1280, 390]) {
     await page.setViewportSize({ width, height: 844 });
     await page.goto('/');
     await expect(page.locator('astro-island[component-url*="ModelDirectory"]')).not.toHaveAttribute('ssr', '');
-    await expect(page.getByText('7 个条目', { exact: true })).toBeVisible();
+    await expect(page.getByText('8 个条目', { exact: true })).toBeVisible();
     await page.getByRole('combobox', { name: '任务', exact: true }).selectOption({ label: '实例分割' });
     await page.getByRole('searchbox').fill('web-sdk-pp-segmentation');
     await expect(page.getByText('1 个条目', { exact: true })).toBeVisible();
@@ -61,7 +88,7 @@ for (const width of [1280, 390]) {
     await page.setViewportSize({ width, height: 844 });
     await page.goto("/");
     await expect(page.locator('astro-island[component-url*="ModelDirectory"]')).not.toHaveAttribute("ssr", "");
-    await expect(page.getByText("7 个条目", { exact: true })).toBeVisible();
+    await expect(page.getByText("8 个条目", { exact: true })).toBeVisible();
     await page.getByRole("combobox", { name: "任务", exact: true }).selectOption({ label: "人体姿态" });
     await expect(page.getByText("1 个条目", { exact: true })).toBeVisible();
     await expect(page.getByRole("link", { name: "PP-DocLayoutV3", exact: true })).toHaveCount(0);
@@ -105,7 +132,7 @@ test("homepage exposes the model SDK directory and Models navigation", async ({
   await page.goto("/");
 
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-    "浏览器端模型 SDK 目录",
+    "浏览器端模型与算法 SDK 目录",
   );
   await expect(page.getByRole("navigation")).toContainText("Models");
 });

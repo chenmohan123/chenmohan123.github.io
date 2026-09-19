@@ -3,6 +3,9 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import ModelDirectory from './ModelDirectory';
 import type { ModelData } from '../../lib/registry/types';
+import { readFileSync } from 'node:fs';
+import { parse } from 'yaml';
+import { modelSchema } from '../../lib/registry/schema';
 
 const common = { brand: 'baidu', status: 'available', repository: 'https://example.com', license: 'Apache-2.0', package: { name: 'example', version: '1.0.0' }, demo: { url: 'https://example.com/demo', localProcessing: true }, runtime: { backends: [{ name: 'webgpu', status: 'stable' }], capabilities: [], verifiedEnvironments: [] }, io: { input: ['Blob'], output: ['JSON'] }, assets: [{ id: 'fp16', precision: 'fp16', bytes: 1, url: 'https://example.com/model', sha256: 'a'.repeat(64) }], limitations: [] } as const;
 const models = [
@@ -14,6 +17,16 @@ const models = [
 ] as unknown as ModelData[];
 
 describe('ModelDirectory', () => {
+  it('CPU 过滤显示独立算法及无需模型权重', () => {
+    const tracking = modelSchema.parse(parse(readFileSync('src/content/models/pp-tracking.yaml', 'utf8')));
+    render(<ModelDirectory models={[...models, tracking]} />);
+    fireEvent.change(screen.getByRole('combobox', { name: '后端' }), { target: { value: 'cpu' } });
+    fireEvent.change(screen.getByRole('combobox', { name: '任务' }), { target: { value: 'multi-object-tracking' } });
+    expect(screen.getByText('1 个条目')).toBeVisible();
+    expect(screen.getByText('纯算法 · 无需模型权重')).toBeVisible();
+    expect(screen.getByRole('link', { name: 'PP-Tracking' })).toHaveAttribute('href', '/models/pp-tracking/');
+    expect(screen.queryByText('PP-DocLayoutV3')).not.toBeInTheDocument();
+  });
   it('旋转框检测分类只展示独立 SDK 并提供详情入口', () => {
     render(<ModelDirectory models={models} />);
     expect(screen.getByRole('option', { name: '旋转框检测' })).toHaveValue('rotated-detection');
@@ -53,6 +66,6 @@ describe('ModelDirectory', () => {
   it('shows an honest empty state', () => {
     render(<ModelDirectory models={models} />);
     fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'not-a-model' } });
-    expect(screen.getByText('没有符合条件的模型')).toBeVisible();
+    expect(screen.getByText('没有符合条件的 SDK')).toBeVisible();
   });
 });

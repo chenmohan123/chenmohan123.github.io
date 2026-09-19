@@ -1,0 +1,39 @@
+id: pp-tracking
+kind: algorithm
+name: PP-Tracking
+brand: self-developed
+task: multi-object-tracking
+status: beta
+summary: 独立实现 ByteTrack 高低分两阶段关联思想的 CPU 主线程多目标跟踪算法，消费检测框并输出有状态轨迹；0.1.0 为待发布候选。
+repository: https://github.com/chenmohan123/web-sdk-PP-Tracking
+license: Apache-2.0
+package: { name: web-sdk-pp-tracking, version: 0.1.0 }
+demo: { url: 'https://chenmohan123.github.io/web-sdk-PP-Tracking/', localProcessing: true }
+runtime:
+  backends: [{ name: cpu, status: stable }]
+  capabilities: [main, stateful, reset, detection-input]
+  verifiedEnvironments:
+    - browser: Chromium 153.0.8010.12 / Playwright 1.63.0
+      os: Windows 11 专业版 10.0.26200
+      device: Intel Core i5-10400F @2.90GHz
+      testedAt: '2026-09-19'
+io:
+  input: [TrackingFrame（时间戳、图像尺寸、原图检测框与分数）]
+  output: [TrackingResult（轨迹 ID、状态、位置、实际后端与五项耗时）]
+assets: []
+algorithm:
+  id: pp-tracking
+  version: 0.1.0
+  family: ByteTrack 机制多目标跟踪
+  source: '独立实现；ByteTrack 论文 https://arxiv.org/abs/2110.06864；不是百度或 ByteTrack 官方移植，来源与实现差异见独立仓库 NOTICE 和算法指南。'
+  license: Apache-2.0
+  input: TrackingFrame
+  output: TrackingResult
+  stateful: true
+limitations:
+  - 本地发布候选，npm、GitHub Release 与在线 Demo 待远程核验；门户生产合并须等待目标链接可用。
+  - 无需模型权重；只消费已有检测，不含检测模型、视频解码、摄像头、ReID 或相机运动补偿。轨迹 ID 不是个人身份。
+  - 2026-09-19 固定 MOT17 七段 FRCNN 训练序列 5316 帧，默认 IDF1 48.2922%、IDSW 1101、MOTA 44.4010%、FP 4169、FN 57166；不是测试集成绩或官方 ByteTrack 排名。
+  - 低分消融 IDF1 48.3465%、IDSW 1066；默认低分续接减少漏检但增加误检和切 ID，不承诺普遍精度提升或可靠跨遮挡身份。
+  - 状态保存在实例内，seek 或图像尺寸改变前须 reset 并顺序重放；dispose 后不可继续更新。
+  - 仅验证 Windows 桌面 CPU/main；390px 为桌面窄视口，手机、Safari、Firefox、微信、Worker、WASM、WebGPU 与 NPU 尚未验证或未实现。

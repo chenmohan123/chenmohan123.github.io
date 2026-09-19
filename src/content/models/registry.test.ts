@@ -8,7 +8,7 @@ describe("model registry", () => {
     const models = readdirSync("src/content/models")
       .filter((file) => file.endsWith(".yaml"))
       .map((file) => modelSchema.parse(parse(readFileSync(`src/content/models/${file}`, "utf8"))));
-    expect(models).toHaveLength(7);
+    expect(models).toHaveLength(8);
     const model = models.find((entry) => entry.id === "pp-tinypose");
     expect(model).toBeDefined();
     expect(model?.task).toBe("pose-estimation");
