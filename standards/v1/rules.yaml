@@ -1,4 +1,4 @@
-standardVersion: "1.1.0"
+standardVersion: "1.2.0"
 rules:
   - id: META-001
     level: required
@@ -41,6 +41,7 @@ rules:
     message: Demo provides an in-page Chinese/English toggle
     remediation: Add a language toggle that does not alter inference state.
   - id: DEMO-004
+    appliesTo: [model]
     level: required
     detector: demoCacheClear
     message: Demo exposes current-model and global cache cleanup controls
@@ -48,9 +49,22 @@ rules:
   - id: DEMO-005
     level: required
     detector: demoTimingMarkers
-    message: Demo exposes model/runtime/timing information
-    remediation: Render data-sdk-model-info, data-sdk-runtime-info, and data-sdk-timing regions.
+    message: Demo 展示当前模型或算法的信息、运行信息和耗时
+    remediation: 模型使用 data-sdk-model-info，算法使用 data-sdk-algorithm-info；两者保留 data-sdk-runtime-info 和 data-sdk-timing。
+  - id: DEMO-006
+    appliesTo: [algorithm]
+    level: required
+    detector: demoStateReset
+    message: 算法 Demo 提供状态复位操作
+    remediation: 使用 data-sdk-state-reset 标记复位控件，并按状态生命周期契约连接 reset。
+  - id: ALGORITHM-001
+    appliesTo: [algorithm]
+    level: required
+    detector: algorithmInformation
+    message: 算法清单声明身份、家族、来源、许可、输入输出与有状态语义
+    remediation: 按 sdk-manifest.algorithm.yaml 填写 algorithm 字段并记录状态生命周期。
   - id: MODEL-001
+    appliesTo: [model]
     level: required
     detector: modelInformation
     message: Manifest declares model identity, precision, size, source, license, and checksum
@@ -63,9 +77,10 @@ rules:
   - id: PERF-001
     level: required
     detector: performanceTimings
-    message: Standard load and inference timing fields are declared
-    remediation: Document download, cache, integrity, session, inference, and total timing.
+    message: 声明当前 SDK 类型所需的标准耗时字段
+    remediation: 模型保留下载、缓存、校验、会话、推理和总耗时；算法声明 validationMs、predictionMs、associationMs、updateMs、totalMs。
   - id: CACHE-001
+    appliesTo: [model]
     level: required
     detector: cacheContract
     message: Cache storage, versioning, estimate, and cleanup are declared

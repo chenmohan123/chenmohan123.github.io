@@ -1,9 +1,8 @@
 # Web Model SDK Standard v1
 
 [中文（默认）](README.md) is the primary entry point. This equivalent English
-document uses standard version `1.1.0`. Version `1.1.0` remains compatible
-with `1.0.0` SDK manifests because it adds repository governance rather than
-runtime fields.
+document uses standard version `1.2.0`, retaining compatibility with `1.0.0`
+and `1.1.0` model manifests.
 
 Read the [runtime contract](sdk-contract.md), [single-SDK Demo contract](demo-contract.md),
 [portal boundary](portal-contract.md), [docs and release contract](docs-release-contract.md),
@@ -12,7 +11,7 @@ Read the [runtime contract](sdk-contract.md), [single-SDK Demo contract](demo-co
 then the machine-readable [rules](rules.yaml), [manifest schema](sdk-manifest.schema.json),
 and [UI tokens](ui-tokens.json).
 
-An SDK repository owns its framework-neutral runtime, npm package, current-model
+An SDK repository owns its framework-neutral runtime, npm package, current-model or algorithm
 Demo, documentation, examples, benchmarks, CI, and Releases. The portal owns
 catalogs, categories, comparisons, introduction pages, and Workflow entry
 points. Cross-SDK execution starts only after compatible public contracts and a
@@ -63,3 +62,30 @@ and path, an HTTP(S) `downloadUrl` with a host, positive byte count, and a
 An explicitly selected source must not be silently replaced after failure;
 only an `auto` policy may try sources in manifest order. A Git LFS pointer is
 not the browser-downloadable model payload.
+
+### Pure algorithm SDKs
+
+Only version `1.2.0` permits `kind: algorithm`. Omitted kind and `kind: model`
+retain model requirements; an older version cannot claim algorithm exemptions.
+Algorithm manifests require `algorithm` and prohibit `model` and `cache`;
+model manifests prohibit `algorithm`. Required algorithm fields are nonempty
+strings id, version, family, source, license, input, output, plus boolean stateful.
+Input/output describe the contract or reference complete API documentation;
+source records papers, code provenance, and implementation differences. Review
+license obligations separately.
+
+Use the [algorithm template](templates/sdk-manifest.algorithm.yaml) and shared
+checklists. Runtime reports the actual backend and execution mode; declare only
+implemented modes. Required timings are validationMs, predictionMs, associationMs,
+updateMs, totalMs. Cold means a new instance; warm means reused instance state.
+Do not invent model download or cache timings. Demo markers are
+data-sdk-algorithm-info, data-sdk-runtime-info, data-sdk-timing, and
+data-sdk-state-reset. Document inputs, outputs, provenance, license, state
+lifecycle, and reset semantics.
+
+Rules with appliesTo specify model or algorithm scope; omitted scope means both.
+MODEL-001, CACHE-001, DEMO-004 are model-only. ALGORITHM-001 and DEMO-006 are
+algorithm-only. Inapplicable rules retain skip status, manifest evidence path,
+and a reason. Only a fully validated manifest grants type exemptions. Invalid
+manifests produce CONFIG-001 and cannot bypass model requirements by claiming
+algorithm kind. Repositories without manifests retain legacy model checks.

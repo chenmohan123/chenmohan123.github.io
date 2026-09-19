@@ -82,19 +82,22 @@ export function validateManifest(value, options = {}) {
   // 完整 schema 确认类型后，保留既有契约的 HTTP、必需耗时和缓存能力检查。
   const errors = [];
   if (!isHttpUrlWithHost(value.repository)) errors.push("/repository：必须是含主机的 HTTP(S) 地址");
-  for (const [index, asset] of value.model.assets.entries()) {
+  for (const [index, asset] of (value.model?.assets ?? []).entries()) {
     if (!isHttpUrlWithHost(asset.url)) errors.push(`/model/assets/${index}/url：必须是含主机的 HTTP(S) 地址`);
   }
-  for (const [variantIndex, variant] of (value.model.variants ?? []).entries()) {
+  for (const [variantIndex, variant] of (value.model?.variants ?? []).entries()) {
     for (const [sourceIndex, source] of variant.sources.entries()) {
       if (!isHttpUrlWithHost(source.downloadUrl)) errors.push(`/model/variants/${variantIndex}/sources/${sourceIndex}/downloadUrl：必须是含主机的 HTTP(S) 地址`);
     }
   }
   const timingSet = new Set(value.performance.timings);
-  for (const field of ["modelDownloadMs", "modelCacheReadMs", "integrityMs", "sessionMs", "inferenceMs", "totalMs"]) {
+  const requiredTimings = value.kind === "algorithm"
+    ? ["validationMs", "predictionMs", "associationMs", "updateMs", "totalMs"]
+    : ["modelDownloadMs", "modelCacheReadMs", "integrityMs", "sessionMs", "inferenceMs", "totalMs"];
+  for (const field of requiredTimings) {
     if (!timingSet.has(field)) errors.push(`/performance/timings：缺少 ${field}`);
   }
-  for (const field of ["versionedKeys", "clearCurrent", "clearAll", "estimate"]) {
+  for (const field of value.kind === "algorithm" ? [] : ["versionedKeys", "clearCurrent", "clearAll", "estimate"]) {
     if (value.cache[field] !== true) errors.push(`/cache/${field}：必须声明为 true`);
   }
   return errors;

@@ -124,7 +124,7 @@ describe("SDK repository discovery", () => {
     const summary = summarize(report);
     const remoteFindings = report.findings.filter((finding: { id: string }) => /^(GOV|DEPLOY|PAGES)-/.test(finding.id));
 
-    expect(report.standardVersion).toBe("1.1.0");
+    expect(report.standardVersion).toBe("1.2.0");
     expect(remoteFindings.map((finding: { id: string }) => finding.id)).toEqual([
       "GOV-001",
       "GOV-002",
@@ -132,7 +132,7 @@ describe("SDK repository discovery", () => {
       "PAGES-001",
     ]);
     expect(remoteFindings.every((finding: { status: string }) => finding.status === "skip")).toBe(true);
-    expect(summary.requiredSkipped).toBe(4);
+    expect(summary.requiredSkipped).toBe(6);
     expect(summary.status).toBe("locally-compliant");
   });
 

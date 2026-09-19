@@ -1,0 +1,40 @@
+schemaVersion: "1.2.0"
+kind: algorithm
+id: example-algorithm
+name: 浏览器算法示例
+summary: 框架无关的浏览器纯算法，公开输入输出、状态生命周期和独立演示页面。
+package:
+  name: web-sdk-example-algorithm
+  version: 0.1.0
+repository: https://github.com/owner/web-sdk-example-algorithm
+demo:
+  url: https://owner.github.io/web-sdk-example-algorithm/
+  defaultLanguage: zh-CN
+  framework: react
+  localProcessing: true
+docs:
+  zhCN: docs/zh-CN/quick-start.md
+  en: docs/en/quick-start.md
+runtime:
+  backends: [cpu]
+  executionModes: [main]
+  actualBackendReported: true
+  runtimeVersion: example-algorithm@0.1.0
+algorithm:
+  id: example-algorithm
+  version: 0.1.0
+  family: 状态估计算法
+  source: 独立实现；请替换为论文、代码来源和实现差异的说明或文档路径
+  license: Apache-2.0
+  input: docs/zh-CN/api.md#输入
+  output: docs/zh-CN/api.md#输出
+  stateful: true
+performance:
+  timings: [validationMs, predictionMs, associationMs, updateMs, totalMs]
+  coldStartDefined: true
+  warmRunDefined: true
+examples:
+  vanilla: { status: available, path: examples/vanilla }
+  react: { status: available, path: examples/react }
+verification:
+  environments: []

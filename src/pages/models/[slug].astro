@@ -19,5 +19,12 @@ const npmUrl = `https://www.npmjs.com/package/${data.package.name}`;
   <header class="page-heading"><p class="eyebrow">{data.brand} · {taskDisplayNames[data.task] ?? data.task}</p><h1>{data.name}</h1><p>{data.summary}</p><p class="model-links"><a href={data.repository}>GitHub 仓库</a><a href={npmUrl}>npm 包</a></p></header>
   {model.id === 'pp-detection' && <p><a href="/models/pp-detection/compare/">模型选型与对比 →</a></p>}
   {model.id === 'pp-tinypose' && <p><a href="https://github.com/chenmohan123/web-sdk-PP-TinyPose/blob/v0.3.0/README.md">规格与精度对比 →</a></p>}
-  <div class="detail-grid"><article><h2>运行能力</h2><BackendTable runtime={data.runtime} /><h2>模型资源</h2><ul>{data.assets.map((asset) => <li><strong>{asset.id}</strong> · {mib(asset.bytes)} · SHA-256 已记录</li>)}</ul><h2>限制</h2><ul>{data.limitations.map((item) => <li>{item}</li>)}</ul><InstallBlock package={data.package} /></article><DemoPanel demo={data.demo} /></div>
+  <div class="detail-grid"><article><h2>运行能力</h2><BackendTable runtime={data.runtime} />
+    {data.kind === 'algorithm' && data.algorithm ? <section><h2>算法信息</h2><p>无需模型权重</p><dl>
+      <dt>算法与版本</dt><dd>{data.algorithm.id} · {data.algorithm.version}</dd>
+      <dt>家族</dt><dd>{data.algorithm.family}</dd><dt>来源</dt><dd>{data.algorithm.source}</dd>
+      <dt>许可</dt><dd>{data.algorithm.license}</dd><dt>状态</dt><dd>{data.algorithm.stateful ? '有状态；实例生命周期与复位规则见限制和独立 SDK 文档' : '无状态'}</dd>
+      <dt>输入</dt><dd>{data.algorithm.input}</dd><dt>输出</dt><dd>{data.algorithm.output}</dd>
+    </dl></section> : <section><h2>模型资源</h2><ul>{data.assets.map((asset) => <li><strong>{asset.id}</strong> · {mib(asset.bytes)} · SHA-256 已记录</li>)}</ul></section>}
+    <h2>限制</h2><ul>{data.limitations.map((item) => <li>{item}</li>)}</ul><InstallBlock package={data.package} /></article><DemoPanel demo={data.demo} /></div>
 </SiteLayout>

@@ -10,5 +10,6 @@ export async function getStaticPaths() {
 
 const { task, models } = Astro.props as { task: CollectionEntry<'models'>['data']['task']; models: CollectionEntry<'models'>[] };
 const taskLabel = taskDisplayNames[task] ?? task;
+const kindLabel = models.every(model => model.data.kind === 'algorithm') ? '算法' : '模型';
 ---
-<SiteLayout title={`${taskLabel} 模型 · Web Model SDK`} description={`${taskLabel} 浏览器模型 SDK`}><h1>{taskLabel}</h1><ul>{models.map((entry) => <li><a href={`/models/${entry.id}/`}>{entry.data.name}</a> · {entry.data.status}</li>)}</ul></SiteLayout>
+<SiteLayout title={`${taskLabel} ${kindLabel} · Web Model SDK`} description={`${taskLabel} 浏览器${kindLabel} SDK`}><h1>{taskLabel}</h1><ul>{models.map((entry) => <li><a href={`/models/${entry.id}/`}>{entry.data.name}</a> · {entry.data.status}</li>)}</ul></SiteLayout>

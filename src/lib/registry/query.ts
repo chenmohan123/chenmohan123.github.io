@@ -11,7 +11,7 @@ export interface ModelFilters {
 export function filterModels(models: ModelData[], filters: ModelFilters): ModelData[] {
   const query = filters.query.trim().toLocaleLowerCase();
   return models.filter((model) => {
-    const haystack = `${model.name} ${model.summary} ${model.package.name}`.toLocaleLowerCase();
+    const haystack = `${model.name} ${model.summary} ${model.package.name} ${model.algorithm?.family ?? ''}`.toLocaleLowerCase();
     return (!query || haystack.includes(query))
       && (filters.brand === 'all' || model.brand === filters.brand)
       && (filters.task === 'all' || model.task === filters.task)

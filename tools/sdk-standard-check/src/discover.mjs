@@ -29,6 +29,9 @@ export async function discoverRepository(root, manifest) {
     demoLanguageToggle: false,
     cacheClear: false,
     timingMarkers: false,
+    algorithmTimingMarkers: false,
+    demoStateReset: false,
+    algorithmInformation: false,
     modelInformation: false,
     runtimeInformation: false,
     performanceTimings: false,
@@ -48,6 +51,7 @@ export async function discoverRepository(root, manifest) {
   if (files.some((file) => file.startsWith("docs/zh-CN/"))) { evidence.locales.push("zh-CN"); addEvidence(evidence, "docs.zhCN", files.find((file) => file.startsWith("docs/zh-CN/"))); }
   if (files.some((file) => file.startsWith("docs/en/"))) { evidence.locales.push("en"); addEvidence(evidence, "docs.en", files.find((file) => file.startsWith("docs/en/"))); }
 
+  if (manifest.path) addEvidence(evidence, "manifestPresent", manifest.path);
   const demoFile = files.find((file) => /^apps\/demo\/(?:index\.html|src\/main\.[jt]sx?|package\.json)$/i.test(file)) ?? files.find((file) => /^demo\/index\.html$/i.test(file));
   evidence.demoEntry = Boolean(demoFile);
   if (demoFile) addEvidence(evidence, "demoEntry", demoFile);
@@ -56,6 +60,21 @@ export async function discoverRepository(root, manifest) {
     if (/English|中文|language|语言|i18n/i.test(text)) { evidence.demoLanguageToggle = true; addEvidence(evidence, "demoLanguageToggle", file); }
     if (/data-sdk-cache-clear|clear(?:Model)?Cache|清理缓存/i.test(text)) { evidence.cacheClear = true; addEvidence(evidence, "cacheClear", file); }
     if (/data-sdk-(?:timing|model-info|runtime-info)|modelDownloadMs|inferenceMs|耗时/i.test(text)) { evidence.timingMarkers = true; addEvidence(evidence, "timingMarkers", file); }
+    if (/data-sdk-state-reset\b/.test(text)) { evidence.demoStateReset = true; addEvidence(evidence, "demoStateReset", file); }
+  }
+
+  // 算法必须具备三个独立区域；允许不同组件文件分别提供标记。
+  const algorithmMarkers = ["data-sdk-algorithm-info", "data-sdk-runtime-info", "data-sdk-timing"];
+  const demoTexts = allText.filter(({ file }) => isDemoFile(file));
+  evidence.algorithmTimingMarkers = algorithmMarkers.every((marker) => demoTexts.some(({ text }) => new RegExp(`${marker}\\b`).test(text)));
+  if (evidence.algorithmTimingMarkers) {
+    for (const { file, text } of demoTexts) {
+      if (algorithmMarkers.some((marker) => new RegExp(`${marker}\\b`).test(text))) addEvidence(evidence, "demoTimingMarkers", file);
+    }
+  }
+  if (!manifest.errors.length && manifest.value?.kind === "algorithm") {
+    evidence.algorithmInformation = true;
+    addEvidence(evidence, "algorithmInformation", manifest.path);
   }
 
   if (manifest.value?.model?.assets?.length || /model(?:\s|_|-)info|precision|sha256|参数量|精度/i.test(joined)) { evidence.modelInformation = true; addEvidence(evidence, "modelInformation", manifest.path ?? markdown[0] ?? "README.md"); }
