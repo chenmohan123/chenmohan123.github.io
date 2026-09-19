@@ -32,7 +32,7 @@
 
 PP-YOLOE-R-s 单尺度 FP32 已建立独立 SDK，完成四点坐标、原图还原、Blob/RGBA、浏览器预处理、显式 CPU/GPU、Worker、取消/释放、缓存、完整性校验、双源分发与正式发布。极端长宽比、平分排序与大图切片边界仍需另行验证；未经验证的能力不进入当前承诺。
 
-旋转框任务保持独立，不加入现有轴对齐 Detection API。分割 FP16/量化和媒体能力、HRNet 等姿态扩展保留后续；跟踪的 ByteTrack 0.1.0 已完成独立发布，OC-SORT 本地 0.2.0-alpha.0 候选也已完成同输入评测。结论是保持 ByteTrack 默认、OC-SORT 仅作可选候选，发布需另行决策。第二批先评估外观辅助/图像输入契约、权重来源和浏览器成本，再决定 DeepSORT/BoT-SORT；JDE、FairMOT、CenterTrack 继续后置，未完成者不得出现在生产清单。继续桌面优先、模型 SDK 的 ModelScope 默认并保留 Hugging Face，以及独立 Demo 统一风格的要求；无权重算法不得伪造模型资产/缓存或 GPU 支持。390px 桌面视口不等同手机验证，Workflow 仍暂缓。
+旋转框任务保持独立，不加入现有轴对齐 Detection API。分割 FP16/量化和媒体能力、HRNet 等姿态扩展保留后续；跟踪的 ByteTrack 0.1.0 已完成独立发布，OC-SORT 本地 0.2.0-alpha.0 候选也已完成同输入评测。结论是保持 ByteTrack 默认、OC-SORT 仅作可选候选，发布需另行决策。第二批已完成[第一轮 ReID / DeepSORT 可行性](../../../reports/tracking/2026-09-19-reid-feasibility/README.md)：轻量 OMZ 0288 探针在浏览器全黑/全白输入上失败，未选入模型清单；Paddle PPLCNet 尚未转换。下一步优先设计并独立实现同一 SDK 的外部向量 DeepSORT 关联层，明确特征空间身份、严格输入及有界图库；模型加载前先演进混合能力标准，再验收真实图片和分发。BoT-SORT、JDE、FairMOT、CenterTrack 继续后置，未完成者不得出现在生产清单。继续桌面优先、模型 SDK 的 ModelScope 默认并保留 Hugging Face，以及独立 Demo 统一风格的要求；无权重算法不得伪造模型资产/缓存或 GPU 支持。390px 桌面视口不等同手机验证，Workflow 仍暂缓。
 
 后文日期更早的“下一阶段”保留为历史实施记录，当前优先级以本节为准。
 
