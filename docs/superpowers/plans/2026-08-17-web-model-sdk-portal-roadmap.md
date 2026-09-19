@@ -14,7 +14,7 @@ readiness, not by the number of models mentioned in the catalog.
 
 TinyPose 0.3.0、PP-Segmentation 0.1.0 与 PP-RotatedDetection 0.1.0 已正式发布。分割以 PP-YOLOE_seg_s 640 FP32 提供单帧图片、原图框与二值 ROI 掩码；旋转框以 PP-YOLOE-R-s 1024 FP32 提供 DOTA 15 类和原图四点框。两者均完成双源、npm、Release 和 HTTPS Demo 回读；旋转框固定发布证据见[独立 SDK 回执](https://github.com/chenmohan123/web-sdk-PP-RotatedDetection/tree/b54ae15ca124fd111cac6e683409fdbb88a14e13/reports/2026-09-18-release)。门户已登记第七个 SDK，并保留各自桌面验证边界。
 
-旋转框首版已按可行性结论发布，当前不扩展切片、媒体、手机或 NPU 承诺。多目标跟踪在[前期固定参考评估](../../../reports/tracking/2026-09-18-feasibility/README.md)后，已完成纯算法标准1.2.0和独立 `web-sdk-pp-tracking@0.1.0` 本地首版：ByteTrack高低分机制、数学定义独立实现、Apache-2.0来源说明、实例状态、CPU/main API、双语Demo及Vanilla/React示例。前期参考代码的许可疑点仍在历史报告中；本产品不复制或分发这些代码。29单测、9组Chromium153交互与实际包通过；Chromium151的10/50/100框各600次warm样本和129次独立API更新已归档，[7SDK新旧标准回归](../../../reports/tracking/2026-09-19-foundation/README.md)既有规则状态无变化。当前仅本地交付、待整分支独立审查，未发布npm/Release/在线Demo，不登记第8个在线条目；真实视频MOT精度、手机和远程治理尚未验证。分割精度变体和媒体扩展留待后续，Workflow继续暂缓。
+旋转框首版已按可行性结论发布，当前不扩展切片、媒体、手机或 NPU 承诺。多目标跟踪在[前期固定参考评估](../../../reports/tracking/2026-09-18-feasibility/README.md)后，已完成纯算法标准1.2.0和独立 `web-sdk-pp-tracking@0.1.0` 本地首版：ByteTrack高低分机制、数学定义独立实现、Apache-2.0来源说明、实例状态、CPU/main API、双语Demo及Vanilla/React示例。前期参考代码的许可疑点仍在历史报告中；本产品不复制或分发这些代码。29单测、9组Chromium153交互与实际包通过；Chromium151的10/50/100框各600次warm样本和129次独立API更新已归档，[7SDK新旧标准回归](../../../reports/tracking/2026-09-19-foundation/README.md)既有规则状态无变化。独立整分支审查已通过，当前仅本地交付，未发布npm/Release/在线Demo，不登记第8个在线条目；真实视频MOT精度、手机和远程治理尚未验证。分割精度变体和媒体扩展留待后续，Workflow继续暂缓。
 
 ## Current Baseline
 
@@ -155,4 +155,4 @@ APIs remain separate Labs work and are not prerequisites for the MVP.
 
 ## Next Concrete Task
 
-PP-Segmentation 与 PP-RotatedDetection 门户登记均已上线。跟踪独立本地SDK、算法标准和桌面合成验收已完成；下一步独立整分支审查、本地Demo交付，再按明确范围安排发布和真实授权视频质量验证。当前没有已发布的跟踪npm/在线Demo，不进入可用门户目录；390px仅为桌面布局证据。上方各Phase保留为历史总体路线；Workflow实施仍暂缓。
+PP-Segmentation 与 PP-RotatedDetection 门户登记均已上线。跟踪独立本地SDK、算法标准、桌面合成验收及独立整分支审查已完成，本地Demo已交付；下一步按明确范围安排首次发布和真实授权视频质量验证。当前没有已发布的跟踪npm/在线Demo，不进入可用门户目录；390px仅为桌面布局证据。上方各Phase保留为历史总体路线；Workflow实施仍暂缓。
