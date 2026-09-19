@@ -68,11 +68,12 @@ a.reset(); expect(a.update(frame).generation).toBe(1);
 
 ### Task 4: 桌面验收证据与交付复核
 
-**Files:** SDK scripts/evaluation/*、reports/2026-09-19-desktop/*、docs兼容/性能指南、manifest.verification；门户reports/sdk-standard/pp-tracking-after.json与计划验收记录。
+**Files:** SDK scripts/evaluation/*、reports/2026-09-19-desktop/*、docs兼容/性能指南、manifest.verification；门户reports/sdk-standard/pp-tracking-after.json与计划验收记录，以及docs/superpowers/plans/2026-09-13-pp-detection-multi-model-roadmap.md、2026-08-17-web-model-sdk-portal-roadmap.md中的当前跟踪进度。
 **Interfaces:** 消费已完成SDK，不能用静态声明替代运行；证据区分机制正确性和浏览器性能，无移动端/MOT精度承诺。
 
 - [ ] 可复现合成序列性能测量至少10、50、100框，注明浏览器/OS/CPU/日期及样本数、p50/p95；包含cold创建与warm更新，固定输入可重跑，无绝对性能断言。
 - [ ] 记录真实浏览器主线程运行、两种语言、390px、Vanilla及导入导出，保留机器可读摘要和命令。截图放忽略目录，报告只列路径。
 - [ ] 校验npm pack、无runtime依赖和源码来源；运行全部SDK tests/typechecks/builds/browser与门户sdk:check/tests/build。
 - [ ] 更新verification只填实际测试的浏览器版本和设备，sdk:check远程skip如实保留；记录发布尚未执行及真实视频质量未测。
+- [ ] 同步两份总路线的当前状态为实际完成的本地SDK/桌面证据，保留旧阶段历史说明，不把尚未发布的Tracking登记为可用门户条目；归档主代理的7个现有SDK新旧标准检查差异报告。
 - [ ] 提交证据和兼容说明，独立整分支审查后交付本地Demo及可审查代码。
