@@ -28,6 +28,8 @@ pnpm --config.verify-deps-before-run=false --config.manage-package-manager-versi
 
 `verify`固定原JSON SHA256为 `3c20f94d6e7f099cfc4e14d1848c120ae259249bfd47237ee1394de86af712d4`，重新推导7个SDK的差异和失败列表。`rerun`还从Git提交重新导出并比较每条规则id/level/status，新报告保留新执行时间与新证据路径，不覆盖原报告。源码仓库位置由 `--repo-root` 指定，临时快照在系统临时目录；快照在任务结束后保留供检查。Windows系统tar无法正确解包TinyPose的既有中文截图名，入口改用Python标准库zipfile解包git archive ZIP；这不是原始报告扫描失败。
 
+输出路径会解析现有父目录真实位置，拒绝归档目录本身、Windows大小写和symlink/junction别名，写入前重新检查并以排他方式创建文件。已有输出返回 `EEXIST`，复跑请选择新 `--out` 文件名。定向回归命令为 `node --test reports/tracking/2026-09-19-foundation/check-output-path.mjs`。
+
 ## 门户和SDK证据
 
 - [portal-test.log](portal-test.log)：Task1完整原始日志，11文件93测试通过。

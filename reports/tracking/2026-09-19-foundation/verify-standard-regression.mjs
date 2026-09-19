@@ -5,6 +5,7 @@ import os from 'node:os';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
+import { protectOutput, writeReport } from './output-path.mjs';
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 const portal = path.resolve(root, '../../..');
@@ -17,7 +18,7 @@ for (let i = 0; i < args.length; i += 2) {
   assert.ok(args[i].startsWith('--') && Object.hasOwn(options, key) && args[i + 1], '参数为 --repo-root 路径、--out 路径');
   options[key] = path.resolve(args[i + 1]);
 }
-assert.ok(!options.out.startsWith(root + path.sep), '复跑不得覆盖固定报告');
+protectOutput(options.out, root);
 const bytes = await fs.readFile(path.join(root, 'standard-regression.json'));
 assert.equal(createHash('sha256').update(bytes).digest('hex'), '3c20f94d6e7f099cfc4e14d1848c120ae259249bfd47237ee1394de86af712d4', '原始标准回归证据已变更');
 const report = JSON.parse(bytes);
@@ -66,7 +67,6 @@ if (mode === 'verify') {
     assert.deepEqual(statuses(current.findings), statuses(original.current), original.repository + '新规则状态偏离');
     records.push({ repository: original.repository, commit: original.commit, baseline: baseline.findings, current: current.findings });
   }
-  await fs.mkdir(path.dirname(options.out), { recursive: true });
-  await fs.writeFile(options.out, JSON.stringify({ verifiedAt: new Date().toISOString(), baselineCommit, currentCommit, snapshots: work, records }, null, 2) + '\n');
+  await writeReport(options.out, JSON.stringify({ verifiedAt: new Date().toISOString(), baselineCommit, currentCommit, snapshots: work, records }, null, 2) + '\n', root);
   console.log('7个固定提交快照复跑通过：' + options.out + '；临时快照保留于 ' + work);
 }
