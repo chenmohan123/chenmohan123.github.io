@@ -1,0 +1,47 @@
+{
+  "verifiedAt": "2026-09-19T05:52:51.7386765Z",
+  "sdk": {
+    "repository": "https://github.com/chenmohan123/web-sdk-PP-Tracking",
+    "sourceCommit": "c2ee347884426aa1a03962b76ac2915959397611",
+    "package": {
+      "name": "web-sdk-pp-tracking",
+      "version": "0.1.0",
+      "url": "https://www.npmjs.com/package/web-sdk-pp-tracking/v/0.1.0",
+      "tarball": "https://registry.npmjs.org/web-sdk-pp-tracking/-/web-sdk-pp-tracking-0.1.0.tgz",
+      "bytes": 16541,
+      "integrity": "sha512-0ujJfrcXoDcynzIUYQRI7pcETWT1x2t4LkEqB1D2cGQrnT8JCfk9LNrEZwAIDnBh1TLILcPmOaUbCDxsjE+tTQ==",
+      "provenance": null,
+      "consumptionVerified": true
+    },
+    "release": {
+      "url": "https://github.com/chenmohan123/web-sdk-PP-Tracking/releases/tag/v0.1.0",
+      "id": 391930716,
+      "assetSha256": "4b532782a008a5ef411d6db00fb58900884fef0c1759c15c9441d30a3093b2bb",
+      "workflow": "https://github.com/chenmohan123/web-sdk-PP-Tracking/actions/runs/35424969266",
+      "workflowMode": "verified-existing",
+      "workflowConclusion": "success"
+    },
+    "demo": {
+      "url": "https://chenmohan123.github.io/web-sdk-PP-Tracking/",
+      "verified": true,
+      "boundary": "Windows 桌面 Chromium 153、CPU/main；390px 为桌面窄视口。"
+    },
+    "trustedPublishing": {
+      "status": "configured",
+      "configurationId": "da2f97a7-680c-4041-b902-26c74f639a3c",
+      "repository": "chenmohan123/web-sdk-PP-Tracking",
+      "workflow": "release.yml",
+      "environment": "npm",
+      "httpStatus": 201,
+      "independentGetPerformed": false,
+      "oidcPublicationVerified": false
+    }
+  },
+  "portal": {
+    "record": "src/content/models/pp-tracking.yaml",
+    "recordStatus": "beta",
+    "deliveryState": "本地候选，待门户 PR、合并与生产回读",
+    "productionVerified": false
+  },
+  "boundary": "独立 SDK 已发布；当前证据不声明门户生产站已包含第八条，也不声明 0.1.0 经 OIDC 发布。"
+}

@@ -14,7 +14,7 @@ readiness, not by the number of models mentioned in the catalog.
 
 TinyPose 0.3.0、PP-Segmentation 0.1.0 与 PP-RotatedDetection 0.1.0 已正式发布。分割以 PP-YOLOE_seg_s 640 FP32 提供单帧图片、原图框与二值 ROI 掩码；旋转框以 PP-YOLOE-R-s 1024 FP32 提供 DOTA 15 类和原图四点框。两者均完成双源、npm、Release 和 HTTPS Demo 回读；旋转框固定发布证据见[独立 SDK 回执](https://github.com/chenmohan123/web-sdk-PP-RotatedDetection/tree/b54ae15ca124fd111cac6e683409fdbb88a14e13/reports/2026-09-18-release)。门户已登记第七个 SDK，并保留各自桌面验证边界。
 
-旋转框首版已按可行性结论发布，当前不扩展切片、媒体、手机或 NPU 承诺。多目标跟踪已进入独立 `web-sdk-pp-tracking@0.1.0` 发布候选：纯算法标准 1.2.0、ByteTrack 高低分思想的数学独立实现、Apache-2.0、实例状态、CPU/main API、双语 Demo 及 Vanilla/React 示例保持原边界。[前期参考评估](../../../reports/tracking/2026-09-18-feasibility/README.md)中的许可疑点保留为历史，本产品不复制或分发旧参考代码；[原本地验收和七 SDK 标准回归](../../../reports/tracking/2026-09-19-foundation/README.md)也不改写。2026-09-19 固定 MOT17 七段 FRCNN 训练序列 5316 帧已评测，默认 IDF1 48.2922%、IDSW 1101、MOTA 44.4010%，消融 IDF1 48.3465%、IDSW 1066；低分续接减少漏检但增加误检和切 ID，不是测试集排行榜或官方复现。门户本地准备第八个算法条目、CPU 分类和无权重详情，生产合并等待 npm/Release/HTTPS Demo 链接可用及远程治理核验。尚不声明已线上发布、手机或跨设备兼容。分割精度变体与媒体扩展保留后续，Workflow 继续暂缓。
+旋转框首版已按可行性结论发布，当前不扩展切片、媒体、手机或 NPU 承诺。独立 `web-sdk-pp-tracking@0.1.0` 已完成 npm、GitHub Release、HTTPS Demo 和远程治理核验：采用纯算法标准 1.2.0、ByteTrack 高低分思想的数学独立实现、Apache-2.0、实例状态与 CPU/main API，双语 Demo 及 Vanilla/React 示例保持原边界。[前期参考评估](../../../reports/tracking/2026-09-18-feasibility/README.md)中的许可疑点保留为历史，本产品不复制或分发旧参考代码；[原本地验收和七 SDK 标准回归](../../../reports/tracking/2026-09-19-foundation/README.md)也不改写。2026-09-19 固定 MOT17 七段 FRCNN 训练序列 5316 帧已评测，默认 IDF1 48.2922%、IDSW 1101、MOTA 44.4010%，消融 IDF1 48.3465%、IDSW 1066；低分续接减少漏检但增加误检和切 ID，不是测试集排行榜或官方复现。门户第八个算法条目、CPU 分类和无权重详情已准备登记；当前生产站尚未包含第八条，须在门户 PR、合并及生产回读完成后关闭。手机与跨设备兼容仍未声明。分割精度变体与媒体扩展保留后续，Workflow 继续暂缓。
 
 ## Current Baseline
 
@@ -155,4 +155,4 @@ APIs remain separate Labs work and are not prerequisites for the MVP.
 
 ## Next Concrete Task
 
-PP-Segmentation 与 PP-RotatedDetection 门户登记均已上线。跟踪现为 0.1.0 发布候选，已补充固定 MOT17 训练序列评测及真实身份连续性限制；门户第八条算法记录在本地就绪，生产合并等待 npm/Release/HTTPS Demo 和远程治理核验。390px 仅为桌面布局证据。上方各 Phase 保留为历史总体路线；Workflow 实施仍暂缓。
+PP-Segmentation 与 PP-RotatedDetection 门户登记均已上线。PP-Tracking 0.1.0 的 npm、GitHub Release、HTTPS Demo 和远程治理已核验，固定 MOT17 训练序列评测及真实身份连续性限制保持不变；门户第八条算法记录已准备登记，当前生产站尚未包含该条目，后续完成门户 PR、合并与生产回读。390px 仅为桌面布局证据。上方各 Phase 保留为历史总体路线；Workflow 实施仍暂缓。
