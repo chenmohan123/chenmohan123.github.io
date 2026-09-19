@@ -1,0 +1,115 @@
+{
+  "verifiedAt": "2026-09-19T06:10:53.9667866Z",
+  "repository": "chenmohan123/chenmohan123.github.io",
+  "pullRequest": {
+    "url": "https://github.com/chenmohan123/chenmohan123.github.io/pull/46",
+    "headSha": "a307bfd92430729827bf8d1ed24d98104d4f8859",
+    "number": 46,
+    "mergeCommit": "85a756e25a8ca1fbf164fb1cc48de26a998a46e1",
+    "mergedAt": "2026-09-19T06:09:25Z"
+  },
+  "pagesRun": {
+    "url": "https://github.com/chenmohan123/chenmohan123.github.io/actions/runs/35425845679",
+    "headSha": "85a756e25a8ca1fbf164fb1cc48de26a998a46e1",
+    "id": 35425845679,
+    "conclusion": "success",
+    "status": "completed"
+  },
+  "deployment": {
+    "environment": "github-pages",
+    "id": 6537824165,
+    "state": "success",
+    "logUrl": "https://github.com/chenmohan123/chenmohan123.github.io/actions/runs/35425845679/job/105851571284",
+    "url": "https://chenmohan123.github.io/",
+    "sha": "85a756e25a8ca1fbf164fb1cc48de26a998a46e1"
+  },
+  "governance": {
+    "pages": {
+      "httpsEnforced": true,
+      "buildType": "workflow",
+      "htmlUrl": "https://chenmohan123.github.io/"
+    },
+    "environment": {
+      "deploymentBranchPolicy": {
+        "protected_branches": false,
+        "custom_branch_policies": true
+      },
+      "branchPolicies": [
+        {
+          "id": 57534935,
+          "node_id": "MDE2OkdhdGVCcmFuY2hQb2xpY3k1NzUzNDkzNQ==",
+          "name": "main",
+          "type": "branch"
+        }
+      ],
+      "name": "github-pages"
+    },
+    "ruleset": {
+      "id": 20934822,
+      "name": "Protect main",
+      "target": "branch",
+      "source_type": "Repository",
+      "source": "chenmohan123/chenmohan123.github.io",
+      "enforcement": "active",
+      "conditions": {
+        "ref_name": {
+          "exclude": [],
+          "include": [
+            "~DEFAULT_BRANCH"
+          ]
+        }
+      },
+      "rules": [
+        {
+          "type": "deletion"
+        },
+        {
+          "type": "non_fast_forward"
+        },
+        {
+          "type": "required_status_checks",
+          "parameters": {
+            "strict_required_status_checks_policy": true,
+            "do_not_enforce_on_create": true,
+            "required_status_checks": [
+              {
+                "context": "test",
+                "integration_id": 15368
+              }
+            ]
+          }
+        },
+        {
+          "type": "pull_request",
+          "parameters": {
+            "required_approving_review_count": 0,
+            "dismiss_stale_reviews_on_push": false,
+            "required_reviewers": [],
+            "require_code_owner_review": false,
+            "require_last_push_approval": false,
+            "required_review_thread_resolution": true,
+            "require_extra_approval_for_unattributed_changes": true,
+            "allowed_merge_methods": [
+              "merge",
+              "squash",
+              "rebase"
+            ]
+          }
+        }
+      ],
+      "node_id": "RRS_lACqUmVwb3NpdG9yec5PriFUzgE_cKY",
+      "created_at": "2026-08-17T17:08:05.028+08:00",
+      "updated_at": "2026-08-23T14:13:25.24+08:00",
+      "bypass_actors": [],
+      "current_user_can_bypass": "never",
+      "_links": {
+        "self": {
+          "href": "https://api.github.com/repos/chenmohan123/chenmohan123.github.io/rulesets/20934822"
+        },
+        "html": {
+          "href": "https://github.com/chenmohan123/chenmohan123.github.io/rules/20934822"
+        }
+      }
+    }
+  }
+}
