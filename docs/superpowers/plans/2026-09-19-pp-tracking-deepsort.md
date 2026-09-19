@@ -10,6 +10,8 @@
 
 **规格：** `../specs/2026-09-19-pp-tracking-deepsort-design.md`。
 
+**完成状态：** 两项任务及最终审查修复已完成，2026-09-19 可本地交付。SDK 核心28cb83a、Demo fc3adeb、草稿修复5b7c714、有界导出修复4833dbf。完整verify通过；最终Demo14项、浏览器12组、包消费和本地标准检查通过。下方清单保留原实施步骤，实际结果见[阶段回执](../../../reports/tracking/2026-09-19-deepsort/README.md)。本轮没有远程发布。
+
 ## 全局约束
 
 - SDK 工作树 S：`C:/Users/chenm/.codex/worktrees/tracking-algorithms/web-sdk-PP-Tracking`，基线 `1982e87`。
@@ -47,22 +49,24 @@ expect(tracker.update({ ...frame, timestampMs: 100 }).tracks[0].id).toBe(1);
 
 ### Task 2: Demo、打包与双语文档
 
-**文件：** S/demo/src/{App.tsx,data.ts,playback.ts}，必要时聚焦的导入准备模块；tests/demo.test.ts、tests/browser.mjs、scripts/check-package.mjs；README.md/README.en.md、CHANGELOG.md、sdk-manifest.yaml；docs/zh-CN 与 docs/en 的 API、algorithm、quick-start、troubleshooting、privacy-deployment、performance、compatibility、demo-checklist、release-checklist。只更改实际受影响内容。
+**文件：** S/demo/src/{App.tsx,data.ts,playback.ts}，必要时聚焦的导入准备模块；tests/demo.test.ts、tests/browser.mjs、scripts/check-package.mjs；README.md/README.en.md、CHANGELOG.md、NOTICE、sdk-manifest.yaml；docs/zh-CN 与 docs/en 的 API、algorithm、quick-start、troubleshooting、privacy-deployment、performance、compatibility、demo-checklist、release-checklist。只更改实际受影响内容。
 
 **接口：** 消费 Task 1 的 featureSpace {id,dimension}、frame.featureSpaceId、detection.embedding、maxCosineDistance/gallerySize。产出第三策略 Demo、可原子导入的准备函数、包三方式消费。
 
 - [ ] 阅读 Task 1 类型和规格，先给导入/切换新增失败测试：有向量包装对象保留身份和维度，非法末帧导入失败仍保留此前 session 的结果和时间，旧无向量序列可供 ByteTrack 使用。
 - [ ] 运行 `npm test -- --run tests/demo.test.ts` 并记录预期失败。
 - [ ] 数据层兼容既有 `{ frames }` 包装对象和可选的顶层 featureSpace，保留外观字段并深复制；DeepSORT 导入在临时 tracker 完整验证，成功才 configure/setFrames。可新增 prepareSequence(value, algorithm, currentOptions) 聚焦函数，其命名与实际签名在报告里固定。
-- [ ] 为原创内置样例提供确定性合成向量；算法控件新增 DeepSORT（合成外观向量），信息中注明当前特征空间。切换导入无向量序列到 DeepSORT 失败时保留旧配置和结果；严禁填假向量到用户数据。
+- [ ] 为原创内置样例提供确定性合成向量；算法控件新增简短名称 DeepSORT，样例信息明确标注合成外观向量，并注明当前特征空间。切换导入无向量序列到 DeepSORT 失败时保留旧配置和结果；严禁填假向量到用户数据。
 - [ ] 导出有效参数和可重新导入序列（带 featureSpace）；验证 seek/reset/语言切换，使用当前紧凑布局与 UI tokens。
 - [ ] 扩展 check-package 的 ESM/CJS/TS 实际 DeepSORT 调用，公共运行时导出仍只有 createTracker/TrackingError。
 - [ ] 扩展浏览器测试：第三策略运行、导出身份和生效参数、合法包装导入、非法输入保留状态、seek、双语和 390px 无溢出；保留原有测试覆盖。
-- [ ] 更新清单与双语文档，写明严格特征契约、图库上限、算法差异、IoU 后备范围、CPU 关联与模型推理区分、合成证据及本地未发布状态。版本保持 0.2.0-alpha.0。
+- [ ] 更新清单、NOTICE 与双语文档，写明论文来源、严格特征契约、图库上限、算法差异、IoU 后备范围、CPU 关联与模型推理区分、合成证据及本地未发布状态。版本保持 0.2.0-alpha.0。
 - [ ] 运行 `npm run verify`，记录结果与浏览器截图路径，自审差异，指定文件本地中文提交。
 - [ ] 写完整任务报告及短返回，交协调者审查。
 
 ## 协调者收尾
+
+整体审查补充（2026-09-19）：合法高维输入经格式化结果报告导出会超过5 MiB。按专门设计新增有界紧凑“导出输入序列”，准备和下载共用UTF-8大小检查，结果报告单独保留；增加512D/1000帧真实下载重导入与大小临界回归。此修复独立记录RED/GREEN，不覆盖原完整验证证据。
 
 - [ ] 每任务一次规格和质量审查，有问题按技能修复复审；最终全分支审查。
 - [ ] 更新 P 多算法设计及两份路线当前段落，仅记录本地第三算法和未完成的模型/真实外观验收。
