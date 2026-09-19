@@ -1,0 +1,38 @@
+{
+  "verifiedAt": "2026-09-19T06:11:46.375Z",
+  "url": "https://chenmohan123.github.io/",
+  "browser": "151.0.7922.34",
+  "results": [
+    {
+      "width": 1440,
+      "height": 900,
+      "checks": [
+        "HTTPS 200",
+        "八个独立 SDK",
+        "CPU 和跟踪分类筛选",
+        "0.1.0 与 beta 状态",
+        "真实指标与独立实现边界",
+        "独立仓库/npm/Demo 链接",
+        "目录与详情无横向溢出",
+        "跟踪分类页"
+      ],
+      "pageErrors": []
+    },
+    {
+      "width": 390,
+      "height": 900,
+      "checks": [
+        "HTTPS 200",
+        "八个独立 SDK",
+        "CPU 和跟踪分类筛选",
+        "0.1.0 与 beta 状态",
+        "真实指标与独立实现边界",
+        "独立仓库/npm/Demo 链接",
+        "目录与详情无横向溢出",
+        "跟踪分类页"
+      ],
+      "pageErrors": []
+    }
+  ],
+  "boundary": "桌面 Chromium 的生产页面与窄屏布局验证，不代表手机实机验证。"
+}
