@@ -31,13 +31,13 @@
 
 ### Task 2: 发布候选与纯算法门户支持
 
-**Files:** 门户 `standards/v1/portal-contract.md`、`src/lib/registry/{schema,types,labels,query}.ts`及相关测试、`src/pages/models/[slug].astro`、目录筛选、`src/content/models/pp-tracking.yaml`；SDK `AGENTS.md`、README双语、docs双语发布/兼容/性能指南、`sdk-manifest.yaml`、CHANGELOG、`.github/workflows/*`、Demo公开链接文案。
+**Files:** 门户 `standards/v1/portal-contract.md`、`src/lib/registry/{schema,types,labels,query}.ts`及相关测试、`src/pages/models/[slug].astro`、目录筛选、`src/content/models/pp-tracking.yaml`、`.github/workflows/deploy.yml`；SDK `AGENTS.md`、README双语、docs双语发布/兼容/性能指南、`sdk-manifest.yaml`、CHANGELOG、`.github/workflows/*`、Demo公开链接文案。
 **Interfaces:** 消费Task1已审查summary；门户kind互斥模型与算法，CPU后端、multi-object-tracking分类、algorithm元数据；PP-Tracking条目仅本地待发布验证，远程合并由主代理控制。
 
 - [ ] 先扩标准：模型继续要求assets非空；算法assets=[]且algorithm必填，不接收假模型权重。schema测试覆盖旧7模型、正确算法、缺来源/算法带权重拒绝、模型缺资产拒绝。示例：`expect(modelSchema.safeParse({...tracking, assets:[modelAsset]}).success).toBe(false)`。
 - [ ] 实现目录/详情/筛选算法展示，CPU/JavaScript清楚，保留现有视觉令牌。单SDK详情不导入任何runtime。支持390px布局。
 - [ ] 更新发布候选双语文档与Demo远程链接、真实评测限制、版本0.1.0；旧本地验收报告保持历史原样。AGENTS远程规则改成明确授权下可执行，不给未来无限授权。
-- [ ] 发布工作流统一npm环境，先验证tag版本。支持首次手工npm已存在相同版本时安全核对并跳过重复发布，不能吞掉不一致或真正发布错误；未来版本走OIDC。Pages和CI最小权限，按实际线上/离线边界写说明。
+- [ ] 发布工作流统一npm环境，先验证tag版本。支持首次手工npm已存在相同版本时安全核对并跳过重复发布，不能吞掉不一致或真正发布错误；未来版本走OIDC。Pages和CI最小权限，按实际线上/离线边界写说明。门户deploy.yml的pages/id-token写权限移至deploy job，concurrency.cancel-in-progress=false，以满足现行发布契约并保持原构建命令。
 - [ ] 最终候选完整SDK verify一次；门户checker/相关tests/build与浏览器目录/详情/CPU过滤/390px，保存报告；更新两份路线至待发布候选。两仓分别提交，独立审查后交主代理。
 
 ### Task 3: 首次发布、线上核验与门户合并
