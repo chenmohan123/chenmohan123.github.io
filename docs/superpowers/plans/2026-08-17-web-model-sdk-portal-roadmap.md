@@ -14,7 +14,7 @@ readiness, not by the number of models mentioned in the catalog.
 
 TinyPose 0.3.0、PP-Segmentation 0.1.0 与 PP-RotatedDetection 0.1.0 已正式发布。分割以 PP-YOLOE_seg_s 640 FP32 提供单帧图片、原图框与二值 ROI 掩码；旋转框以 PP-YOLOE-R-s 1024 FP32 提供 DOTA 15 类和原图四点框。两者均完成双源、npm、Release 和 HTTPS Demo 回读；旋转框固定发布证据见[独立 SDK 回执](https://github.com/chenmohan123/web-sdk-PP-RotatedDetection/tree/b54ae15ca124fd111cac6e683409fdbb88a14e13/reports/2026-09-18-release)。门户已登记第七个 SDK，并保留各自桌面验证边界。
 
-旋转框首版已按可行性结论发布，当前不扩展切片、媒体、手机或 NPU 承诺。多目标跟踪已完成[固定参考可行性评估](../../../reports/tracking/2026-09-18-feasibility/README.md)：五配置60组合成实跑和多实例状态诊断，首发候选为 ByteTrack 算法机制。低分恢复有效，同时保留交叉掉头身份交换、跨类复用、全局 ID 和时间间隔边界；根 MIT/Apache 与基础来源 GPL 的追溯差异尚需处置。下一阶段先完成来源/许可、无权重算法标准扩展和独立 API/实现设计，再验证真实序列与桌面浏览器。本轮没有建立生产 SDK、发布 npm 或分发上游代码，不把合成结果当作 MOT 精度或浏览器性能。分割精度变体和媒体扩展留待后续，Workflow 继续暂缓。
+旋转框首版已按可行性结论发布，当前不扩展切片、媒体、手机或 NPU 承诺。多目标跟踪在[前期固定参考评估](../../../reports/tracking/2026-09-18-feasibility/README.md)后，已完成纯算法标准1.2.0和独立 `web-sdk-pp-tracking@0.1.0` 本地首版：ByteTrack高低分机制、数学定义独立实现、Apache-2.0来源说明、实例状态、CPU/main API、双语Demo及Vanilla/React示例。前期参考代码的许可疑点仍在历史报告中；本产品不复制或分发这些代码。29单测、9组Chromium153交互与实际包通过；Chromium151的10/50/100框各600次warm样本和129次独立API更新已归档，[7SDK新旧标准回归](../../../reports/tracking/2026-09-19-foundation/README.md)既有规则状态无变化。当前仅本地交付、待整分支独立审查，未发布npm/Release/在线Demo，不登记第8个在线条目；真实视频MOT精度、手机和远程治理尚未验证。分割精度变体和媒体扩展留待后续，Workflow继续暂缓。
 
 ## Current Baseline
 
@@ -155,4 +155,4 @@ APIs remain separate Labs work and are not prerequisites for the MVP.
 
 ## Next Concrete Task
 
-PP-Segmentation 与 PP-RotatedDetection 门户登记均已上线。跟踪固定参考评估已完成，下一阶段以 ByteTrack 算法机制为候选，处理来源/许可与无权重标准，设计独立 API、实例状态和时间策略后再进入 TS/真实序列/桌面浏览器验证；当前无跟踪生产 SDK。上方各 Phase 为历史总体路线；Workflow 实施仍暂缓，不因新增目录项或跟踪评估而启动。
+PP-Segmentation 与 PP-RotatedDetection 门户登记均已上线。跟踪独立本地SDK、算法标准和桌面合成验收已完成；下一步独立整分支审查、本地Demo交付，再按明确范围安排发布和真实授权视频质量验证。当前没有已发布的跟踪npm/在线Demo，不进入可用门户目录；390px仅为桌面布局证据。上方各Phase保留为历史总体路线；Workflow实施仍暂缓。

@@ -1,0 +1,82 @@
+$ astro check && astro build
+08:29:11 [vite] Re-optimizing dependencies because vite config has changed
+08:29:12 [vite] [optimizer] bundling dependencies...
+08:29:14 [content] Syncing content
+08:29:14 [content] Synced content
+08:29:14 [types] Generated 3.07s
+08:29:14 [check] Getting diagnostics for Astro files in C:\Users\chenm\.codex\worktrees\segmentation-portal\chenmohan123.github.io...
+[96mreports/sdk-standard/2026-09-12-detection-download/verify-example.mjs[0m:[93m76[0m:[93m10[0m - [93mwarning[0m[90m ts(2568): [0mProperty 'error' may not exist on type '{ date: string; browser: string; sdk: string; status: string; runs: never[]; errors: never[]; }'. Did you mean 'errors'?
+
+[7m76[0m   report.error = String(error);
+[7m  [0m [93m         ~~~~~[0m
+[96mreports/sdk-standard/2026-09-12-detection-download/verify-example.mjs[0m:[93m36[0m:[93m12[0m - [93mwarning[0m[90m ts(2568): [0mProperty 'click' may not exist on type 'SVGElement | HTMLElement'. Did you mean 'onclick'?
+  Property 'click' does not exist on type 'SVGElement'.
+
+[7m36[0m     button.click();
+[7m  [0m [93m           ~~~~~[0m
+[96mreports/sdk-standard/2026-09-12-detection-download/verify-example.mjs[0m:[93m35[0m:[93m12[0m - [93mwarning[0m[90m ts(2568): [0mProperty 'click' may not exist on type 'SVGElement | HTMLElement'. Did you mean 'onclick'?
+  Property 'click' does not exist on type 'SVGElement'.
+
+[7m35[0m     button.click();
+[7m  [0m [93m           ~~~~~[0m
+
+[96mreports/sdk-standard/2026-09-15-tiny-release/demo-smoke.mjs[0m:[93m161[0m:[93m10[0m - [93mwarning[0m[90m ts(2568): [0mProperty 'error' may not exist on type '{ date: string; base: string; deployment: any; os: string; cpu: string; manifestSha256: string; rows: never[]; errors: never[]; status: string; }'. Did you mean 'errors'?
+
+[7m161[0m   result.error = String(e);
+[7m   [0m [93m         ~~~~~[0m
+
+[96msrc/lib/registry/schema.ts[0m:[93m22[0m:[93m121[0m - [93mwarning[0m[90m ts(6385): [0m'(params?: string | { normalize?: boolean | undefined; pattern?: RegExp | undefined; abort?: boolean | undefined; hostname?: RegExp | undefined; protocol?: RegExp | undefined; error?: string | ... 1 more ... | undefined; message?: string | undefined; } | undefined): ZodString' is deprecated.
+
+[7m22[0m   assets: z.array(z.object({ id: z.string(), precision: z.string(), bytes: z.number().int().positive(), url: z.string().url(), sha256: z.string().regex(/^[a-f0-9]{64}$/) })).min(1),
+[7m  [0m [93m                                                                                                                        ~~~[0m
+[96msrc/lib/registry/schema.ts[0m:[93m15[0m:[93m36[0m - [93mwarning[0m[90m ts(6385): [0m'(params?: string | { normalize?: boolean | undefined; pattern?: RegExp | undefined; abort?: boolean | undefined; hostname?: RegExp | undefined; protocol?: RegExp | undefined; error?: string | ... 1 more ... | undefined; message?: string | undefined; } | undefined): ZodString' is deprecated.
+
+[7m15[0m   demo: z.object({ url: z.string().url(), localProcessing: z.boolean() }),
+[7m  [0m [93m                                   ~~~[0m
+[96msrc/lib/registry/schema.ts[0m:[93m12[0m:[93m26[0m - [93mwarning[0m[90m ts(6385): [0m'(params?: string | { normalize?: boolean | undefined; pattern?: RegExp | undefined; abort?: boolean | undefined; hostname?: RegExp | undefined; protocol?: RegExp | undefined; error?: string | ... 1 more ... | undefined; message?: string | undefined; } | undefined): ZodString' is deprecated.
+
+[7m12[0m   repository: z.string().url(),
+[7m  [0m [93m                         ~~~[0m
+
+Result (54 files): 
+- 0 errors
+- 0 warnings
+- 7 hints
+
+08:29:34 [content] Syncing content
+08:29:34 [content] Synced content
+08:29:34 [types] Generated 697ms
+08:29:34 [build] output: "static"
+08:29:34 [build] mode: "static"
+08:29:34 [build] directory: C:\Users\chenm\.codex\worktrees\segmentation-portal\chenmohan123.github.io\dist\
+08:29:34 [build] Collecting build info...
+08:29:34 [build] ✓ Completed in 772ms.
+08:29:34 [build] Building static entrypoints...
+08:29:36 [vite] ✓ built in 1.16s
+08:29:42 [vite] ✓ built in 5.96s
+08:29:42 [build] Rearranging server assets...
+
+ generating static routes 
+08:29:42   ├─ /brands/baidu/index.html (+17ms) 
+08:29:42   ├─ /docs/index.html (+9ms) 
+08:29:42   ├─ /models/pp-detection/compare/index.html (+60ms) 
+08:29:42   ├─ /models/pp-detection/index.html (+3ms) 
+08:29:42   ├─ /models/pp-doclayoutv3/index.html (+3ms) 
+08:29:42   ├─ /models/pp-lcnet-x1-0-doc-ori/index.html (+3ms) 
+08:29:42   ├─ /models/pp-ocrv6/index.html (+3ms) 
+08:29:42   ├─ /models/pp-rotated-detection/index.html (+3ms) 
+08:29:42   ├─ /models/pp-segmentation/index.html (+3ms) 
+08:29:42   ├─ /models/pp-tinypose/index.html (+3ms) 
+08:29:42   ├─ /tasks/detection/index.html (+4ms) 
+08:29:42   ├─ /tasks/document-layout/index.html (+4ms) 
+08:29:42   ├─ /tasks/image-correction/index.html (+3ms) 
+08:29:42   ├─ /tasks/ocr/index.html (+3ms) 
+08:29:42   ├─ /tasks/rotated-detection/index.html (+3ms) 
+08:29:42   ├─ /tasks/instance-segmentation/index.html (+3ms) 
+08:29:42   ├─ /tasks/pose-estimation/index.html (+3ms) 
+08:29:42   ├─ /index.html (+89ms) 
+08:29:42 ✓ Completed in 479ms.
+
+08:29:42 [build] ✓ Completed in 7.70s.
+08:29:42 [build] 18 page(s) built in 8.48s
+08:29:42 [build] Complete!

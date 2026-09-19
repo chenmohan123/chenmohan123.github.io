@@ -6,3 +6,6 @@ reports/sdk-standard/2026-09-15-detection-selection/*.log -text -whitespace
 src/data/pp-detection-comparison.json -text
 # 实验归档保留原始 CRLF 和文件尾空行，校验其他行尾空格。
 reports/rotated-detection/2026-09-18-feasibility/** -text whitespace=blank-at-eol,space-before-tab,cr-at-eol
+reports/tracking/2026-09-19-foundation/** -text whitespace=blank-at-eol,space-before-tab,cr-at-eol
+# 原始构建/测试日志保留工具输出的行尾空格和尾部空行。
+reports/tracking/2026-09-19-foundation/*.log -text -whitespace

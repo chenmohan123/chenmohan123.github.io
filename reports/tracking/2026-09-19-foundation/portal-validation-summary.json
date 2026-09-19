@@ -1,0 +1,18 @@
+{
+  "date": "2026-09-19",
+  "kind": "既有执行结果的结构化摘要，不是原始测试日志或重新执行",
+  "unit": { "passed": 93, "files": 11, "source": "portal-test.log" },
+  "build": { "pages": 18, "errors": 0, "warnings": 0, "hints": 7, "source": "portal-build.log", "note": "Task 1的既有构建；Task 4归档后构建结果另见实施报告。" },
+  "e2e": {
+    "passed": 14,
+    "durationSeconds": 6.3,
+    "server": "本轮生产构建的Astro preview，127.0.0.1:4321",
+    "viewports": [1280, 390],
+    "scope": ["目录", "详情", "选型"],
+    "source": ".superpowers/sdd/2026-09-19-pp-tracking-foundation/progress.md；主代理命令会话93634a",
+    "rawLogFile": null,
+    "note": "原始输出保留在会话中，未另存日志；本文件仅据主代理执行记录整理。默认astro dev在60000ms未监听，生产preview测试通过不表示dev问题已修复。"
+  },
+  "remoteChanges": false,
+  "trackingRegisteredInOnlineCatalog": false
+}

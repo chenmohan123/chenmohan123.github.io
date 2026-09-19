@@ -18,7 +18,7 @@
 - **TinyPose：0.3.0 已发布。** 三个稳定变体，单帧/人体框 API，独立 Demo 支持图片、本地视频和摄像头。物理摄像头、手机及 NPU 的验证边界保持不变。
 - **PP-Segmentation：0.1.0 已发布。** PP-YOLOE_seg_s 640 FP32，单帧 Blob/RGBA、原图框和独立二值 ROI 掩码。64图四模式严格质量验收通过，最小掩码IoU为0.9987084870848708；双源八组合、npm、GitHub Release和HTTPS Demo均已核验。原始官方裁边口径失败记录保留，最终采用原图整数尺寸独立参考。[固定发布记录](https://github.com/chenmohan123/web-sdk-PP-Segmentation/tree/89b350d30305ecbc275780e455d1c115a250570f/reports/2026-09-18-release-readiness)包含许可、双源、质量和交付回执。Trusted Publishing已配置，实际OIDC发布待下一次新版本验证。门户登记为第六个SDK。
 - **PP-RotatedDetection：0.1.0 已发布。** PP-YOLOE-R-s 1024 FP32，单帧 Blob/RGBA、DOTA 15 类和原图四点框。双源 × WASM/WebGPU × 主线程/Worker、npm、GitHub Release 与 HTTPS Demo 均已核验；[固定发布记录](https://github.com/chenmohan123/web-sdk-PP-RotatedDetection/tree/b54ae15ca124fd111cac6e683409fdbb88a14e13/reports/2026-09-18-release)保留模型身份、数值和交付回执。门户登记为第七个 SDK；大图切片、媒体、手机与 NPU 不在当前验证范围。
-- **多目标跟踪：固定参考可行性评估完成，生产前置待办。** [60组合成实跑证据](../../../reports/tracking/2026-09-18-feasibility/README.md)覆盖官方 ByteTrack、OC-SORT 及 Paddle 两类跟踪实现；首发候选为 ByteTrack 算法机制。低分关联、短遮挡恢复已复现，同时保留掉头交叉身份交换、跨类 ID 复用、全局计数碰撞/去重及时间间隔边界。根 MIT/Apache 与基础来源 GPL 的追溯差异尚需处置；先完成来源/许可、无权重算法标准扩展与独立 API 设计，再进入 TS 和真实序列/桌面浏览器验证。本轮未建立 SDK、发布 npm 或上游代码，合成结果不是 MOT 基准，Workflow 继续暂缓。
+- **多目标跟踪：独立SDK本地首版与桌面证据已完成，尚未发布。** [前期60组合成评估](../../../reports/tracking/2026-09-18-feasibility/README.md)保留参考实现的许可追溯疑点和身份交换等限制。现采用ByteTrack高低分关联机制，依据数学定义独立实现Kalman、全局分配、实例状态与时间策略，以Apache-2.0提供本地 `web-sdk-pp-tracking@0.1.0`，不复制或分发旧参考代码。纯算法标准1.2.0、框架无关CPU/main API、双语Demo及Vanilla/React示例已完成；29单测、9组Chromium153产品交互和实际包通过，Chromium151的10/50/100框各600次warm性能样本已归档。[本地验收与7SDK标准回归](../../../reports/tracking/2026-09-19-foundation/README.md)保留提交、哈希和边界。尚未发布npm/Release/在线Demo，不登记第8个在线SDK；真实授权视频质量、移动端和远程治理另行验证，Workflow继续暂缓。
 
 ### 已完成：旋转框独立 SDK 可行性
 
@@ -32,7 +32,7 @@
 
 PP-YOLOE-R-s 单尺度 FP32 已建立独立 SDK，完成四点坐标、原图还原、Blob/RGBA、浏览器预处理、显式 CPU/GPU、Worker、取消/释放、缓存、完整性校验、双源分发与正式发布。极端长宽比、平分排序与大图切片边界仍需另行验证；未经验证的能力不进入当前承诺。
 
-旋转框任务保持独立，不加入现有轴对齐 Detection API。分割 FP16/量化和媒体能力、HRNet 等姿态扩展保留后续；跟踪依据上述证据进入来源/许可、无权重标准与独立实现设计阶段，真实视频和浏览器尚未验证。继续桌面优先、模型 SDK 的 ModelScope 默认并保留 Hugging Face，以及独立 Demo 统一风格的要求；无权重算法不得伪造模型资产/缓存或 GPU 支持。手机复核按后续发布范围安排，Workflow 仍暂缓。
+旋转框任务保持独立，不加入现有轴对齐 Detection API。分割 FP16/量化和媒体能力、HRNet 等姿态扩展保留后续；跟踪已完成独立本地实现和桌面合成验证，当前等待整分支独立审查及后续发布安排，真实授权视频MOT质量尚未验证。继续桌面优先、模型 SDK 的 ModelScope 默认并保留 Hugging Face，以及独立 Demo 统一风格的要求；无权重算法不得伪造模型资产/缓存或 GPU 支持。390px桌面视口不等同手机验证，Workflow仍暂缓。
 
 后文日期更早的“下一阶段”保留为历史实施记录，当前优先级以本节为准。
 
