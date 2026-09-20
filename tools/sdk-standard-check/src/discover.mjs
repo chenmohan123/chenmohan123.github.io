@@ -1,5 +1,6 @@
 import path from "node:path";
-import { exists, listFiles, readJsonIfExists, readTextIfExists, isMarkdown, isDemoFile } from "./files.mjs";
+import { stat } from "node:fs/promises";
+import { listFiles, readJsonIfExists, readTextIfExists, isMarkdown, isDemoFile } from "./files.mjs";
 
 function addEvidence(evidence, key, filePath) {
   evidence.evidenceByKey[key] ??= [];
@@ -18,7 +19,9 @@ function exportValueForEntry(exportsValue, entry) {
 function exportTargets(value) {
   if (typeof value === "string") return [value];
   if (Array.isArray(value)) return value.flatMap(exportTargets);
-  if (value && typeof value === "object") return Object.values(value).flatMap(exportTargets);
+  if (value && typeof value === "object") {
+    return Object.entries(value).flatMap(([condition, target]) => condition === "types" ? [] : exportTargets(target));
+  }
   return [];
 }
 
@@ -26,9 +29,14 @@ async function hasExistingExport(root, exportsValue, entry) {
   const targets = exportTargets(exportValueForEntry(exportsValue, entry));
   if (targets.length === 0) return false;
   for (const target of targets) {
-    if (!target.startsWith("./")) return false;
+    if (!target.startsWith("./") || /\.d\.(?:ts|mts|cts)$/i.test(target)) return false;
     const resolved = path.resolve(root, target);
-    if (resolved === root || !resolved.startsWith(`${root}${path.sep}`) || !await exists(resolved)) return false;
+    if (resolved === root || !resolved.startsWith(`${root}${path.sep}`)) return false;
+    try {
+      if (!(await stat(resolved)).isFile()) return false;
+    } catch {
+      return false;
+    }
   }
   return true;
 }
@@ -104,7 +112,7 @@ export async function discoverRepository(root, manifest) {
   }
   if (evidence.hybridTimingMarkers) {
     for (const { file, text } of demoTexts) {
-      if (hybridMarkers.some((marker) => new RegExp(`${marker}\\b`).test(text))) addEvidence(evidence, "hybridTimingMarkers", file);
+      if (hybridMarkers.some((marker) => new RegExp(`${marker}\\b`).test(text))) addEvidence(evidence, "demoTimingMarkers", file);
     }
   }
   if (!manifest.errors.length && ["algorithm", "hybrid"].includes(manifest.value?.kind)) {

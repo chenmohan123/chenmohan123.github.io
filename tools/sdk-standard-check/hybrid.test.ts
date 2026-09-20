@@ -94,6 +94,8 @@ function repository(value = hybrid(), html = demo, exportsValue: unknown = { "."
   writeFileSync(path.join(root, "dist/index.js"), "export const createTracker = () => ({});\n");
   writeFileSync(path.join(root, "dist/reid.js"), "export const createExtractor = () => ({});\n");
   writeFileSync(path.join(root, "dist/reid.d.ts"), "export declare const createExtractor: () => object;\n");
+  writeFileSync(path.join(root, "dist/reid.d.mts"), "export declare const createExtractor: () => object;\n");
+  writeFileSync(path.join(root, "dist/reid.d.cts"), "export declare const createExtractor: () => object;\n");
   const packageJson = JSON.parse(readFileSync(path.join(root, "package.json"), "utf8"));
   if (exportsValue === false) delete packageJson.exports;
   else packageJson.exports = exportsValue;
@@ -210,6 +212,11 @@ describe("算法与可选模型混合 SDK 契约", () => {
     ["exports 模型子入口为空", { ".": "./dist/index.js", "./reid": null }],
     ["exports 模型子入口目标不存在", { ".": "./dist/index.js", "./reid": "./dist/missing.js" }],
     ["exports 只有类型目标可用", { ".": "./dist/index.js", "./reid": { types: "./dist/reid.d.ts", import: "./dist/missing.js" } }],
+    ["exports 仅声明 types 条件", { ".": "./dist/index.js", "./reid": { types: "./dist/reid.d.ts" } }],
+    ["exports 指向现有目录", { ".": "./dist/index.js", "./reid": "./dist" }],
+    ["exports 直接指向 .d.ts", { ".": "./dist/index.js", "./reid": "./dist/reid.d.ts" }],
+    ["exports 直接指向 .d.mts", { ".": "./dist/index.js", "./reid": "./dist/reid.d.mts" }],
+    ["exports 直接指向 .d.cts", { ".": "./dist/index.js", "./reid": "./dist/reid.d.cts" }],
   ])("%s 时 HYBRID-001 失败", async (_label, exportsValue) => {
     const report = await scanRepository(repository(hybrid(), demo, exportsValue));
     expect(report.findings).toContainEqual(expect.objectContaining({ id: "HYBRID-001", status: "fail" }));
@@ -218,6 +225,18 @@ describe("算法与可选模型混合 SDK 契约", () => {
   it.each(["data-sdk-algorithm-info", "data-sdk-model-info"])("缺少 %s 时 DEMO-005 失败", async (marker) => {
     const report = await scanRepository(repository(hybrid(), demo.replace(marker, "data-unrelated")));
     expect(report.findings).toContainEqual(expect.objectContaining({ id: "DEMO-005", status: "fail" }));
+  });
+
+  it("DEMO-005 报告包含两类标记所在的实际 Demo 文件", async () => {
+    const root = repository(hybrid(), demo.replace('<section data-sdk-model-info></section>', ""));
+    mkdirSync(path.join(root, "apps/demo/src"), { recursive: true });
+    writeFileSync(path.join(root, "apps/demo/src/model-info.tsx"), "export const ModelInfo = () => <section data-sdk-model-info />;\n");
+
+    const report = await scanRepository(root);
+    const finding = report.findings.find((item: { id: string }) => item.id === "DEMO-005");
+    expect(finding).toEqual(expect.objectContaining({ status: "pass", path: "apps/demo/index.html" }));
+    expect(finding.evidence).toContain("apps/demo/index.html");
+    expect(finding.evidence).toContain("apps/demo/src/model-info.tsx");
   });
 
   it("损坏清单不会以 hybrid 身份获得任一类型豁免", async () => {

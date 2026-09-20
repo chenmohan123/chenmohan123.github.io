@@ -123,8 +123,9 @@ Demo 使用 data-sdk-algorithm-info、data-sdk-runtime-info、data-sdk-timing
 算法模块只声明 `cpu`，模型模块只声明 `wasm` / `webgpu`，两个模块均须报告
 实际后端。顶层 runtime 的后端与执行模式、顶层 performance 的 timings 必须
 与模块声明的并集一致；每个模块至少保留一条带日期的验证环境。HYBRID-001
-还会核对 `package.exports` 中两个入口的非空目标及其本地文件，不把只有键名、
-空目标或缺失构建文件视为可用导出。
+还会核对 `package.exports` 中两个入口的本地运行时文件，不把只有键名、空目标、
+仅 `types` 条件、声明文件、目录或缺失构建文件视为可用导出。该静态检查不会
+解析或执行入口代码，实际可导入性仍须由包消费和浏览器验证证明。
 
 混合 SDK 使用 [混合清单模板](templates/sdk-manifest.hybrid.yaml)。模型资产、
 变体、不可变来源、缓存、取消和释放要求不会因模型可选而放宽；本地字节资源

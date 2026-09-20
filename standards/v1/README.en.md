@@ -96,8 +96,11 @@ The algorithm module permits only `cpu`; the model module permits only `wasm`
 and `webgpu`. Both report the actual backend. Top-level runtime backends and
 execution modes and top-level performance timings equal the union of both
 modules. Each module has at least one dated verification environment.
-HYBRID-001 also verifies that both exact `package.exports` entries have non-null
-targets whose files exist locally.
+HYBRID-001 also verifies that both exact `package.exports` entries resolve to
+local runtime files. A key with a null target, only a `types` condition, a
+declaration file, a directory, or a missing build file does not pass. This
+static check does not parse or execute an entry; package-consumer and browser
+tests must still prove that it can be imported.
 
 Start from the [hybrid manifest template](templates/sdk-manifest.hybrid.yaml).
 Optional model loading does not relax model assets, immutable sources, cache,
