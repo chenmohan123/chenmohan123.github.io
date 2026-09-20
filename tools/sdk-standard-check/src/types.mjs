@@ -25,8 +25,10 @@
  * @property {boolean} cacheClear
  * @property {boolean} timingMarkers
  * @property {boolean} algorithmTimingMarkers
+ * @property {boolean} hybridTimingMarkers
  * @property {boolean} demoStateReset
  * @property {boolean} algorithmInformation
+ * @property {boolean} hybridContract
  * @property {boolean} modelInformation
  * @property {boolean} runtimeInformation
  * @property {boolean} performanceTimings

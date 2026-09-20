@@ -53,6 +53,15 @@ function isHttpUrlWithHost(value) {
   }
 }
 
+function sameValues(actual, expected) {
+  const actualSet = new Set(actual);
+  const expectedSet = new Set(expected);
+  return actualSet.size === expectedSet.size && [...actualSet].every((value) => expectedSet.has(value));
+}
+
+const algorithmTimings = ["validationMs", "predictionMs", "associationMs", "updateMs", "totalMs"];
+const modelTimings = ["modelDownloadMs", "modelCacheReadMs", "integrityMs", "sessionMs", "inferenceMs", "totalMs"];
+
 export async function loadManifest(root, options = {}) {
   const candidates = ["sdk-manifest.yaml", "sdk-manifest.yml", "standards/sdk-manifest.yaml"];
   for (const relativePath of candidates) {
@@ -92,13 +101,32 @@ export function validateManifest(value, options = {}) {
   }
   const timingSet = new Set(value.performance.timings);
   const requiredTimings = value.kind === "algorithm"
-    ? ["validationMs", "predictionMs", "associationMs", "updateMs", "totalMs"]
-    : ["modelDownloadMs", "modelCacheReadMs", "integrityMs", "sessionMs", "inferenceMs", "totalMs"];
+    ? algorithmTimings
+    : value.kind === "hybrid" ? [...new Set([...algorithmTimings, ...modelTimings])] : modelTimings;
   for (const field of requiredTimings) {
     if (!timingSet.has(field)) errors.push(`/performance/timings：缺少 ${field}`);
   }
   for (const field of value.kind === "algorithm" ? [] : ["versionedKeys", "clearCurrent", "clearAll", "estimate"]) {
     if (value.cache[field] !== true) errors.push(`/cache/${field}：必须声明为 true`);
+  }
+  if (value.kind === "hybrid") {
+    const modules = value.modules;
+    if (modules.algorithm.entry === modules.model.entry) errors.push("/modules/model/entry：不得与算法模块入口相同");
+
+    for (const [moduleName, timings] of [["algorithm", algorithmTimings], ["model", modelTimings]]) {
+      const moduleTimingSet = new Set(modules[moduleName].performance.timings);
+      for (const field of timings) {
+        if (!moduleTimingSet.has(field)) errors.push(`/modules/${moduleName}/performance/timings：缺少 ${field}`);
+      }
+    }
+
+    const backendUnion = [...new Set([...modules.algorithm.runtime.backends, ...modules.model.runtime.backends])];
+    if (!sameValues(value.runtime.backends, backendUnion)) errors.push("/runtime/backends：必须与两个模块声明的并集一致");
+    const executionModeUnion = [...new Set([...modules.algorithm.runtime.executionModes, ...modules.model.runtime.executionModes])];
+    if (!sameValues(value.runtime.executionModes, executionModeUnion)) errors.push("/runtime/executionModes：必须与两个模块声明的并集一致");
+    const timingUnion = [...new Set([...modules.algorithm.performance.timings, ...modules.model.performance.timings])];
+    if (!sameValues(value.performance.timings, timingUnion)) errors.push("/performance/timings：必须与两个模块声明的并集一致");
+    if (value.runtime.actualBackendReported !== true) errors.push("/runtime/actualBackendReported：必须声明为 true");
   }
   return errors;
 }

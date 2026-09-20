@@ -1,10 +1,36 @@
 import path from "node:path";
-import { listFiles, readJsonIfExists, readTextIfExists, isMarkdown, isDemoFile } from "./files.mjs";
+import { exists, listFiles, readJsonIfExists, readTextIfExists, isMarkdown, isDemoFile } from "./files.mjs";
 
 function addEvidence(evidence, key, filePath) {
   evidence.evidenceByKey[key] ??= [];
   if (!evidence.evidenceByKey[key].includes(filePath)) evidence.evidenceByKey[key].push(filePath);
   if (!evidence.paths.includes(filePath)) evidence.paths.push(filePath);
+}
+
+function exportValueForEntry(exportsValue, entry) {
+  if (entry === "." && (typeof exportsValue === "string" || Array.isArray(exportsValue))) return exportsValue;
+  if (!exportsValue || typeof exportsValue !== "object" || Array.isArray(exportsValue)) return undefined;
+  const keys = Object.keys(exportsValue);
+  if (entry === "." && !keys.some((key) => key.startsWith("."))) return exportsValue;
+  return exportsValue[entry];
+}
+
+function exportTargets(value) {
+  if (typeof value === "string") return [value];
+  if (Array.isArray(value)) return value.flatMap(exportTargets);
+  if (value && typeof value === "object") return Object.values(value).flatMap(exportTargets);
+  return [];
+}
+
+async function hasExistingExport(root, exportsValue, entry) {
+  const targets = exportTargets(exportValueForEntry(exportsValue, entry));
+  if (targets.length === 0) return false;
+  for (const target of targets) {
+    if (!target.startsWith("./")) return false;
+    const resolved = path.resolve(root, target);
+    if (resolved === root || !resolved.startsWith(`${root}${path.sep}`) || !await exists(resolved)) return false;
+  }
+  return true;
 }
 
 export async function discoverRepository(root, manifest) {
@@ -30,8 +56,10 @@ export async function discoverRepository(root, manifest) {
     cacheClear: false,
     timingMarkers: false,
     algorithmTimingMarkers: false,
+    hybridTimingMarkers: false,
     demoStateReset: false,
     algorithmInformation: false,
+    hybridContract: false,
     modelInformation: false,
     runtimeInformation: false,
     performanceTimings: false,
@@ -65,16 +93,29 @@ export async function discoverRepository(root, manifest) {
 
   // 算法必须具备三个独立区域；允许不同组件文件分别提供标记。
   const algorithmMarkers = ["data-sdk-algorithm-info", "data-sdk-runtime-info", "data-sdk-timing"];
+  const hybridMarkers = ["data-sdk-algorithm-info", "data-sdk-model-info", "data-sdk-runtime-info", "data-sdk-timing"];
   const demoTexts = allText.filter(({ file }) => isDemoFile(file));
   evidence.algorithmTimingMarkers = algorithmMarkers.every((marker) => demoTexts.some(({ text }) => new RegExp(`${marker}\\b`).test(text)));
+  evidence.hybridTimingMarkers = hybridMarkers.every((marker) => demoTexts.some(({ text }) => new RegExp(`${marker}\\b`).test(text)));
   if (evidence.algorithmTimingMarkers) {
     for (const { file, text } of demoTexts) {
       if (algorithmMarkers.some((marker) => new RegExp(`${marker}\\b`).test(text))) addEvidence(evidence, "demoTimingMarkers", file);
     }
   }
-  if (!manifest.errors.length && manifest.value?.kind === "algorithm") {
+  if (evidence.hybridTimingMarkers) {
+    for (const { file, text } of demoTexts) {
+      if (hybridMarkers.some((marker) => new RegExp(`${marker}\\b`).test(text))) addEvidence(evidence, "hybridTimingMarkers", file);
+    }
+  }
+  if (!manifest.errors.length && ["algorithm", "hybrid"].includes(manifest.value?.kind)) {
     evidence.algorithmInformation = true;
     addEvidence(evidence, "algorithmInformation", manifest.path);
+  }
+
+  if (!manifest.errors.length && manifest.value?.kind === "hybrid") {
+    const entries = [manifest.value.modules.algorithm.entry, manifest.value.modules.model.entry];
+    evidence.hybridContract = (await Promise.all(entries.map((entry) => hasExistingExport(root, packageJson?.exports, entry)))).every(Boolean);
+    if (evidence.hybridContract) addEvidence(evidence, "hybridContract", "package.json");
   }
 
   if (manifest.value?.model?.assets?.length || /model(?:\s|_|-)info|precision|sha256|参数量|精度/i.test(joined)) { evidence.modelInformation = true; addEvidence(evidence, "modelInformation", manifest.path ?? markdown[0] ?? "README.md"); }

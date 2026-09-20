@@ -80,7 +80,7 @@ describe("纯算法 SDK 契约", () => {
     expect(report.findings).toContainEqual(expect.objectContaining({ id: marker === "data-sdk-state-reset" ? "DEMO-006" : "DEMO-005", status: "fail" }));
   });
 
-  it.each(["1.0.0", "1.1.0", "1.2.0"])("%s 模型保留 assets 必填及算法分支互斥", (schemaVersion) => {
+  it.each(["1.0.0", "1.1.0", "1.2.0", "1.3.0"])("%s 模型保留 assets 必填及算法分支互斥", (schemaVersion) => {
     const value = { ...model(), schemaVersion, kind: "model" };
     expect(validateManifest(value)).toEqual([]);
     value.algorithm = algorithm().algorithm;
@@ -88,6 +88,10 @@ describe("纯算法 SDK 契约", () => {
     delete value.algorithm;
     delete value.model.assets;
     expect(validateManifest(value)).toContainEqual(expect.stringContaining("/model/assets"));
+  });
+
+  it("1.3.0 继续允许独立算法清单", () => {
+    expect(validateManifest({ ...algorithm(), schemaVersion: "1.3.0" })).toEqual([]);
   });
 
   it("算法脚手架模板通过完整清单校验", () => {

@@ -1,8 +1,9 @@
 # Web Model SDK Standard v1
 
 中文是默认入口；[English](README.en.md) 提供等价英文说明。本文是所有
-SDK、Demo、门户和 Workflow 任务的阅读入口，规范版本为 `1.2.0`，
-仍兼容 `1.0.0` / `1.1.0` 模型 SDK manifest；模型清单可以通过可选的 `variants` 和 `sources`
+SDK、Demo、门户和 Workflow 任务的阅读入口，规范版本为 `1.3.0`，
+仍兼容 `1.0.0` / `1.1.0` / `1.2.0` 模型 SDK manifest 和 `1.2.0`
+算法 manifest；模型清单可以通过可选的 `variants` 和 `sources`
 声明同一模型的精度、量化、后端和分发来源。
 
 ## 阅读顺序
@@ -97,7 +98,7 @@ CDN/H5/web-view 的兼容基线；SDK runtime 不得依赖 UI 框架。Vue、CDN
 
 ### 纯算法 SDK
 
-仅 `1.2.0` 可声明 `kind: algorithm`。缺省 kind 或 `kind: model`
+`1.2.0` 和 `1.3.0` 可声明 `kind: algorithm`。缺省 kind 或 `kind: model`
 沿用模型规则，旧版不得通过算法 kind 绕过模型要求。算法与模型分支互斥：
 算法必须声明 `algorithm`，禁止 `model` 和 `cache`；模型禁止 `algorithm`。
 `algorithm` 必填 id、version、family、source、license、input、output（非空字符串）
@@ -111,8 +112,27 @@ cold 指新实例，warm 指复用实例状态，不伪造模型下载和缓存�
 Demo 使用 data-sdk-algorithm-info、data-sdk-runtime-info、data-sdk-timing
 和 data-sdk-state-reset。状态生命周期、复位、来源、许可、输入输出必须有文档。
 
-规则的 appliesTo 声明模型或算法适用性；未声明表示两者适用。
-MODEL-001、CACHE-001、DEMO-004 仅适用模型；ALGORITHM-001、DEMO-006
-仅适用算法。不适用项保留 skip、清单证据路径及理由。
+### 算法与可选模型混合 SDK
+
+仅 `1.3.0` 可声明 `kind: hybrid`。混合清单同时要求 `algorithm`、`model`、
+`cache` 和 `modules`，并完整继承算法与模型规则。`modules.algorithm` 和
+`modules.model` 分别声明独立包入口、runtime 和 performance；模型模块还须
+声明 `optional: true`，不得占用默认入口。默认入口不得加载模型 runtime 或
+权重，模型子入口只在调用者显式导入后工作。
+
+算法模块只声明 `cpu`，模型模块只声明 `wasm` / `webgpu`，两个模块均须报告
+实际后端。顶层 runtime 的后端与执行模式、顶层 performance 的 timings 必须
+与模块声明的并集一致；每个模块至少保留一条带日期的验证环境。HYBRID-001
+还会核对 `package.exports` 中两个入口的非空目标及其本地文件，不把只有键名、
+空目标或缺失构建文件视为可用导出。
+
+混合 SDK 使用 [混合清单模板](templates/sdk-manifest.hybrid.yaml)。模型资产、
+变体、不可变来源、缓存、取消和释放要求不会因模型可选而放宽；本地字节资源
+测试不能替代可公开获取的分发证据。Demo 同时提供模型缓存清理和算法状态复位，
+并同时包含模型、算法、runtime 和 timing 信息标记。
+
+规则的 appliesTo 声明模型、算法或混合类型适用性；未声明表示三者适用。
+MODEL-001、CACHE-001、DEMO-004 适用于模型和混合类型；ALGORITHM-001、
+DEMO-006 适用于算法和混合类型；HYBRID-001 仅适用于混合类型。不适用项保留 skip、清单证据路径及理由。
 只有完整校验通过的清单可决定类型豁免；无效清单仍产生 CONFIG-001，
 不能靠 algorithm 声明跳过模型必需规则。无清单的旧仓库沿用模型检查。

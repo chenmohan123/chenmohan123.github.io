@@ -1,4 +1,4 @@
-standardVersion: "1.2.0"
+standardVersion: "1.3.0"
 rules:
   - id: META-001
     level: required
@@ -41,7 +41,7 @@ rules:
     message: Demo provides an in-page Chinese/English toggle
     remediation: Add a language toggle that does not alter inference state.
   - id: DEMO-004
-    appliesTo: [model]
+    appliesTo: [model, hybrid]
     level: required
     detector: demoCacheClear
     message: Demo exposes current-model and global cache cleanup controls
@@ -50,21 +50,21 @@ rules:
     level: required
     detector: demoTimingMarkers
     message: Demo 展示当前模型或算法的信息、运行信息和耗时
-    remediation: 模型使用 data-sdk-model-info，算法使用 data-sdk-algorithm-info；两者保留 data-sdk-runtime-info 和 data-sdk-timing。
+    remediation: 模型使用 data-sdk-model-info，算法使用 data-sdk-algorithm-info；混合类型同时提供两者，且全部保留 data-sdk-runtime-info 和 data-sdk-timing。
   - id: DEMO-006
-    appliesTo: [algorithm]
+    appliesTo: [algorithm, hybrid]
     level: required
     detector: demoStateReset
     message: 算法 Demo 提供状态复位操作
     remediation: 使用 data-sdk-state-reset 标记复位控件，并按状态生命周期契约连接 reset。
   - id: ALGORITHM-001
-    appliesTo: [algorithm]
+    appliesTo: [algorithm, hybrid]
     level: required
     detector: algorithmInformation
     message: 算法清单声明身份、家族、来源、许可、输入输出与有状态语义
     remediation: 按 sdk-manifest.algorithm.yaml 填写 algorithm 字段并记录状态生命周期。
   - id: MODEL-001
-    appliesTo: [model]
+    appliesTo: [model, hybrid]
     level: required
     detector: modelInformation
     message: Manifest declares model identity, precision, size, source, license, and checksum
@@ -78,13 +78,19 @@ rules:
     level: required
     detector: performanceTimings
     message: 声明当前 SDK 类型所需的标准耗时字段
-    remediation: 模型保留下载、缓存、校验、会话、推理和总耗时；算法声明 validationMs、predictionMs、associationMs、updateMs、totalMs。
+    remediation: 模型保留下载、缓存、校验、会话、推理和总耗时；算法声明 validationMs、predictionMs、associationMs、updateMs、totalMs；混合类型按模块分别声明并在顶层取并集。
   - id: CACHE-001
-    appliesTo: [model]
+    appliesTo: [model, hybrid]
     level: required
     detector: cacheContract
     message: Cache storage, versioning, estimate, and cleanup are declared
     remediation: Add cache contract fields and expose cleanup controls in the Demo.
+  - id: HYBRID-001
+    appliesTo: [hybrid]
+    level: required
+    detector: hybridContract
+    message: 混合清单的算法与可选模型模块具有可用且彼此独立的包导出入口
+    remediation: 使用 1.3.0 混合模板，并让 modules.algorithm.entry 与 modules.model.entry 指向 package.exports 中真实存在的不同文件。
   - id: EXAMPLE-001
     level: required
     detector: vanillaExample
