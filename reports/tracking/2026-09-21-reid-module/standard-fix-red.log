@@ -1,0 +1,358 @@
+
+ RUN  v3.2.7 C:/Users/chenm/.codex/worktrees/segmentation-portal/chenmohan123.github.io
+
+ ❯ tools/sdk-standard-check/hybrid.test.ts (35 tests | 6 failed) 1540ms
+   ✓ 算法与可选模型混合 SDK 契约 > 混合脚手架模板通过完整清单校验 123ms
+   ✓ 算法与可选模型混合 SDK 契约 > 接受 1.3.0 混合清单并同时通过算法、模型和混合规则 153ms
+   ✓ 算法与可选模型混合 SDK 契约 > 拒绝 1.0.0 声明 hybrid 4ms
+   ✓ 算法与可选模型混合 SDK 契约 > 拒绝 1.1.0 声明 hybrid 3ms
+   ✓ 算法与可选模型混合 SDK 契约 > 拒绝 1.2.0 声明 hybrid 3ms
+   ✓ 算法与可选模型混合 SDK 契约 > 拒绝缺少混合分支 algorithm 2ms
+   ✓ 算法与可选模型混合 SDK 契约 > 拒绝缺少混合分支 model 2ms
+   ✓ 算法与可选模型混合 SDK 契约 > 拒绝缺少混合分支 cache 2ms
+   ✓ 算法与可选模型混合 SDK 契约 > 拒绝缺少混合分支 modules 2ms
+   ✓ 算法与可选模型混合 SDK 契约 > 拒绝可选模型被声明为必选或占用默认入口 4ms
+   ✓ 算法与可选模型混合 SDK 契约 > 拒绝算法模块声明模型后端 2ms
+   ✓ 算法与可选模型混合 SDK 契约 > 拒绝模型模块声明 CPU 后端 2ms
+   ✓ 算法与可选模型混合 SDK 契约 > 拒绝 algorithm 模块不报告实际后端 2ms
+   ✓ 算法与可选模型混合 SDK 契约 > 拒绝 model 模块不报告实际后端 2ms
+   ✓ 算法与可选模型混合 SDK 契约 > 拒绝 algorithm 模块缺少 associationMs 3ms
+   ✓ 算法与可选模型混合 SDK 契约 > 拒绝 model 模块缺少 inferenceMs 3ms
+   ✓ 算法与可选模型混合 SDK 契约 > 拒绝顶层 runtime 或 performance 与模块并集不一致 7ms
+   ✓ 算法与可选模型混合 SDK 契约 > 混合类型不放松模型变体与来源校验 7ms
+   ✓ 算法与可选模型混合 SDK 契约 > 拒绝缺少 algorithm 模块日期证据 3ms
+   ✓ 算法与可选模型混合 SDK 契约 > 拒绝缺少 model 模块日期证据 2ms
+   ✓ 算法与可选模型混合 SDK 契约 > 拒绝模块证据缺少验证日期 2ms
+   ✓ 算法与可选模型混合 SDK 契约 > 未声明 package.exports 时 HYBRID-001 失败 88ms
+   ✓ 算法与可选模型混合 SDK 契约 > exports 缺少模型子入口 时 HYBRID-001 失败 101ms
+   ✓ 算法与可选模型混合 SDK 契约 > exports 模型子入口为空 时 HYBRID-001 失败 103ms
+   ✓ 算法与可选模型混合 SDK 契约 > exports 模型子入口目标不存在 时 HYBRID-001 失败 68ms
+   ✓ 算法与可选模型混合 SDK 契约 > exports 只有类型目标可用 时 HYBRID-001 失败 70ms
+   × 算法与可选模型混合 SDK 契约 > exports 仅声明 types 条件 时 HYBRID-001 失败 80ms
+     → expected [ { id: 'META-001', …(6) }, …(28) ] to deep equally contain ObjectContaining{…}
+   × 算法与可选模型混合 SDK 契约 > exports 指向现有目录 时 HYBRID-001 失败 67ms
+     → expected [ { id: 'META-001', …(6) }, …(28) ] to deep equally contain ObjectContaining{…}
+   × 算法与可选模型混合 SDK 契约 > exports 直接指向 .d.ts 时 HYBRID-001 失败 81ms
+     → expected [ { id: 'META-001', …(6) }, …(28) ] to deep equally contain ObjectContaining{…}
+   × 算法与可选模型混合 SDK 契约 > exports 直接指向 .d.mts 时 HYBRID-001 失败 94ms
+     → expected [ { id: 'META-001', …(6) }, …(28) ] to deep equally contain ObjectContaining{…}
+   × 算法与可选模型混合 SDK 契约 > exports 直接指向 .d.cts 时 HYBRID-001 失败 96ms
+     → expected [ { id: 'META-001', …(6) }, …(28) ] to deep equally contain ObjectContaining{…}
+   ✓ 算法与可选模型混合 SDK 契约 > 缺少 data-sdk-algorithm-info 时 DEMO-005 失败 90ms
+   ✓ 算法与可选模型混合 SDK 契约 > 缺少 data-sdk-model-info 时 DEMO-005 失败 91ms
+   × 算法与可选模型混合 SDK 契约 > DEMO-005 报告包含两类标记所在的实际 Demo 文件 95ms
+     → expected 'apps/demo/index.html' to contain 'apps/demo/src/model-info.tsx'
+   ✓ 算法与可选模型混合 SDK 契约 > 损坏清单不会以 hybrid 身份获得任一类型豁免 82ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tools/sdk-standard-check/hybrid.test.ts > 算法与可选模型混合 SDK 契约 > exports 仅声明 types 条件 时 HYBRID-001 失败
+ FAIL  tools/sdk-standard-check/hybrid.test.ts > 算法与可选模型混合 SDK 契约 > exports 指向现有目录 时 HYBRID-001 失败
+ FAIL  tools/sdk-standard-check/hybrid.test.ts > 算法与可选模型混合 SDK 契约 > exports 直接指向 .d.ts 时 HYBRID-001 失败
+ FAIL  tools/sdk-standard-check/hybrid.test.ts > 算法与可选模型混合 SDK 契约 > exports 直接指向 .d.mts 时 HYBRID-001 失败
+ FAIL  tools/sdk-standard-check/hybrid.test.ts > 算法与可选模型混合 SDK 契约 > exports 直接指向 .d.cts 时 HYBRID-001 失败
+AssertionError: expected [ { id: 'META-001', …(6) }, …(28) ] to deep equally contain ObjectContaining{…}
+
+- Expected: 
+ObjectContaining {
+  "id": "HYBRID-001",
+  "status": "fail",
+}
+
++ Received: 
+[
+  {
+    "evidence": "sdk-manifest.yaml",
+    "id": "META-001",
+    "level": "required",
+    "message": "SDK manifest is present and declares the v1 contract",
+    "path": "sdk-manifest.yaml",
+    "remediation": "Copy standards/v1/templates/sdk-manifest.yaml and fill every required field.",
+    "status": "pass",
+  },
+  {
+    "evidence": ".github/workflows/ci.yml",
+    "id": "META-002",
+    "level": "required",
+    "message": "package.json declares a public package identity and version",
+    "path": ".github/workflows/ci.yml",
+    "remediation": "Add a non-private package with a semver version and repository metadata.",
+    "status": "pass",
+  },
+  {
+    "evidence": ".github/workflows/ci.yml",
+    "id": "DOC-001",
+    "level": "required",
+    "message": "Chinese-default and English README files link to one another",
+    "path": ".github/workflows/ci.yml",
+    "remediation": "Add README.md and README.en.md with reciprocal language links.",
+    "status": "pass",
+  },
+  {
+    "evidence": ".github/workflows/ci.yml",
+    "id": "DOC-002",
+    "level": "required",
+    "message": "Chinese and English documentation directories are present",
+    "path": ".github/workflows/ci.yml",
+    "remediation": "Provide equivalent docs/zh-CN and docs/en quick-start/API guidance.",
+    "status": "pass",
+  },
+  {
+    "evidence": "README.md",
+    "id": "DOC-003",
+    "level": "required",
+    "message": "README or package metadata exposes GitHub, npm, and live Demo links",
+    "path": "README.md",
+    "remediation": "Add repository, package, and Demo URLs to README and manifest.",
+    "status": "pass",
+  },
+  {
+    "evidence": "apps/demo/index.html",
+    "id": "DEMO-001",
+    "level": "required",
+    "message": "A runnable standalone Demo entry exists",
+    "path": "apps/demo/index.html",
+    "remediation": "Add a Demo app with a documented start/build command.",
+    "status": "pass",
+  },
+  {
+    "evidence": "apps/demo/index.html",
+    "id": "DEMO-002",
+    "level": "required",
+    "message": "Demo declares Chinese as its initial language",
+    "path": "apps/demo/index.html",
+    "remediation": "Set lang or default language state to zh-CN.",
+    "status": "pass",
+  },
+  {
+    "evidence": "apps/demo/index.html",
+    "id": "DEMO-003",
+    "level": "required",
+    "message": "Demo provides an in-page Chinese/English toggle",
+    "path": "apps/demo/index.html",
+    "remediation": "Add a language toggle that does not alter inference state.",
+    "status": "pass",
+  },
+  {
+    "evidence": ".github/workflows/ci.yml",
+    "id": "DEMO-004",
+    "level": "required",
+    "message": "Demo exposes current-model and global cache cleanup controls",
+    "path": ".github/workflows/ci.yml",
+    "remediation": "Wire clear-current and clear-all actions to the SDK cache API.",
+    "status": "pass",
+  },
+  {
+    "evidence": "apps/demo/index.html",
+    "id": "DEMO-005",
+    "level": "required",
+    "message": "Demo 展示当前模型或算法的信息、运行信息和耗时",
+    "path": "apps/demo/index.html",
+    "remediation": "模型使用 data-sdk-model-info，算法使用 data-sdk-algorithm-info；混合类型同时提供两者，且全部保留 data-sdk-runtime-info 和 data-sdk-timing。",
+    "status": "pass",
+  },
+  {
+    "evidence": "apps/demo/index.html",
+    "id": "DEMO-006",
+    "level": "required",
+    "message": "算法 Demo 提供状态复位操作",
+    "path": "apps/demo/index.html",
+    "remediation": "使用 data-sdk-state-reset 标记复位控件，并按状态生命周期契约连接 reset。",
+    "status": "pass",
+  },
+  {
+    "evidence": "sdk-manifest.yaml",
+    "id": "ALGORITHM-001",
+    "level": "required",
+    "message": "算法清单声明身份、家族、来源、许可、输入输出与有状态语义",
+    "path": "sdk-manifest.yaml",
+    "remediation": "按 sdk-manifest.algorithm.yaml 填写 algorithm 字段并记录状态生命周期。",
+    "status": "pass",
+  },
+  {
+    "evidence": "sdk-manifest.yaml",
+    "id": "MODEL-001",
+    "level": "required",
+    "message": "Manifest declares model identity, precision, size, source, license, and checksum",
+    "path": "sdk-manifest.yaml",
+    "remediation": "Complete the model and asset fields in sdk-manifest.yaml.",
+    "status": "pass",
+  },
+  {
+    "evidence": "sdk-manifest.yaml",
+    "id": "RUNTIME-001",
+    "level": "required",
+    "message": "Requested/actual backend and execution mode are declared",
+    "path": "sdk-manifest.yaml",
+    "remediation": "Add runtime backends, execution modes, and actual backend reporting.",
+    "status": "pass",
+  },
+  {
+    "evidence": "sdk-manifest.yaml",
+    "id": "PERF-001",
+    "level": "required",
+    "message": "声明当前 SDK 类型所需的标准耗时字段",
+    "path": "sdk-manifest.yaml",
+    "remediation": "模型保留下载、缓存、校验、会话、推理和总耗时；算法声明 validationMs、predictionMs、associationMs、updateMs、totalMs；混合类型按模块分别声明并在顶层取并集。",
+    "status": "pass",
+  },
+  {
+    "evidence": "sdk-manifest.yaml",
+    "id": "CACHE-001",
+    "level": "required",
+    "message": "Cache storage, versioning, estimate, and cleanup are declared",
+    "path": "sdk-manifest.yaml",
+    "remediation": "Add cache contract fields and expose cleanup controls in the Demo.",
+    "status": "pass",
+  },
+  {
+    "evidence": "package.json",
+    "id": "HYBRID-001",
+    "level": "required",
+    "message": "混合清单的算法与可选模型模块具有可用且彼此独立的包导出入口",
+    "path": "package.json",
+    "remediation": "使用 1.3.0 混合模板，并让 modules.algorithm.entry 与 modules.model.entry 指向 package.exports 中真实存在的不同文件。",
+    "status": "pass",
+  },
+  {
+    "evidence": "examples/vanilla/README.md",
+    "id": "EXAMPLE-001",
+    "level": "required",
+    "message": "Vanilla TypeScript/DOM portability example exists",
+    "path": "examples/vanilla/README.md",
+    "remediation": "Add examples/vanilla with a runnable README.",
+    "status": "pass",
+  },
+  {
+    "evidence": "examples/react/README.md",
+    "id": "EXAMPLE-002",
+    "level": "required",
+    "message": "React reference example exists",
+    "path": "examples/react/README.md",
+    "remediation": "Add examples/react or explicitly record a migration exception.",
+    "status": "pass",
+  },
+  {
+    "evidence": "examples/vanilla/README.md, examples/react/README.md",
+    "id": "EXAMPLE-003",
+    "level": "recommended",
+    "message": "Declared target surfaces have runnable examples or explicit unsupported status",
+    "path": "examples/vanilla/README.md",
+    "remediation": "Align examples with manifest target surfaces.",
+    "status": "pass",
+  },
+  {
+    "evidence": ".github/workflows/ci.yml",
+    "id": "RELEASE-001",
+    "level": "required",
+    "message": "CI workflow runs verification before release",
+    "path": ".github/workflows/ci.yml",
+    "remediation": "Add .github/workflows/ci.yml with tests, typecheck, and build.",
+    "status": "pass",
+  },
+  {
+    "evidence": ".github/workflows/release.yml",
+    "id": "RELEASE-002",
+    "level": "required",
+    "message": "GitHub Release workflow exists",
+    "path": ".github/workflows/release.yml",
+    "remediation": "Add a tag-triggered release workflow and publish notes.",
+    "status": "pass",
+  },
+  {
+    "evidence": ".github/workflows/ci.yml",
+    "id": "RELEASE-003",
+    "level": "recommended",
+    "message": "Changelog documents user-visible SDK and Demo changes",
+    "path": ".github/workflows/ci.yml",
+    "remediation": "Add CHANGELOG.md with the current release entry.",
+    "status": "pass",
+  },
+  {
+    "evidence": "Requires read-only github-api verification; offline sdk:check did not evaluate this rule.",
+    "id": "GOV-001",
+    "level": "required",
+    "message": "The default branch has an active least-privilege Ruleset for pull requests, current CI checks, resolved conversations, deletion, and force-push protection",
+    "path": undefined,
+    "remediation": "Configure an active default-branch Ruleset using standards/v1/repository-governance-contract.md and capture dated GitHub API evidence.",
+    "status": "skip",
+  },
+  {
+    "evidence": "Requires read-only github-api verification; offline sdk:check did not evaluate this rule.",
+    "id": "GOV-002",
+    "level": "required",
+    "message": "Release tags are immutable under an active tag Ruleset",
+    "path": undefined,
+    "remediation": "Protect the documented release tag pattern against updates and deletion, minimize bypass, and capture dated GitHub API evidence.",
+    "status": "skip",
+  },
+  {
+    "evidence": "Requires read-only remote-api verification; offline sdk:check did not evaluate this rule.",
+    "id": "DEPLOY-001",
+    "level": "required",
+    "message": "The live Demo has a reproducible HTTPS deployment from protected source with least-privilege credentials",
+    "path": undefined,
+    "remediation": "Configure and verify a deployment that meets standards/v1/repository-governance-contract.md, then record its commit and deployment evidence.",
+    "status": "skip",
+  },
+  {
+    "evidence": "Requires read-only github-api verification; offline sdk:check did not evaluate this rule.",
+    "id": "PAGES-001",
+    "level": "required",
+    "message": "A GitHub Pages Demo deploys through GitHub Actions with scoped permissions, environment binding, HTTPS, and concurrency control",
+    "path": undefined,
+    "remediation": "Configure Pages and its deployment workflow using standards/v1/repository-governance-contract.md and capture dated GitHub API evidence.",
+    "status": "skip",
+  },
+  {
+    "evidence": undefined,
+    "id": "UI-001",
+    "level": "recommended",
+    "message": "Demo styling references the shared token vocabulary",
+    "path": ".github/workflows/ci.yml",
+    "remediation": "Import or copy standards/v1/ui-tokens.json values without introducing conflicting status colors.",
+    "status": "fail",
+  },
+  {
+    "evidence": "Labs rule is informational",
+    "id": "LABS-001",
+    "level": "labs",
+    "message": "Experimental backends and NPU claims have explicit evidence and limits",
+    "path": undefined,
+    "remediation": "Mark WebNN/NPU as labs unless a dated verification matrix exists.",
+    "status": "skip",
+  },
+]
+
+ ❯ tools/sdk-standard-check/hybrid.test.ts:222:29
+    220|   ])("%s 时 HYBRID-001 失败", async (_label, exportsValue) => {
+    221|     const report = await scanRepository(repository(hybrid(), demo, exp…
+    222|     expect(report.findings).toContainEqual(expect.objectContaining({ i…
+       |                             ^
+    223|   });
+    224| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  tools/sdk-standard-check/hybrid.test.ts > 算法与可选模型混合 SDK 契约 > DEMO-005 报告包含两类标记所在的实际 Demo 文件
+AssertionError: expected 'apps/demo/index.html' to contain 'apps/demo/src/model-info.tsx'
+
+Expected: "apps/demo/src/model-info.tsx"
+Received: "apps/demo/index.html"
+
+ ❯ tools/sdk-standard-check/hybrid.test.ts:239:30
+    237|     expect(finding).toEqual(expect.objectContaining({ status: "pass", …
+    238|     expect(finding.evidence).toContain("apps/demo/index.html");
+    239|     expect(finding.evidence).toContain("apps/demo/src/model-info.tsx");
+       |                              ^
+    240|   });
+    241| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  6 failed | 29 passed (35)
+   Start at  00:50:14
+   Duration  4.36s (transform 96ms, setup 380ms, collect 347ms, tests 1.54s, environment 1.38s, prepare 247ms)
+

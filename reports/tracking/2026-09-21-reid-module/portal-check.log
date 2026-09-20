@@ -1,0 +1,43 @@
+$ astro check
+00:54:06 [content] Syncing content
+00:54:06 [content] Synced content
+00:54:06 [types] Generated 725ms
+00:54:06 [check] Getting diagnostics for Astro files in C:\Users\chenm\.codex\worktrees\segmentation-portal\chenmohan123.github.io...
+[96mreports/sdk-standard/2026-09-12-detection-download/verify-example.mjs[0m:[93m76[0m:[93m10[0m - [93mwarning[0m[90m ts(2568): [0mProperty 'error' may not exist on type '{ date: string; browser: string; sdk: string; status: string; runs: never[]; errors: never[]; }'. Did you mean 'errors'?
+
+[7m76[0m   report.error = String(error);
+[7m  [0m [93m         ~~~~~[0m
+[96mreports/sdk-standard/2026-09-12-detection-download/verify-example.mjs[0m:[93m36[0m:[93m12[0m - [93mwarning[0m[90m ts(2568): [0mProperty 'click' may not exist on type 'SVGElement | HTMLElement'. Did you mean 'onclick'?
+  Property 'click' does not exist on type 'SVGElement'.
+
+[7m36[0m     button.click();
+[7m  [0m [93m           ~~~~~[0m
+[96mreports/sdk-standard/2026-09-12-detection-download/verify-example.mjs[0m:[93m35[0m:[93m12[0m - [93mwarning[0m[90m ts(2568): [0mProperty 'click' may not exist on type 'SVGElement | HTMLElement'. Did you mean 'onclick'?
+  Property 'click' does not exist on type 'SVGElement'.
+
+[7m35[0m     button.click();
+[7m  [0m [93m           ~~~~~[0m
+
+[96mreports/sdk-standard/2026-09-15-tiny-release/demo-smoke.mjs[0m:[93m161[0m:[93m10[0m - [93mwarning[0m[90m ts(2568): [0mProperty 'error' may not exist on type '{ date: string; base: string; deployment: any; os: string; cpu: string; manifestSha256: string; rows: never[]; errors: never[]; status: string; }'. Did you mean 'errors'?
+
+[7m161[0m   result.error = String(e);
+[7m   [0m [93m         ~~~~~[0m
+
+[96msrc/lib/registry/schema.ts[0m:[93m23[0m:[93m121[0m - [93mwarning[0m[90m ts(6385): [0m'(params?: string | { normalize?: boolean | undefined; pattern?: RegExp | undefined; abort?: boolean | undefined; hostname?: RegExp | undefined; protocol?: RegExp | undefined; error?: string | ... 1 more ... | undefined; message?: string | undefined; } | undefined): ZodString' is deprecated.
+
+[7m23[0m   assets: z.array(z.object({ id: z.string(), precision: z.string(), bytes: z.number().int().positive(), url: z.string().url(), sha256: z.string().regex(/^[a-f0-9]{64}$/) })),
+[7m  [0m [93m                                                                                                                        ~~~[0m
+[96msrc/lib/registry/schema.ts[0m:[93m16[0m:[93m36[0m - [93mwarning[0m[90m ts(6385): [0m'(params?: string | { normalize?: boolean | undefined; pattern?: RegExp | undefined; abort?: boolean | undefined; hostname?: RegExp | undefined; protocol?: RegExp | undefined; error?: string | ... 1 more ... | undefined; message?: string | undefined; } | undefined): ZodString' is deprecated.
+
+[7m16[0m   demo: z.object({ url: z.string().url(), localProcessing: z.boolean() }),
+[7m  [0m [93m                                   ~~~[0m
+[96msrc/lib/registry/schema.ts[0m:[93m13[0m:[93m26[0m - [93mwarning[0m[90m ts(6385): [0m'(params?: string | { normalize?: boolean | undefined; pattern?: RegExp | undefined; abort?: boolean | undefined; hostname?: RegExp | undefined; protocol?: RegExp | undefined; error?: string | ... 1 more ... | undefined; message?: string | undefined; } | undefined): ZodString' is deprecated.
+
+[7m13[0m   repository: z.string().url(),
+[7m  [0m [93m                         ~~~[0m
+
+Result (60 files): 
+- 0 errors
+- 0 warnings
+- 7 hints
+

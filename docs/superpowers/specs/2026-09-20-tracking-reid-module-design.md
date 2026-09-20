@@ -2,6 +2,8 @@
 
 日期：2026-09-20。状态：下一实现阶段设计，尚未导出以下API。用户已确认继续推进图像预处理、模型来源与可选模块方向。本设计消费SDK `reports/2026-09-20-reid-preprocessing/` 的验证证据；标准要求以[混合声明提案](../../../standards/v1/proposals/algorithm-model-hybrid.md)为唯一来源，生产接入前须先实施。
 
+2026-09-21 实施进度：[标准及源码候选阶段](../../../reports/tracking/2026-09-21-reid-module/README.md)已落实标准 1.3.0 和同包 `src/reid/`，完成本地双后端闭环。以下公开入口是目标设计；正式 `package.exports`、hybrid manifest 和 Demo 待真实双源分发材料就绪后统一启用，不以虚构来源提前发布。
+
 ## 目标和接口
 
 继续同一个`web-sdk-pp-tracking`，`createTracker`仍从默认入口导入。模型入口建议`web-sdk-pp-tracking/reid`，导出`createReIdExtractor`、`ReIdError`及类型；ORT Web作为optional peer，只有调用模型load时动态导入。框关联调用者没有ORT依赖、模型网络请求或图像内存分配。

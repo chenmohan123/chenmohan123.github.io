@@ -1,0 +1,21 @@
+$ vitest run tools/sdk-standard-check
+
+ RUN  v3.2.7 C:/Users/chenm/.codex/worktrees/segmentation-portal/chenmohan123.github.io
+
+ ✓ tools/sdk-standard-check/standard-files.test.ts (7 tests) 364ms
+ ✓ tools/sdk-standard-check/checker.test.ts (13 tests) 663ms
+   ✓ SDK repository discovery > accepts both v1.0 manifests and the v1.1 manifest template  308ms
+ ✓ tools/sdk-standard-check/hybrid.test.ts (29 tests) 1446ms
+   ✓ 算法与可选模型混合 SDK 契约 > 混合脚手架模板通过完整清单校验  305ms
+ ✓ tools/sdk-standard-check/algorithm.test.ts (27 tests) 1911ms
+   ✓ 纯算法 SDK 契约 > 合法算法无模型与缓存也通过，模型专属规则有跳过理由和证据  389ms
+ ✓ tools/sdk-standard-check/manifest-validation.test.ts (22 tests) 2145ms
+   ✓ 清单完整 schema 校验 > 扫描使用所选标准的 schema，标准损坏时不归咎于仓库  343ms
+   ✓ 清单完整 schema 校验 > YAML 中错误的资产数组返回 CONFIG-001 和 CLI 退出码 1  731ms
+   ✓ 清单完整 schema 校验 > 多个仓库中的损坏清单不会阻止后续仓库扫描  809ms
+
+ Test Files  5 passed (5)
+      Tests  98 passed (98)
+   Start at  00:38:42
+   Duration  6.84s (transform 575ms, setup 4.07s, collect 3.19s, tests 6.53s, environment 11.42s, prepare 1.53s)
+
