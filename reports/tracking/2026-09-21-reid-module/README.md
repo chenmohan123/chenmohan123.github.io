@@ -4,7 +4,7 @@
 
 门户基线 `8b80ea8`，标准实现 `13955b3`、修复 `50d32bd`；SDK 基线 `4bbd3d5`。SDK 工作树为 `C:/Users/chenm/.codex/worktrees/tracking-algorithms/web-sdk-PP-Tracking`，完整双语报告位于该仓库 `reports/2026-09-21-reid-module/`。SDK 仍为本地 `0.2.0-alpha.0`、线上 `0.1.0`。本轮没有 GitHub/npm/模型源远程写操作。
 
-SDK 模块提交 `6fc6e5a`，下载/取消修复 `5dcd2d4`，浏览器与文档归档 `51c4e2e`。
+SDK 模块提交 `6fc6e5a`，下载/取消修复 `5dcd2d4`，浏览器与文档归档 `51c4e2e`，最终审查归档 `a065020`。
 
 ## 标准与模型模块
 
@@ -25,6 +25,8 @@ SDK 模块提交 `6fc6e5a`，下载/取消修复 `5dcd2d4`，浏览器与文档�
 SDK 完整 verify：138 项单测与 12 组现有 Demo 浏览器检查通过，类型与核心/Demo/Vanilla/React 构建通过。新增 34 项 ReID 单测保留红绿证据；审查后追加聚焦回归单独记载，不冒充再次完整执行。
 
 SDK 已锁定27份原始证据；离线复算68条向量通过，Git暂存证据逐字节与12份源码LF身份核对通过。
+
+[阶段整体独立审查](final-review.md)通过，无遗留Critical/Important/Minor；Task3与整体范围均通过。SDK补入最终回执后锁定28份证据，离线复算与暂存28份证据/12份源码身份再次通过。本地分支保留，公开分发及发布仍属后续范围。
 
 标准初版 checker98/98、全门户130/130；标准修复 hybrid35/35、共享回归40/40。门户构建21页、0errors/0warnings及7条既有hints；修复后Astro check同样0/0/7。[标准审查回执](standard-review.md)与本目录原始日志记录范围，没有把针对性回归写成修复后的全套测试。
 

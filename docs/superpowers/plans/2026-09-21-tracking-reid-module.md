@@ -33,10 +33,10 @@
 
 **输入/输出：** 消费已批准提案；产出完整 validateManifest/scanRepository 对hybrid的支持，保持旧model及algorithm结果兼容。
 
-- [ ] 编写实际checker临时仓库测试，最小成功场景 `const value={...modelFixture,schemaVersion:'1.3.0',kind:'hybrid',algorithm:algorithmFixture.algorithm,modules:{algorithm:{entry:'.',runtime:cpuRuntime,performance:algorithmPerformance},model:{entry:'./reid',optional:true,runtime:wasmRuntime,performance:modelPerformance}}}; expect(validateManifest(value)).toEqual([]);` 顶层是两模块并集；验证旧版本/缺任一分支/同入口/不存在exports/false optional/错误后端/缺timing/缺模块日期/破损清单/无两类Demo标记均失败。
-- [ ] 运行 `pnpm ... sdk:check:test` 记录预期失败至 `.tmp/reid-module-standard-red.log`。
-- [ ] 实施schema、规则、checker、模板和契约。hybrid同时适用算法/模型规则，新增HYBRID-001，顶层并集检查，exports入口存在；模型只wasm/webgpu、算法cpu，actualBackendReported必须true；验证模块证据日期及runtime字段；schemaVersion1.3允许model/algorithm，旧版hybrid拒绝。
-- [ ] 跑checker全套；更新中英文入口和提案实施状态，保留日期历史。只提交本任务文件，中文提交。报告包含红绿命令、退出码、测试数和限制。
+- [x] 编写实际checker临时仓库测试，最小成功场景 `const value={...modelFixture,schemaVersion:'1.3.0',kind:'hybrid',algorithm:algorithmFixture.algorithm,modules:{algorithm:{entry:'.',runtime:cpuRuntime,performance:algorithmPerformance},model:{entry:'./reid',optional:true,runtime:wasmRuntime,performance:modelPerformance}}}; expect(validateManifest(value)).toEqual([]);` 顶层是两模块并集；验证旧版本/缺任一分支/同入口/不存在exports/false optional/错误后端/缺timing/缺模块日期/破损清单/无两类Demo标记均失败。
+- [x] 运行 `pnpm ... sdk:check:test` 记录预期失败至 `.tmp/reid-module-standard-red.log`。
+- [x] 实施schema、规则、checker、模板和契约。hybrid同时适用算法/模型规则，新增HYBRID-001，顶层并集检查，exports入口存在；模型只wasm/webgpu、算法cpu，actualBackendReported必须true；验证模块证据日期及runtime字段；schemaVersion1.3允许model/algorithm，旧版hybrid拒绝。
+- [x] 跑checker全套；更新中英文入口和提案实施状态，保留日期历史。只提交本任务文件，中文提交。报告包含红绿命令、退出码、测试数和限制。
 
 ### Task 2: ReID 模块源码及生命周期
 
@@ -46,11 +46,11 @@
 
 **返回：** load有runtime/timings/source/cache状态；extract有featureSpace、按输入顺序绑定embedding的Detection[]、runtime与timings。runtime有requestedBackend/actualBackend/main/runtimeVersion/ortVersion，WebGPU实际设备身份可附；load与extract分开total。耗时涵盖验证复制/输入Tensor构造/输出回读释放，decodeMs=0；WASM一线程basic、GPU禁止CPU EP fallback。
 
-- [ ] 按行为先写失败测试：红像素手算、非方形方向/分数框/透明白底、非法尺寸/共享buffer、错误hash在session前拒绝、load幂等、BUSY、取消各阶段、dispose等待、全帧校验先于推理、输入异步复制、非有限/零向量、顺序绑定、cache错hash不使用、不换源、失败后可重试。真实ORT仅在浏览器跑，unit在最底层ORT依赖替身控制run/session等待，生产不暴露测试后门。
-- [ ] `pnpm ... test -- tests/reid-*.test.ts` 或显式文件运行保留红证据；实现分文件模块。错误码含INVALID_INPUT/INVALID_MANIFEST/UNSUPPORTED_BACKEND/DOWNLOAD_FAILED/INTEGRITY_FAILED/OUT_OF_MEMORY/SESSION_FAILED/INFERENCE_FAILED/ABORTED/BUSY/NOT_LOADED/DISPOSED；失败安全原因不泄漏URL凭据。
-- [ ] 资产流必须有bytes硬上限，网络错误/取消清理reader；缓存命中仍SHA，错误缓存删除并报完整性错误，缓存不可用可显式报告未缓存但不虚构命中；本地bytes不持久化。模型字节在工厂同步复制，extract复制图像和metadata；释放持有的模型字节/session/Tensor。
-- [ ] 候选构建产出`.tmp/reid-module/dist/reid.js`及类型，动态import ORT在load才发生；脚本使用esbuild并将ORT external，浏览器由集成脚本打包/映射。根包无新增强制依赖、网络或模型。
-- [ ] 单测、typecheck、候选build通过，中文提交；报告精确接口、测试、资源边界。不得更新manifest或宣称已发布。
+- [x] 按行为先写失败测试：红像素手算、非方形方向/分数框/透明白底、非法尺寸/共享buffer、错误hash在session前拒绝、load幂等、BUSY、取消各阶段、dispose等待、全帧校验先于推理、输入异步复制、非有限/零向量、顺序绑定、cache错hash不使用、不换源、失败后可重试。真实ORT仅在浏览器跑，unit在最底层ORT依赖替身控制run/session等待，生产不暴露测试后门。
+- [x] `pnpm ... test -- tests/reid-*.test.ts` 或显式文件运行保留红证据；实现分文件模块。错误码含INVALID_INPUT/INVALID_MANIFEST/UNSUPPORTED_BACKEND/DOWNLOAD_FAILED/INTEGRITY_FAILED/OUT_OF_MEMORY/SESSION_FAILED/INFERENCE_FAILED/ABORTED/BUSY/NOT_LOADED/DISPOSED；失败安全原因不泄漏URL凭据。
+- [x] 资产流必须有bytes硬上限，网络错误/取消清理reader；缓存命中仍SHA，错误缓存删除并报完整性错误，缓存不可用可显式报告未缓存但不虚构命中；本地bytes不持久化。模型字节在工厂同步复制，extract复制图像和metadata；释放持有的模型字节/session/Tensor。
+- [x] 候选构建产出`.tmp/reid-module/dist/reid.js`及类型，动态import ORT在load才发生；脚本使用esbuild并将ORT external，浏览器由集成脚本打包/映射。根包无新增强制依赖、网络或模型。
+- [x] 单测、typecheck、候选build通过，中文提交；报告精确接口、测试、资源边界。不得更新manifest或宣称已发布。
 
 ### Task 3: 真实浏览器、包边界与文档验收
 
@@ -58,7 +58,7 @@
 
 **输入：** Task2精确API及候选产物，固定模型和上轮RGBA fixtures；原始参考从上轮 `python-result.json.gz`读取，不能用自身输出充当期望。
 
-- [ ] 浏览器验收脚本先在缺模块时失败；使用localhost，不上传数据。测试34组raw RGBA对Paddle已存向量的归一化cosine/maxAbs门槛，两后端各运行；GPU禁CPUfallback且回读实际adapter；重复相同真实帧送DeepSORT保持ID（只做接口一致性，不宣称真实时间序列质量）。
-- [ ] 本机真实CacheStorage/HTTP截获受控source，校验下载、命中、只清理自己cache、错误字节、取消后下一次extract成功；原始前端无ORT/ONNX网络请求，候选仅load后加载ORT。
-- [ ] 跑S完整verify及候选browser，记录环境、hash、timing口径和局限；P全套test/build与sdk:check after。保留核心包实际消费与无候选发行代码证据，不能扩大core checker结果。
-- [ ] 更新双语文档、标准/模块回执、审查与路线。本地源码模块完成，公开入口、hub分发、Demo模型控件和真实跟踪质量仍后续；独立审查无阻塞后中文提交，保持原工作区用户文件。
+- [x] 浏览器验收脚本先在缺模块时失败；使用localhost，不上传数据。测试34组raw RGBA对Paddle已存向量的归一化cosine/maxAbs门槛，两后端各运行；GPU禁CPUfallback且回读实际adapter；重复相同真实帧送DeepSORT保持ID（只做接口一致性，不宣称真实时间序列质量）。
+- [x] 本机真实CacheStorage/HTTP截获受控source，校验下载、命中、只清理自己cache、错误字节、取消后下一次extract成功；原始前端无ORT/ONNX网络请求，候选仅load后加载ORT。
+- [x] 跑S完整verify及候选browser，记录环境、hash、timing口径和局限；P全套test/build与sdk:check after。保留核心包实际消费与无候选发行代码证据，不能扩大core checker结果。
+- [x] 更新双语文档、标准/模块回执、审查与路线。本地源码模块完成，公开入口、hub分发、Demo模型控件和真实跟踪质量仍后续；独立审查无阻塞后中文提交，保持原工作区用户文件。
