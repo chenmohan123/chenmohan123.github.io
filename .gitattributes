@@ -9,3 +9,6 @@ reports/rotated-detection/2026-09-18-feasibility/** -text whitespace=blank-at-eo
 reports/tracking/2026-09-19-foundation/** -text whitespace=blank-at-eol,space-before-tab,cr-at-eol
 # 原始构建/测试日志保留工具输出的行尾空格和尾部空行。
 reports/tracking/2026-09-19-foundation/*.log -text -whitespace
+# ReID 阶段回执被 SDK 验证清单引用，保持检出后的哈希一致。
+reports/sdk-standard/tracking-reid-preprocessing-before-20260920.json -text
+reports/sdk-standard/tracking-reid-preprocessing-after-20260920.json -text
