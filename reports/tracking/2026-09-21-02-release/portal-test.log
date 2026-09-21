@@ -1,0 +1,40 @@
+$ vitest run
+
+ RUN  v3.2.7 C:/Users/chenm/.codex/worktrees/segmentation-portal/chenmohan123.github.io
+
+ ✓ tools/detection-comparison/build.test.ts (5 tests) 46ms
+ ✓ tools/detection-comparison/catalog.test.ts (2 tests) 47ms
+ ✓ src/lib/registry/schema.test.ts (4 tests) 345ms
+   ✓ 模型与算法互斥契约 > 继续接受原有七款模型  329ms
+ ✓ src/content/models/registry.test.ts (6 tests) 420ms
+   ✓ model registry > 登记 TinyPose 0.3.0 并保留单帧SDK与媒体Demo边界  321ms
+ ✓ tools/sdk-standard-check/standard-files.test.ts (7 tests) 656ms
+   ✓ v1 standard source > 接受包含变体、精度和多来源的模型清单  442ms
+ ✓ tools/sdk-standard-check/checker.test.ts (13 tests) 1973ms
+   ✓ SDK repository discovery > accepts both v1.0 manifests and the v1.1 manifest template  955ms
+   ✓ SDK repository discovery > discovers evidence from a complete local SDK  504ms
+ ✓ src/components/registry/ModelDirectory.test.tsx (6 tests) 1916ms
+   ✓ ModelDirectory > CPU 过滤显示独立算法及无需模型权重  1026ms
+   ✓ ModelDirectory > 旋转框检测分类只展示独立 SDK 并提供详情入口  375ms
+ ✓ tools/sdk-standard-check/algorithm.test.ts (27 tests) 2516ms
+   ✓ 纯算法 SDK 契约 > 合法算法无模型与缓存也通过，模型专属规则有跳过理由和证据  958ms
+   ✓ 纯算法 SDK 契约 > 携带 cache 不得获得模型豁免  309ms
+ ✓ src/components/model/DetectionComparison.test.tsx (2 tests) 3127ms
+   ✓ Detection 模型选型 > 筛选稳定精度并保留批次，不把XS实验量化列入稳定表  2030ms
+   ✓ Detection 模型选型 > 切换后端同时更新AP与耗时，明确不同汇总规则  1095ms
+ ✓ tools/sdk-standard-check/hybrid.test.ts (35 tests) 3084ms
+   ✓ 算法与可选模型混合 SDK 契约 > 混合脚手架模板通过完整清单校验  434ms
+   ✓ 算法与可选模型混合 SDK 契约 > exports 模型子入口为空 时 HYBRID-001 失败  503ms
+ ✓ tools/sdk-standard-check/manifest-validation.test.ts (22 tests) 3255ms
+   ✓ 清单完整 schema 校验 > 扫描使用所选标准的 schema，标准损坏时不归咎于仓库  962ms
+   ✓ 清单完整 schema 校验 > 拒绝非法示例状态并给出字段位置  349ms
+   ✓ 清单完整 schema 校验 > YAML 中错误的资产数组返回 CONFIG-001 和 CLI 退出码 1  1094ms
+   ✓ 清单完整 schema 校验 > 多个仓库中的损坏清单不会阻止后续仓库扫描  705ms
+ ✓ tools/detection-comparison/tiny-precision.test.ts (3 tests) 25ms
+ ✓ src/lib/registry/query.test.ts (4 tests) 25ms
+
+ Test Files  13 passed (13)
+      Tests  136 passed (136)
+   Start at  15:45:54
+   Duration  37.90s (transform 1.37s, setup 96.21s, collect 7.06s, tests 17.44s, environment 256.40s, prepare 4.70s)
+

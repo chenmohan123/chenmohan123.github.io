@@ -1,0 +1,24 @@
+$ playwright test
+
+Running 16 tests using 1 worker
+
+(node:51984) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 tests\portal.spec.ts:4:3 › 纯算法在 1280px 支持 CPU 分类和完整详情 (988ms)
+  ok  2 tests\portal.spec.ts:31:3 › 旋转框检测在 1280px 可筛选、搜索并打开完整发布详情 (624ms)
+  ok  3 tests\portal.spec.ts:59:3 › 实例分割在 1280px 可筛选、搜索并打开完整发布详情 (570ms)
+  ok  4 tests\portal.spec.ts:87:3 › TinyPose 0.3.0 在 1280px 展示三项资产、媒体边界和独立 SDK 链接 (600ms)
+  ok  5 tests\portal.spec.ts:4:3 › 纯算法在 390px 支持 CPU 分类和完整详情 (539ms)
+  ok  6 tests\portal.spec.ts:31:3 › 旋转框检测在 390px 可筛选、搜索并打开完整发布详情 (561ms)
+  ok  7 tests\portal.spec.ts:59:3 › 实例分割在 390px 可筛选、搜索并打开完整发布详情 (602ms)
+  ok  8 tests\portal.spec.ts:87:3 › TinyPose 0.3.0 在 390px 展示三项资产、媒体边界和独立 SDK 链接 (570ms)
+  ok  9 tests\portal.spec.ts:129:1 › homepage exposes the model SDK directory and Models navigation (210ms)
+  ok 10 tests\portal.spec.ts:140:1 › PP-DocLayoutV3 detail exposes package, assets, and live demo (169ms)
+  ok 11 tests\portal.spec.ts:157:1 › PaddleDetection 详情展示 0.4.0、三十七个模型变体和独立 Demo，窄屏不溢出 (299ms)
+  ok 12 tests\portal.spec.ts:223:1 › LCNet 长模型标题在390px视口完整换行，不撑宽页面 (194ms)
+  ok 13 tests\portal.spec.ts:238:1 › Detection选型入口支持精度和后端筛选，390px保留完整可滚动表格 (639ms)
+  ok 14 tests\portal.spec.ts:312:1 › PP-OCRv6 详情展示 0.2.0、六个 FP32 资产和独立 Demo (201ms)
+  ok 15 tests\portal.spec.ts:338:1 › brand and task routes are statically generated (163ms)
+  ok 16 tests\portal.spec.ts:345:1 › docs distinguish stable backends from Labs (157ms)
+
+  16 passed (9.5s)
