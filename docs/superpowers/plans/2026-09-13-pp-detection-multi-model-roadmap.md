@@ -4,7 +4,7 @@
 
 **目标：** 明确 PP-Detection 单 SDK 的模型边界，并完成下一阶段 2D 检测模型兼容性评估，选择一个有证据支持的候选进入后续移植。
 
-**2026-09-21跟踪进度补充：** 独立Tracking SDK已完成PPLCNet ReID真实双源分发、同包可选./reid、本地1.3 hybrid清单与图像＋检测框Demo，默认ModelScope、Hugging Face可选，真实WASM/WebGPU通过；关联仍CPU。见[本阶段回执](../../../reports/tracking/2026-09-21-reid-distribution/README.md)。线上仍0.1.0，当前0.2.0-alpha.0未发布。下一步做同检测输入的ByteTrack/OC-SORT/DeepSORT真实序列质量及完整成本评测，再判断发布。路线保持独立SDK优先，不将模型或跟踪运行时复制到门户/Detection，Workflow继续暂缓；下方较早状态为历史。
+**2026-09-21真实序列评测完成：** Tracking在固定七段MOT17 FRCNN训练序列全部5316帧、67639检测上完成三算法同输入比较，浏览器与两次Node结果一致、零容量丢弃。ByteTrack/OC-SORT/DeepSORT+PPLCNet的IDF1分别48.2922%/48.4107%/45.4637%，完整IDSW/MOTA/FP/FN与实测成本见[最新回执](../../../reports/tracking/2026-09-21-mot-reid/README.md)。当前组合不支持替换ByteTrack默认；建议进入0.2本地发布候选收口，OC-SORT/DeepSORT显式可选，ReID保留人体场景实验能力。先确定候选版本、变更日志和发布预检，再取得发布授权；门户生产registry/npm/线上Demo仍0.1.0。视频/摄像头、跨设备及Workflow继续暂缓，后文早期进度保留为历史。
 
 **架构：** `web-sdk-pp-detection` 继续负责轴对齐 2D 单帧目标检测，一个 SDK 可以承载多个经过验证的模型变体。跟踪、关键点、实例分割、3D、旋转框和业务组合不复制到该 SDK，而是共享基础设施、分别建立任务 SDK 或 Portal Workflow。模型权重通过版本化 manifest 和 ModelScope/Hugging Face 来源按需下载，npm 包不内置 ONNX 二进制。
 

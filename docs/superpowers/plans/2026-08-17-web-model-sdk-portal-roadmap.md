@@ -10,7 +10,7 @@ readiness, not by the number of models mentioned in the catalog.
 
 ## 当前优先级（2026-09-19 证据更新）
 
-**2026-09-21跟踪进度补充：** ReID已完成真实ModelScope/Hugging Face分发，默认ModelScope；同包可选./reid、标准1.3 hybrid和本地图像＋检测框Demo已接入。真实双源WASM/WebGPU与生产工作台在本机通过，关联仍CPU。详见[当前阶段回执](../../../reports/tracking/2026-09-21-reid-distribution/README.md)。SDK保持0.2.0-alpha.0本地候选，门户生产registry/npm/线上Demo仍指向已发布0.1.0。下一阶段固定同检测输入，对三算法做真实时间序列质量及完整成本比较，再决定发布；Workflow继续暂缓。下方较早进度保留为历史，不代表该可选入口仍未实现。
+**2026-09-21真实序列评测完成：** Tracking在固定七段MOT17 FRCNN训练序列全部5316帧、67639检测上完成三算法同输入比较，浏览器与两次Node结果一致、零容量丢弃。ByteTrack/OC-SORT/DeepSORT+PPLCNet的IDF1分别48.2922%/48.4107%/45.4637%，完整IDSW/MOTA/FP/FN与实测成本见[最新回执](../../../reports/tracking/2026-09-21-mot-reid/README.md)。当前组合不支持替换ByteTrack默认；建议进入0.2本地发布候选收口，OC-SORT/DeepSORT显式可选，ReID保留人体场景实验能力。先确定候选版本、变更日志和发布预检，再取得发布授权；门户生产registry/npm/线上Demo仍0.1.0。视频/摄像头、跨设备及Workflow继续暂缓，后文早期进度保留为历史。
 
 后续优先建设独立 SDK，门户负责登记、分类、比较及仓库、npm、Demo 跳转。Workflow / Playground 和 Detection → TinyPose 等组合执行暂缓；这一顺序延续最初的任务边界。
 
