@@ -17,3 +17,5 @@ SDK 实现提交 `99874c7fc89801dd2abfb1d78ad3bd767b6ed4d2` 将当前包/runtime
 本地Demo为 <http://127.0.0.1:4204/>。下一步是本版本发布与发布后核验：经PR/CI合入、不可变RC tag/预发布Release、npm next及integrity回读、目标版本Demo部署与门户更新。当前仅完成本地候选准备。视频/摄像头、手机、其他浏览器、Worker/NPU、跨摄像头及Workflow继续后置；更后阶段BoT-SORT/JDE/FairMOT/CenterTrack未登记为已实现。
 
 门户本轮构建通过：21页、0 errors、0 warnings，7项既有 hints 来自旧评测脚本类型与 Zod 弃用，见 `portal-build.log`。本轮未改门户产品代码，因此没有重复门户UI流程或无关测试套件。
+
+最终任务审查与整体审查均通过，无严重或重要项；独立审查再次核对Git归档字节、当前构建/tarball及源码等价身份。SDK初始归档提交为`a51f0b0`，最终审查记录保存在其报告目录`closure/final-review.md`；后续收尾提交只保存文档与证据锁，不改变`99874c7`候选实现或实际包。
