@@ -10,6 +10,8 @@ readiness, not by the number of models mentioned in the catalog.
 
 ## 当前优先级（2026-09-19 证据更新）
 
+**2026-09-21跟踪进度补充：** ReID已完成真实ModelScope/Hugging Face分发，默认ModelScope；同包可选./reid、标准1.3 hybrid和本地图像＋检测框Demo已接入。真实双源WASM/WebGPU与生产工作台在本机通过，关联仍CPU。详见[当前阶段回执](../../../reports/tracking/2026-09-21-reid-distribution/README.md)。SDK保持0.2.0-alpha.0本地候选，门户生产registry/npm/线上Demo仍指向已发布0.1.0。下一阶段固定同检测输入，对三算法做真实时间序列质量及完整成本比较，再决定发布；Workflow继续暂缓。下方较早进度保留为历史，不代表该可选入口仍未实现。
+
 后续优先建设独立 SDK，门户负责登记、分类、比较及仓库、npm、Demo 跳转。Workflow / Playground 和 Detection → TinyPose 等组合执行暂缓；这一顺序延续最初的任务边界。
 
 TinyPose 0.3.0、PP-Segmentation 0.1.0 与 PP-RotatedDetection 0.1.0 已正式发布。分割以 PP-YOLOE_seg_s 640 FP32 提供单帧图片、原图框与二值 ROI 掩码；旋转框以 PP-YOLOE-R-s 1024 FP32 提供 DOTA 15 类和原图四点框。两者均完成双源、npm、Release 和 HTTPS Demo 回读；旋转框固定发布证据见[独立 SDK 回执](https://github.com/chenmohan123/web-sdk-PP-RotatedDetection/tree/b54ae15ca124fd111cac6e683409fdbb88a14e13/reports/2026-09-18-release)。门户已登记第七个 SDK，并保留各自桌面验证边界。

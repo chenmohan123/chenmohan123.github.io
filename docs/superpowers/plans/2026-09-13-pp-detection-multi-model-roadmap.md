@@ -4,6 +4,8 @@
 
 **目标：** 明确 PP-Detection 单 SDK 的模型边界，并完成下一阶段 2D 检测模型兼容性评估，选择一个有证据支持的候选进入后续移植。
 
+**2026-09-21跟踪进度补充：** 独立Tracking SDK已完成PPLCNet ReID真实双源分发、同包可选./reid、本地1.3 hybrid清单与图像＋检测框Demo，默认ModelScope、Hugging Face可选，真实WASM/WebGPU通过；关联仍CPU。见[本阶段回执](../../../reports/tracking/2026-09-21-reid-distribution/README.md)。线上仍0.1.0，当前0.2.0-alpha.0未发布。下一步做同检测输入的ByteTrack/OC-SORT/DeepSORT真实序列质量及完整成本评测，再判断发布。路线保持独立SDK优先，不将模型或跟踪运行时复制到门户/Detection，Workflow继续暂缓；下方较早状态为历史。
+
 **架构：** `web-sdk-pp-detection` 继续负责轴对齐 2D 单帧目标检测，一个 SDK 可以承载多个经过验证的模型变体。跟踪、关键点、实例分割、3D、旋转框和业务组合不复制到该 SDK，而是共享基础设施、分别建立任务 SDK 或 Portal Workflow。模型权重通过版本化 manifest 和 ModelScope/Hugging Face 来源按需下载，npm 包不内置 ONNX 二进制。
 
 **技术栈：** ONNX Runtime Web、Paddle2ONNX、TypeScript、Python 评测脚本、Vitest、Playwright、WebGPU/WASM。
