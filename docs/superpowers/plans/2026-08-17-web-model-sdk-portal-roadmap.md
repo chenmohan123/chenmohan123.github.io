@@ -10,11 +10,17 @@ readiness, not by the number of models mentioned in the catalog.
 
 ## 当前优先级（2026-09-19 证据更新）
 
+**2026-09-21 RC 已发布：** Tracking `0.2.0-rc.0` 已经 PR #3、CI、不可变标签与 OIDC 发布到 npm `next`，`latest` 保留 `0.1.0`；公开包 SHA256/sha512、registry 签名和 provenance 已验证。HTTPS Demo 的三算法、ModelScope/WASM、Hugging Face/WebGPU、取消/复位/缓存及中英文窄屏流程通过。门户结构化条目继续描述稳定 0.1.0，在摘要与限制中提供 RC 预览说明，见[本轮回执](../../../reports/tracking/2026-09-21-02-release/README.md)。以下日期相同的候选与早期“下一步”均为历史记录，以本段为准。下一阶段优先做 BoT-SORT 的相机运动补偿及输入契约可行性，再决定同包实现；JDE/FairMOT/CenterTrack 继续分阶段评估，不承诺列表中的算法均能直接切换。视频/摄像头 Demo、手机和跨 SDK Workflow 仍待独立设计。
+
+**2026-09-21发布候选验收：** Tracking已整理为本地`0.2.0-rc.0`，包/runtime/Demo版本统一；预发布使用npm `next`，正式版使用`latest`。176项单测、实际包消费、12组浏览器流程、ModelScope/WASM和Hugging Face/WebGPU生产UI通过，见[RC回执](../../../reports/tracking/2026-09-21-02-rc/README.md)。源码逐项核对证明运行逻辑相对已评测alpha仅版本标识变化，历史成绩保留原身份。ByteTrack默认、OC-SORT/DeepSORT可选、人体ReID实验状态不变。下一步是本版本发布及发布后回读；当前未执行远程写入，门户生产registry/npm/线上Demo仍0.1.0，视频/摄像头、手机及Workflow不在本阶段。
+
+**2026-09-21真实序列评测完成：** Tracking在固定七段MOT17 FRCNN训练序列全部5316帧、67639检测上完成三算法同输入比较，浏览器与两次Node结果一致、零容量丢弃。ByteTrack/OC-SORT/DeepSORT+PPLCNet的IDF1分别48.2922%/48.4107%/45.4637%，完整IDSW/MOTA/FP/FN与实测成本见[最新回执](../../../reports/tracking/2026-09-21-mot-reid/README.md)。当前组合不支持替换ByteTrack默认；建议进入0.2本地发布候选收口，OC-SORT/DeepSORT显式可选，ReID保留人体场景实验能力。先确定候选版本、变更日志和发布预检，再取得发布授权；门户生产registry/npm/线上Demo仍0.1.0。视频/摄像头、跨设备及Workflow继续暂缓，后文早期进度保留为历史。
+
 后续优先建设独立 SDK，门户负责登记、分类、比较及仓库、npm、Demo 跳转。Workflow / Playground 和 Detection → TinyPose 等组合执行暂缓；这一顺序延续最初的任务边界。
 
 TinyPose 0.3.0、PP-Segmentation 0.1.0 与 PP-RotatedDetection 0.1.0 已正式发布。分割以 PP-YOLOE_seg_s 640 FP32 提供单帧图片、原图框与二值 ROI 掩码；旋转框以 PP-YOLOE-R-s 1024 FP32 提供 DOTA 15 类和原图四点框。两者均完成双源、npm、Release 和 HTTPS Demo 回读；旋转框固定发布证据见[独立 SDK 回执](https://github.com/chenmohan123/web-sdk-PP-RotatedDetection/tree/b54ae15ca124fd111cac6e683409fdbb88a14e13/reports/2026-09-18-release)。门户已登记第七个 SDK，并保留各自桌面验证边界。
 
-旋转框首版已按可行性结论发布，当前不扩展切片、媒体、手机或 NPU 承诺。独立 `web-sdk-pp-tracking@0.1.0` 已完成 npm、GitHub Release、HTTPS Demo 和远程治理核验：采用纯算法标准 1.2.0、ByteTrack 高低分思想的数学独立实现、Apache-2.0、实例状态与 CPU/main API，双语 Demo 及 Vanilla/React 示例保持原边界。[前期参考评估](../../../reports/tracking/2026-09-18-feasibility/README.md)中的许可疑点保留为历史，本产品不复制或分发旧参考代码；[原本地验收和七 SDK 标准回归](../../../reports/tracking/2026-09-19-foundation/README.md)也不改写。2026-09-19 固定 MOT17 七段 FRCNN 训练序列 5316 帧已评测，默认 IDF1 48.2922%、IDSW 1101、MOTA 44.4010%，消融 IDF1 48.3465%、IDSW 1066；低分续接减少漏检但增加误检和切 ID，不是测试集排行榜或官方复现。门户第八个算法条目、CPU 分类和无权重详情已上线，生产目录、筛选、详情和独立链接通过 1440px 与 390px 桌面 Chromium 验收，见[固定交付证据](../../../reports/tracking/2026-09-19-release/README.md)。手机与跨设备兼容仍未声明。分割精度变体与媒体扩展保留后续，Workflow 继续暂缓。
+旋转框首版已按可行性结论发布，当前不扩展切片、媒体、手机或 NPU 承诺。独立 `web-sdk-pp-tracking@0.1.0` 已完成 npm、GitHub Release、HTTPS Demo 和远程治理核验：采用纯算法标准 1.2.0、ByteTrack 高低分思想的数学独立实现、Apache-2.0、实例状态与 CPU/main API，双语 Demo 及 Vanilla/React 示例保持原边界。第一批多算法工作已完成仅本地的 `0.2.0-alpha.0` 候选、两策略 Demo 及同输入评测；线上 npm、HTTPS Demo 和门户第八条仍是 0.1.0，不将候选或未来五种路线登记为已实现。[前期参考评估](../../../reports/tracking/2026-09-18-feasibility/README.md)中的许可疑点保留为历史，本产品不复制或分发旧参考代码；[原本地验收和七 SDK 标准回归](../../../reports/tracking/2026-09-19-foundation/README.md)也不改写。固定 MOT17 七段 FRCNN 训练序列 5316 帧中，候选 ByteTrack 七份 MOT 与历史默认逐字节一致，IDF1/IDSW/MOTA/FP/FN 为 48.2922%/1101/44.4010%/4169/57166；OC-SORT 为 48.4107%/881/39.5434%/6751/60259。OC-SORT 减少 IDSW 且 IDF1 略高，但 MOTA 低 4.8577 个百分点、FP/FN 更高，Node 跟踪累计耗时也高 8.19%，因此继续以 ByteTrack 为默认，OC-SORT 保留为可选本地候选。两算法均重复确定性并各自在 Chromium 153 完整对齐 600 帧 Node 输出；这不是测试集、官方复现、视频端到端或跨设备结论。门户第八个算法条目、CPU 分类和无权重详情已上线，生产目录、筛选、详情和独立链接通过 1440px 与 390px 桌面 Chromium 验收，见[固定交付证据](../../../reports/tracking/2026-09-19-release/README.md)。手机与跨设备兼容仍未声明。分割精度变体与媒体扩展保留后续，Workflow 继续暂缓。
 
 ## Current Baseline
 
@@ -155,4 +161,8 @@ APIs remain separate Labs work and are not prerequisites for the MVP.
 
 ## Next Concrete Task
 
-PP-Segmentation、PP-RotatedDetection 与 PP-Tracking 门户登记均已上线。PP-Tracking 0.1.0 的 npm、GitHub Release、HTTPS Demo、远程治理及门户第八条生产回读已完成，固定 MOT17 训练序列评测及真实身份连续性限制保持不变；[生产交付证据](../../../reports/tracking/2026-09-19-release/README.md)覆盖目录、CPU/跟踪筛选、详情与独立链接。390px 仅为桌面布局证据。上方各 Phase 保留为历史总体路线；Workflow 实施仍暂缓。
+Tracking 0.2 RC 发布收口后，下一项是 **BoT-SORT 可行性评估**：核对独立实现依据与许可，明确相机运动信息由调用者提供还是可选图像模块提取，比较同输入质量与完整耗时，确认失败回退和状态复位边界。可行性通过后再形成实现计划；本轮没有把 BoT-SORT、JDE、FairMOT 或 CenterTrack 加入已实现清单。保持独立 SDK、桌面优先、默认 ByteTrack、ReID 实验状态与门户只登记的边界。
+
+### 历史任务快照（由上方发布进度更新）
+
+PP-Segmentation、PP-RotatedDetection 与 PP-Tracking 门户登记均已上线。PP-Tracking 0.1.0 的 npm、GitHub Release、HTTPS Demo、远程治理及门户第八条生产回读已完成；第一批 OC-SORT `0.2.0-alpha.0` 已完成本地候选、两算法 Demo、包验证及同输入评测。真实结果支持继续以 ByteTrack 为默认；OC-SORT 仅作为可选候选，后续发布与门户升级须独立决策，当前不修改生产 registry 或对外链接。[第一轮 ReID 可行性](../../../reports/tracking/2026-09-19-reid-feasibility/README.md)已归档来源、模型转换和浏览器成本；轻量探针在边界输入上未通过，不能登记为稳定模型。第二批已在同一 Tracking SDK 实现外部向量 DeepSORT 关联层、三算法 Demo 与包消费，已完成本地验收、最终独立复审通过，见[阶段回执](../../../reports/tracking/2026-09-19-deepsort/README.md)。下一步核验 PPLCNet ReID 的 checkpoint、权重依据、预处理与真实图片质量；可选模型接入须先演进混合能力标准，再完成模型分发验收。BoT-SORT、JDE、FairMOT、CenterTrack 继续作为更后阶段路线，不能登记为已实现。Workflow 仍须等待至少两个已发布 SDK 的兼容输入输出契约与真实用例。[生产交付证据](../../../reports/tracking/2026-09-19-release/README.md)覆盖 0.1.0 目录、CPU/跟踪筛选、详情与独立链接；390px 仅为桌面布局证据。上方各 Phase 保留为历史总体路线。

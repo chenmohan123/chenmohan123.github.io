@@ -1,0 +1,34 @@
+$ vitest run
+
+ RUN  v3.2.7 C:/Users/chenm/.codex/worktrees/segmentation-portal/chenmohan123.github.io
+
+ ✓ tools/detection-comparison/tiny-precision.test.ts (3 tests) 30ms
+ ✓ tools/detection-comparison/build.test.ts (5 tests) 31ms
+ ✓ tools/detection-comparison/catalog.test.ts (2 tests) 60ms
+ ✓ src/lib/registry/schema.test.ts (4 tests) 457ms
+   ✓ 模型与算法互斥契约 > 继续接受原有七款模型  436ms
+ ✓ src/content/models/registry.test.ts (6 tests) 552ms
+   ✓ model registry > 登记 TinyPose 0.3.0 并保留单帧SDK与媒体Demo边界  490ms
+ ✓ tools/sdk-standard-check/standard-files.test.ts (7 tests) 523ms
+   ✓ v1 standard source > 接受包含变体、精度和多来源的模型清单  367ms
+ ✓ tools/sdk-standard-check/checker.test.ts (13 tests) 1039ms
+   ✓ SDK repository discovery > accepts both v1.0 manifests and the v1.1 manifest template  677ms
+ ✓ src/components/registry/ModelDirectory.test.tsx (6 tests) 1232ms
+   ✓ ModelDirectory > CPU 过滤显示独立算法及无需模型权重  534ms
+   ✓ ModelDirectory > 旋转框检测分类只展示独立 SDK 并提供详情入口  319ms
+ ✓ tools/sdk-standard-check/algorithm.test.ts (25 tests) 1832ms
+   ✓ 纯算法 SDK 契约 > 合法算法无模型与缓存也通过，模型专属规则有跳过理由和证据  651ms
+ ✓ src/components/model/DetectionComparison.test.tsx (2 tests) 2220ms
+   ✓ Detection 模型选型 > 筛选稳定精度并保留批次，不把XS实验量化列入稳定表  1490ms
+   ✓ Detection 模型选型 > 切换后端同时更新AP与耗时，明确不同汇总规则  727ms
+ ✓ tools/sdk-standard-check/manifest-validation.test.ts (22 tests) 2129ms
+   ✓ 清单完整 schema 校验 > 扫描使用所选标准的 schema，标准损坏时不归咎于仓库  512ms
+   ✓ 清单完整 schema 校验 > YAML 中错误的资产数组返回 CONFIG-001 和 CLI 退出码 1  749ms
+   ✓ 清单完整 schema 校验 > 多个仓库中的损坏清单不会阻止后续仓库扫描  559ms
+ ✓ src/lib/registry/query.test.ts (4 tests) 26ms
+
+ Test Files  12 passed (12)
+      Tests  99 passed (99)
+   Start at  12:20:06
+   Duration  40.87s (transform 1.49s, setup 97.31s, collect 6.39s, tests 10.13s, environment 292.64s, prepare 11.56s)
+

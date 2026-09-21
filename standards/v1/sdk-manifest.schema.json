@@ -5,8 +5,8 @@
   "type": "object",
   "required": ["schemaVersion", "id", "name", "summary", "package", "repository", "demo", "docs", "runtime", "performance", "examples", "verification"],
   "properties": {
-    "schemaVersion": { "type": "string", "enum": ["1.0.0", "1.1.0", "1.2.0"] },
-    "kind": { "type": "string", "enum": ["model", "algorithm"] },
+    "schemaVersion": { "type": "string", "enum": ["1.0.0", "1.1.0", "1.2.0", "1.3.0"] },
+    "kind": { "type": "string", "enum": ["model", "algorithm", "hybrid"] },
     "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
     "name": { "type": "string", "minLength": 1 },
     "summary": { "type": "string", "minLength": 20 },
@@ -125,6 +125,7 @@
       },
       "additionalProperties": false
     },
+    "modules": { "$ref": "#/$defs/hybridModules" },
     "examples": {
       "type": "object",
       "required": ["vanilla", "react"],
@@ -152,6 +153,7 @@
               "os": { "type": "string" },
               "device": { "type": "string" },
               "testedAt": { "type": "string", "format": "date" },
+              "module": { "type": "string", "enum": ["algorithm", "model"] },
               "backend": { "type": "string" },
               "runtimeVersion": { "type": "string" }
             },
@@ -162,16 +164,118 @@
       "additionalProperties": false
     }
   },
-  "if": { "properties": { "kind": { "const": "algorithm" } }, "required": ["kind"] },
-  "then": {
-    "properties": { "schemaVersion": { "const": "1.2.0" }, "algorithm": true, "model": false, "cache": false },
-    "required": ["algorithm"]
-  },
-  "else": {
-    "properties": { "model": true, "cache": true, "algorithm": false },
-    "required": ["model", "cache"]
-  },
+  "oneOf": [
+    {
+      "properties": {
+        "kind": { "const": "algorithm" },
+        "schemaVersion": { "enum": ["1.2.0", "1.3.0"] },
+        "algorithm": true,
+        "model": false,
+        "cache": false,
+        "modules": false
+      },
+      "required": ["kind", "algorithm"]
+    },
+    {
+      "properties": {
+        "kind": { "const": "hybrid" },
+        "schemaVersion": { "const": "1.3.0" },
+        "algorithm": true,
+        "model": true,
+        "cache": true,
+        "modules": true,
+        "verification": {
+          "type": "object",
+          "properties": {
+            "environments": {
+              "type": "array",
+              "allOf": [
+                {
+                  "contains": { "type": "object", "properties": { "module": { "const": "algorithm" } }, "required": ["module"] },
+                  "minContains": 1
+                },
+                {
+                  "contains": { "type": "object", "properties": { "module": { "const": "model" } }, "required": ["module"] },
+                  "minContains": 1
+                }
+              ]
+            }
+          }
+        }
+      },
+      "required": ["kind", "algorithm", "model", "cache", "modules"]
+    },
+    {
+      "properties": {
+        "kind": { "const": "model" },
+        "model": true,
+        "cache": true,
+        "algorithm": false,
+        "modules": false
+      },
+      "required": ["model", "cache"]
+    }
+  ],
   "$defs": {
+    "runtime": {
+      "type": "object",
+      "required": ["backends", "executionModes", "actualBackendReported", "runtimeVersion"],
+      "properties": {
+        "backends": { "type": "array", "items": { "type": "string", "enum": ["wasm", "webgpu", "webnn", "cpu", "gpu", "npu"] }, "minItems": 1 },
+        "executionModes": { "type": "array", "items": { "type": "string", "enum": ["main", "worker"] }, "minItems": 1 },
+        "actualBackendReported": { "type": "boolean" },
+        "runtimeVersion": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "performance": {
+      "type": "object",
+      "required": ["timings", "coldStartDefined", "warmRunDefined"],
+      "properties": {
+        "timings": { "type": "array", "items": { "type": "string", "enum": ["modelDownloadMs", "modelCacheReadMs", "integrityMs", "sessionMs", "decodeMs", "preprocessMs", "inferenceMs", "postprocessMs", "validationMs", "predictionMs", "associationMs", "updateMs", "totalMs"] }, "minItems": 5 },
+        "coldStartDefined": { "type": "boolean" },
+        "warmRunDefined": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "hybridModules": {
+      "type": "object",
+      "required": ["algorithm", "model"],
+      "properties": {
+        "algorithm": {
+          "type": "object",
+          "required": ["entry", "runtime", "performance"],
+          "properties": {
+            "entry": { "type": "string", "minLength": 1 },
+            "runtime": {
+              "allOf": [
+                { "$ref": "#/$defs/runtime" },
+                { "type": "object", "properties": { "backends": { "type": "array", "items": { "const": "cpu" }, "minItems": 1 }, "actualBackendReported": { "const": true } } }
+              ]
+            },
+            "performance": { "$ref": "#/$defs/performance" }
+          },
+          "additionalProperties": false
+        },
+        "model": {
+          "type": "object",
+          "required": ["entry", "optional", "runtime", "performance"],
+          "properties": {
+            "entry": { "type": "string", "minLength": 1, "not": { "const": "." } },
+            "optional": { "const": true },
+            "runtime": {
+              "allOf": [
+                { "$ref": "#/$defs/runtime" },
+                { "type": "object", "properties": { "backends": { "type": "array", "items": { "enum": ["wasm", "webgpu"] }, "minItems": 1 }, "actualBackendReported": { "const": true } } }
+              ]
+            },
+            "performance": { "$ref": "#/$defs/performance" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
     "example": {
       "type": "object",
       "required": ["status"],

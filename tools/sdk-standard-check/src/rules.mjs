@@ -29,13 +29,16 @@ const detectors = {
   demoChineseDefault: (evidence) => evidence.demoChineseDefault,
   demoLanguageToggle: (evidence) => evidence.demoLanguageToggle,
   demoCacheClear: (evidence) => evidence.cacheClear,
-  demoTimingMarkers: (evidence, manifest) => manifest?.kind === "algorithm" ? evidence.algorithmTimingMarkers : evidence.timingMarkers,
+  demoTimingMarkers: (evidence, manifest) => manifest?.kind === "algorithm"
+    ? evidence.algorithmTimingMarkers
+    : manifest?.kind === "hybrid" ? evidence.hybridTimingMarkers : evidence.timingMarkers,
   demoStateReset: (evidence) => evidence.demoStateReset,
   algorithmInformation: (evidence, manifest) => Boolean(manifest?.algorithm) && evidence.algorithmInformation,
   modelInformation: (evidence, manifest) => Boolean(manifest?.model?.assets?.length) && evidence.modelInformation,
   runtimeInformation: (evidence, manifest) => Boolean(manifest?.runtime?.actualBackendReported) && evidence.runtimeInformation,
   performanceTimings: (evidence, manifest) => Boolean(manifest?.performance?.timings?.length) && evidence.performanceTimings,
   cacheContract: (evidence, manifest) => Boolean(manifest?.cache?.versionedKeys && manifest.cache.clearCurrent && manifest.cache.clearAll && manifest.cache.estimate) && evidence.cacheContract,
+  hybridContract: (evidence, manifest) => manifest?.kind === "hybrid" && evidence.hybridContract,
   vanillaExample: (evidence) => evidence.examples.includes("vanilla"),
   reactExample: (evidence) => evidence.examples.includes("react"),
   declaredExamples: (evidence, manifest) => {

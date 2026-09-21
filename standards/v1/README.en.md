@@ -1,8 +1,8 @@
 # Web Model SDK Standard v1
 
 [中文（默认）](README.md) is the primary entry point. This equivalent English
-document uses standard version `1.2.0`, retaining compatibility with `1.0.0`
-and `1.1.0` model manifests.
+document uses standard version `1.3.0`, retaining compatibility with `1.0.0`,
+`1.1.0`, and `1.2.0` model manifests and `1.2.0` algorithm manifests.
 
 Read the [runtime contract](sdk-contract.md), [single-SDK Demo contract](demo-contract.md),
 [portal boundary](portal-contract.md), [docs and release contract](docs-release-contract.md),
@@ -65,7 +65,7 @@ not the browser-downloadable model payload.
 
 ### Pure algorithm SDKs
 
-Only version `1.2.0` permits `kind: algorithm`. Omitted kind and `kind: model`
+Versions `1.2.0` and `1.3.0` permit `kind: algorithm`. Omitted kind and `kind: model`
 retain model requirements; an older version cannot claim algorithm exemptions.
 Algorithm manifests require `algorithm` and prohibit `model` and `cache`;
 model manifests prohibit `algorithm`. Required algorithm fields are nonempty
@@ -83,9 +83,35 @@ data-sdk-algorithm-info, data-sdk-runtime-info, data-sdk-timing, and
 data-sdk-state-reset. Document inputs, outputs, provenance, license, state
 lifecycle, and reset semantics.
 
-Rules with appliesTo specify model or algorithm scope; omitted scope means both.
-MODEL-001, CACHE-001, DEMO-004 are model-only. ALGORITHM-001 and DEMO-006 are
-algorithm-only. Inapplicable rules retain skip status, manifest evidence path,
+### Algorithm SDKs with an optional model module
+
+Only version `1.3.0` permits `kind: hybrid`. A hybrid manifest requires
+`algorithm`, `model`, `cache`, and `modules` and inherits the complete algorithm
+and model requirements. `modules.algorithm` and `modules.model` declare separate
+package entries, runtime summaries, and performance summaries. The model module
+must set `optional: true`, use a non-default entry, and load its runtime and
+weights only after an explicit import.
+
+The algorithm module permits only `cpu`; the model module permits only `wasm`
+and `webgpu`. Both report the actual backend. Top-level runtime backends and
+execution modes and top-level performance timings equal the union of both
+modules. Each module has at least one dated verification environment.
+HYBRID-001 also verifies that both exact `package.exports` entries resolve to
+local runtime files. A key with a null target, only a `types` condition, a
+declaration file, a directory, or a missing build file does not pass. This
+static check does not parse or execute an entry; package-consumer and browser
+tests must still prove that it can be imported.
+
+Start from the [hybrid manifest template](templates/sdk-manifest.hybrid.yaml).
+Optional model loading does not relax model assets, immutable sources, cache,
+cancellation, release, or distribution evidence. The Demo exposes separate
+model-cache cleanup and algorithm-state reset controls and includes model,
+algorithm, runtime, and timing markers.
+
+Rules with appliesTo specify model, algorithm, or hybrid scope; omitted scope
+means all three. MODEL-001, CACHE-001, and DEMO-004 apply to model and hybrid.
+ALGORITHM-001 and DEMO-006 apply to algorithm and hybrid. HYBRID-001 applies
+only to hybrid. Inapplicable rules retain skip status, manifest evidence path,
 and a reason. Only a fully validated manifest grants type exemptions. Invalid
 manifests produce CONFIG-001 and cannot bypass model requirements by claiming
 algorithm kind. Repositories without manifests retain legacy model checks.

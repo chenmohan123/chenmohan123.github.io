@@ -51,3 +51,18 @@ output 为非空字符串，stateful 为布尔值；模型 SDK 不得声明此�
 结果仍报告 requestedBackend、actualBackend、executionMode 和 runtimeVersion，
 CPU 主线程实现声明 cpu/main。不得因没有模型而放宽实际后端报告、实例隔离、
 框架无关或带日期兼容性证据的要求。算法性能字段见性能契约。
+
+## 算法与可选模型混合 runtime（1.3.0）
+
+混合 SDK 的默认包入口是算法 runtime，不得静态导入或初始化模型推理引擎、
+worker 或权重。可选模型通过独立的非默认 `package.exports` 子路径显式导入；
+两个 manifest 模块入口必须对应非空且真实存在的导出目标。
+
+`modules.algorithm` 只声明 `cpu` 后端，`modules.model` 只声明 `wasm` / `webgpu`
+后端；两者分别报告 requestedBackend、actualBackend、executionMode 和
+runtimeVersion。顶层 runtime 是已实现模块能力的并集，不能把模型特征提取的
+WebGPU 执行写成关联算法的 GPU 执行。模型的资产、不可变来源、完整性、缓存、
+显式换源、取消与释放契约全部保留，`optional: true` 只表示默认算法路径不加载它。
+
+完整清理必须取消正在进行的模型提取、释放模型资源、清理适用缓存，并复位
+依赖该特征的关联状态。单独的跟踪复位不应冒充模型缓存清理。
