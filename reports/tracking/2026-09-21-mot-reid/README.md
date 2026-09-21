@@ -21,3 +21,5 @@ Node第一次跟踪累计ByteTrack/OC-SORT/DeepSORT为8679.482/9387.251/31180.49
 工具阶段已有9项聚焦测试、173项单测和typecheck/build/package通过，正式七段浏览器、两次Node和官方评分完成；归档重新校验126个正式原始输出hash，补充48个子集hash及14份旧ByteTrack/OC-SORT MOT/指标一致。SDK离线verify复算计时和指标公式，不把hash核验冒充重新跑TrackEval。门户本轮build为0errors/0warnings/7既有hints、21页；7 hints来自旧报告脚本类型和Zod弃用，与本轮文档无关。[标准after](../../sdk-standard/tracking-mot-reid-after-20260921.json)为21 required通过、0失败、4远程skip，recommended3通过，仅表示locally-compliant。
 
 真实评测门槛完成，建议进入0.2本地发布候选收口：ByteTrack默认，OC-SORT/DeepSORT显式可选，人体ReID标记实验能力。下一步确定候选版本、变更日志和发布预检，再取得本版本发布授权。视频/摄像头、真实手机、Safari/Firefox、Worker/NPU、跨摄像头和Workflow继续后置；训练集单机观察不是官方测试集排名或普遍精度/兼容承诺。历史报告、透明PNG和旧OMZ反例保留。
+
+最终收尾：两项任务审查与整体审查均通过，无阻塞项。SDK `c3542d4` 补充固定媒体清单恢复步骤，`1e4d777` 保存 `reports/2026-09-21-mot-reid/closure/` 的实施、审查、限定复审与执行记录；实测源码及成绩仍为上述固定身份。媒体准备脚本重跑的传输统计可能变化，按双语报告恢复归档清单后再运行，图片本体仍逐项核验SHA/CRC。最终32份归档/current验证和SDK标准检查再次通过，本轮保持本地提交。
