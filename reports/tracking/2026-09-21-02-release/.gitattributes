@@ -1,2 +1,5 @@
 *.log -text -whitespace
 *.json -text
+remote/*.json -text
+online/*.json -text
+local/*.json -text

@@ -1,0 +1,32 @@
+{
+  "verifiedAt": "2026-09-21T08:16:04.726Z",
+  "url": "https://chenmohan123.github.io",
+  "browser": "151.0.7922.34",
+  "results": [
+    {
+      "width": 1440,
+      "checks": [
+        "目录八项、CPU/跟踪筛选",
+        "稳定 0.1.0 字段与 RC 预览说明",
+        "RC 安装与 ReID 实验边界",
+        "独立链接",
+        "目录/详情无横向溢出",
+        "跟踪分类页"
+      ],
+      "pageErrors": []
+    },
+    {
+      "width": 390,
+      "checks": [
+        "目录八项、CPU/跟踪筛选",
+        "稳定 0.1.0 字段与 RC 预览说明",
+        "RC 安装与 ReID 实验边界",
+        "独立链接",
+        "目录/详情无横向溢出",
+        "跟踪分类页"
+      ],
+      "pageErrors": []
+    }
+  ],
+  "boundary": "桌面 Chromium；390px 不是手机实机验证"
+}

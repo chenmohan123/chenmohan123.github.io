@@ -1,0 +1,46 @@
+{
+  "observedAt": "2026-09-21T08:16:09.785Z",
+  "pr": "https://github.com/chenmohan123/chenmohan123.github.io/pull/48",
+  "head": "521a7f5f156fd1cb921d08393fe9bec834131d40",
+  "mergeCommit": "48ee0e84eed4ac80b8713b0ae71c0ffea30305ea",
+  "mergedAt": "2026-09-21T08:14:14Z",
+  "ci": "https://github.com/chenmohan123/chenmohan123.github.io/actions/runs/35576448613",
+  "deploymentRun": "https://github.com/chenmohan123/chenmohan123.github.io/actions/runs/35576845316",
+  "deploymentId": 6564307787,
+  "page": "https://chenmohan123.github.io/",
+  "registryVersion": "0.1.0",
+  "previewVersion": "0.2.0-rc.0",
+  "smoke": {
+    "verifiedAt": "2026-09-21T08:16:04.726Z",
+    "url": "https://chenmohan123.github.io",
+    "browser": "151.0.7922.34",
+    "results": [
+      {
+        "width": 1440,
+        "checks": [
+          "目录八项、CPU/跟踪筛选",
+          "稳定 0.1.0 字段与 RC 预览说明",
+          "RC 安装与 ReID 实验边界",
+          "独立链接",
+          "目录/详情无横向溢出",
+          "跟踪分类页"
+        ],
+        "pageErrors": []
+      },
+      {
+        "width": 390,
+        "checks": [
+          "目录八项、CPU/跟踪筛选",
+          "稳定 0.1.0 字段与 RC 预览说明",
+          "RC 安装与 ReID 实验边界",
+          "独立链接",
+          "目录/详情无横向溢出",
+          "跟踪分类页"
+        ],
+        "pageErrors": []
+      }
+    ],
+    "boundary": "桌面 Chromium；390px 不是手机实机验证"
+  },
+  "boundary": "当前回执固定门户 PR48 发布提交，后续纯文档归档可能生成新部署；不扩展手机或算法兼容性"
+}
