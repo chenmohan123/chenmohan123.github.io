@@ -4,6 +4,8 @@
 
 **目标：** 明确 PP-Detection 单 SDK 的模型边界，并完成下一阶段 2D 检测模型兼容性评估，选择一个有证据支持的候选进入后续移植。
 
+**2026-09-21 BoT-SORT 研究更新：** [可行性回执](../../../reports/tracking/2026-09-21-botsort-feasibility/README.md)已完成同输入七段 5316 帧评估。原 ByteTrack、加 CMC、再加外观融合的 IDF1 为 48.2922%/54.5850%/55.3487%，IDSW 为 1101/519/489；09 段退步、离线图像估计有明显成本。证据支持下一阶段设计并实现调用者提供运动矩阵的同包 CPU 核心，自动浏览器估计另行验收。当前是保留既有滤波/生命周期的研究探针，未完整复现或公开第四算法；RC/stable 发布状态沿用下方回执。继续单任务 SDK、桌面优先、Workflow 后置，与最初分层无冲突。以下日期相同的“下一步”均为早期时点，以本段为准。
+
 **2026-09-21 发布更新：** 独立 Tracking SDK `0.2.0-rc.0` 已发布到 npm next，并完成 OIDC/provenance、公开包哈希和线上 Demo 双源/双后端验证；latest 保留 0.1.0。门户条目继续登记稳定版本，在摘要/限制中说明 RC 预览。完整状态见[发布回执](../../../reports/tracking/2026-09-21-02-release/README.md)与[总路线](2026-08-17-web-model-sdk-portal-roadmap.md)。下方同日评测及更早的“下一步”保留为历史；后续先评估 BoT-SORT 的运动补偿与输入契约，仍保持独立 SDK、桌面优先、Workflow 暂缓。
 
 **2026-09-21真实序列评测完成：** Tracking在固定七段MOT17 FRCNN训练序列全部5316帧、67639检测上完成三算法同输入比较，浏览器与两次Node结果一致、零容量丢弃。ByteTrack/OC-SORT/DeepSORT+PPLCNet的IDF1分别48.2922%/48.4107%/45.4637%，完整IDSW/MOTA/FP/FN与实测成本见[最新回执](../../../reports/tracking/2026-09-21-mot-reid/README.md)。当前组合不支持替换ByteTrack默认；建议进入0.2本地发布候选收口，OC-SORT/DeepSORT显式可选，ReID保留人体场景实验能力。先确定候选版本、变更日志和发布预检，再取得发布授权；门户生产registry/npm/线上Demo仍0.1.0。视频/摄像头、跨设备及Workflow继续暂缓，后文早期进度保留为历史。
