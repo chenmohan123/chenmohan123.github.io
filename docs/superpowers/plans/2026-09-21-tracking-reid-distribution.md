@@ -23,9 +23,9 @@
 
 **文件：** S/models/pplcnet-reid/0.1.0/{README.md,README.en.md,LICENSE,NOTICE,model.json,sources.json}；S/scripts/distribute-reid.py；S/reports/2026-09-21-reid-distribution/。临时目录.tmp/reid-distribution包含模型及环境。
 
-- [ ] 核对官方固定README/LICENSE、人体checkpoint链接和文件身份。来源抓取保留URL/status/hash，404不冒称不存在任何声明。
-- [ ] 写可审阅双语模型卡，准备包含ONNX、LICENSE、NOTICE、model.json的上传白名单；精确字节/hash验证后上传用户chenmohan/web-sdk-pp-tracking两个模型仓库，不覆盖其他版本。
-- [ ] 从真实仓库回读commit，匿名固定URL下载验证模型，生成sources.json(两条ReIdSource)、分发回执及来源证据。未成功源不得伪填或静默替换。
+- [x] 核对官方固定README/LICENSE、人体checkpoint链接和文件身份。来源抓取保留URL/status/hash，404不冒称不存在任何声明。
+- [x] 写可审阅双语模型卡，准备包含ONNX、LICENSE、NOTICE、model.json的上传白名单；精确字节/hash验证后上传用户chenmohan/web-sdk-pp-tracking两个模型仓库，不覆盖其他版本。
+- [x] 从真实仓库回读commit，匿名固定URL下载验证模型，生成sources.json(两条ReIdSource)、分发回执及来源证据。未成功源不得伪填或静默替换。
 
 ### Task 2: 同包公开ReID入口（实施代理）
 
@@ -33,10 +33,10 @@
 
 **接口：** `getReIdModelSource(kind: 'modelscope'|'huggingface' = 'modelscope'): ReIdSource`返回防修改快照。`createReIdExtractor({modelId:'pplcnet-reid-fp32',backend:'wasm'})`默认ModelScope；source允许两个字符串或现有显式ReIdSource。modelBytes与source仍互斥，未知source拒绝。真实值来自Task1 sources.json，不造revision；允许先完成测试/构建，集成时读取最终文件。
 
-- [ ] 先写行为红测：默认选择MS、HF显式、未知失败、修改返回快照不污染注册、两个源同模型身份、本地bytes互斥和现有自定义source保持。`expect(getReIdModelSource().kind).toBe('modelscope')`。
-- [ ] 实现来源解析；公开`./reid`独立ESM/CJS/types，默认入口无静态ORT。ORT1.27.0 optional peer+dev，root调用者无需安装ORT。build只让模型子入口external动态import ORT。
-- [ ] 实际npm pack消费根包及ReID两种格式和类型；确保无模型/原图/凭据，未装peer时root工作、子入口import/工厂/dispose无需ORT；root无新增运行时导出。若测试脚本需类型peer，在consumer仅显式链接测试依赖，不把它当root必装。公共类型不依赖ORT类型。
-- [ ] 仅跑新增与受影响测试、typecheck/build/check:package，记录红绿并提交自己文件。不得远程或改其他代理文件。任务报告写P本计划工作区task-2-report.md。
+- [x] 先写行为红测：默认选择MS、HF显式、未知失败、修改返回快照不污染注册、两个源同模型身份、本地bytes互斥和现有自定义source保持。`expect(getReIdModelSource().kind).toBe('modelscope')`。
+- [x] 实现来源解析；公开`./reid`独立ESM/CJS/types，默认入口无静态ORT。ORT1.27.0 optional peer+dev，root调用者无需安装ORT。build只让模型子入口external动态import ORT。
+- [x] 实际npm pack消费根包及ReID两种格式和类型；确保无模型/原图/凭据，未装peer时root工作、子入口import/工厂/dispose无需ORT；root无新增运行时导出。若测试脚本需类型peer，在consumer仅显式链接测试依赖，不把它当root必装。公共类型不依赖ORT类型。
+- [x] 仅跑新增与受影响测试、typecheck/build/check:package，记录红绿并提交自己文件。不得远程或改其他代理文件。任务报告写P本计划工作区task-2-report.md。
 
 ### Task 3: 当前模型Demo与hybrid清单（实施代理）
 
@@ -44,17 +44,17 @@
 
 **交互：** 默认保留原框/向量工作台，选择“图像+检测框”才惰性导入ReID组件。图像文件≤20MiB、解码≤8192/16777216像素；浏览器解码sRGB/RGBA非预乘，不承诺透明源文件逐字节。文本输入一帧检测数组[{box:{x,y,width,height},score,classId}]，不自动猜框或调用检测器。点击“提取并跟踪”按成功帧递增timestamp；换图保留轨迹、重置/模型来源后端切换复位。结果图像和轨迹相邻，不扩张页面长说明。
 
-- [ ] 控制器先红测：失败/取消不推进时间或tracker，源后端切换取消并释放/复位，重复开始禁用，清理等待释放后清缓存并复位，语言切换只改文字。图像对象URL释放，异步解码竞态丢弃旧结果；失效任务不能改新状态。
-- [ ] 显式来源MS默认/HF可选，后端CPU(WASM)/GPU(WebGPU)；跟踪后端始终CPU。模型load进度、错误码、耗时分层、cache估算/清理、取消和状态可见。未选择模型模式无ORT/ONNX请求。真实图片预览及结果叠加，无输入时无破图。
-- [ ] 使用原CSS与tokens，390px中英文不溢出。模型信息/算法/runtime/timing/cache/state reset标记有效；一模型时“清理模型”即当前/全部此SDK模型，不清其他SDK。
-- [ ] 模型资产与双源填实际数据；manifest改1.3/hybrid，modules根cpu/main、./reid wasm/webgpu/main，顶层并集与日期记录；模型parameterCount=null，cache-storage。先不声称已线上发布。
-- [ ] 聚焦unit/typecheck/build及浏览器交互（真实模型验收由主代理）；提交任务文件并提供task-3-report.md。
+- [x] 控制器先红测：失败/取消不推进时间或tracker，源后端切换取消并释放/复位，重复开始禁用，清理等待释放后清缓存并复位，语言切换只改文字。图像对象URL释放，异步解码竞态丢弃旧结果；失效任务不能改新状态。
+- [x] 显式来源MS默认/HF可选，后端CPU(WASM)/GPU(WebGPU)；跟踪后端始终CPU。模型load进度、错误码、耗时分层、cache估算/清理、取消和状态可见。未选择模型模式无ORT/ONNX请求。真实图片预览及结果叠加，无输入时无破图。
+- [x] 使用原CSS与tokens，390px中英文不溢出。模型信息/算法/runtime/timing/cache/state reset标记有效；一模型时“清理模型”即当前/全部此SDK模型，不清其他SDK。
+- [x] 模型资产与双源填实际数据；manifest改1.3/hybrid，modules根cpu/main、./reid wasm/webgpu/main，顶层并集与日期记录；模型parameterCount=null，cache-storage。先不声称已线上发布。
+- [x] 聚焦unit/typecheck/build及浏览器交互（真实模型验收由主代理）；提交任务文件并提供task-3-report.md。
 
 ### Task 4: 发布候选验证与交付（主代理）
 
 **文件：** S/tests/reid-distribution-browser.mjs、双语README/docs/NOTICE、reports/2026-09-21-reid-distribution；P/reports/tracking/2026-09-21-reid-distribution与路线。
 
-- [ ] 真实匿名双源各下载并SHA，浏览器MS+HF分别WASM/WebGPU使用固定RGBA核对参考向量；来源未混用缓存，默认框模式无引擎/模型请求。Demo用测试生成图像与人工框验证逐帧流程及取消/清理/语言/390px，不分发MOT图。
-- [ ] S完整verify、模型专属browser、P标准after/相关checker与构建。历史归档固定源码哈希只针对历史commit，不改旧证据凑当前通过。
-- [ ] 双语文档更新公开子入口、本地候选与线上0.1.0边界、optional peer安装、独立backend/计时、许可范围与可复现双源证据。原工作区用户文件不动。
-- [ ] 任务审查与最终整体审查，问题修复复审；明确stage和中文本地commit。完整模型发布到双源，SDK/npm/Demo本次仍本地候选，真实MOT指标及视频调度后续。
+- [x] 真实匿名双源各下载并SHA，浏览器MS+HF分别WASM/WebGPU使用固定RGBA核对参考向量；来源未混用缓存，默认框模式无引擎/模型请求。Demo用测试生成图像与人工框验证逐帧流程及取消/清理/语言/390px，不分发MOT图。
+- [x] S完整verify、模型专属browser、P标准after/相关checker与构建。历史归档固定源码哈希只针对历史commit，不改旧证据凑当前通过。
+- [x] 双语文档更新公开子入口、本地候选与线上0.1.0边界、optional peer安装、独立backend/计时、许可范围与可复现双源证据。原工作区用户文件不动。
+- [x] 任务审查与最终整体审查，问题修复复审；明确stage和中文本地commit。完整模型发布到双源，SDK/npm/Demo本次仍本地候选，真实MOT指标及视频调度后续。

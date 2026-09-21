@@ -23,6 +23,8 @@ Tracking本地0.2.0-alpha.0已公开同包`./reid`入口（ESM/CJS/types），�
 
 环境：Windows11 10.0.26200、i5-10400F、RTX5060Ti驱动32.0.16.1692、Chromium153.0.8010.12、ORT1.27.0、Node24.16.0。本轮不扩展手机、Safari/Firefox、Worker或NPU声明。人工图片及重复帧只作接口验证，不证明真实MOT精度或端到端FPS。
 
+[最终整体审查](final-review.md)无Critical/Important，4项Minor均非阻塞。统一修复`8126365`已解决加载标签、缓存用量旧请求竞态和中文根入口限定；ORT惰性资源成本保留记录。修复后11项控制器测试、Demo类型/构建、标准检查及4项真实CacheStorage竞态浏览器回归通过，主线程另重新通过生产UI的MS/WASM、HF/WebGPU与390px中英验证。完整164项verify为此前记录，未将聚焦回归冒称重新执行全套。修复范围复审见[回执](final-fix-review.md)。
+
 ## 范围判断与下一阶段
 
 1. 当前确认涵盖已提出的真实模型双源分发和本地SDK接入；GitHub/npm/线上Demo留后续发布阶段。若范围理解需调整，代价是撤回模型新增版本或调整发布安排。
