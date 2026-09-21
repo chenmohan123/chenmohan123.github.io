@@ -10,6 +10,8 @@ readiness, not by the number of models mentioned in the catalog.
 
 ## 当前优先级（2026-09-19 证据更新）
 
+**2026-09-21发布候选验收：** Tracking已整理为本地`0.2.0-rc.0`，包/runtime/Demo版本统一；预发布使用npm `next`，正式版使用`latest`。176项单测、实际包消费、12组浏览器流程、ModelScope/WASM和Hugging Face/WebGPU生产UI通过，见[RC回执](../../../reports/tracking/2026-09-21-02-rc/README.md)。源码逐项核对证明运行逻辑相对已评测alpha仅版本标识变化，历史成绩保留原身份。ByteTrack默认、OC-SORT/DeepSORT可选、人体ReID实验状态不变。下一步是本版本发布及发布后回读；当前未执行远程写入，门户生产registry/npm/线上Demo仍0.1.0，视频/摄像头、手机及Workflow不在本阶段。
+
 **2026-09-21真实序列评测完成：** Tracking在固定七段MOT17 FRCNN训练序列全部5316帧、67639检测上完成三算法同输入比较，浏览器与两次Node结果一致、零容量丢弃。ByteTrack/OC-SORT/DeepSORT+PPLCNet的IDF1分别48.2922%/48.4107%/45.4637%，完整IDSW/MOTA/FP/FN与实测成本见[最新回执](../../../reports/tracking/2026-09-21-mot-reid/README.md)。当前组合不支持替换ByteTrack默认；建议进入0.2本地发布候选收口，OC-SORT/DeepSORT显式可选，ReID保留人体场景实验能力。先确定候选版本、变更日志和发布预检，再取得发布授权；门户生产registry/npm/线上Demo仍0.1.0。视频/摄像头、跨设备及Workflow继续暂缓，后文早期进度保留为历史。
 
 后续优先建设独立 SDK，门户负责登记、分类、比较及仓库、npm、Demo 跳转。Workflow / Playground 和 Detection → TinyPose 等组合执行暂缓；这一顺序延续最初的任务边界。
