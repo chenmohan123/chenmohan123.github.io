@@ -10,6 +10,12 @@ readiness, not by the number of models mentioned in the catalog.
 
 ## 当前优先级（2026-09-19 证据更新）
 
+**2026-09-22 四算法公开集成完成：** 本地 Tracking `0.2.0-rc.1` 已接入 BoT-SORT 根工厂、严格运动类型、四算法 Demo 和版本化运动序列导入导出，见[集成回执](../../../reports/tracking/2026-09-22-botsort-integration/README.md)。原三算法与 ByteTrack 默认保留；220项测试、实际包消费、18组Demo浏览器流程及固定七段/05浏览器对齐通过，09退步继续披露。下一阶段为 rc.1 预发布和线上回读，再设计浏览器自动运动估计。本轮仅本地交付，不扩展视频/摄像头、手机或Workflow；以下“下一步”为历史记录。
+
+**2026-09-22 外部运动矩阵核心完成：** Tracking 同包本地 `0.2.0-rc.0+botsort-core.1` 已实现严格帧/时间/矩阵契约、显式失败和可选外观融合；208项测试、候选双格式/类型消费、完整05浏览器及原Demo回归通过，见[阶段回执](../../../reports/tracking/2026-09-22-botsort-core/README.md)。固定七段5316帧三配置各运行两次，轨迹逐字对齐前期探针，CMC/CMC+外观IDF1仍54.5850%/55.3487%，09仍退步。仅平移消融也退步，后续估计器须验证近静止策略，当前不调参或替换默认。下一阶段将候选接入公开根工厂、版本/manifest、四算法双语Demo和导入导出，再做发布验收；本轮无远程发布。自动图像估计、视频/摄像头和Workflow继续独立后置。以下“下一步”为历史，以本段为准。
+
+**2026-09-21 BoT-SORT 可行性完成：** 固定七段 MOT17 FRCNN train 的 5316 帧/67639 检测，原 ByteTrack、加相机运动补偿（CMC）、再加门控外观融合的合计 IDF1 为 48.2922%/54.5850%/55.3487%，IDSW 为 1101/519/489，见[研究回执](../../../reports/tracking/2026-09-21-botsort-feasibility/README.md)。09 段退步；离线 Python 图像估计的逐段中位数约 34–48 ms，尚未在浏览器实现。完整 05 的 837 帧三配置浏览器 CPU 回放与 Node 一致，恒等补偿及历史基线一致。本轮仅本地研究，公开三算法 RC 与稳定版状态沿用下方发布回执。下一阶段先设计并实现**调用者提供原图帧间矩阵的同包 BoT-SORT 风格 CPU 核心**，严格定义帧/时间、失败/恒等、丢帧、seek/reset、尺寸和错误原子性；再评估可选浏览器估计子入口，调查退步序列。不是官方 BoT-SORT 完整复现或第四算法已上线。自动视频/摄像头编排与 Workflow 仍后置；以下早期“下一步”保留为历史，以本段为准。
+
 **2026-09-21 RC 已发布：** Tracking `0.2.0-rc.0` 已经 PR #3、CI、不可变标签与 OIDC 发布到 npm `next`，`latest` 保留 `0.1.0`；公开包 SHA256/sha512、registry 签名和 provenance 已验证。HTTPS Demo 的三算法、ModelScope/WASM、Hugging Face/WebGPU、取消/复位/缓存及中英文窄屏流程通过。门户结构化条目继续描述稳定 0.1.0，在摘要与限制中提供 RC 预览说明，见[本轮回执](../../../reports/tracking/2026-09-21-02-release/README.md)。以下日期相同的候选与早期“下一步”均为历史记录，以本段为准。下一阶段优先做 BoT-SORT 的相机运动补偿及输入契约可行性，再决定同包实现；JDE/FairMOT/CenterTrack 继续分阶段评估，不承诺列表中的算法均能直接切换。视频/摄像头 Demo、手机和跨 SDK Workflow 仍待独立设计。
 
 **2026-09-21发布候选验收：** Tracking已整理为本地`0.2.0-rc.0`，包/runtime/Demo版本统一；预发布使用npm `next`，正式版使用`latest`。176项单测、实际包消费、12组浏览器流程、ModelScope/WASM和Hugging Face/WebGPU生产UI通过，见[RC回执](../../../reports/tracking/2026-09-21-02-rc/README.md)。源码逐项核对证明运行逻辑相对已评测alpha仅版本标识变化，历史成绩保留原身份。ByteTrack默认、OC-SORT/DeepSORT可选、人体ReID实验状态不变。下一步是本版本发布及发布后回读；当前未执行远程写入，门户生产registry/npm/线上Demo仍0.1.0，视频/摄像头、手机及Workflow不在本阶段。
@@ -161,7 +167,7 @@ APIs remain separate Labs work and are not prerequisites for the MVP.
 
 ## Next Concrete Task
 
-Tracking 0.2 RC 发布收口后，下一项是 **BoT-SORT 可行性评估**：核对独立实现依据与许可，明确相机运动信息由调用者提供还是可选图像模块提取，比较同输入质量与完整耗时，确认失败回退和状态复位边界。可行性通过后再形成实现计划；本轮没有把 BoT-SORT、JDE、FairMOT 或 CenterTrack 加入已实现清单。保持独立 SDK、桌面优先、默认 ByteTrack、ReID 实验状态与门户只登记的边界。
+Tracking 已完成 BoT-SORT 研究、外部矩阵核心及本地 rc.1 公开集成。下一项是 **rc.1 预发布与线上回读**；随后设计可选浏览器运动估计模块，验证矩阵质量、失败策略及总成本。JDE/FairMOT/CenterTrack 仍需各自的模型和输入契约评估。保持独立 SDK、桌面优先、默认 ByteTrack、ReID 实验状态与门户只登记的边界。
 
 ### 历史任务快照（由上方发布进度更新）
 
