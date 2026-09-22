@@ -10,7 +10,7 @@ readiness, not by the number of models mentioned in the catalog.
 
 ## 当前优先级（2026-09-19 证据更新）
 
-**2026-09-22 四算法公开集成完成：** 本地 Tracking `0.2.0-rc.1` 已接入 BoT-SORT 根工厂、严格运动类型、四算法 Demo 和版本化运动序列导入导出，见[集成回执](../../../reports/tracking/2026-09-22-botsort-integration/README.md)。原三算法与 ByteTrack 默认保留；220项测试、实际包消费、18组Demo浏览器流程及固定七段/05浏览器对齐通过，09退步继续披露。下一阶段为 rc.1 预发布和线上回读，再设计浏览器自动运动估计。本轮仅本地交付，不扩展视频/摄像头、手机或Workflow；以下“下一步”为历史记录。
+**2026-09-22 rc.1 已发布：** Tracking `0.2.0-rc.1` 已接入 BoT-SORT 根工厂、严格运动类型、四算法 Demo 和版本化运动序列导入导出，见[集成回执](../../../reports/tracking/2026-09-22-botsort-integration/README.md)及[发布回执](../../../reports/tracking/2026-09-22-botsort-integration/release-receipt.md)。SDK PR #6 与门户 PR #50 已合并；不可变标签、GitHub Release、npm `next`、provenance 和线上 Demo 均已回读，`latest` 保持 0.1.0。下一阶段设计可选浏览器自动运动估计，先验证矩阵质量、失败策略和总成本；不扩展视频/摄像头、手机或 Workflow。
 
 **2026-09-22 外部运动矩阵核心完成：** Tracking 同包本地 `0.2.0-rc.0+botsort-core.1` 已实现严格帧/时间/矩阵契约、显式失败和可选外观融合；208项测试、候选双格式/类型消费、完整05浏览器及原Demo回归通过，见[阶段回执](../../../reports/tracking/2026-09-22-botsort-core/README.md)。固定七段5316帧三配置各运行两次，轨迹逐字对齐前期探针，CMC/CMC+外观IDF1仍54.5850%/55.3487%，09仍退步。仅平移消融也退步，后续估计器须验证近静止策略，当前不调参或替换默认。下一阶段将候选接入公开根工厂、版本/manifest、四算法双语Demo和导入导出，再做发布验收；本轮无远程发布。自动图像估计、视频/摄像头和Workflow继续独立后置。以下“下一步”为历史，以本段为准。
 
@@ -167,7 +167,7 @@ APIs remain separate Labs work and are not prerequisites for the MVP.
 
 ## Next Concrete Task
 
-Tracking 已完成 BoT-SORT 研究、外部矩阵核心及本地 rc.1 公开集成。下一项是 **rc.1 预发布与线上回读**；随后设计可选浏览器运动估计模块，验证矩阵质量、失败策略及总成本。JDE/FairMOT/CenterTrack 仍需各自的模型和输入契约评估。保持独立 SDK、桌面优先、默认 ByteTrack、ReID 实验状态与门户只登记的边界。
+Tracking 已完成 BoT-SORT 研究、外部矩阵核心、公开集成和 rc.1 线上发布。下一项是 **可选浏览器运动估计模块设计**，验证矩阵质量、失败策略及总成本，再决定是否进入 SDK。JDE/FairMOT/CenterTrack 仍需各自的模型和输入契约评估。保持独立 SDK、桌面优先、默认 ByteTrack、ReID 实验状态与门户只登记的边界。
 
 ### 历史任务快照（由上方发布进度更新）
 
