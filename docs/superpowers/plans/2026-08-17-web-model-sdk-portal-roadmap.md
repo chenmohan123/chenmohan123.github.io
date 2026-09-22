@@ -10,6 +10,8 @@ readiness, not by the number of models mentioned in the catalog.
 
 ## 当前优先级（2026-09-19 证据更新）
 
+**2026-09-22 外部运动矩阵核心完成：** Tracking 同包本地 `0.2.0-rc.0+botsort-core.1` 已实现严格帧/时间/矩阵契约、显式失败和可选外观融合；208项测试、候选双格式/类型消费、完整05浏览器及原Demo回归通过，见[阶段回执](../../../reports/tracking/2026-09-22-botsort-core/README.md)。固定七段5316帧三配置各运行两次，轨迹逐字对齐前期探针，CMC/CMC+外观IDF1仍54.5850%/55.3487%，09仍退步。仅平移消融也退步，后续估计器须验证近静止策略，当前不调参或替换默认。下一阶段将候选接入公开根工厂、版本/manifest、四算法双语Demo和导入导出，再做发布验收；本轮无远程发布。自动图像估计、视频/摄像头和Workflow继续独立后置。以下“下一步”为历史，以本段为准。
+
 **2026-09-21 BoT-SORT 可行性完成：** 固定七段 MOT17 FRCNN train 的 5316 帧/67639 检测，原 ByteTrack、加相机运动补偿（CMC）、再加门控外观融合的合计 IDF1 为 48.2922%/54.5850%/55.3487%，IDSW 为 1101/519/489，见[研究回执](../../../reports/tracking/2026-09-21-botsort-feasibility/README.md)。09 段退步；离线 Python 图像估计的逐段中位数约 34–48 ms，尚未在浏览器实现。完整 05 的 837 帧三配置浏览器 CPU 回放与 Node 一致，恒等补偿及历史基线一致。本轮仅本地研究，公开三算法 RC 与稳定版状态沿用下方发布回执。下一阶段先设计并实现**调用者提供原图帧间矩阵的同包 BoT-SORT 风格 CPU 核心**，严格定义帧/时间、失败/恒等、丢帧、seek/reset、尺寸和错误原子性；再评估可选浏览器估计子入口，调查退步序列。不是官方 BoT-SORT 完整复现或第四算法已上线。自动视频/摄像头编排与 Workflow 仍后置；以下早期“下一步”保留为历史，以本段为准。
 
 **2026-09-21 RC 已发布：** Tracking `0.2.0-rc.0` 已经 PR #3、CI、不可变标签与 OIDC 发布到 npm `next`，`latest` 保留 `0.1.0`；公开包 SHA256/sha512、registry 签名和 provenance 已验证。HTTPS Demo 的三算法、ModelScope/WASM、Hugging Face/WebGPU、取消/复位/缓存及中英文窄屏流程通过。门户结构化条目继续描述稳定 0.1.0，在摘要与限制中提供 RC 预览说明，见[本轮回执](../../../reports/tracking/2026-09-21-02-release/README.md)。以下日期相同的候选与早期“下一步”均为历史记录，以本段为准。下一阶段优先做 BoT-SORT 的相机运动补偿及输入契约可行性，再决定同包实现；JDE/FairMOT/CenterTrack 继续分阶段评估，不承诺列表中的算法均能直接切换。视频/摄像头 Demo、手机和跨 SDK Workflow 仍待独立设计。
