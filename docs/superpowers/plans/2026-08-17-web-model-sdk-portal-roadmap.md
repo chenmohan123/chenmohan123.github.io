@@ -8,7 +8,7 @@ This roadmap keeps the portal registry-first and preserves the boundary between
 the portal and independent SDK repositories. It is ordered by dependency and
 readiness, not by the number of models mentioned in the catalog.
 
-## 当前优先级（2026-09-19 证据更新）
+## 当前优先级（2026-09-23 证据更新）
 
 **2026-09-23 rc.2 已发布：** Tracking `0.2.0-rc.2` 已通过不可变标签、GitHub Release、npm Trusted Publishing 与独立 Demo 部署；npm `next` 指向 rc.2，`latest` 仍为 0.1.0。运动估计仍是独立 `motion` 子入口，640×360 三算法成功率约 41.7%/33.3%/41.7%，p95 约 15.5/71.8/191.1 ms，复杂运动和歧义纹理显式失败；当前质量和验证矩阵不足以自动接入 BoT-SORT，继续保留外部矩阵契约与 ByteTrack 默认。见[发布回执](../../../reports/2026-09-23-release-rc2/README.md)和[阶段回执](../../../reports/tracking/2026-09-23-motion-estimation/README.md)。不扩展视频/摄像头、手机、Worker、GPU/NPU、Safari/Firefox 或 Workflow。
 
@@ -169,7 +169,7 @@ APIs remain separate Labs work and are not prerequisites for the MVP.
 
 ## Next Concrete Task
 
-Tracking 已完成 BoT-SORT 研究、外部矩阵核心、公开集成和 rc.1 线上发布。下一项是 **可选浏览器运动估计模块设计**，验证矩阵质量、失败策略及总成本，再决定是否进入 SDK。JDE/FairMOT/CenterTrack 仍需各自的模型和输入契约评估。保持独立 SDK、桌面优先、默认 ByteTrack、ReID 实验状态与门户只登记的边界。
+Tracking `0.2.0-rc.2` 已发布独立浏览器运动估计实验；当前成功率、复杂运动和歧义纹理证据不足以自动接入 BoT-SORT，也不提升稳定 `latest`。下一项是 **模型型跟踪算法可行性筛选**：先核对 JDE、FairMOT、CenterTrack 的具体权重身份、许可、输入输出契约、ONNX 转换和浏览器端总成本，再选择一个候选进入独立设计；未达到门槛前不加入公开算法选择器。继续保持独立 Tracking SDK、桌面优先、默认 ByteTrack、ReID/motion 实验状态与门户只登记的边界。
 
 ### 历史任务快照（由上方发布进度更新）
 
