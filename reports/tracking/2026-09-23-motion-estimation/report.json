@@ -13,6 +13,7 @@
   "evidence": {
     "checkerAfter": "reports/sdk-standard/2026-09-23-motion-after.json",
     "sdkMetrics": "C:/Users/chenm/.codex/worktrees/tracking-motion/reports/2026-09-23-motion-estimation/metrics.json",
+    "candidatePackage": "C:/Users/chenm/.codex/worktrees/tracking-motion/reports/2026-09-23-motion-estimation/candidate-package.json",
     "sdkBrowserReport": "C:/Users/chenm/.codex/worktrees/tracking-motion/.tmp/motion/browser-report.json",
     "sdkBrowserScreenshot": "C:/Users/chenm/.codex/worktrees/tracking-motion/.tmp/motion/motion-390.png"
   },
