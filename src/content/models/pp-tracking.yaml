@@ -4,7 +4,7 @@ name: PP-Tracking
 brand: self-developed
 task: multi-object-tracking
 status: beta
-summary: 稳定版 0.1.0 提供独立 ByteTrack CPU 跟踪；0.2.0-rc.1 通过 npm next 预发布，新增 OC-SORT、DeepSORT、BoT-SORT 与可选人体 ReID。独立 Demo 展示 rc.1，稳定 latest 保持 0.1.0。
+summary: 稳定版 0.1.0 提供独立 ByteTrack CPU 跟踪；0.2.0-rc.2 已通过 npm next 预发布，新增 OC-SORT、DeepSORT、BoT-SORT、可选人体 ReID 与独立运动估计实验。独立 Demo 展示 rc.2，稳定 latest 保持 0.1.0。
 repository: https://github.com/chenmohan123/web-sdk-PP-Tracking
 license: Apache-2.0
 package: { name: web-sdk-pp-tracking, version: 0.1.0 }
@@ -32,9 +32,9 @@ algorithm:
   stateful: true
 limitations:
   - 本条包版本、算法、后端和无权重元数据对应稳定 latest 0.1.0；仅消费已有检测，不含检测模型、视频解码、摄像头、ReID 或相机运动补偿。轨迹 ID 不是个人身份。
-  - 预发布使用 npm install web-sdk-pp-tracking@next；rc.1 默认 ByteTrack，OC-SORT/DeepSORT/BoT-SORT 显式可选。人体 ReID 子入口需可选 onnxruntime-web@1.27.0，模型默认 ModelScope，可选 Hugging Face；特征提取为 WASM/WebGPU，关联始终 CPU。ReID 保留实验状态，不提升稳定版声明。
-  - rc.1 发布说明与模型身份、许可及验证边界见 https://github.com/chenmohan123/web-sdk-PP-Tracking/releases/tag/v0.2.0-rc.1 。在线 Demo 为 rc.1；390px 仅桌面视口，双源/双后端仅在注明的 Windows/Chromium 环境验证。
-  - 2026-09-23 本地 rc.2 仅新增独立相邻帧运动估计实验，尚未发布，也不会自动接入 BoT-SORT。合成成本与低纹理失败见门户阶段回执；生产条目、npm next 和在线 Demo 继续对应 rc.1。
+  - 预发布使用 npm install web-sdk-pp-tracking@next；rc.2 默认 ByteTrack，OC-SORT/DeepSORT/BoT-SORT 显式可选。人体 ReID 子入口需可选 onnxruntime-web@1.27.0，模型默认 ModelScope，可选 Hugging Face；特征提取为 WASM/WebGPU，关联始终 CPU。ReID 和 motion 子入口均保留实验状态，不提升稳定版声明。
+  - rc.2 发布说明与模型身份、许可及验证边界见 https://github.com/chenmohan123/web-sdk-PP-Tracking/releases/tag/v0.2.0-rc.2 。在线 Demo 为 rc.2；390px 仅桌面视口，双源/双后端和 motion 仅在注明的 Windows/Chromium 环境验证。
+  - 2026-09-23 rc.2 已发布独立相邻帧运动估计实验，但不会自动接入 BoT-SORT。640×360 三算法成功率约为 41.7%/33.3%/41.7%，p95 约为 15.5/71.8/191.1 ms；当前证据不支持把 motion 或 0.2.0 提升为稳定默认。
   - 2026-09-19 固定 MOT17 七段 FRCNN 训练序列 5316 帧，默认 IDF1 48.2922%、IDSW 1101、MOTA 44.4010%、FP 4169、FN 57166；不是测试集成绩或官方 ByteTrack 排名。
   - 低分消融 IDF1 48.3465%、IDSW 1066；默认低分续接减少漏检但增加误检和切 ID，不承诺普遍精度提升或可靠跨遮挡身份。
   - 状态保存在实例内，seek 或图像尺寸改变前须 reset 并顺序重放；dispose 后不可继续更新。
