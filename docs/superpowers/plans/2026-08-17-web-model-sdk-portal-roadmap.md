@@ -10,6 +10,8 @@ readiness, not by the number of models mentioned in the catalog.
 
 ## 当前优先级（2026-09-19 证据更新）
 
+**2026-09-23 运动估计 Spike：** Tracking 本地 `0.2.0-rc.2` 候选新增独立 `web-sdk-pp-tracking/motion` 子入口和 `/motion.html` 实验页，比较纯平移、稀疏光流与特征匹配。合成 Node 基准中 640×360 p95 约为 15.5/71.8/191.1 ms，成功率约 41.7%/33.3%/41.7%，复杂运动与歧义纹理均显式失败；当前质量和验证矩阵不足以自动接入 BoT-SORT，继续保留外部矩阵契约、ByteTrack 默认和线上 rc.1。见[阶段回执](../../../reports/tracking/2026-09-23-motion-estimation/README.md)。不扩展视频/摄像头、手机、Worker、GPU/NPU、Safari/Firefox 或 Workflow。
+
 **2026-09-22 rc.1 已发布：** Tracking `0.2.0-rc.1` 已接入 BoT-SORT 根工厂、严格运动类型、四算法 Demo 和版本化运动序列导入导出，见[集成回执](../../../reports/tracking/2026-09-22-botsort-integration/README.md)及[发布回执](../../../reports/tracking/2026-09-22-botsort-integration/release-receipt.md)。SDK PR #6 与门户 PR #50 已合并；不可变标签、GitHub Release、npm `next`、provenance 和线上 Demo 均已回读，`latest` 保持 0.1.0。下一阶段设计可选浏览器自动运动估计，先验证矩阵质量、失败策略和总成本；不扩展视频/摄像头、手机或 Workflow。
 
 **2026-09-22 外部运动矩阵核心完成：** Tracking 同包本地 `0.2.0-rc.0+botsort-core.1` 已实现严格帧/时间/矩阵契约、显式失败和可选外观融合；208项测试、候选双格式/类型消费、完整05浏览器及原Demo回归通过，见[阶段回执](../../../reports/tracking/2026-09-22-botsort-core/README.md)。固定七段5316帧三配置各运行两次，轨迹逐字对齐前期探针，CMC/CMC+外观IDF1仍54.5850%/55.3487%，09仍退步。仅平移消融也退步，后续估计器须验证近静止策略，当前不调参或替换默认。下一阶段将候选接入公开根工厂、版本/manifest、四算法双语Demo和导入导出，再做发布验收；本轮无远程发布。自动图像估计、视频/摄像头和Workflow继续独立后置。以下“下一步”为历史，以本段为准。

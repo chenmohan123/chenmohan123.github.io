@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-23",
+  "stage": "单 SDK 浏览器运动估计实验",
+  "sdkWorktree": "C:/Users/chenm/.codex/worktrees/tracking-motion",
+  "sdkVersion": "0.2.0-rc.2",
+  "publication": {
+    "status": "local-only",
+    "push": false,
+    "pullRequest": false,
+    "npm": "线上 next 仍为 0.2.0-rc.1，latest 仍为 0.1.0"
+  },
+  "evidence": {
+    "checkerAfter": "reports/sdk-standard/2026-09-23-motion-after.json",
+    "sdkMetrics": "C:/Users/chenm/.codex/worktrees/tracking-motion/reports/2026-09-23-motion-estimation/metrics.json",
+    "candidatePackage": "C:/Users/chenm/.codex/worktrees/tracking-motion/reports/2026-09-23-motion-estimation/candidate-package.json",
+    "sdkBrowserReport": "C:/Users/chenm/.codex/worktrees/tracking-motion/.tmp/motion/browser-report.json",
+    "sdkBrowserScreenshot": "C:/Users/chenm/.codex/worktrees/tracking-motion/.tmp/motion/motion-390.png"
+  },
+  "checker": {
+    "before": {
+      "report": "reports/sdk-standard/2026-09-23-motion-before.json",
+      "requiredPassed": 20,
+      "requiredFailed": 1,
+      "failure": "HYBRID-001：基线没有独立可用的 motion 导出"
+    },
+    "requiredPassed": 21,
+    "requiredFailed": 0,
+    "requiredSkipped": 4,
+    "status": "locally-compliant"
+  },
+  "motion640x360": {
+    "translation": { "successRate": 0.4166666667, "totalMsP95Observed": 15.5239 },
+    "sparse-flow": { "successRate": 0.3333333333, "totalMsP95Observed": 71.7657 },
+    "feature-match": { "successRate": 0.4166666667, "totalMsP95Observed": 191.1161 }
+  },
+  "verification": {
+    "sdkVerify": "通过：236 个 Vitest 测试、包消费、Demo/Vanilla/React 构建和三组 Chromium smoke；页面错误 0",
+    "portalTest": "通过：136 个测试",
+    "portalBuild": "通过：Astro check 0 errors、0 warnings，静态构建 21 页"
+  },
+  "decision": "三算法保留为独立实验，不自动接入 BoT-SORT；失败结果不含矩阵。",
+  "unverified": ["手机", "Worker", "GPU/NPU", "Safari", "Firefox", "视频", "摄像头", "跨 SDK Workflow"]
+}
