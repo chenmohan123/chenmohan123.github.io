@@ -42,3 +42,7 @@ Run the checker plus the relevant package tests, portal checks, build, and
 browser smoke tests. Do not claim compatibility beyond dated verification
 evidence. Preserve unrelated user changes and do not perform remote GitHub
 mutations without explicit scope.
+
+## Runner
+
+如需启动或检查 self-hosted runner，工作目录为 `F:\github-runner`。
