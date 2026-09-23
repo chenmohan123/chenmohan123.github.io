@@ -4,7 +4,7 @@
 
 **目标：** 明确 PP-Detection 单 SDK 的模型边界，并完成下一阶段 2D 检测模型兼容性评估，选择一个有证据支持的候选进入后续移植。
 
-**2026-09-23 Tracking 运动估计更新：** 独立 `motion` 子入口和实验 Demo 已进入本地 `0.2.0-rc.2` 候选；三算法合成结果证明纯平移较快，但 640×360 成功率仅约 41.7%/33.3%/41.7%，p95 约 15.5/71.8/191.1 ms，复杂运动和歧义纹理需失败。当前不自动接入 BoT-SORT、不改变 ByteTrack 默认或线上 rc.1，见[阶段回执](../../../reports/tracking/2026-09-23-motion-estimation/README.md)。这仍属于 Tracking 单 SDK，不是门户 Workflow。
+**2026-09-23 Tracking rc.2 发布更新：** 独立 `motion` 子入口和实验 Demo 已随 `0.2.0-rc.2` 发布到 npm `next`，`latest` 保持 0.1.0；GitHub Release、provenance、可信发布工作流和 HTTPS Demo 均已回读。三算法 640×360 成功率约 41.7%/33.3%/41.7%，p95 约 15.5/71.8/191.1 ms，复杂运动和歧义纹理显式失败，因此不自动接入 BoT-SORT，也不改变 ByteTrack 默认。见[发布回执](../../../reports/2026-09-23-release-rc2/README.md)和[阶段回执](../../../reports/tracking/2026-09-23-motion-estimation/README.md)。这仍属于 Tracking 单 SDK，不是门户 Workflow。
 
 **2026-09-22 Tracking集成更新：** [本地rc.1回执](../../../reports/tracking/2026-09-22-botsort-integration/README.md)完成 BoT-SORT 公开根入口、四算法Demo和完整运动导入导出，保持 ByteTrack 默认与独立SDK边界。220项测试、实际包消费、18组桌面浏览器流程及固定输入结果对齐通过，09退步保留。下一步是候选预发布及线上回读，再设计浏览器自动运动估计；本轮无远程写入，不扩展媒体、手机和Workflow。后文早期“下一步”保留为历史。
 
