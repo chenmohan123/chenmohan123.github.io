@@ -7,7 +7,7 @@
 >
 > - `src/lib/opts.py:86`：`self.parser.add_argument('--dla_node', default='dcn')`，DCN 是**默认值**而非可选；
 > - `src/lib/model/networks/necks/dlaup.py:99`：`self.conv = DCN(chi, cho, kernel_size=(3,3), ...)`，颈部实例化 DCNv2；
-> - `experiments/mot17_half.sh` 未覆盖该默认；固定权重 `mot17_half.pth`（79,987,301 字节，sha256 `2272af…eed6`）实测 418 个张量，其中 **32 个 `conv_offset_mask` DCN 键全部位于 `dla_up.*`**。
+> - `experiments/mot17_half.sh` 未覆盖该默认；固定权重 `mot17_half.pth`（79,987,301 字节，sha256 `2272af…eed6`）实测 418 个张量，其中 **32 个 `conv_offset_mask` DCN 键~~全部位于 `dla_up.*`~~。**2026-09-26 更正**：任务2 的键级证据显示 16 个 DCN 模块分布于 `dla_up` 12 ＋ `ida_up` 4，并非全部在 `dla_up`；分布更正不改变 DCNv2 阻断结论，见 SDK 仓库 `web-sdk-PP-Tracking/reports/2026-09-23-centertrack-assets/golden-manifest.json`（提交 `b4849d2`）。
 >
 > 因此 CenterTrack 与 FairMOT 属**同一类 DCN 双后端阻断**：ONNX 导出无标准算子路径（torchvision `deform_conv2d` 导出探测亦不可用：dynamo=True 产出默认域自定义 `DeformConv` 节点，`onnx.checker` 报 "No Op registered for DeformConv"），WebGPU EP 算子表（onnxruntime-web@1.27.0）无 DeformConv/DeformableConv2D。
 >

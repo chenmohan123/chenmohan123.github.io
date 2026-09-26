@@ -4,8 +4,9 @@
 
 > **2026-09-26 停止通知**：本计划在任务2 触发"任一步未过即停止"条款，**任务3–7 不再执行**，下方未勾项不是待办。
 > 任务1 已通过：`mot17_half.pth` 79,987,301 字节、SHA-256 `2272af…eed6`。
-> 任务2 归档为 `BLOCKED`：官方 checkpoint 实测含 32 个 `conv_offset_mask` DCNv2 键（全部位于 `dla_up.*`），标准算子导出路径不存在，按裁定 R11 停止。
-> 两份证据（`asset.json`、`golden-manifest.json`）截至 2026-09-26 仍留在 SDK 工作区 `web-sdk-PP-Tracking/reports/2026-09-23-centertrack-assets/`，**尚未提交、尚未推送**。
+> 任务2 归档为 `BLOCKED`：官方 checkpoint 实测含 16 个 DCN 模块（`dla_up` 12 ＋ `ida_up` 4），对应 32 个 `conv_offset_mask` 张量；`dla_node='dcn'` 构造即 `TypeError(NoneType)`，按裁定 R11 停止。键级最近证据为 `gcn` 分支 missing 104 / unexpected 144（含 32 个 `conv_offset_mask` 键），说明不存在"免 DCNv2 构造且键全匹配"的节点类型。第二阻断点是 backbone 无条件下载 `dla34` 预训练返回 HTTP 404，它与 `mot17_half` 键无交集，绕过也不解决第一阻断点。
+> 本计划所依据的设计文档文首停止通知把 32 个 `conv_offset_mask` 键表述为"全部位于 `dla_up.*`"，与任务2 的键级证据不符（16 个 DCN 模块分布在 `dla_up` 与 `ida_up` 两处），以本条为准；设计原文已按仓库惯例就地划改更正。
+> 两份证据（`asset.json`、`golden-manifest.json`）与新增的阶段回执 README 已于 2026-09-26 归档在 SDK 仓库 `web-sdk-PP-Tracking/reports/2026-09-23-centertrack-assets/`，提交 `b4849d2`，走 PR `chenmohan123/web-sdk-PP-Tracking#12`。
 > 替代路线见 [ByteTrack + YOLOX 候选设计](../specs/2026-09-24-tracking-modeltracking-yolox-design.md)；被证伪的前提见 [CenterTrack 候选设计文首停止通知](../specs/2026-09-23-tracking-centertrack-design.md)。
 
 **目标：** 完成 mot17_half 权重下载核验、官方前向 golden、ONNX 导出与算子清单、Python ORT 对齐、JS 参考夹具与模型身份注册，为候选模块实现提供全部可核验输入。
