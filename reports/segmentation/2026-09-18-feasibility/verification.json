@@ -1,0 +1,217 @@
+{
+  "status": "passed",
+  "verifiedAt": "2026-09-18T02:43:44.154802+00:00",
+  "checks": {
+    "sourceSnapshots": 33,
+    "localArtifacts": 98,
+    "pythonScriptsParsed": 5,
+    "localMarkdownLinks": 27
+  },
+  "scope": "报告JSON、源码快照、模型/权重/输入/原始输出摘要、Python语法及本地文件链接核验；不替代模型推理或产品测试。",
+  "files": {
+    "browser-comparison.json": {
+      "bytes": 61685,
+      "sha256": "557b0ec436043bddc29f5cf9efeaaff88d80d3848e6ad755f79088b0c386325c"
+    },
+    "browser-execution.json": {
+      "bytes": 13422,
+      "sha256": "c41c8dc5128d53d0ccca568360997fb9b2dcb3cc0fedb43c4020367e8f89be3e"
+    },
+    "conversion.json": {
+      "bytes": 2005,
+      "sha256": "02fa456830d6ef7649b894a1d12cd742298a4e916bd056407a43004f00869862"
+    },
+    "dataset.lock.json": {
+      "bytes": 4382,
+      "sha256": "b457c0aa95d60a92ea028f0cc47bdd508f912a2bb3bd1a6e6cec247f544bc25f"
+    },
+    "host.json": {
+      "bytes": 473,
+      "sha256": "1a67d9c614fbcd59e757a8aa099d36cfdd641e1883fde4565f9ec8d4cd5b78e1"
+    },
+    "preview-wasm.png": {
+      "bytes": 209212,
+      "sha256": "ca809acb2150a38f141ac9e9eb850f1d8038eda4124b075054ad951cbc5c7ca2"
+    },
+    "preview-webgpu.png": {
+      "bytes": 209382,
+      "sha256": "8c8b62c6113c2655baf66df2cd22e27fd15d75e7ff11e7dd07d0c72593f47c71"
+    },
+    "python-reference.json": {
+      "bytes": 31563,
+      "sha256": "6eed9e11f06b0ceaf5df1705f7901eea05ffd4c955e8cf3304790c1575bbc130"
+    },
+    "README.md": {
+      "bytes": 12266,
+      "sha256": "f0655b7036a7a43055cba19074b23cda1e5186e1579861fd7c6d15d7195ad968"
+    },
+    "reproduction/browser.mjs": {
+      "bytes": 9980,
+      "sha256": "c53d337b5fa7d468472958b24940ecdeb551ddb9882ee617c3134be9465b9e83"
+    },
+    "reproduction/compare_browser.py": {
+      "bytes": 7690,
+      "sha256": "239780692fb37d4fbe794801dc944060b0552c9b0384cac8425dba8da787a496"
+    },
+    "reproduction/export_candidate.py": {
+      "bytes": 4484,
+      "sha256": "692888ccafca4a2ab42540ac4f01d233c4d6c03b456402bcf7d0d7dadfa979d6"
+    },
+    "reproduction/postprocess.mjs": {
+      "bytes": 2879,
+      "sha256": "46571dbb66e81b5c9a407b9d05e57692bfb326df17c9b8de91f7967061b32364"
+    },
+    "reproduction/prepare.py": {
+      "bytes": 5231,
+      "sha256": "86d86a4534d2f3d31d7f01416430a79a7f12756822e65043beba9a71c54c622e"
+    },
+    "reproduction/README.md": {
+      "bytes": 5410,
+      "sha256": "9a1313198e4418ce97a098186c8eba001ad45e9f3b6323d1de605cdb74c7f355"
+    },
+    "reproduction/reference.py": {
+      "bytes": 8654,
+      "sha256": "ab8a8c9a7db60ee0acc6713309bd57bd7bcbd66ee16d354f48c84d6bfffa9f2c"
+    },
+    "reproduction/verify_evidence.py": {
+      "bytes": 4105,
+      "sha256": "6d084f4f9fa71fa32c2bbf058c60ab4521c4bcc4daabe79eb94eea9f6478c1e4"
+    },
+    "sources.lock.json": {
+      "bytes": 15620,
+      "sha256": "232c6e9642275f327ab3fe69c0d328478e43f3e9321adf9526e724a14d74b2a1"
+    },
+    "upstream/configs/datasets/coco_instance.yml.gz": {
+      "bytes": 273,
+      "sha256": "ad138a1cce57d152464c1ef1bba0a3e9a3088b5338a027390fc941653bac36f5"
+    },
+    "upstream/configs/mask_rcnn/_base_/mask_fpn_reader.yml.gz": {
+      "bytes": 353,
+      "sha256": "f8ec839a918ee6bcde8422a00eeb14d5249a106f3f06bd672e8948c3bb57b2d3"
+    },
+    "upstream/configs/mask_rcnn/_base_/mask_rcnn_r50_fpn.yml.gz": {
+      "bytes": 761,
+      "sha256": "c67fc10da7a652eaa25723e0a4344b3136de99d7412a9ce2bb610b459600f86e"
+    },
+    "upstream/configs/mask_rcnn/_base_/optimizer_1x.yml.gz": {
+      "bytes": 205,
+      "sha256": "b65a998b452d75ef16ff7b96d6f13b26e7d56b6204528b7c5acba1e9c07c22e0"
+    },
+    "upstream/configs/mask_rcnn/mask_rcnn_r50_fpn_1x_coco.yml.gz": {
+      "bytes": 153,
+      "sha256": "250d654d5e930b16cda9f819fbf05ddea84be5a7c25da1dbe35cad311e3991f6"
+    },
+    "upstream/configs/mask_rcnn/README.md.gz": {
+      "bytes": 825,
+      "sha256": "910eaf295b422482ddf1d5716ca0020a37528aaed8e2eea4c8847300abccc998"
+    },
+    "upstream/configs/mask_rtdetr/_base_/mask_rtdetr_r50vd.yml.gz": {
+      "bytes": 805,
+      "sha256": "1f8a518b7fbc23c59cd2bf1dbb0ccc444b10e73c62dd79ce0b6467ddcc0afeb3"
+    },
+    "upstream/configs/mask_rtdetr/_base_/mask_rtdetr_reader.yml.gz": {
+      "bytes": 473,
+      "sha256": "da65682d5e01439ea002a41b70facf9ac08e268a07f4e4e62dd128bd1b97c3ed"
+    },
+    "upstream/configs/mask_rtdetr/_base_/optimizer_6x.yml.gz": {
+      "bytes": 232,
+      "sha256": "40658353e7c29298106fb6e0f6f413ded883ec23dfa805acdb6498005e940300"
+    },
+    "upstream/configs/mask_rtdetr/mask_rtdetr_hgnetv2_s_6x_coco.yml.gz": {
+      "bytes": 529,
+      "sha256": "a6c3e1b1b3ede0ef5719838ac0bc093155dbf6d65c3f0af1df8e998bf90b466c"
+    },
+    "upstream/configs/mask_rtdetr/README.md.gz": {
+      "bytes": 3348,
+      "sha256": "2b239ca74fa8fcea35ac95fa1a3d54f7a1c17f041e8b7a52272e14d2d2ef05c9"
+    },
+    "upstream/configs/ppyoloe_seg/_base_/optimizer_80e.yml.gz": {
+      "bytes": 192,
+      "sha256": "2750717204913dfc78831de55269e95a97092502e78875de8f61e810b3f70fcf"
+    },
+    "upstream/configs/ppyoloe_seg/_base_/ppyoloe_plus_crn_seg.yml.gz": {
+      "bytes": 555,
+      "sha256": "a19642fefb440e08aeef2aea6810a774a0388a4f28fddc1907439d2fa44915f4"
+    },
+    "upstream/configs/ppyoloe_seg/_base_/ppyoloe_plus_seg_reader.yml.gz": {
+      "bytes": 420,
+      "sha256": "3e032d3565ec9dad6e984c4047ae5bb50828ea38cca5f7e7d3642abc9a0f6afa"
+    },
+    "upstream/configs/ppyoloe_seg/ppyoloe_seg_s_80e_coco.yml.gz": {
+      "bytes": 254,
+      "sha256": "47459add642d48e868b7b4ecdeb7f7f2d4a9ce38123319ac70f72e2bfa6dc291"
+    },
+    "upstream/configs/ppyoloe_seg/README.md.gz": {
+      "bytes": 448,
+      "sha256": "5df4ad13166743225d31ea1daeccc09b50b50dee092da9d1a5b3226b9a13354d"
+    },
+    "upstream/configs/runtime.yml.gz": {
+      "bytes": 281,
+      "sha256": "30ee5ec6cd1b9ae86be108ae6dc53c8bf633299c46ca641fa450774febcec98d"
+    },
+    "upstream/configs/solov2/_base_/optimizer_1x.yml.gz": {
+      "bytes": 204,
+      "sha256": "8573cb6038f171a20cedf45b40c18ef745ff691a5663b1662b403944bd19666d"
+    },
+    "upstream/configs/solov2/_base_/solov2_light_reader.yml.gz": {
+      "bytes": 437,
+      "sha256": "dd80302b4a4a589167d00de56165a752cb745aada2be947267b3e42a1a088c27"
+    },
+    "upstream/configs/solov2/_base_/solov2_r50_fpn.yml.gz": {
+      "bytes": 409,
+      "sha256": "93d22e32e13fdbd2ba7a33e8837bb030c5d7d3b240b47f725961a1792c3b2fd9"
+    },
+    "upstream/configs/solov2/_base_/solov2_reader.yml.gz": {
+      "bytes": 397,
+      "sha256": "47c4dfadc57983a15301cb63ac8a0e77adc26ecaa374038956b330f21371ca0e"
+    },
+    "upstream/configs/solov2/README.md.gz": {
+      "bytes": 1243,
+      "sha256": "6cb0ec70caa888d1b5df221a3c87d5af90244161f2ffd97a6f547412ca121e4e"
+    },
+    "upstream/configs/solov2/solov2_r50_enhance_coco.yml.gz": {
+      "bytes": 596,
+      "sha256": "0eaa9eb899dd3fa7896bccb67372d76e3d1f1748289f14f9931f3039c03f40d8"
+    },
+    "upstream/configs/solov2/solov2_r50_fpn_1x_coco.yml.gz": {
+      "bytes": 151,
+      "sha256": "08606ea42855753573481cceacc871ca29bcfb57e8847e6d99371bf6d1cafe05"
+    },
+    "upstream/deploy/EXPORT_ONNX_MODEL.md.gz": {
+      "bytes": 1567,
+      "sha256": "fc423c263f859b593a185bfb2f7fdd6d68a3a66ca0702910e9f6e6f3b73137df"
+    },
+    "upstream/LICENSE.gz": {
+      "bytes": 3968,
+      "sha256": "5ccea50e3696adc0227aa71a6599986660913226deb94a2a32a285c9438b962c"
+    },
+    "upstream/ppdet/modeling/architectures/ppyoloe.py.gz": {
+      "bytes": 2191,
+      "sha256": "d762abb706986103d17c4ed904d013673c58ce58b4c890957747aa8463a1c327"
+    },
+    "upstream/ppdet/modeling/heads/ppyoloe_ins_head.py.gz": {
+      "bytes": 7950,
+      "sha256": "36aa680cf308e45d77a0d8f4505f12bcde3698987199bbddea1fe6f9c851bf35"
+    },
+    "upstream/ppdet/modeling/heads/solov2_head.py.gz": {
+      "bytes": 5185,
+      "sha256": "b8a5eb75a835481e27776328420abd457305ea885d74889b5c073a9998e26c44"
+    },
+    "upstream/ppdet/modeling/layers.py.gz": {
+      "bytes": 12005,
+      "sha256": "535aa7a7a9fcff59da24a0779dd43f6858f0c50b19517bb6a941fc927691e67b"
+    },
+    "upstream/ppdet/modeling/post_process.py.gz": {
+      "bytes": 9048,
+      "sha256": "dc0471a80201d62765cf9d7239f380274d2b472927a4eb73dd9393e037f5a81c"
+    },
+    "upstream/ppdet/modeling/transformers/mask_rtdetr_transformer.py.gz": {
+      "bytes": 8655,
+      "sha256": "895db36277b0ec73b0b74ab83ef6789b3025b45ba43d9566406480859bd26c92"
+    },
+    "upstream/README.md.gz": {
+      "bytes": 32,
+      "sha256": "2a9419cca8b36c21caa62e0f98927bb7ddce772aac1ba2007ad78374f78f721c"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "capturedAt": "2026-09-18T02:40:07.5976558Z",
+  "method": "PowerShell Get-CimInstance Win32_VideoController，筛选NVIDIA，仅读取名称和驱动版本",
+  "physicalGpu": [
+    {
+      "Name": "NVIDIA GeForce RTX 5060 Ti",
+      "DriverVersion": "32.0.16.1692"
+    }
+  ],
+  "node": "v24.16.0",
+  "scope": "宿主机硬件补充；浏览器实际适配器vendor/architecture/fallback见browser-execution.json，不单靠设备列表证明GPU执行。"
+}
