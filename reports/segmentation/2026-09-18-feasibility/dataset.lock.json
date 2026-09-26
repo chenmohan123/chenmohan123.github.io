@@ -1,0 +1,105 @@
+{
+  "capturedAt": "2026-09-18T02:40:07.3926521Z",
+  "dataset": "COCO val2017",
+  "selection": "既有64图目录按JPG文件名排序取前6张，另加640×480黑色空白图；本轮不使用GT计算AP",
+  "sourceLockSha256": "4ad81287815b8a6d10288996151b4b6a7d6791945c8093b23aeb3a9fb1401c75",
+  "fullAnnotationsSha256": "e8c7f7908f1d7278341fae127d0da654f102f11bd7b21d8aeefa635b8c810b6f",
+  "images": [
+    {
+      "imageId": 10977,
+      "filename": "000000010977.jpg",
+      "width": 500,
+      "height": 375,
+      "bytes": 54901,
+      "sha256": "fba520c270003f70a09bdbb9ab8ca856a4a6cde110c64f05879e96b755ca7af6",
+      "sourceUrl": "https://s3.amazonaws.com/images.cocodataset.org/val2017/000000010977.jpg",
+      "license": {
+        "url": "http://creativecommons.org/licenses/by-nc/2.0/",
+        "id": 2,
+        "name": "Attribution-NonCommercial License"
+      },
+      "cocoUrl": "http://images.cocodataset.org/val2017/000000010977.jpg",
+      "flickrUrl": "http://farm9.staticflickr.com/8060/8241415983_02d80c2fca_z.jpg"
+    },
+    {
+      "imageId": 26690,
+      "filename": "000000026690.jpg",
+      "width": 427,
+      "height": 640,
+      "bytes": 174305,
+      "sha256": "a59b160b83fba25fb745b42efbab6d99202b4984dbbc1cdbe8d00201b561f8f4",
+      "sourceUrl": "https://s3.amazonaws.com/images.cocodataset.org/val2017/000000026690.jpg",
+      "license": {
+        "url": "http://creativecommons.org/licenses/by-nc-sa/2.0/",
+        "id": 1,
+        "name": "Attribution-NonCommercial-ShareAlike License"
+      },
+      "cocoUrl": "http://images.cocodataset.org/val2017/000000026690.jpg",
+      "flickrUrl": "http://farm9.staticflickr.com/8171/8067493921_fe3e2b965d_z.jpg"
+    },
+    {
+      "imageId": 27186,
+      "filename": "000000027186.jpg",
+      "width": 640,
+      "height": 428,
+      "bytes": 68538,
+      "sha256": "2e60a537145c388aba560db6312aecd5fddf5bce7a8f75adfd06492bdcd34e2e",
+      "sourceUrl": "https://s3.amazonaws.com/images.cocodataset.org/val2017/000000027186.jpg",
+      "license": {
+        "url": "http://creativecommons.org/licenses/by-nc-sa/2.0/",
+        "id": 1,
+        "name": "Attribution-NonCommercial-ShareAlike License"
+      },
+      "cocoUrl": "http://images.cocodataset.org/val2017/000000027186.jpg",
+      "flickrUrl": "http://farm2.staticflickr.com/1036/1039717379_9bdceb6a00_z.jpg"
+    },
+    {
+      "imageId": 27932,
+      "filename": "000000027932.jpg",
+      "width": 288,
+      "height": 307,
+      "bytes": 75978,
+      "sha256": "9ab6d8c5a124427d77add9827dc6ad58ce94efb003c34e5e20699acd82f43731",
+      "sourceUrl": "https://s3.amazonaws.com/images.cocodataset.org/val2017/000000027932.jpg",
+      "license": {
+        "url": "http://creativecommons.org/licenses/by/2.0/",
+        "id": 4,
+        "name": "Attribution License"
+      },
+      "cocoUrl": "http://images.cocodataset.org/val2017/000000027932.jpg",
+      "flickrUrl": "http://farm2.staticflickr.com/1149/837387952_4f322eeacb_z.jpg"
+    },
+    {
+      "imageId": 60823,
+      "filename": "000000060823.jpg",
+      "width": 640,
+      "height": 480,
+      "bytes": 269927,
+      "sha256": "14c5d41fd1b2673c7d2697ead475b106d65dd9ae3ff6d089cf7b35a99e76fc26",
+      "sourceUrl": "https://s3.amazonaws.com/images.cocodataset.org/val2017/000000060823.jpg",
+      "license": {
+        "url": "http://creativecommons.org/licenses/by-nc-sa/2.0/",
+        "id": 1,
+        "name": "Attribution-NonCommercial-ShareAlike License"
+      },
+      "cocoUrl": "http://images.cocodataset.org/val2017/000000060823.jpg",
+      "flickrUrl": "http://farm6.staticflickr.com/5008/5240497381_4f7d56566f_z.jpg"
+    },
+    {
+      "imageId": 105264,
+      "filename": "000000105264.jpg",
+      "width": 640,
+      "height": 427,
+      "bytes": 97606,
+      "sha256": "b50b07e5e896fcbca93bc91392a327bb7800ae9322b7331f577f41889fa01cf8",
+      "sourceUrl": "https://s3.amazonaws.com/images.cocodataset.org/val2017/000000105264.jpg",
+      "license": {
+        "url": "http://creativecommons.org/licenses/by-nc-nd/2.0/",
+        "id": 3,
+        "name": "Attribution-NonCommercial-NoDerivs License"
+      },
+      "cocoUrl": "http://images.cocodataset.org/val2017/000000105264.jpg",
+      "flickrUrl": "http://farm2.staticflickr.com/1386/1454991114_b0956f3ea8_z.jpg"
+    }
+  ]
+}

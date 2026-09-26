@@ -1,0 +1,352 @@
+{
+  "reportId": "tracking/2026-09-23-model-tracking-feasibility",
+  "generatedAt": "2026-09-23",
+  "standardVersion": "1.3.0",
+  "layering": "single-sdk research; portal records conclusions and route only",
+  "scope": {
+    "readOnly": true,
+    "changesDemoSelector": false,
+    "changesDefaultAlgorithm": false,
+    "publishesVersion": false,
+    "note": "本轮只核对许可、契约、导出与算子兼容性；不下载权重、不执行 ONNX 转换、不测量浏览器推理成本",
+    "amendedNote": "2026-09-24 更正阶段按资产门槛计划下载了 CenterTrack mot17_half.pth 并做字节级锁定；该动作是为证伪/证实算子集结论所必需的最小实测，不构成 ONNX 导出或浏览器测量，也未修改任何 SDK/Demo/版本。详见 corrections 字段。"
+  },
+  "baseline": {
+    "sdk": "web-sdk-pp-tracking",
+    "version": "0.2.0-rc.2",
+    "stableLatest": "0.1.0",
+    "defaultAlgorithm": "bytetrack",
+    "demoSelectorAlgorithms": ["bytetrack", "ocsort", "deepsort", "botsort"],
+    "detectionContract": "调用方提供轴对齐 xyxy 框与 score；SDK 不拥有检测模型",
+    "currentModelAsset": {
+      "id": "pplcnet-reid-fp32",
+      "bytes": 33704835,
+      "precision": "fp32",
+      "opset": 17,
+      "sha256": "24d347f47405bb1bd24fd582783507edbcb16571d2e845d0528b0ad7856336e4",
+      "input": "1x3x192x64",
+      "output": "1x512 embedding",
+      "reidEntryOptional": "./reid"
+    },
+    "verifiedCostAnchors": {
+      "source": "reports/tracking/2026-09-19-reid-feasibility/README.md",
+      "testedAt": "2026-09-19",
+      "environment": "Chromium 153 / Windows 11 10.0.26200 / Intel Core i5-10400F / RTX 5060 Ti",
+      "reidWarmMedianMsSingleTarget": { "wasm": 19.135, "webgpu": 20.185 },
+      "reidWarmSerial16TargetsMs": { "wasm": 291.0, "webgpu": 214.38 },
+      "modelLoadOverheadMsFor7Loads": 9005.0
+    }
+  },
+  "gates": [
+    "权重身份可固定到不可变 revision 与 sha256（MODEL-001 / CACHE-001 来源要求）",
+    "许可链可用：根许可 + 直接复制/翻译来源 + 自定义算子与权重再分发义务",
+    "输入输出契约可写成显式 API（形状、dtype、语义、失败路径）",
+    "ONNX 导出后算子落在 onnxruntime-web WASM/CPU 与 WebGPU EP 支持范围内",
+    "浏览器端初始化与逐帧成本有带日期证据，不是推断",
+    "未达门槛前不加入公开算法选择器"
+  ],
+  "candidates": [
+    {
+      "id": "fairmot",
+      "name": "FairMOT",
+      "family": "single-model joint detection + embedding",
+      "paper": "arXiv:2004.01888",
+      "repository": "ifzhang/FairMOT",
+      "lockedRevision": "4aa62976bde6266cbafd0509e24c3d98a7d0899f",
+      "license": {
+        "root": "MIT",
+        "rootEvidence": "lic-fairmot",
+        "chain": [
+          { "source": "ifzhang/DCNv2 (pytorch_1.7 分支)", "license": "BSD-3-Clause", "role": "backbone DCN 自定义 CUDA 算子来源" },
+          { "source": "CrowdHuman 预训练数据", "license": "未在本轮核验", "role": "预训练数据集许可待核" }
+        ]
+      },
+      "inputContract": {
+        "shape": "1x3x1088x608",
+        "dtype": "float32",
+        "preprocessing": "待核验（官方未在 README 给出逐项归一化）",
+        "note": "单帧图像进单模型，同时输出检测与外观嵌入"
+      },
+      "outputContract": "检测框 + 512 类嵌入头的多尺度拼接；官方仓库无 ONNX 导出脚本，输出张量命名与逐尺度布局需导出后确定",
+      "officialWeights": [
+        { "model": "fairmot_dla34.pth", "url": "https://drive.google.com/file/d/1iqRQjsG9BawIl8SlFomMg5iwkb6nqSpi/view?usp=sharing", "mirrors": ["Baidu", "OneDrive"], "motaMOT17Test": 73.7 },
+        { "model": "crowdhuman_dla34.pth", "url": "https://drive.google.com/file/d/1SFOhg_vos_xSYHLMTDGFVZBYjo8cr2fG/view?usp=sharing" },
+        { "model": "mot20_fairmot.pth", "url": "https://drive.google.com/file/d/1HVzDTrYSSZiVqExqG9rou3zZXX1-GGQn/view?usp=sharing" }
+      ],
+      "immutableSource": false,
+      "modelSizeBytes": { "verified": null, "status": "unverified-no-immutable-source" },
+      "onnxConversion": {
+        "officialExportScript": false,
+        "opBlockers": ["dcn_v2::DCN (ifzhang/DCNv2 自定义 CUDA 算子，非 ai.onnx 标准算子)"],
+        "verifiedCode": "src/lib/models/networks/pose_dla_dcn.py:16 `from dcn_v2 import DCN`；默认 arch 为 dla_34（src/lib/opts.py:50）",
+        "status": "blocked-without-custom-op"
+      },
+      "wasmCompatibility": {
+        "status": "blocked",
+        "reason": "DCN 不在 ai.onnx 标准算子集内；onnxruntime-web 需自定义算子注册，浏览器 wasm 侧不可用"
+      },
+      "webgpuCompatibility": {
+        "status": "blocked",
+        "reason": "onnxruntime-web@1.27.0 docs/webgpu-operators.md 算子表中无 DeformConv / DeformableConv2D",
+        "evidence": "node_modules/onnxruntime-web/docs/webgpu-operators.md"
+      },
+      "initCost": { "measured": null, "note": "未实测；DLA-34 规模大于当前 PPLCNet ReID" },
+      "inferenceCost": { "measured": null, "publishedGpuReference": "约 30 FPS（MOT17 test，官方 README，整系统）" },
+      "verdict": "fail",
+      "blockers": ["DCNv2 自定义算子双后端阻断", "Google Drive 权重无不可变 revision", "重写可变形卷积会改变数值，不能以 FairMOT 身份宣称精度"],
+      "evidence": ["fairmot-README.md", "fairmot-opts.py", "fairmot-pose_dla_dcn.py", "lic-fairmot"]
+    },
+    {
+      "id": "jde",
+      "name": "JDE (Towards-Realtime-MOT)",
+      "family": "single-model joint detection + embedding",
+      "paper": "arXiv:1909.12605",
+      "repository": "Zhongdao/Towards-Realtime-MOT",
+      "lockedRevision": "e9fa1e8014a9577410ce99505b871e4bc5aa1cde",
+      "license": {
+        "root": "MIT",
+        "rootEvidence": "lic-jde",
+        "chain": [
+          { "source": "ultralytics/yolov3", "license": "AGPL-3.0", "role": "README 自述大量代码借用的上游；许可链未裁定" },
+          { "source": "longcw/MOTDT", "license": "MIT", "role": "README 自述借用的上游" }
+        ]
+      },
+      "inputContract": { "shape": "1x3x1088x608", "dtype": "float32", "variants": ["1088x608", "864x480", "576x320"], "embeddingDim": 512 },
+      "outputContract": "3 个 YOLO 头沿通道拼接（cfg 中 [yolo] x3；models.py:281 `return torch.cat(output, 1)`）；模型内不做 NMS，需调用方完成解码与 NMS",
+      "officialWeights": [
+        { "model": "JDE-1088x608", "url": "https://drive.google.com/open?id=1nlnuYfGNuHWZztQHXwVZSL_FvfE551pA", "motaMOT16Train": 73.1, "fpsTitanXp": 22.2 },
+        { "model": "JDE-864x480", "url": "https://drive.google.com/open?id=1UKgkYrsV-59kYaHgWeJ70p5Mij3QWuFr", "motaMOT16Train": 70.8 },
+        { "model": "JDE-576x320", "url": "https://drive.google.com/file/d/1sca65sHMnxY7YJ89FJ6Dg3S3yAjbLdMz/view?usp=sharing", "motaMOT16Train": 63.7 }
+      ],
+      "immutableSource": false,
+      "modelSizeBytes": { "verified": null, "status": "unverified-no-immutable-source" },
+      "onnxConversion": {
+        "officialExportScript": false,
+        "opBlockers": [],
+        "verifiedCode": "cfg/yolov3_1088x608.cfg：117 层，仅 convolutional(78)/shortcut(23)/route(10)/upsample(2)/yolo(3)",
+        "status": "standard-ops-only; export boundary and UpSample->Resize mapping need hands-on verification"
+      },
+      "wasmCompatibility": { "status": "feasible-in-principle", "reason": "全部为标准 ai.onnx 算子；注意 Darknet upsample 需映射到 Resize" },
+      "webgpuCompatibility": {
+        "status": "needs-export-verification",
+        "reason": "onnxruntime-web@1.27.0 WebGPU 算子表含 Conv/BatchNormalization/Resize/Concat/Slice，但不含 Upsample/NMS/TopK；需在导出时把 upsample 固定为 Resize 并将解码与 NMS 留在 JS"
+      },
+      "initCost": { "measured": null },
+      "inferenceCost": { "measured": null, "publishedGpuReference": "22.2 FPS @1088x608（MOT-16 train，Titan Xp，整系统，官方 README）" },
+      "verdict": "fail",
+      "blockers": ["许可链含 AGPL-3.0 上游未裁定", "1088x608 Darknet-53 单帧成本为候选中最高", "官方精度最低（MOT-16 train MOTA 73.1）", "Google Drive 权重无不可变 revision"],
+      "evidence": ["jde-README.md", "jde-cfg-yolov3.cfg", "jde-models.py", "lic-jde"]
+    },
+    {
+      "id": "centertrack",
+      "name": "CenterTrack",
+      "family": "single-model joint detection + tracking",
+      "paper": "arXiv:2004.01177",
+      "repository": "xingyizhou/CenterTrack",
+      "lockedRevision": "e4e7534cc2ebfbd31e0cde680988f286c65fe34f",
+      "license": {
+        "root": "MIT",
+        "rootEvidence": "lic-centertrack",
+        "chain": [
+          { "source": "MOT17 / CrowdHuman 训练数据", "license": "官方 MODEL_ZOO 自述 non-commercial licenses", "role": "模型训练数据许可需单独核验与标注" }
+        ]
+      },
+      "inputContract": {
+        "verifiedCode": "src/lib/model/networks/generic_network.py:91 `def forward(self, x, pre_img=None, pre_hm=None)`",
+        "inputs": [
+          "x = 当前帧图像",
+          "pre_img = 前一帧图像",
+          "pre_hm = 前一帧检测热图"
+        ],
+        "resolution": "544x960（H×W，src/lib/dataset/datasets/mot.py:15 default_resolution = [544, 960]；2026-09-23 首轮误写为 608x1088，该值为 FairMOT 的分辨率，2026-09-24 更正）",
+        "dtype": "float32"
+      },
+      "outputContract": "多分辨率中心点头输出（heatmap / wh / tracking 偏移），跟踪拼接在模型外完成；解码细节需导出后固定",
+      "officialWeights": [
+        { "model": "mot17_fulltrain", "url": "https://drive.google.com/file/d/1JYqO_IEoHpd7JEzZRXZSVesnEL4e-tnf", "motaMOT17Test": 67.3 },
+        { "model": "mot17_half", "url": "https://drive.google.com/file/d/1rJ0fzRcpRQPjaN17lcqfKgsz-wJRifHh", "motaMOT17Val": 66.1 },
+        { "model": "crowdhuman", "url": "https://drive.google.com/file/d/1SD31FLwbXArcX3LXnRCqh6RF-q38nO7f", "motaMOT17Val": 52.2 }
+      ],
+      "immutableSource": false,
+      "immutableSourceNote": "Google Drive 无不可变 revision；2026-09-24 已完成字节级下载与 sha256 锁定（见 sources.lock.json centertrack-weights），但分发来源要求仍未满足",
+      "modelSizeBytes": { "verified": true, "bytes": 79987301, "sha256": "2272af8918b5a0e57b8285684b801b24ac5d0b6c30887b63ad566152af19eed6", "status": "2026-09-24 实测（Google Drive mot17_half.pth）" },
+      "onnxConversion": {
+        "officialExportScript": false,
+        "opBlockers": ["DCN (DCNv2) 位于 necks/dlaup.py，非 ai.onnx 标准算子"],
+        "verifiedCode": "src/lib/opts.py:86 self.parser.add_argument('--dla_node', default='dcn')；src/lib/model/networks/necks/dlaup.py:17 from ..DCNv2.dcn_v2 import DCN；dlaup.py:99 self.conv = DCN(chi, cho, kernel_size=(3,3), ...)；dlaup.py:164 'dcn': (DeformConv, DeformConv)；experiments/mot17_half.sh 未覆盖该默认值",
+        "checkpointEvidence": "mot17_half.pth 实测 418 个张量，其中 32 个 conv_offset_mask DCN 键全部位于 dla_up.*（ida_0 4 / ida_1 8 / ida_2 12 / ida_up 8），如 dla_up.ida_0.proj_1.conv.conv_offset_mask.weight (27,512,3,3)",
+        "nonDcnVariantIncompatible": "--dla_node conv/gcn 变体与官方权重不兼容（实测 missing/unexpected 80-104 / 144），无法整网加载，故不能靠换节点规避 DCN 同时保留权重身份",
+        "torchvisionExportProbe": "torchvision deform_conv2d 导出探测不可用：dynamo=True 产出默认域自定义 DeformConv 单节点，onnx.checker 报 No Op registered for DeformConv with domain_version of 17；legacy 路径未注册 symbolic",
+        "status": "blocked-without-custom-op（与 FairMOT 同类，2026-09-24 更正）"
+      },
+      "wasmCompatibility": { "status": "blocked", "reason": "DCN 不在 ai.onnx 标准算子集内；onnxruntime-web 需自定义算子注册，浏览器 wasm 侧不可用。2026-09-23 的 feasible-in-principle 判断源自私自核对 backbones/dla.py、漏检 necks/dlaup.py，已作废" },
+      "webgpuCompatibility": {
+        "status": "blocked",
+        "reason": "onnxruntime-web@1.27.0 docs/webgpu-operators.md 算子表中无 DeformConv / DeformableConv2D；与 FairMOT 同一硬阻断",
+        "evidence": "node_modules/onnxruntime-web/docs/webgpu-operators.md"
+      },
+      "initCost": { "measured": null },
+      "inferenceCost": { "measured": null, "publishedGpuReference": "test 45 ms（MOT17，Titan Xp，官方 MODEL_ZOO）" },
+      "verdict": "fail",
+      "verdictHistory": {
+        "2026-09-23": "conditional-pass（依据 backbones/dla.py 单文件 grep，结论错误）",
+        "2026-09-24": "fail（依据 necks/dlaup.py + opts.py + checkpoint 32 个 DCN 键实测）"
+      },
+      "blockers": ["DCNv2 自定义算子双后端阻断（默认 --dla_node='dcn' 在 dla_up 颈部实例化，checkpoint 实测 32 个 DCN 键）", "Google Drive 权重无不可变 revision", "--dla_node conv/gcn 变体与官方权重不兼容，无法整网加载", "重写可变形卷积会改变数值，不能以 CenterTrack 身份宣称精度；标准算子分解不在已批准范围内", "浏览器成本未实测"],
+      "strengths": ["MIT 根许可", "单次前向即出跟踪", "输入分辨率和实现复杂度均低于 JDE"],
+      "supersededStrengths": ["无自定义算子阻断（2026-09-23 结论，2026-09-24 已证伪并移除）"],
+      "evidence": ["centertrack-README.md", "centertrack-MODEL_ZOO.md", "centertrack-dla.py", "centertrack-dlaup.py", "centertrack-opts.py", "ct-generic-net.py", "ct-mot.py", "centertrack-weights", "lic-centertrack"]
+    },
+    {
+      "id": "bytetrack-model",
+      "name": "ByteTrack + YOLOX 检测",
+      "family": "detection model + existing algorithm",
+      "paper": "arXiv:2110.06864",
+      "repository": "ifzhang/ByteTrack",
+      "lockedRevision": "d1bf0191adff59bc8fcfeaa0b33d3d1642552a99",
+      "license": {
+        "root": "MIT",
+        "rootEvidence": "沿用 reports/tracking/2026-09-18-feasibility 的固定提交与许可结论",
+        "chain": [
+          { "source": "Megvii-BaseDetection/YOLOX", "license": "Apache-2.0", "role": "检测权重与导出工具链" }
+        ]
+      },
+      "inputContract": "YOLOX 检测模型输入 1x3xHxW；输出交给 SDK 已有 ByteTrack 关联（CPU/main）。SDK 现有算法输入契约不变（调用方提供检测），模型路径是 SDK 自行完成检测",
+      "outputContract": "检测框 + score；随后进入 SDK 现有 update() 关联流程",
+      "officialWeights": [
+        { "model": "yolox_nano.pth", "source": "GitHub Release 0.1.1rc0", "bytes": 7694953 },
+        { "model": "yolox_tiny.pth", "source": "GitHub Release 0.1.1rc0", "bytes": 40755013 },
+        { "model": "yolox_s.pth", "source": "GitHub Release 0.1.1rc0", "bytes": 72089125 },
+        { "model": "yolox_m.pth", "source": "GitHub Release 0.1.1rc0", "bytes": 203114461 },
+        { "model": "yolox_l.pth", "source": "GitHub Release 0.1.1rc0", "bytes": 434357141 },
+        { "model": "yolox_x.pth", "source": "GitHub Release 0.1.1rc0", "bytes": 793463373 }
+      ],
+      "immutableSource": true,
+      "immutableSourceNote": "GitHub Release 提供不可变资产与字节核验；bytetrack_*_mot17.pth.tar 行人权重需另找来源",
+      "modelSizeBytes": { "verified": true, "values": "见 officialWeights（GitHub Release 资产字节数）" },
+      "onnxConversion": {
+        "officialExportScript": true,
+        "script": "tools/export_onnx.py（deploy/ONNXRuntime/README.md）",
+        "opBlockers": [],
+        "status": "official export path exists; fp32 yolox_s ~72 MB is the smallest 608-class-general option"
+      },
+      "wasmCompatibility": { "status": "feasible-in-principle", "reason": "YOLOX 为常规 CNN 算子" },
+      "webgpuCompatibility": { "status": "needs-export-verification", "reason": "解码与 NMS 需留在 JS（WebGPU 算子表无 NMS/TopK）" },
+      "initCost": { "measured": null },
+      "inferenceCost": { "measured": null, "publishedGpuReference": "官方 ONNX demo 为 CPU 16 FPS（96 核 Xeon，bytetrack_s，deploy/ONNXRuntime/README.md）" },
+      "verdict": "conditional-pass",
+      "blockers": ["行人检测权重（bytetrack_*_mot17）来源与体积未核验", "未选检测档位", "SDK 将首次拥有检测模型，manifest 与模型/算法边界需重新裁定", "浏览器成本未实测"],
+      "strengths": ["算法核心已在 SDK（rc.1/rc.2 已发布）", "YOLOX Apache-2.0 + 不可变 Release 资产", "官方导出脚本", "体积跨度可选（7.7 MB ~ 793 MB）"],
+      "evidence": ["bytetrack-onnx-README.md", "yolox-rel.json", "sdk-manifest.yaml"]
+    },
+    {
+      "id": "botsort-model",
+      "name": "BoT-SORT + YOLOX/YOLOv7 + FastReID",
+      "family": "detection model + ReID model + existing algorithm",
+      "paper": "arXiv:2206.14651",
+      "repository": "NirAharon/BoT-SORT",
+      "lockedRevision": "251985436d6712aaf682aaaf5f71edb4987224bd",
+      "license": {
+        "root": "MIT",
+        "rootEvidence": "沿用 reports/tracking/2026-09-21-botsort-feasibility 的固定提交与许可结论",
+        "chain": [
+          { "source": "JDAI-CV/fast-reid", "license": "Apache-2.0", "role": "ReID 权重与模型" },
+          { "source": "Megvii-BaseDetection/YOLOX", "license": "Apache-2.0", "role": "检测权重" },
+          { "source": "WongKinYiu/yolov7", "license": "GPL-3.0", "role": "备选检测权重；本轮不建议采用该变体" }
+        ]
+      },
+      "inputContract": "检测模型（YOLOX 1x3xHxW）+ ReID 模型（1x3xHxW，PPLCNet/FastReID sbs_S50，逐目标裁剪）；随后进入 SDK 已有 BoT-SORT 关联",
+      "outputContract": "检测 + 外观向量 + 外部运动矩阵（现有 API），不变",
+      "officialWeights": [
+        { "model": "MOT17-SBS-S50 ReID", "url": "https://drive.google.com/file/d/1QZFWpoa80rqo7O-HXmlss8J8CnS7IUsN/view?usp=sharing" },
+        { "model": "MOT20-SBS-S50 ReID", "url": "https://drive.google.com/file/d/1KqPQyj6MFyFftliBHEIER7m_OrGpcrJwi/view?usp=sharing" }
+      ],
+      "immutableSource": false,
+      "immutableSourceNote": "ReID 权重为 Google Drive；检测器可用 YOLOX 不可变 Release，ReID 仍需固定来源",
+      "modelSizeBytes": { "verified": null, "status": "unverified" },
+      "onnxConversion": {
+        "officialExportScript": false,
+        "opBlockers": [],
+        "communityPrecedent": {
+          "repository": "PINTO0309/BoT-SORT-ONNX-TensorRT",
+          "license": "MIT",
+          "lockedRevision": "901ab41a4ed1ccb1958831fda505e785dd63dbaf",
+          "note": "BoT-SORT + YOLOX-X + FastReID 以 onnxruntime + numpy + scipy 实现，无 PyTorch/cython_bbox 依赖；证明检测+ReID 双模型拆分可落地 CPU 栈"
+        },
+        "status": "no official script but community precedent exists for both YOLOX and FastReID"
+      },
+      "wasmCompatibility": { "status": "feasible-in-principle" },
+      "webgpuCompatibility": { "status": "needs-export-verification" },
+      "initCost": { "measured": null },
+      "inferenceCost": { "measured": null },
+      "verdict": "conditional-pass",
+      "blockers": ["ReID 权重无不可变 revision 与 sha256", "需同时分发检测 + ReID 两个模型", "SDK 将首次拥有检测模型", "浏览器成本未实测"],
+      "strengths": ["算法核心已在 SDK", "社区已有纯 onnxruntime 部署先例", "FastReID Apache-2.0", "两个模型可分别缓存与版本化"],
+      "evidence": ["botsort-README.md", "pinto-README.md", "sdk-manifest.yaml"]
+    }
+  ],
+  "recommendation": {
+    "candidate": "none",
+    "status": "2026-09-24 更正：原推荐 centertrack 因 DCNv2 双后端阻断作废；三个单模型联合跟踪候选全部 fail，无待确认候选",
+    "reasons": [
+      "CenterTrack 与 FairMOT 同因阻断：官方默认 --dla_node='dcn' 在 dla_up 颈部实例化 DCNv2，checkpoint 实测 32 个 DCN 键；既有'无自定义算子阻断'结论只核对了 backbones/dla.py，漏检 necks/dlaup.py",
+      "JDE 许可链含 AGPL-3.0 上游且成本最高",
+      "ByteTrack/BoT-SORT 的模型路径只是给已有算法补检测模型，不产生新的跟踪形态，且都要 SDK 首次拥有检测模型"
+    ],
+    "superseded": {
+      "2026-09-23": {
+        "candidate": "centertrack",
+        "status": "建议候选，待用户确认后再写独立设计",
+        "reasons": [
+          "唯一同时满足 MIT 根许可、无自定义算子阻断、单次前向即出跟踪的联合模型",
+          "FairMOT 被 DCNv2 双后端阻断；JDE 许可链含 AGPL-3.0 上游且成本最高",
+          "ByteTrack/BoT-SORT 的模型路径只是给已有算法补检测模型，不产生新的跟踪形态，且都要 SDk 首次拥有检测模型",
+          "输入分辨率与实现复杂度均低于 JDE"
+        ]
+      }
+    },
+    "openDecisionForUser": [
+      "切换到次选 ByteTrack + YOLOX（权重与导出路径成本最低，已是有条件通过）",
+      "为 CenterTrack 单独立项做 DCNv2 标准算子分解（新的研究与导出工程，需改变已批准范围）",
+      "停止单模型跟踪路线，维持现有四算法 + 调用方供检测的契约"
+    ],
+    "mandatoryGatesBeforeDesign": [
+      "下载固定 Google Drive 权重并计算 sha256 与字节数（不可省略：MODEL-001/CACHE-001 分发前必须有不可变来源）",
+      "将 544x960 输入导出 ONNX，逐算子核验 ai.onnx 域与 wasm/webgpu 支持",
+      "把三输入契约（当前帧/前一帧/前一帧热图）改写成显式 API 含失败路径",
+      "在 Chromium CPU/main 实测初始化与逐帧成本（Windows 桌面，不带手机结论）",
+      "训练数据许可（MOT17/CrowdHuman non-commercial）单独标注",
+      "算子集判断必须覆盖 backbone/neck/head 全部网络定义文件与 checkpoint 键集，不得以单文件 grep 结论替代"
+    ],
+    "fallback": "bytetrack-model（YOLOX）在权重固定与导出验证上成本最低，是未被推翻的唯一候选路径"
+  },
+  "unverified": [
+    "JDE/FairMOT 权重的实际字节数与参数规模（Google Drive 无不可变资产，本轮未下载）",
+    "任何候选的浏览器初始化与推理成本（本轮零实测）",
+    "各模型导出的 ONNX 算子清单（需下载权重与源码后实操）",
+    "CenterTrack 未做导出尝试：默认配置含 DCNv2，torchvision deform_conv2d 导出探测已实测不可用",
+    "--dla_node conv/gcn 变体与官方权重不兼容（实测 missing/unexpected 80-104/144）",
+    "官方预训练模型在真实浏览器序列上的精度（不能从官方 MOT 榜推断）",
+    "FairMOT CrowdHuman 预训练数据许可细节",
+    "JDE 的 AGPL-3.0 上游许可链是否实际触发义务（需法律裁定，本报告只列证据）"
+  ],
+  "corrections": [
+    {
+      "date": "2026-09-24",
+      "candidate": "centertrack",
+      "whatWasWrong": "2026-09-23 判定 CenterTrack 无自定义算子、verdict=conditional-pass，依据只来自 src/lib/model/networks/backbones/dla.py 的单文件 grep",
+      "whyWrong": "DCN 位于同仓 src/lib/model/networks/necks/dlaup.py（第17行 import、第99行 DCN 实例化、第164行 'dcn' 映射），而 src/lib/opts.py:86 --dla_node default='dcn' 使其成为默认；checkpoint 实测 32 个 conv_offset_mask 键全部位于 dla_up.*，权重侧同时证实",
+      "correctedVerdict": "fail（与 FairMOT 同类 DCN 双后端阻断）",
+      "alsoCorrected": [
+        "inputContract.resolution 由 608x1088 更正为 544x960（mot.py:15 default_resolution）",
+        "modelSizeBytes 由 unverified 更新为 79,987,301 字节 + sha256 实测值",
+        "sources.lock.json 由 26 条增至 28 条（新增 necks/dlaup.py 与 mot17_half 字节锁）"
+      ],
+      "evidence": [
+        "sources.lock.json centertrack necks/dlaup.py sha256 682311235d86ca902e504c31f217582f9c18c2269ce247ce6fb4a382686d8778（6315 字节）",
+        "sources.lock.json centertrack-weights mot17_half.pth sha256 2272af8918b5a0e57b8285684b801b24ac5d0b6c30887b63ad566152af19eed6（79987301 字节）",
+        "checkpoint 实测：torch.load(weights_only=True) 418 键，32 个 DCN 键（ida_0 4 / ida_1 8 / ida_2 12 / ida_up 8）"
+      ]
+    }
+  ]
+}
